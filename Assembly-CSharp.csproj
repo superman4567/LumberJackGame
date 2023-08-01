@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{22453741-F457-861D-040B-53A6E632B579}</ProjectGuid>
+    <ProjectGuid>{AFFC6770-B730-ACF6-9482-514C28261DD5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,9 +64,9 @@
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
     <Compile Include="Assets\Scripts\PlayerLook.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
