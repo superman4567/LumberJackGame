@@ -26,14 +26,14 @@ public class RadialProgressBar : MonoBehaviour
 
     private void PlayerIsInteracting()
     {
-        if (Player.isHoldingKey == true)
-        {
-            SetImageAlpha(1f);
-        }
-        else if (Player.isHoldingKey == false)
-        {
-            SetImageAlpha(0f);
-        }
+        //if (Player.isHoldingKey == true)
+        //{
+        //    SetImageAlpha(1f);
+        //}
+        //else if (Player.isHoldingKey == false)
+        //{
+        //    SetImageAlpha(0f);
+        //}
     }
 
     public void SetImageAlpha(float alpha)

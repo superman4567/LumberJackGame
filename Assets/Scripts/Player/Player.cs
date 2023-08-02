@@ -10,10 +10,8 @@ using Cinemachine;
 public class Player : MonoBehaviour
 {
     [Header("Character movement")]
-    [SerializeField] CharacterController controller;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     [SerializeField] private LayerMask floorMask;
-    [SerializeField] float movSpeed = 6f;
 
     [Header("Placing Trees")]
     [SerializeField] private float interactDistance = 2f;
@@ -32,10 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        FindNearbyTrees(value1, value2);
-        
-        PlayerMovement();
-
+        //FindNearbyTrees(value1, value2);
         Interact();
     }
 
@@ -43,37 +38,32 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && closestTree != null)
         {
-            //Check if the nearby tree can be interacted with
-
-            if (treeScript.interactionPercentage != 100)
-            {
-                IncrementValueOnInteraction(interactionPercentage);
-            }
+            
         }
     }
 
-    private int IncrementValueOnInteraction(float interactionPercentage)
-    {
-        if (interactionPercentage < 20)
-        {
-            interactionIncrement = 0;
-        }
-        else if (interactionPercentage == 20 || interactionPercentage > 20 || interactionPercentage < 40 )
-        {
-            interactionIncrement = 1;
-        }
-        else if (interactionPercentage == 40 || interactionPercentage > 40 || interactionPercentage < 60)
-        {
-            interactionIncrement = 2;
-        }
-        else if (interactionPercentage == 60 || interactionPercentage > 60 || interactionPercentage < 80)
-        {
-            interactionIncrement = 3;
-        }
-        else {interactionIncrement = 4;}
+    //private int IncrementValueOnInteraction(float interactionPercentage)
+    //{
+    //    if (interactionPercentage < 20)
+    //    {
+    //        interactionIncrement = 0;
+    //    }
+    //    else if (interactionPercentage == 20 || interactionPercentage > 20 || interactionPercentage < 40 )
+    //    {
+    //        interactionIncrement = 1;
+    //    }
+    //    else if (interactionPercentage == 40 || interactionPercentage > 40 || interactionPercentage < 60)
+    //    {
+    //        interactionIncrement = 2;
+    //    }
+    //    else if (interactionPercentage == 60 || interactionPercentage > 60 || interactionPercentage < 80)
+    //    {
+    //        interactionIncrement = 3;
+    //    }
+    //    else {interactionIncrement = 4;}
 
-        return interactionIncrement;
-    }
+    //    return interactionIncrement;
+    //}
 
     private void FindNearbyTrees(int value1, float value2)
     {
@@ -108,8 +98,8 @@ public class Player : MonoBehaviour
             TreeScript treeScript = closestTree.GetComponent<TreeScript>();
             if (treeScript != null)
             {
-                treeScript.interactionIncrement = value1;
-                treeScript.interactionPercentage = value2;
+                //treeScript.interactionIncrement = value1;
+                //treeScript.interactionPercentage = value2;
             }
         }
     }
@@ -120,17 +110,7 @@ public class Player : MonoBehaviour
         // You can now iterate through the list and do something with each tree.
     }
 
-    private void PlayerMovement()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if (direction.magnitude >= 0.1f)
-        {
-            controller.Move(direction * movSpeed * Time.deltaTime);
-        }
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

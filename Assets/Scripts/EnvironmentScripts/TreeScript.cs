@@ -53,17 +53,17 @@ public class TreeScript : MonoBehaviour
 
     private void OnEnable()
     {
-        Player.InteractKeyPressed += OnInteractButtonPressed;
-        isSubscribed = true;
+        //Player.InteractKeyPressed += OnInteractButtonPressed;
+        //isSubscribed = true;
     }
 
     private void OnDisable()
     {
-        if (isSubscribed)
-        {
-            Player.InteractKeyPressed -= OnInteractButtonPressed;
-            isSubscribed = false;
-        }
+        //if (isSubscribed)
+        //{
+        //    Player.InteractKeyPressed -= OnInteractButtonPressed;
+        //    isSubscribed = false;
+        //}
     }
 
     private void Update()
