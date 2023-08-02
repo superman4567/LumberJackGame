@@ -8,19 +8,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
     [SerializeField] float movSpeed = 6f;
-    private int VelocityHash;
+    public PlayerLook playerLook;
 
-    public int IdleAnimations;
-    public float idleAnimation1Frequency = 70f;
+    private int VelocityHash;
+    private int IdleAnimations;
+    private float idleAnimation1Frequency = 70f;
 
     private float timeSinceLastIdleChange = 0f;
     private bool isIdleAnimation1Playing = true;
 
-
-
     private void Start()
     {
         animator = GetComponent<Animator>();
+        controller = GetComponent<CharacterController>();
 
         VelocityHash = Animator.StringToHash("Velocity");
         IdleAnimations = Animator.StringToHash("IdleAnimations");
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Movement();
+        playerLook.PlayerLookDir();
     }
 
     private void Movement()
@@ -44,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (direction.magnitude >= 0.1f)
         {
-            controller.Move(direction * movSpeed * Time.deltaTime);
+            // Use the forward direction (world space) for player movement.
+            Vector3 movementDirection = transform.forward * vertical + transform.right * horizontal;
+            controller.Move(movementDirection * movSpeed * Time.deltaTime);
             animator.SetFloat(VelocityHash, direction.magnitude);
         }
     }

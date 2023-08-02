@@ -1,34 +1,24 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static TreeScript;
 
 public class TreeScript : MonoBehaviour
 {
     [Header("Tree Physics")]
-    [SerializeField] private Rigidbody TreeTop;
-    [SerializeField] private float TreeFallingCooldown = 2f;
+    [SerializeField] private Rigidbody treeTop;
+    [SerializeField] private TreeState currentState;
 
-    private TreeState currentState;
-    public Action onInteraction;
-    private GameObject targetObject;
-    private bool isSubscribed = false;
-    private bool eHasBeenPressed = false;
-    private bool treeFalling = false;
-    public int newPercentage;
-    private float treeChopPercentage = 0;
+    public static Action PlayerCanInteract_Phase1Complete;
+    public static Action PlayerCanInteract_Phase4Complete;
+    public static Action PlayerCanInteract_Phase1CompleteReset;
+    public static Action PlayerCanInteract_Phase4CompleteReset;
+
+    private Player player = null;
+
+    private bool treeHasBeenInteractedWith = false;
+    private bool fallenTreeHasBeenInteractedWith = false;
 
     [Header("Tree Audio")]
     [SerializeField] private AudioSource TreeBreakingSound;
-
-    public delegate void AddWoodDelegate();
-    public event AddWoodDelegate addWoodDelegate;
-
-    public delegate void OnInteractionComplete(int newPercent);
-    public static event OnInteractionComplete InteractionComplete;
-
-    private int interactionIncrement;
-    private float interactionPercentage;
 
     public enum TreeState
     {
@@ -38,98 +28,125 @@ public class TreeScript : MonoBehaviour
         DestroyedTree
     }
 
-    private void Awake()
-    {
-        TreeTop = GetComponentInChildren<Rigidbody>();
-        TreeBreakingSound = GetComponent<AudioSource>();
-        TreeTop.isKinematic = true;
-    }
-
     private void Start()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        TreeBreakingSound = GetComponent<AudioSource>();
+
         currentState = TreeState.StandingTree;
-        targetObject = gameObject;
+        treeTop.isKinematic = true;
     }
 
     private void OnEnable()
     {
-        //Player.InteractKeyPressed += OnInteractButtonPressed;
-        //isSubscribed = true;
+        Player.PlayerCanInteract_Phase1 += State1_TreeHasBeenInteractedWith;
+        Player.PlayerCanInteract_Phase2 += State3_FallenTreeHasBeenInteractedWith;
     }
 
     private void OnDisable()
     {
-        //if (isSubscribed)
-        //{
-        //    Player.InteractKeyPressed -= OnInteractButtonPressed;
-        //    isSubscribed = false;
-        //}
+        Player.PlayerCanInteract_Phase1 -= State1_TreeHasBeenInteractedWith;
+        Player.PlayerCanInteract_Phase2 -= State3_FallenTreeHasBeenInteractedWith;
     }
 
     private void Update()
     {
-        TreeFallingTimer();
+        TreeStates();
     }
 
-    public void TreeChopPercent(float newValue)
+    public void TreeStates()
     {
-        treeChopPercentage = newValue;
-    }
-
-    public float GetTreeValue()
-    {
-        return treeChopPercentage;
-    }
-
-    private void TreeFallingTimer()
-    {
-        if (treeFalling == true)
+        switch (currentState)
         {
-            TreeFallingCooldown -= Time.deltaTime;
-        }
-    }
-
-    public void OnInteractButtonPressed(GameObject targetObject)
-    {
-        if (targetObject == gameObject)
-        {
-            switch (currentState)
-            {
-                case TreeState.StandingTree:
+            case TreeState.StandingTree:
+                //When the player script detects that you pressed E you will trigger the next state.
+                if (treeHasBeenInteractedWith) 
+                {
                     GameManager.Instance.AddWood();
                     currentState = TreeState.FallingTree;
-                    TreeFalling();
-                    break;
+                }
+                break;
 
-                case TreeState.FallingTree:
-                    currentState = TreeState.FallenTree;
-                    break;
+            case TreeState.FallingTree:
+                //Here we activate the tree falling, we activate a method in the player script so taht hte player can interact again, in the if statement we check if the tree is laying still.
+                State2_TreeFalling();
+                if (State2_IsRigidbodyNotMoving()) 
+                {
+                    currentState = TreeState.FallenTree; 
+                }
+                break;
 
-                case TreeState.FallenTree:
-                    if (TreeFallingCooldown <= 0f)
-                    {
-                        currentState = TreeState.DestroyedTree;
-                        GameManager.Instance.AddWood();
-                        DestroyTree();
-                    }
-                    break;
+            case TreeState.FallenTree:
+                //When the player script detects that you pressed E and notices that the tree has been interacted with, you will trigger the next state.
+                if (fallenTreeHasBeenInteractedWith)
+                {
+                    GameManager.Instance.AddWood();
+                    currentState = TreeState.DestroyedTree;
+                }
+                break;
 
-                default:
-                    Debug.LogWarning("Unexpected tree state!");
-                    break;
-            }
+            case TreeState.DestroyedTree:
+                //After you interacted with the tree for the second time the tree will destroy it self, we reset all bools, maybe add a cool shader?
+                Invoke("State4_DestroyTree",1f);
+
+                treeHasBeenInteractedWith = false;
+                fallenTreeHasBeenInteractedWith = false;
+                //reset values
+                break;
+
+            default:
+                Debug.LogWarning("Unexpected tree state!");
+                break;
+            
         }
     }
 
-    public void TreeFalling()
+    public void State1_TreeHasBeenInteractedWith()
     {
-        TreeTop.isKinematic = false;
-        treeFalling = true;
+        treeHasBeenInteractedWith = true;
+    }
+
+    public void State2_TreeFalling()
+    {
+        treeTop.isKinematic = false;
         TreeBreakingSound.Play();
     }
 
-    public void DestroyTree()
+    private bool State2_IsRigidbodyNotMoving()
+    {
+        return Mathf.Approximately(treeTop.velocity.magnitude, 0f);
+    }
+
+    public void State3_FallenTreeHasBeenInteractedWith()
+    {
+        fallenTreeHasBeenInteractedWith = true;
+    }
+
+    public void State4_DestroyTree()
     {
         gameObject.SetActive(false);
     }
+
+    //private int IncrementValueOnInteraction(float interactionPercentage)
+    //{
+    //    if (interactionPercentage < 20)
+    //    {
+    //        interactionIncrement = 0;
+    //    }
+    //    else if (interactionPercentage == 20 || interactionPercentage > 20 || interactionPercentage < 40)
+    //    {
+    //        interactionIncrement = 1;
+    //    }
+    //    else if (interactionPercentage == 40 || interactionPercentage > 40 || interactionPercentage < 60)
+    //    {
+    //        interactionIncrement = 2;
+    //    }
+    //    else if (interactionPercentage == 60 || interactionPercentage > 60 || interactionPercentage < 80)
+    //    {
+    //        interactionIncrement = 3;
+    //    }
+    //    else { interactionIncrement = 4; }
+
+    //    return interactionIncrement;
+    //}
 }

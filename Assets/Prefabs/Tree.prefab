@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2123665124038387496}
   - component: {fileID: 2123665124038387497}
   - component: {fileID: 3097140120464613072}
-  m_Layer: 0
-  m_Name: Tree1
+  m_Layer: 8
+  m_Name: Tree
   m_TagString: Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6d403eec4765645871d3b9ba2e5f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreeTop: {fileID: 3539116253484187794}
-  TreeFallingCooldown: 2
+  treeTop: {fileID: 3539116253484187794}
+  currentState: 0
   TreeBreakingSound: {fileID: 3097140120464613072}
 --- !u!136 &2123665124038387497
 CapsuleCollider:
@@ -173,8 +173,8 @@ GameObject:
   - component: {fileID: 3630268949414258923}
   - component: {fileID: 7465198895325255624}
   - component: {fileID: 2123665124521467701}
-  m_Layer: 0
-  m_Name: Tree1_Bot
+  m_Layer: 8
+  m_Name: Tree_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,8 +272,8 @@ GameObject:
   - component: {fileID: 4289513043592550865}
   - component: {fileID: 3539116253484187794}
   - component: {fileID: 803787548416129233}
-  m_Layer: 0
-  m_Name: Tree1_Top
+  m_Layer: 8
+  m_Name: Tree_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RadialProgressBar.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Interactable.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\EnvironmentControls.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\PlacingStructures.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

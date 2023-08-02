@@ -11,18 +11,19 @@ public class PlacingStructures : MonoBehaviour
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rotateAmount;
-    [SerializeField] private float cameraDistanceDefault = 25;
+    [SerializeField] private float cameraDistanceDefault = 18;
     [SerializeField] private float cameraDistanceBuilding = 35;
 
     public GameObject[] objects;
     private GameObject pendingObject;
     private Vector3 pos;
     private RaycastHit hit;
-    private bool isBuilding = false;
+    private bool isBuilding;
 
     void Start()
     {
         cinemachineFramingTransposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        cinemachineFramingTransposer.m_CameraDistance = cameraDistanceDefault;
         isBuilding = false;
     }
 
@@ -33,11 +34,15 @@ public class PlacingStructures : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if(Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (Input.mousePosition.x >= 0 && Input.mousePosition.x <= Screen.width &&
+            Input.mousePosition.y >= 0 && Input.mousePosition.y <= Screen.height)
         {
-            pos = hit.point;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                pos = hit.point;
+            }
         }
     }
 
@@ -47,7 +52,6 @@ public class PlacingStructures : MonoBehaviour
         {
             isBuilding = true;
             cinemachineFramingTransposer.m_CameraDistance = cameraDistanceBuilding;
-            //ChangeCameraDistance();
 
             pendingObject.transform.position = pos;
 
@@ -60,6 +64,7 @@ public class PlacingStructures : MonoBehaviour
             {
                 RotateObjectClockwise();
             }
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 RotateObjectCounterClock();
@@ -80,6 +85,7 @@ public class PlacingStructures : MonoBehaviour
     public void PlaceObject()
     {
         pendingObject = null;
+        isBuilding = false;
     }
 
     public void RotateObjectClockwise()
