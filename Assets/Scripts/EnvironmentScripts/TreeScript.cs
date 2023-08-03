@@ -6,16 +6,8 @@ public class TreeScript : MonoBehaviour
     [Header("Tree Physics")]
     [SerializeField] private Rigidbody treeTop;
     [SerializeField] private TreeState currentState;
-
-    public static Action PlayerCanInteract_Phase1Complete;
-    public static Action PlayerCanInteract_Phase4Complete;
-    public static Action PlayerCanInteract_Phase1CompleteReset;
-    public static Action PlayerCanInteract_Phase4CompleteReset;
-
-    private Player player = null;
-
-    private bool treeHasBeenInteractedWith = false;
-    private bool fallenTreeHasBeenInteractedWith = false;
+    public bool treeHasBeenInteractedWith = false;
+    public int interactionCount = 0;
 
     [Header("Tree Audio")]
     [SerializeField] private AudioSource TreeBreakingSound;
@@ -30,7 +22,7 @@ public class TreeScript : MonoBehaviour
 
     private void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        //GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         TreeBreakingSound = GetComponent<AudioSource>();
 
         currentState = TreeState.StandingTree;
@@ -39,19 +31,18 @@ public class TreeScript : MonoBehaviour
 
     private void OnEnable()
     {
-        Player.PlayerCanInteract_Phase1 += State1_TreeHasBeenInteractedWith;
-        Player.PlayerCanInteract_Phase2 += State3_FallenTreeHasBeenInteractedWith;
+        
     }
 
     private void OnDisable()
     {
-        Player.PlayerCanInteract_Phase1 -= State1_TreeHasBeenInteractedWith;
-        Player.PlayerCanInteract_Phase2 -= State3_FallenTreeHasBeenInteractedWith;
+        
     }
 
     private void Update()
     {
         TreeStates();
+        //Debug.Log(currentState);
     }
 
     public void TreeStates()
@@ -60,7 +51,7 @@ public class TreeScript : MonoBehaviour
         {
             case TreeState.StandingTree:
                 //When the player script detects that you pressed E you will trigger the next state.
-                if (treeHasBeenInteractedWith) 
+                if (treeHasBeenInteractedWith == true && interactionCount == 1) 
                 {
                     GameManager.Instance.AddWood();
                     currentState = TreeState.FallingTree;
@@ -68,17 +59,21 @@ public class TreeScript : MonoBehaviour
                 break;
 
             case TreeState.FallingTree:
-                //Here we activate the tree falling, we activate a method in the player script so taht hte player can interact again, in the if statement we check if the tree is laying still.
-                State2_TreeFalling();
-                if (State2_IsRigidbodyNotMoving()) 
+                //Here we activate the tree falling, in the if statement we check if the tree is laying still.
+                treeTop.isKinematic = false;
+                TreeBreakingSound.Play(); 
+
+
+                if (Mathf.Approximately(treeTop.velocity.magnitude, 0f)) 
                 {
-                    currentState = TreeState.FallenTree; 
+                    currentState = TreeState.FallenTree;
+                    interactionCount++;
                 }
                 break;
 
             case TreeState.FallenTree:
                 //When the player script detects that you pressed E and notices that the tree has been interacted with, you will trigger the next state.
-                if (fallenTreeHasBeenInteractedWith)
+                if (treeHasBeenInteractedWith == true && interactionCount == 2)
                 {
                     GameManager.Instance.AddWood();
                     currentState = TreeState.DestroyedTree;
@@ -87,11 +82,9 @@ public class TreeScript : MonoBehaviour
 
             case TreeState.DestroyedTree:
                 //After you interacted with the tree for the second time the tree will destroy it self, we reset all bools, maybe add a cool shader?
-                Invoke("State4_DestroyTree",1f);
+                interactionCount++;
+                Destroy(gameObject);
 
-                treeHasBeenInteractedWith = false;
-                fallenTreeHasBeenInteractedWith = false;
-                //reset values
                 break;
 
             default:
@@ -99,32 +92,6 @@ public class TreeScript : MonoBehaviour
                 break;
             
         }
-    }
-
-    public void State1_TreeHasBeenInteractedWith()
-    {
-        treeHasBeenInteractedWith = true;
-    }
-
-    public void State2_TreeFalling()
-    {
-        treeTop.isKinematic = false;
-        TreeBreakingSound.Play();
-    }
-
-    private bool State2_IsRigidbodyNotMoving()
-    {
-        return Mathf.Approximately(treeTop.velocity.magnitude, 0f);
-    }
-
-    public void State3_FallenTreeHasBeenInteractedWith()
-    {
-        fallenTreeHasBeenInteractedWith = true;
-    }
-
-    public void State4_DestroyTree()
-    {
-        gameObject.SetActive(false);
     }
 
     //private int IncrementValueOnInteraction(float interactionPercentage)

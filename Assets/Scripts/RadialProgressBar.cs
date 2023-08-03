@@ -6,49 +6,62 @@ public class RadialProgressBar : MonoBehaviour
 {
     [SerializeField] private Image radialFill;
     [SerializeField] private Image radialBG;
-    public TreeScript treeScript;
-    private Camera mainCamera;
-    public float alphaValue = 0.5f;
+    [SerializeField] private PlayerInteraction playerInteraction;
+
+    private float normalizedValue;
+    private bool isInteracting = false;
 
     private void Start()
     {
-        radialFill.fillAmount = 0;
         radialFill = GetComponent<Image>();
-        mainCamera = Camera.main;
-        SetImageAlpha(0f);
+        radialFill.fillAmount = 0;
+    }
+
+    private void OnEnable()
+    {
+        playerInteraction.onInteracting += InteractingTrue;
+        playerInteraction.onFinishedInteracting += InteractingFalse;
+    }
+
+    private void OnDisable()
+    {
+        playerInteraction.onInteracting -= InteractingTrue;
+        playerInteraction.onFinishedInteracting -= InteractingFalse;
     }
 
     private void Update()
     {
-        UpdateRadialImage();
-        PlayerIsInteracting();
+        ShowRadialUI();
+        ResetRadialUI();
+        Debug.Log(isInteracting);
     }
 
-    private void PlayerIsInteracting()
+    private void InteractingTrue()
     {
-        
+        isInteracting = true;
     }
 
-    public void SetImageAlpha(float alpha)
+    private void InteractingFalse()
     {
-        // Ensure alpha is clamped between 0 and 1
-        alpha = Mathf.Clamp01(alpha);
-
-        // Get the current color of the Image
-        Color imageColorRadialFill = radialFill.color;
-        Color imageColorRadialBG = radialBG.color;
-
-        // Update the alpha value of the color
-        imageColorRadialFill.a = alpha;
-        imageColorRadialBG.a = alpha;
-
-        // Assign the updated color back to the Image
-        radialFill.color = imageColorRadialFill;
-        radialBG.color = imageColorRadialBG;
+        isInteracting = false;
     }
 
-    private void UpdateRadialImage()
+    private void ShowRadialUI()
     {
+        if (this.isInteracting)
+        {
+            normalizedValue = playerInteraction.holdingDownInteract / playerInteraction.holdDuration;
+            normalizedValue = Mathf.Clamp01(normalizedValue);
 
+            radialFill.fillAmount = normalizedValue; 
+        }
+    }
+
+    private void ResetRadialUI()
+    {
+        if (this.isInteracting == false)
+        {
+            radialFill.fillAmount = playerInteraction.holdingDownInteract;
+        }
     }
 }
