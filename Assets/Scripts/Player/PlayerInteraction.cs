@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
@@ -6,17 +7,12 @@ public class PlayerInteraction : MonoBehaviour
     public static PlayerInteraction Instance { get; private set; }
 
     [Header("Interactable Interaction")]
-    [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask interactableLayerMask;
 
-    public Action onInteracting;
-    public Action onFinishedInteracting;
-    public Action onSwitchState;
+    public Action OnStartInteract;
+    public Action OnStopInteract;
 
-    private TreeScript treeScript;
-    private bool canInteract = false;
-    private bool interacting = false;
-    
+    private IInteractable interactableObject;
 
     [Header("Interacting Timer")]
     public float holdDuration = 2.0f;
@@ -29,79 +25,43 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Interact()
     {
-        if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 0)
+        if (interactableObject == null) return;
+
+        if (holdingDownInteract > holdDuration)
         {
-            //Invoke Action to show and fill radial UI 
-            if (onInteracting != null) { onInteracting.Invoke(); }
-
-            if (!interacting)
-            {
-                interacting = true;
-                treeScript.interactionSeconds =  holdingDownInteract = 0f;
-            }
-
-            holdingDownInteract += Time.deltaTime;
-
-            if (holdingDownInteract >= holdDuration)
-            {
-                treeScript.interactionPhase = 1;
-
-                //Make sure to increase the interactionCount in the TreeScript
-                if (treeScript != null) { onSwitchState.Invoke(); }
-            }
+            interactableObject.InteractComplete();
+            interactableObject = null;
         }
 
-        else if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 2)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            //Invoke Action to show and fill radial UI and upadte the increment amount on the tree you are interacting with
-            if (onInteracting != null) { onInteracting.Invoke(); }
-
-            if (!interacting)
-            {
-                interacting = true;
-                holdingDownInteract = 0f;
-            }
-
-            holdingDownInteract += Time.deltaTime;
-
-            if (holdingDownInteract >= holdDuration)
-            {
-                treeScript.interactionPhase = 2;
-
-                //Make sure to increase the interactionCount in the TreeScript
-                if (treeScript != null) { onSwitchState.Invoke(); }
-            }
+            interactableObject.StartInteract();
         }
 
-        else if (Input.GetKeyUp(KeyCode.E) && treeScript.interactionPhase == 0)
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            interacting = false;
-            holdingDownInteract = 0f;
-
-            //Invoke Action to stop incrementing and !reset! radial UI, reset should be changed to remember the increment value and use that
-            if (onFinishedInteracting != null) { onFinishedInteracting.Invoke(); }
+            interactableObject.StopInteract();
         }
     }
 
-    public TreeScript GetTreeScript() => treeScript;
-
-
     private void OnTriggerEnter(Collider other)
     {
-        // Get the TreeScript component from the colliding tree object
-        treeScript = other.GetComponent<TreeScript>();
-
-        if (treeScript != null)
+        if (other.TryGetComponent(out IInteractable interact))
         {
-            canInteract = true;
+            interactableObject = interact;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (treeScript != null && other.GetComponent<TreeScript>() == treeScript)
+        if (other.TryGetComponent(out IInteractable interact))
         {
-            canInteract = false;
+            if (interact == interactableObject)
+            {
+                interactableObject = null;
+            }
         }
     }
+
+    public IInteractable GetInteractable() => interactableObject;
 }

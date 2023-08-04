@@ -18,13 +18,11 @@ public class PlacingStructures : MonoBehaviour
     private GameObject pendingObject;
     private Vector3 pos;
     private RaycastHit hit;
-    private bool isBuilding;
 
     void Start()
     {
         cinemachineFramingTransposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         cinemachineFramingTransposer.m_CameraDistance = cameraDistanceDefault;
-        isBuilding = false;
     }
 
     void Update()
@@ -50,7 +48,6 @@ public class PlacingStructures : MonoBehaviour
     {
         if (pendingObject != null)
         {
-            isBuilding = true;
             cinemachineFramingTransposer.m_CameraDistance = cameraDistanceBuilding;
 
             pendingObject.transform.position = pos;
@@ -72,7 +69,6 @@ public class PlacingStructures : MonoBehaviour
         }
         else
         {
-            isBuilding = false;
             cinemachineFramingTransposer.m_CameraDistance = cameraDistanceDefault;
         }
     }
@@ -85,7 +81,6 @@ public class PlacingStructures : MonoBehaviour
     public void PlaceObject()
     {
         pendingObject = null;
-        isBuilding = false;
     }
 
     public void RotateObjectClockwise()

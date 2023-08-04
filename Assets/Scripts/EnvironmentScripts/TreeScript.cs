@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TreeScript : MonoBehaviour
+public class TreeScript : MonoBehaviour, IInteractable
 {
     [Header("Tree Audio")]
     [SerializeField] private AudioSource TreeBreakingSound;
@@ -37,20 +37,6 @@ public class TreeScript : MonoBehaviour
         treeTop.isKinematic = true;
     }
 
-    private void OnEnable()
-    {
-        playerInteraction.onInteracting += StartIncrementing;
-        playerInteraction.onSwitchState += TreeStates;
-        playerInteraction.onFinishedInteracting += StopIncrementing;
-    }
-
-    private void OnDisable()
-    {
-        playerInteraction.onInteracting -= StartIncrementing;
-        playerInteraction.onSwitchState -= TreeStates;
-        playerInteraction.onFinishedInteracting -= StopIncrementing;
-    }
-
     private void Update()
     {
         interactionSeconds = playerInteraction.holdingDownInteract;
@@ -58,7 +44,7 @@ public class TreeScript : MonoBehaviour
         TreeStates();
         IncrementValueOnInteraction();
 
-        if (playerInteraction.GetTreeScript() == this) 
+        if (playerInteraction.GetInteractable() == (IInteractable)this) 
         { 
             Debug.Log(interactionIncrement); 
             Debug.Log(currentState); 
@@ -127,7 +113,8 @@ public class TreeScript : MonoBehaviour
 
     private void StartIncrementing()
     {
-        if(playerInteraction.GetTreeScript() != this) { return; }
+        if (playerInteraction.GetInteractable() != (IInteractable)this) { return; }
+
         startIncrementing = true;
     }
 
@@ -168,5 +155,20 @@ public class TreeScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    void IInteractable.InteractComplete()
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteractable.StartInteract()
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteractable.StopInteract()
+    {
+        throw new NotImplementedException();
     }
 }
