@@ -14,7 +14,7 @@ public class PlacingStructures : MonoBehaviour
     [SerializeField] private float cameraDistanceDefault = 18;
     [SerializeField] private float cameraDistanceBuilding = 35;
 
-    public GameObject[] objects;
+    public GameObject[] building;
     private GameObject pendingObject;
     private Vector3 pos;
     private RaycastHit hit;
@@ -79,7 +79,7 @@ public class PlacingStructures : MonoBehaviour
 
     public void SelectObject(int index)
     {
-        pendingObject = Instantiate(objects[index], pos, transform.rotation);
+        pendingObject = Instantiate(building[0], pos, transform.rotation);
     }
 
     public void PlaceObject()
