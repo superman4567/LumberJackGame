@@ -3,20 +3,24 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public static PlayerInteraction Instance { get; private set; }
+
     [Header("Interactable Interaction")]
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask interactableLayerMask;
 
     public Action onInteracting;
     public Action onFinishedInteracting;
+    public Action onSwitchState;
 
     private TreeScript treeScript;
     private bool canInteract = false;
     private bool interacting = false;
-    public float holdingDownInteract = 0f;
+    
 
     [Header("Interacting Timer")]
-    [SerializeField] public float holdDuration = 2.0f;
+    public float holdDuration = 2.0f;
+    public float holdingDownInteract = 0f;
 
     void Update()
     {
@@ -25,9 +29,31 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Interact()
     {
-        if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionCount == 0)
+        if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 0)
         {
-            //Invoke Action to show and fill radial UI
+            //Invoke Action to show and fill radial UI 
+            if (onInteracting != null) { onInteracting.Invoke(); }
+
+            if (!interacting)
+            {
+                interacting = true;
+                treeScript.interactionSeconds =  holdingDownInteract = 0f;
+            }
+
+            holdingDownInteract += Time.deltaTime;
+
+            if (holdingDownInteract >= holdDuration)
+            {
+                treeScript.interactionPhase = 1;
+
+                //Make sure to increase the interactionCount in the TreeScript
+                if (treeScript != null) { onSwitchState.Invoke(); }
+            }
+        }
+
+        else if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 2)
+        {
+            //Invoke Action to show and fill radial UI and upadte the increment amount on the tree you are interacting with
             if (onInteracting != null) { onInteracting.Invoke(); }
 
             if (!interacting)
@@ -40,43 +66,25 @@ public class PlayerInteraction : MonoBehaviour
 
             if (holdingDownInteract >= holdDuration)
             {
-                treeScript.interactionCount = 1;
-                
-                Debug.Log("Interacted with the tree!");
+                treeScript.interactionPhase = 2;
+
+                //Make sure to increase the interactionCount in the TreeScript
+                if (treeScript != null) { onSwitchState.Invoke(); }
             }
         }
 
-        else if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionCount == 2)
-        {
-            //Invoke Action to show and fill radial UI
-            if (onInteracting != null) { onInteracting.Invoke(); }
-
-            if (!interacting)
-            {
-                interacting = true;
-                holdingDownInteract = 0f;
-            }
-
-            holdingDownInteract += Time.deltaTime;
-
-            if (holdingDownInteract >= holdDuration)
-            {
-                treeScript.interactionCount = 2;
-                holdingDownInteract = 0f;
-                
-                Debug.Log("Interacted with the tree on the ground!");
-            }
-        }
-
-        else if (Input.GetKeyUp(KeyCode.E) && treeScript.interactionCount == 0)
+        else if (Input.GetKeyUp(KeyCode.E) && treeScript.interactionPhase == 0)
         {
             interacting = false;
             holdingDownInteract = 0f;
 
-            //Invoke Action to reset radial UI
+            //Invoke Action to stop incrementing and !reset! radial UI, reset should be changed to remember the increment value and use that
             if (onFinishedInteracting != null) { onFinishedInteracting.Invoke(); }
         }
     }
+
+    public TreeScript GetTreeScript() => treeScript;
+
 
     private void OnTriggerEnter(Collider other)
     {

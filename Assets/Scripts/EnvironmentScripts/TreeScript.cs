@@ -1,16 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class TreeScript : MonoBehaviour
 {
+    [Header("Tree Audio")]
+    [SerializeField] private AudioSource TreeBreakingSound;
+
     [Header("Tree Physics")]
     [SerializeField] private Rigidbody treeTop;
     [SerializeField] private TreeState currentState;
-    public bool treeHasBeenInteractedWith = false;
-    public int interactionCount = 0;
 
-    [Header("Tree Audio")]
-    [SerializeField] private AudioSource TreeBreakingSound;
+    private PlayerInteraction playerInteraction;
+    public bool doneFalling = false;
+    private bool startIncrementing = false;
+    private bool resetIncrement = false;
+    public int interactionPhase = 0;
+    public int interactionIncrement = 0;
+    public float interactionSeconds = 0;
+    private float fallingTimer = 0.2f;
+    private float newTimer = 0f;
 
     public enum TreeState
     {
@@ -20,29 +29,40 @@ public class TreeScript : MonoBehaviour
         DestroyedTree
     }
 
-    private void Start()
+    private void Awake()
     {
-        //GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         TreeBreakingSound = GetComponent<AudioSource>();
-
+        playerInteraction = FindObjectOfType<PlayerInteraction>();
         currentState = TreeState.StandingTree;
         treeTop.isKinematic = true;
     }
 
     private void OnEnable()
     {
-        
+        playerInteraction.onInteracting += StartIncrementing;
+        playerInteraction.onSwitchState += TreeStates;
+        playerInteraction.onFinishedInteracting += StopIncrementing;
     }
 
     private void OnDisable()
     {
-        
+        playerInteraction.onInteracting -= StartIncrementing;
+        playerInteraction.onSwitchState -= TreeStates;
+        playerInteraction.onFinishedInteracting -= StopIncrementing;
     }
 
     private void Update()
     {
+        interactionSeconds = playerInteraction.holdingDownInteract;
+
         TreeStates();
-        //Debug.Log(currentState);
+        IncrementValueOnInteraction();
+
+        if (playerInteraction.GetTreeScript() == this) 
+        { 
+            Debug.Log(interactionIncrement); 
+            Debug.Log(currentState); 
+        }
     }
 
     public void TreeStates()
@@ -51,7 +71,7 @@ public class TreeScript : MonoBehaviour
         {
             case TreeState.StandingTree:
                 //When the player script detects that you pressed E you will trigger the next state.
-                if (treeHasBeenInteractedWith == true && interactionCount == 1) 
+                if (interactionIncrement == 3 && interactionPhase == 1) 
                 {
                     GameManager.Instance.AddWood();
                     currentState = TreeState.FallingTree;
@@ -61,20 +81,31 @@ public class TreeScript : MonoBehaviour
             case TreeState.FallingTree:
                 //Here we activate the tree falling, in the if statement we check if the tree is laying still.
                 treeTop.isKinematic = false;
-                TreeBreakingSound.Play(); 
+                //Check the AUDIO!
+                TreeBreakingSound.Play();
 
+                startIncrementing = false;
+               
+                newTimer += Time.deltaTime;
 
-                if (Mathf.Approximately(treeTop.velocity.magnitude, 0f)) 
+                if(newTimer > fallingTimer)
                 {
-                    currentState = TreeState.FallenTree;
-                    interactionCount++;
+                    if (Mathf.Approximately(treeTop.velocity.magnitude, 0f))
+                    {
+                        playerInteraction.holdingDownInteract = 0f;
+                        interactionPhase++;
+                        doneFalling = true;
+                        interactionIncrement = 0;
+                        currentState = TreeState.FallenTree;
+                    }
                 }
                 break;
 
             case TreeState.FallenTree:
                 //When the player script detects that you pressed E and notices that the tree has been interacted with, you will trigger the next state.
-                if (treeHasBeenInteractedWith == true && interactionCount == 2)
+                if (interactionIncrement == 3 && doneFalling == true && interactionPhase == 2)
                 {
+                    resetIncrement = true;
                     GameManager.Instance.AddWood();
                     currentState = TreeState.DestroyedTree;
                 }
@@ -82,8 +113,8 @@ public class TreeScript : MonoBehaviour
 
             case TreeState.DestroyedTree:
                 //After you interacted with the tree for the second time the tree will destroy it self, we reset all bools, maybe add a cool shader?
-                interactionCount++;
                 Destroy(gameObject);
+                resetIncrement = true;
 
                 break;
 
@@ -94,26 +125,48 @@ public class TreeScript : MonoBehaviour
         }
     }
 
-    //private int IncrementValueOnInteraction(float interactionPercentage)
-    //{
-    //    if (interactionPercentage < 20)
-    //    {
-    //        interactionIncrement = 0;
-    //    }
-    //    else if (interactionPercentage == 20 || interactionPercentage > 20 || interactionPercentage < 40)
-    //    {
-    //        interactionIncrement = 1;
-    //    }
-    //    else if (interactionPercentage == 40 || interactionPercentage > 40 || interactionPercentage < 60)
-    //    {
-    //        interactionIncrement = 2;
-    //    }
-    //    else if (interactionPercentage == 60 || interactionPercentage > 60 || interactionPercentage < 80)
-    //    {
-    //        interactionIncrement = 3;
-    //    }
-    //    else { interactionIncrement = 4; }
+    private void StartIncrementing()
+    {
+        if(playerInteraction.GetTreeScript() != this) { return; }
+        startIncrementing = true;
+    }
 
-    //    return interactionIncrement;
-    //}
+    private void StopIncrementing()
+    {
+        startIncrementing = false;
+    }
+
+    private void IncrementValueOnInteraction()
+    {
+        float interactionPercentage = interactionSeconds / playerInteraction.holdDuration;
+        if (startIncrementing)
+        {
+            if (interactionPercentage < 0.25)
+            {
+                interactionIncrement = 0;
+            }
+
+            else if (interactionPercentage < 0.50)
+            {
+                interactionIncrement = 1;
+            }
+
+            else if (interactionPercentage < 0.75)
+            {
+                interactionIncrement = 2;
+            }
+
+            else if (interactionPercentage >= 1)
+            {
+                interactionIncrement = 3;
+
+                if (resetIncrement)
+                {
+                    startIncrementing = false;
+                    interactionIncrement = 0;
+
+                }
+            }
+        }
+    }
 }

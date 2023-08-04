@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.UI;
 using UnityEngine.UI;
+using System;
 
 public class RadialProgressBar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class RadialProgressBar : MonoBehaviour
     [SerializeField] private PlayerInteraction playerInteraction;
 
     private float normalizedValue;
+    private float temp;
     private bool isInteracting = false;
 
     private void Start()
