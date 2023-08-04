@@ -57,7 +57,7 @@ Material:
     - _SnowBrightness: 2.1
     - _SnowPower: 2
     - _SnowScale: 40
-    - _VertexOffset: -0.01
+    - _VertexOffset: -0.85
     m_Colors:
     - _SnowColor: {r: 0.3984959, g: 0.4031364, b: 0.4245283, a: 1}
   m_BuildTextureStacks: []
