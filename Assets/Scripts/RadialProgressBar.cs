@@ -35,7 +35,6 @@ public class RadialProgressBar : MonoBehaviour
     {
         ShowRadialUI();
         ResetRadialUI();
-        Debug.Log(isInteracting);
     }
 
     private void InteractingTrue()
