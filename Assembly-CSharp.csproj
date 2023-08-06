@@ -58,11 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\RadialProgressBar.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Interactable.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\EnvironmentControls.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\PlacingStructures.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeScript.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
+    <Compile Include="Assets\Scripts\BuildingScripts\BuildingStructures.cs" />
     <Compile Include="Assets\Scripts\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
@@ -846,6 +848,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

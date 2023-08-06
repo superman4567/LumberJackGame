@@ -19,11 +19,22 @@ public class RadialProgressBar : MonoBehaviour
         radialFill.fillAmount = 0;
     }
 
+    private void OnEnable()
+    {
+        playerInteraction.onInteracting += InteractingTrue;
+        playerInteraction.onFinishedInteracting += InteractingFalse;
+    }
+
+    private void OnDisable()
+    {
+        playerInteraction.onInteracting -= InteractingTrue;
+        playerInteraction.onFinishedInteracting -= InteractingFalse;
+    }
+
     private void Update()
     {
         ShowRadialUI();
         ResetRadialUI();
-        // Debug.Log(isInteracting);
     }
 
     private void InteractingTrue()
@@ -38,10 +49,10 @@ public class RadialProgressBar : MonoBehaviour
 
     private void ShowRadialUI()
     {
-        if (isInteracting)
+        if (this.isInteracting)
         {
             normalizedValue = playerInteraction.holdingDownInteract / playerInteraction.holdDuration;
-            // normalizedValue = Mathf.Clamp01(normalizedValue);
+            normalizedValue = Mathf.Clamp01(normalizedValue);
 
             radialFill.fillAmount = normalizedValue; 
         }
@@ -49,7 +60,7 @@ public class RadialProgressBar : MonoBehaviour
 
     private void ResetRadialUI()
     {
-        if (isInteracting == false)
+        if (this.isInteracting == false)
         {
             radialFill.fillAmount = playerInteraction.holdingDownInteract;
         }

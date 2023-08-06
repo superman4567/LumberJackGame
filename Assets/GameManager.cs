@@ -7,11 +7,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Resources")]
-    [SerializeField] private int rawWood = 0;
-    [SerializeField] private int sticks = 0;
-    [SerializeField] private int planks = 0;
-    [SerializeField] private int woodenSpikes = 0;
-    [SerializeField] private int door = 0;
+    public int rawWood = 0;
+    public int sticks = 0;
+    public int planks = 0;
+    public int woodenSpikes = 0;
+    public int door = 0;
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI rawWoodUI;
@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI doorUI;
 
     public static GameManager Instance;
-    
 
     private void Start()
     {
@@ -76,5 +75,12 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         SetSaveData();
         Debug.Log($"planks amount= {planks}");
+    }
+
+    public void SubstractWood(int woodToSubsubstract)
+    {
+        rawWood -= woodToSubsubstract;
+        UpdateUI();
+        SetSaveData();
     }
 }

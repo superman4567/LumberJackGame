@@ -48,9 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6d403eec4765645871d3b9ba2e5f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TreeBreakingSound: {fileID: 3097140120464613072}
   treeTop: {fileID: 3539116253484187794}
   currentState: 0
-  TreeBreakingSound: {fileID: 3097140120464613072}
+  doneFalling: 0
+  interactionPhase: 0
+  interactionIncrement: 0
+  interactionSeconds: 0
 --- !u!136 &2123665124038387497
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -325,7 +329,7 @@ MeshRenderer:
   - {fileID: 3456408743660828639, guid: 3aa246d09b2654241a1f9cc3a7b94ce6, type: 3}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
-  - {fileID: 2100000, guid: 8df181eaa30c3f44083f0a2b6359b941, type: 2}
+  - {fileID: -6887962171625291700, guid: 979764ea538b4ea4f93ecf1fd500071f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
