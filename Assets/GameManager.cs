@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private UIManager uiManager;
+    public static GameManager Instance;
+
     [Header("Resources")]
     public int rawWood = 0;
     public int sticks = 0;
@@ -20,7 +23,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI woodenSpikesUI;
     public TextMeshProUGUI doorUI;
 
-    public static GameManager Instance;
+    private void OnEnable()
+    {
+        uiManager.woodCheat += AddWoodCheat;
+    }
 
     private void Start()
     {
@@ -82,5 +88,13 @@ public class GameManager : MonoBehaviour
         rawWood -= woodToSubsubstract;
         UpdateUI();
         SetSaveData();
+    }
+
+    public void AddWoodCheat()
+    {
+        rawWood += 200;
+        UpdateUI();
+        SetSaveData();
+        Debug.Log($"raw wood amount= {rawWood}");
     }
 }
