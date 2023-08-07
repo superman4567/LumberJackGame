@@ -26,15 +26,18 @@ public class UIManager : MonoBehaviour
     {
         if (!strucutresPanelActive)
         {
-            strucutres_panel.SetActive(true);
-            strucutresPanelActive = true;
-
+            ActivationStrucutresPanel(true);
         }
         else if (strucutresPanelActive)
         {
-            strucutres_panel.SetActive(false);
-            strucutresPanelActive = false;
+            ActivationStrucutresPanel(false);
         }
+    }
+
+    public void ActivationStrucutresPanel(bool setStructurePanel)
+    {
+        strucutres_panel.SetActive(setStructurePanel);
+        strucutresPanelActive = setStructurePanel;
     }
 
     public void WoodCheat()

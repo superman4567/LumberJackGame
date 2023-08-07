@@ -79,6 +79,7 @@ public class PlacingStructures : MonoBehaviour
 
     public void SelectObject(int index)
     {
+        UIManager.Instance.ActivationStrucutresPanel(false);
         pendingObject = Instantiate(building[0], pos, transform.rotation);
     }
 

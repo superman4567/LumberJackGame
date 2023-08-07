@@ -4450,6 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2c8d405b582c84e954fcaada249104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   rawWood: 0
   sticks: 0
   planks: 0

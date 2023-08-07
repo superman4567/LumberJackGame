@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class NoFog : MonoBehaviour
 {
-    bool doWeHaveFogInScene;
-
-    private void Start()
+    // Unity calls this method automatically when it enables this component
+    private void OnEnable()
     {
-        doWeHaveFogInScene = RenderSettings.fog;
+        // Add WriteLogMessage as a delegate of the RenderPipelineManager.beginCameraRendering event
+        RenderPipelineManager.beginCameraRendering += BeginRender;
+        RenderPipelineManager.endCameraRendering += EndRender;
     }
 
-    private void OnPreRender()
+    // Unity calls this method automatically when it disables this component
+    private void OnDisable()
     {
-        RenderSettings.fog = false;
+        // Remove WriteLogMessage as a delegate of the  RenderPipelineManager.beginCameraRendering event
+        RenderPipelineManager.beginCameraRendering -= BeginRender;
+        RenderPipelineManager.endCameraRendering -= EndRender;
     }
-    private void OnPostRender()
+
+    // When this method is a delegate of RenderPipeline.beginCameraRendering event, Unity calls this method every time it raises the beginCameraRendering event
+    void BeginRender(ScriptableRenderContext context, Camera camera)
     {
-        RenderSettings.fog = doWeHaveFogInScene;
+        // Write text to the console
+        Debug.Log($"Beginning rendering the camera: {camera.name}");
+
+        if (camera.name == "PlayerTrail_Camera")
+        {
+            Debug.Log("Turn fog off");
+            RenderSettings.fog = false;
+        }
+
+    }
+
+    void EndRender(ScriptableRenderContext context, Camera camera)
+    {
+        Debug.Log($"Ending rendering the camera: {camera.name}");
+        if (camera.name == "PlayerTrail_Camera")
+        {
+            Debug.Log("Turn fog on");
+            RenderSettings.fog = true;
+        }
     }
 }
