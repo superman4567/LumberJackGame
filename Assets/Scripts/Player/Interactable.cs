@@ -5,7 +5,7 @@ public abstract class Interactable : MonoBehaviour
     protected PlayerInteraction playerInteraction;
 
     private bool isInteracting;
-    private float interactInSeconds;
+    public float interactInSeconds;
 
     protected virtual void Start()
     {

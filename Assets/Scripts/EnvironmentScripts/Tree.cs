@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class HenryTree : Interactable
+public class Tree : Interactable
 {
     [SerializeField] private AudioSource TreeBreakingSound;
     [SerializeField] private Transform fallingTreePrefab;

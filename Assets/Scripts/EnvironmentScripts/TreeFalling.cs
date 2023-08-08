@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HenryTreeFalling : MonoBehaviour, Interactable
+public class TreeFalling : Interactable
 {
     [SerializeField] private float waitForTreeToFallTime;
     [SerializeField] private Rigidbody rigidBody;
@@ -67,6 +67,4 @@ public class HenryTreeFalling : MonoBehaviour, Interactable
         isInteracting = false;
         playerInteraction.holdingDownInteract = 0;
     }
-
-    
 }

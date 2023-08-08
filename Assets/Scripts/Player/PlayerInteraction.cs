@@ -9,17 +9,13 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Interactable object detection")]
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionDistance = 3f;
-    
-    public Action<bool> interactAction;
-    public Action onInteracting;
-    public Action onFinishedInteracting;
 
-    public InteractableObject currentInteractableObject = null;
+    public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
 
     private bool isInteracting = false;
     private bool holdInteractionType;
-    public float interactionTimer = 0f;
+    public float holdingDownInteract = 0f;
 
     private void Awake()
     {
@@ -37,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         ClosestInteractableCheck();
-        InteractTypeCheck();
+        Interact();
     }
 
     private void ClosestInteractableCheck()
@@ -65,8 +61,8 @@ public class PlayerInteraction : MonoBehaviour
             if (closestInteractable != currentInteractable)
             {
                 currentInteractable = closestInteractable;
-                interactionTimer = 0f;
-                if(currentInteractable.TryGetComponent(out InteractableObject a)) 
+                holdingDownInteract = 0f;
+                if(currentInteractable.TryGetComponent(out Interactable a)) 
                 {
                     currentInteractableObject = a;
                 };
@@ -75,50 +71,19 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             currentInteractable = null;
-            interactionTimer = 0f;
+            holdingDownInteract = 0f;
             currentInteractableObject = null;
         }
     }
 
-    private void InteractTypeCheck()
+    private void Interact()
     {
-        if (other.TryGetComponent(out Interactable interact))
-        {
-            if (interact == objectWeAreInteractingWith)
-            {
-                objectWeAreInteractingWith = null;
-            }
-        }
-    }
-
-    public Interactable GetInteractable() => objectWeAreInteractingWith;
-}
-        if (currentInteractable != null) 
+        if (currentInteractable != null)
         if (Input.GetKey(KeyCode.E))
         {
-            interactionTimer += Time.deltaTime;
-            
-            if (Input.GetKeyDown(KeyCode.E) && !currentInteractableObject.HoldDownType)
-            {
-                Debug.Log("I am a tap interacting type");
-                interactAction?.Invoke(true);
-            }
-
-            else if (currentInteractableObject.HoldDownType)
-            {
-                if(interactionTimer >= currentInteractableObject.holdDuration)
-                {
-                    Debug.Log("I am a hold interacting type");
-                    interactAction?.Invoke(false);
-                    onInteracting?.Invoke();
-                }
-            }
-        }
-
-        else if (Input.GetKeyUp(KeyCode.E))
-        {
-            onFinishedInteracting?.Invoke();
-            interactionTimer = 0f;
-        }
+            holdingDownInteract += Time.deltaTime;
+        }   
     }
+
+    public Interactable GetInteractable() => currentInteractableObject;
 }
