@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private float idleAnimation1Frequency = 70f;
 
     private float timeSinceLastIdleChange = 0f;
-    private bool isIdleAnimation1Playing = true;
 
     private void Start()
     {
@@ -63,12 +62,10 @@ public class PlayerMovement : MonoBehaviour
             if (UnityEngine.Random.Range(0f, 100f) <= idleAnimation1Frequency)
             {
                 animator.SetFloat(IdleAnimations, 0f);
-                isIdleAnimation1Playing = true;
             }
             else
             {
                 animator.SetFloat(IdleAnimations, 1f);
-                isIdleAnimation1Playing = false;
             }
 
             timeSinceLastIdleChange = 0f;

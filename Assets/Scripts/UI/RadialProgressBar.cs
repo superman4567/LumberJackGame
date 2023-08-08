@@ -21,14 +21,14 @@ public class RadialProgressBar : MonoBehaviour
 
     private void OnEnable()
     {
-        playerInteraction.onInteracting += InteractingTrue;
-        playerInteraction.onFinishedInteracting += InteractingFalse;
+        playerInteraction.OnStartInteract += InteractingTrue;
+        playerInteraction.OnStopInteract += InteractingFalse;
     }
 
     private void OnDisable()
     {
-        playerInteraction.onInteracting -= InteractingTrue;
-        playerInteraction.onFinishedInteracting -= InteractingFalse;
+        playerInteraction.OnStartInteract -= InteractingTrue;
+        playerInteraction.OnStopInteract -= InteractingFalse;
     }
 
     private void Update()

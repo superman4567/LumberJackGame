@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
@@ -81,6 +82,17 @@ public class PlayerInteraction : MonoBehaviour
 
     private void InteractTypeCheck()
     {
+        if (other.TryGetComponent(out Interactable interact))
+        {
+            if (interact == objectWeAreInteractingWith)
+            {
+                objectWeAreInteractingWith = null;
+            }
+        }
+    }
+
+    public Interactable GetInteractable() => objectWeAreInteractingWith;
+}
         if (currentInteractable != null) 
         if (Input.GetKey(KeyCode.E))
         {
