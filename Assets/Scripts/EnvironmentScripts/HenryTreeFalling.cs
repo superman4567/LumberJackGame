@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HenryTreeFalling : MonoBehaviour, IInteractable
+public class HenryTreeFalling : MonoBehaviour, Interactable
 {
     [SerializeField] private float waitForTreeToFallTime;
     [SerializeField] private Rigidbody rigidBody;
@@ -29,7 +29,7 @@ public class HenryTreeFalling : MonoBehaviour, IInteractable
 
     private void UpdateInteractionTime()
     {
-        if (playerInteraction.GetInteractable() != (IInteractable)this) return;
+        if (playerInteraction.GetInteractable() != (Interactable)this) return;
         if (!isInteracting) return;
 
         interactInSeconds += Time.deltaTime;

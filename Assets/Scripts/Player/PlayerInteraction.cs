@@ -6,13 +6,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction Instance { get; private set; }
 
-    [Header("Interactable Interaction")]
-    [SerializeField] private LayerMask interactableLayerMask;
 
     public Action OnStartInteract;
     public Action OnStopInteract;
 
-    private IInteractable interactableObject;
+    private Interactable objectWeAreInteractingWith;
 
     [Header("Interacting Timer")]
     public float holdDuration = 2.0f;
@@ -25,45 +23,45 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Interact()
     {
-        if (interactableObject == null) return;
+        if (objectWeAreInteractingWith == null) return;
 
         if (holdingDownInteract > holdDuration)
         {
-            interactableObject.InteractComplete();
-            interactableObject = null;
+            objectWeAreInteractingWith.InteractComplete();
+            objectWeAreInteractingWith = null;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interactableObject.StartInteract();
+            objectWeAreInteractingWith.StartInteract();
             OnStartInteract?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            interactableObject.StopInteract();
+            objectWeAreInteractingWith.StopInteract();
             OnStopInteract?.Invoke();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IInteractable interact))
+        if (other.TryGetComponent(out Interactable interact))
         {
-            interactableObject = interact;
+            objectWeAreInteractingWith = interact;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out IInteractable interact))
+        if (other.TryGetComponent(out Interactable interact))
         {
-            if (interact == interactableObject)
+            if (interact == objectWeAreInteractingWith)
             {
-                interactableObject = null;
+                objectWeAreInteractingWith = null;
             }
         }
     }
 
-    public IInteractable GetInteractable() => interactableObject;
+    public Interactable GetInteractable() => objectWeAreInteractingWith;
 }
