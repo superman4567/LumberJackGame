@@ -7,13 +7,12 @@ public class EnvironmentControls : MonoBehaviour
 {
     [SerializeField] private float fogNormal = 200;
     [SerializeField] private float fogStorm = 30;
-    [SerializeField] private float timeRemaining = 3;
+    [SerializeField] public float timeRemaining = 3;
 
     public Action stormStart;
 
     private bool nightTimerFinished;
     private float currentTime = 0f, duration = 2f;
-
 
     void Update()
     {

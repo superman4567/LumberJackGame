@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TreeScript : MonoBehaviour, Interactable
+public class TreeScript : MonoBehaviour
 {
     [Header("Tree Audio")]
     [SerializeField] private AudioSource TreeBreakingSound;
@@ -37,18 +37,32 @@ public class TreeScript : MonoBehaviour, Interactable
         treeTop.isKinematic = true;
     }
 
+    //private void OnEnable()
+    ////{
+    ////    playerInteraction.onInteracting += StartIncrementing;
+    ////    playerInteraction.onSwitchState += TreeStates;
+    ////    playerInteraction.onFinishedInteracting += StopIncrementing;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    //playerInteraction.onInteracting -= StartIncrementing;
+    //    //playerInteraction.onSwitchState -= TreeStates;
+    //    //playerInteraction.onFinishedInteracting -= StopIncrementing;
+    //}
+
     private void Update()
     {
-        interactionSeconds = playerInteraction.holdingDownInteract;
+        //interactionSeconds = playerInteraction.holdingDownInteract;
 
-        TreeStates();
-        IncrementValueOnInteraction();
+        //TreeStates();
+        //IncrementValueOnInteraction();
 
-        if (playerInteraction.GetInteractable() == (Interactable)this) 
-        { 
-            Debug.Log(interactionIncrement); 
-            Debug.Log(currentState); 
-        }
+        //if (playerInteraction.GetTreeScript() == this) 
+        //{ 
+        //    Debug.Log(interactionIncrement); 
+        //    Debug.Log(currentState); 
+        //}
     }
 
     public void TreeStates()
@@ -78,7 +92,7 @@ public class TreeScript : MonoBehaviour, Interactable
                 {
                     if (Mathf.Approximately(treeTop.velocity.magnitude, 0f))
                     {
-                        playerInteraction.holdingDownInteract = 0f;
+                        //playerInteraction.holdingDownInteract = 0f;
                         interactionPhase++;
                         doneFalling = true;
                         interactionIncrement = 0;
@@ -113,8 +127,7 @@ public class TreeScript : MonoBehaviour, Interactable
 
     private void StartIncrementing()
     {
-        if (playerInteraction.GetInteractable() != (Interactable)this) { return; }
-
+        //if(playerInteraction.GetTreeScript() != this) { return; }
         startIncrementing = true;
     }
 
@@ -123,52 +136,37 @@ public class TreeScript : MonoBehaviour, Interactable
         startIncrementing = false;
     }
 
-    private void IncrementValueOnInteraction()
-    {
-        float interactionPercentage = interactionSeconds / playerInteraction.holdDuration;
-        if (startIncrementing)
-        {
-            if (interactionPercentage < 0.25)
-            {
-                interactionIncrement = 0;
-            }
+    //private void IncrementValueOnInteraction()
+    //{
+    //    float interactionPercentage = interactionSeconds / playerInteraction.holdDuration;
+    //    if (startIncrementing)
+    //    {
+    //        if (interactionPercentage < 0.25)
+    //        {
+    //            interactionIncrement = 0;
+    //        }
 
-            else if (interactionPercentage < 0.50)
-            {
-                interactionIncrement = 1;
-            }
+    //        else if (interactionPercentage < 0.50)
+    //        {
+    //            interactionIncrement = 1;
+    //        }
 
-            else if (interactionPercentage < 0.75)
-            {
-                interactionIncrement = 2;
-            }
+    //        else if (interactionPercentage < 0.75)
+    //        {
+    //            interactionIncrement = 2;
+    //        }
 
-            else if (interactionPercentage >= 1)
-            {
-                interactionIncrement = 3;
+    //        else if (interactionPercentage >= 1)
+    //        {
+    //            interactionIncrement = 3;
 
-                if (resetIncrement)
-                {
-                    startIncrementing = false;
-                    interactionIncrement = 0;
+    //            if (resetIncrement)
+    //            {
+    //                startIncrementing = false;
+    //                interactionIncrement = 0;
 
-                }
-            }
-        }
-    }
-
-    void Interactable.InteractComplete()
-    {
-        throw new NotImplementedException();
-    }
-
-    void Interactable.StartInteract()
-    {
-        throw new NotImplementedException();
-    }
-
-    void Interactable.StopInteract()
-    {
-        throw new NotImplementedException();
-    }
+    //            }
+    //        }
+    //    }
+    //}
 }

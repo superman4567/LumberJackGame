@@ -56,30 +56,27 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\RadialProgressBar.cs" />
+    <Compile Include="Assets\Scripts\UI\RadialProgressBar.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\PlayerStats.cs" />
-    <Compile Include="Assets\IndoorTransition.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Interactable.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\EnvironmentControls.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\PlacingStructures.cs" />
-    <Compile Include="Assets\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeScript.cs" />
-    <Compile Include="Assets\MiniMapCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\BuildingStructures.cs" />
-    <Compile Include="Assets\Scripts\CanvasFacesUser.cs" />
+    <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\StorePlayerLocations.cs" />
+    <Compile Include="Assets\Scripts\StorePlayerLocations.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\NoFog.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\HenryTree.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\HenryTreeFalling.cs" />
-    <Compile Include="Assets\rock.cs" />
-    <Compile Include="Assets\Scripts\Player\Interactable.cs" />
+    <Compile Include="Assets\Scripts\UI\NoFog.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentScripts\InteractableObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

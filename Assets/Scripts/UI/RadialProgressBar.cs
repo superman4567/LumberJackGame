@@ -51,7 +51,7 @@ public class RadialProgressBar : MonoBehaviour
     {
         if (this.isInteracting)
         {
-            normalizedValue = playerInteraction.holdingDownInteract / playerInteraction.holdDuration;
+            normalizedValue = playerInteraction.currentInteractable.GetComponent<InteractableObject>().holdDuration / playerInteraction.interactionTimer;
             normalizedValue = Mathf.Clamp01(normalizedValue);
 
             radialFill.fillAmount = normalizedValue; 
@@ -62,7 +62,7 @@ public class RadialProgressBar : MonoBehaviour
     {
         if (this.isInteracting == false)
         {
-            radialFill.fillAmount = playerInteraction.holdingDownInteract;
+            radialFill.fillAmount = playerInteraction.interactionTimer;
         }
     }
 }

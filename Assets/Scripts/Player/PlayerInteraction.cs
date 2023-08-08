@@ -6,53 +6,81 @@ public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction Instance { get; private set; }
 
+    [Header("Interactable object detection")]
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private float interactionDistance = 3f;
+    
+    public Action<bool> interactAction;
+    public Action onInteracting;
+    public Action onFinishedInteracting;
 
-    public Action OnStartInteract;
-    public Action OnStopInteract;
+    public InteractableObject currentInteractableObject = null;
+    public GameObject currentInteractable = null;
 
-    private Interactable objectWeAreInteractingWith;
+    private bool isInteracting = false;
+    private bool holdInteractionType;
+    public float interactionTimer = 0f;
 
-    [Header("Interacting Timer")]
-    public float holdDuration = 2.0f;
-    public float holdingDownInteract = 0f;
-
-    void Update()
+    private void Awake()
     {
-        Interact();
-    }
-
-    private void Interact()
-    {
-        if (objectWeAreInteractingWith == null) return;
-
-        if (holdingDownInteract > holdDuration)
+        if (Instance == null)
         {
-            objectWeAreInteractingWith.InteractComplete();
-            objectWeAreInteractingWith = null;
+            Instance = this;
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
+        else
         {
-            objectWeAreInteractingWith.StartInteract();
-            OnStartInteract?.Invoke();
-        }
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            objectWeAreInteractingWith.StopInteract();
-            OnStopInteract?.Invoke();
+            Destroy(gameObject);
+            return;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.TryGetComponent(out Interactable interact))
+        ClosestInteractableCheck();
+        InteractTypeCheck();
+    }
+
+    private void ClosestInteractableCheck()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, interactionDistance, interactableLayer);
+        float closestDot = -1f;
+        GameObject closestInteractable = null;
+
+        foreach (Collider collider in colliders)
         {
-            objectWeAreInteractingWith = interact;
+            Vector3 directionToCollider = collider.transform.position - transform.position;
+            directionToCollider.Normalize();
+
+            float dot = Vector3.Dot(transform.forward, directionToCollider);
+
+            if (dot > closestDot)
+            {
+                closestDot = dot;
+                closestInteractable = collider.gameObject;
+            }
+        }
+
+        if (closestInteractable != null)
+        {
+            if (closestInteractable != currentInteractable)
+            {
+                currentInteractable = closestInteractable;
+                interactionTimer = 0f;
+                if(currentInteractable.TryGetComponent(out InteractableObject a)) 
+                {
+                    currentInteractableObject = a;
+                };
+            }
+        }
+        else
+        {
+            currentInteractable = null;
+            interactionTimer = 0f;
+            currentInteractableObject = null;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void InteractTypeCheck()
     {
         if (other.TryGetComponent(out Interactable interact))
         {
@@ -64,4 +92,33 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     public Interactable GetInteractable() => objectWeAreInteractingWith;
+}
+        if (currentInteractable != null) 
+        if (Input.GetKey(KeyCode.E))
+        {
+            interactionTimer += Time.deltaTime;
+            
+            if (Input.GetKeyDown(KeyCode.E) && !currentInteractableObject.HoldDownType)
+            {
+                Debug.Log("I am a tap interacting type");
+                interactAction?.Invoke(true);
+            }
+
+            else if (currentInteractableObject.HoldDownType)
+            {
+                if(interactionTimer >= currentInteractableObject.holdDuration)
+                {
+                    Debug.Log("I am a hold interacting type");
+                    interactAction?.Invoke(false);
+                    onInteracting?.Invoke();
+                }
+            }
+        }
+
+        else if (Input.GetKeyUp(KeyCode.E))
+        {
+            onFinishedInteracting?.Invoke();
+            interactionTimer = 0f;
+        }
+    }
 }
