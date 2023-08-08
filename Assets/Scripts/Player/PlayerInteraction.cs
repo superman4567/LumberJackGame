@@ -36,11 +36,13 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             interactableObject.StartInteract();
+            OnStartInteract?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
             interactableObject.StopInteract();
+            OnStopInteract?.Invoke();
         }
     }
 
