@@ -68,7 +68,6 @@ public class PlayerStats : MonoBehaviour
 
             int intHealth = Mathf.RoundToInt(health);
             healthUIAmount.text = intHealth.ToString();
-            Debug.Log(health);
         }
     }
 

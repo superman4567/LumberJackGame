@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9497992608d0f4a81c50347594862d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuildingLevels: []
+  costUpgradeTier1: 30
+  costUpgradeTier2: 60
+  costUpgradeTier3: 90
 --- !u!1 &6778879731932792584
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +312,9 @@ GameObject:
   - component: {fileID: 7356710143179353549}
   - component: {fileID: 859366047959829958}
   - component: {fileID: 5481769877827240532}
+  - component: {fileID: 4871599656910836725}
+  - component: {fileID: 6511069605745015306}
+  - component: {fileID: 7110948541580129147}
   m_Layer: 0
   m_Name: SM_Cabinet[4]
   m_TagString: Untagged
@@ -361,7 +368,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 095b853de262b5b4ca9488f594724b63, type: 2}
   - {fileID: 2100000, guid: 12c567bf2de28da4ab7078bb783c3f84, type: 2}
-  - {fileID: 2100000, guid: 8df181eaa30c3f44083f0a2b6359b941, type: 2}
+  - {fileID: -6887962171625291700, guid: 979764ea538b4ea4f93ecf1fd500071f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,6 +390,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4871599656910836725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777483022523772654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.778517, y: 5.3330636, z: 11.143781}
+  m_Center: {x: -1.5155716, y: 2.3484285, z: -0.0064082146}
+--- !u!64 &6511069605745015306
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777483022523772654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2088367845069958148, guid: 979764ea538b4ea4f93ecf1fd500071f, type: 3}
+--- !u!114 &7110948541580129147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777483022523772654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d743142ca51c874b9f11ca6dac907c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndexToLoad: 1
 --- !u!1001 &3197273372052717063
 PrefabInstance:
   m_ObjectHideFlags: 0
