@@ -5,103 +5,108 @@ public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction Instance { get; private set; }
 
-    [Header("Interactable Interaction")]
-    [SerializeField] private float interactDistance = 2f;
-    [SerializeField] private LayerMask interactableLayerMask;
-
+    [Header("Interactable object detection")]
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private float interactionDistance = 3f;
+    
+    public Action<bool> interactAction;
     public Action onInteracting;
     public Action onFinishedInteracting;
-    public Action onSwitchState;
 
-    private TreeScript treeScript;
-    private bool canInteract = false;
-    private bool interacting = false;
-    
+    public InteractableObject currentInteractableObject = null;
+    public GameObject currentInteractable = null;
 
-    [Header("Interacting Timer")]
-    public float holdDuration = 2.0f;
-    public float holdingDownInteract = 0f;
+    private bool isInteracting = false;
+    private bool holdInteractionType;
+    public float interactionTimer = 0f;
 
-    void Update()
+    private void Awake()
     {
-        Interact();
-    }
-
-    private void Interact()
-    {
-        if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 0)
+        if (Instance == null)
         {
-            //Invoke Action to show and fill radial UI 
-            if (onInteracting != null) { onInteracting.Invoke(); }
-
-            if (!interacting)
-            {
-                interacting = true;
-                treeScript.interactionSeconds =  holdingDownInteract = 0f;
-            }
-
-            holdingDownInteract += Time.deltaTime;
-
-            if (holdingDownInteract >= holdDuration)
-            {
-                treeScript.interactionPhase = 1;
-
-                //Make sure to increase the interactionCount in the TreeScript
-                if (treeScript != null) { onSwitchState.Invoke(); }
-            }
+            Instance = this;
         }
-
-        else if (Input.GetKey(KeyCode.E) && canInteract && treeScript.interactionPhase == 2)
+        else
         {
-            //Invoke Action to show and fill radial UI and upadte the increment amount on the tree you are interacting with
-            if (onInteracting != null) { onInteracting.Invoke(); }
-
-            if (!interacting)
-            {
-                interacting = true;
-                holdingDownInteract = 0f;
-            }
-
-            holdingDownInteract += Time.deltaTime;
-
-            if (holdingDownInteract >= holdDuration)
-            {
-                treeScript.interactionPhase = 2;
-
-                //Make sure to increase the interactionCount in the TreeScript
-                if (treeScript != null) { onSwitchState.Invoke(); }
-            }
-        }
-
-        else if (Input.GetKeyUp(KeyCode.E) && treeScript.interactionPhase == 0)
-        {
-            interacting = false;
-            holdingDownInteract = 0f;
-
-            //Invoke Action to stop incrementing and !reset! radial UI, reset should be changed to remember the increment value and use that
-            if (onFinishedInteracting != null) { onFinishedInteracting.Invoke(); }
+            Destroy(gameObject);
+            return;
         }
     }
 
-    public TreeScript GetTreeScript() => treeScript;
-
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        // Get the TreeScript component from the colliding tree object
-        treeScript = other.GetComponent<TreeScript>();
+        ClosestInteractableCheck();
+        InteractTypeCheck();
+    }
 
-        if (treeScript != null)
+    private void ClosestInteractableCheck()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, interactionDistance, interactableLayer);
+        float closestDot = -1f;
+        GameObject closestInteractable = null;
+
+        foreach (Collider collider in colliders)
         {
-            canInteract = true;
+            Vector3 directionToCollider = collider.transform.position - transform.position;
+            directionToCollider.Normalize();
+
+            float dot = Vector3.Dot(transform.forward, directionToCollider);
+
+            if (dot > closestDot)
+            {
+                closestDot = dot;
+                closestInteractable = collider.gameObject;
+            }
+        }
+
+        if (closestInteractable != null)
+        {
+            if (closestInteractable != currentInteractable)
+            {
+                currentInteractable = closestInteractable;
+                interactionTimer = 0f;
+                if(currentInteractable.TryGetComponent(out InteractableObject a)) 
+                {
+                    currentInteractableObject = a;
+                };
+            }
+        }
+        else
+        {
+            currentInteractable = null;
+            interactionTimer = 0f;
+            currentInteractableObject = null;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void InteractTypeCheck()
     {
-        if (treeScript != null && other.GetComponent<TreeScript>() == treeScript)
+        if (currentInteractable != null) 
+        if (Input.GetKey(KeyCode.E))
         {
-            canInteract = false;
+            interactionTimer += Time.deltaTime;
+            
+            if (Input.GetKeyDown(KeyCode.E) && !currentInteractableObject.HoldDownType)
+            {
+                Debug.Log("I am a tap interacting type");
+                interactAction?.Invoke(true);
+            }
+
+            else if (currentInteractableObject.HoldDownType)
+            {
+                if(interactionTimer >= currentInteractableObject.holdDuration)
+                {
+                    Debug.Log("I am a hold interacting type");
+                    interactAction?.Invoke(false);
+                    onInteracting?.Invoke();
+                }
+            }
+        }
+
+        else if (Input.GetKeyUp(KeyCode.E))
+        {
+            onFinishedInteracting?.Invoke();
+            interactionTimer = 0f;
         }
     }
 }

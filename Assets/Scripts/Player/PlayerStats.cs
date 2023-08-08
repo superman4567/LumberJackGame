@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float  maxHealth = 100f;
     [SerializeField] private float initialHealth = 100f;
     [SerializeField] private float health;
-    [SerializeField] EnvironmentControls environmentControls;
+    [SerializeField] private EnvironmentControls environmentControls;
 
     private float startTime;
     private float baseDecreaseRate = 0.1f;  // Adjust this value to control the initial decrease rate
@@ -31,6 +31,11 @@ public class PlayerStats : MonoBehaviour
     private void OnEnable()
     {
         environmentControls.stormStart += IsStormStarting;
+    }
+
+    private void OnDisable()
+    {
+        environmentControls.stormStart -= IsStormStarting;
     }
 
     void Start()

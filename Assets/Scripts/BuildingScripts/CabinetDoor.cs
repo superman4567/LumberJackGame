@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CabinetDoor : MonoBehaviour
 {
-    [SerializeField] Transform doorRotationOpen;
-    [SerializeField] Transform doorRotationClosed;
+    [SerializeField] private Transform doorRotationOpen;
+    [SerializeField] private Transform doorRotationClosed;
     [SerializeField] private float timeToArrive;
 
     private bool isMoving = false;
@@ -14,7 +14,7 @@ public class CabinetDoor : MonoBehaviour
         if (other.CompareTag("Player") && !isMoving)
         {
             isMoving = true;
-            StartCoroutine(DoorLerp(doorRotationClosed.rotation, doorRotationOpen.rotation));
+            StartCoroutine(DoorLerp(doorRotationClosed.localEulerAngles, doorRotationOpen.localEulerAngles));
         }
     }
 
@@ -23,20 +23,23 @@ public class CabinetDoor : MonoBehaviour
         if (other.CompareTag("Player") && !isMoving)
         {
             isMoving = true;
-            StartCoroutine(DoorLerp(doorRotationOpen.rotation, doorRotationClosed.rotation));
+            StartCoroutine(DoorLerp(doorRotationOpen.localEulerAngles, doorRotationClosed.localEulerAngles));
         }
     }
 
-    private IEnumerator DoorLerp(Quaternion fromRotation, Quaternion toRotation)
+    private IEnumerator DoorLerp(Vector3 fromEulerAngles, Vector3 toEulerAngles)
     {
         float elapsedTime = 0f;
+        Quaternion fromRotation = Quaternion.Euler(fromEulerAngles);
+        Quaternion toRotation = Quaternion.Euler(toEulerAngles);
+
         while (elapsedTime < timeToArrive)
         {
-            transform.rotation = Quaternion.Lerp(fromRotation, toRotation, elapsedTime / timeToArrive);
-            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(fromRotation, toRotation, elapsedTime / timeToArrive);
             yield return null;
+            elapsedTime += Time.deltaTime;
         }
-        transform.rotation = toRotation; // Ensure the door reaches the target rotation exactly.
+        transform.rotation = toRotation;
         isMoving = false;
     }
 }

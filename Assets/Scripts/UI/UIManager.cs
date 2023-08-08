@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     [Header("HUD Buttons")]
     [SerializeField] private GameObject strucutres_panel;
+    [SerializeField] private TMP_Text stormTimerText;
+    [SerializeField] private EnvironmentControls environmentControls;
+
     public Action woodCheat;
     private bool strucutresPanelActive = false;
 
@@ -20,6 +24,11 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         strucutres_panel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        DisplayStormTimer();
     }
 
     public void ActivationStrucutresPanel()
@@ -45,4 +54,9 @@ public class UIManager : MonoBehaviour
         woodCheat.Invoke();
     }
 
+    private void DisplayStormTimer()
+    {
+        float timeText = MathF.Ceiling(environmentControls.timeRemaining);
+        stormTimerText.text = timeText.ToString();
+    }
 }
