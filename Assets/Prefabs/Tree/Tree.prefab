@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3649084018724240439}
   m_Layer: 8
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2154f41ff2c5acc4eadbffc3084f0e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedProgressInSeconds: 0
   interactInSeconds: 2
   TreeBreakingSound: {fileID: 3097140120464613072}
   fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
@@ -175,7 +176,7 @@ GameObject:
   - component: {fileID: 6680409629534959855}
   - component: {fileID: 1232760192258110968}
   - component: {fileID: 8693553760446855726}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tree_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

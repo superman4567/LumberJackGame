@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 6692119754381309364}
   - component: {fileID: 7354386558889206821}
   - component: {fileID: 4226212422562731673}
+  - component: {fileID: 1339500863146655895}
   - component: {fileID: 7354386558889207771}
   - component: {fileID: 7354386558889206822}
   - component: {fileID: 4525732102919681316}
@@ -349,7 +350,6 @@ MonoBehaviour:
   interactionDistance: 3
   currentInteractableObject: {fileID: 0}
   currentInteractable: {fileID: 0}
-  holdingDownInteract: 0
 --- !u!114 &6692119754381309364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06a44edae75faf42b748eb4d68d47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7354386558889207771}
-  animator: {fileID: 8609658880822775392}
+  CharacterController: {fileID: 7354386558889207771}
+  playerAnimations: {fileID: 1339500863146655895}
   movSpeed: 6
   playerLook: {fileID: 7354386558889206821}
 --- !u!114 &7354386558889206821
@@ -404,6 +404,21 @@ MonoBehaviour:
   stamina: 0
   healthUIAmount: {fileID: 0}
   staminaUIAmount: {fileID: 0}
+--- !u!114 &1339500863146655895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354386558889207768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebfe9255a6cc2248aaaeee4217544ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInteraction: {fileID: 7354386558889207770}
+  playerMovement: {fileID: 6692119754381309364}
+  animator: {fileID: 8609658880822775392}
 --- !u!143 &7354386558889207771
 CharacterController:
   m_ObjectHideFlags: 0
@@ -693,7 +708,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radialFill: {fileID: 7354386559965585545}
   radialBG: {fileID: 7354386558633897248}
-  radialComponent: {fileID: 7354386559987169487}
   playerInteraction: {fileID: 7354386558889207770}
 --- !u!1 &7354386559987169487
 GameObject:

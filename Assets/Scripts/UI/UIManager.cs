@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
 
     public void WoodCheat()
     {
-        woodCheat.Invoke();
+        woodCheat?.Invoke();
     }
 
     private void DisplayStormTimer()

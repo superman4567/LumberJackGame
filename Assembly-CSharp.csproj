@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\StorePlayerLocations.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
+    <Compile Include="Assets\PlayerAnimations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

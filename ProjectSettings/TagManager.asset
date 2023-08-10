@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Interactables
+  - Tree
+  - Rock
+  - Pickups
+  - NPC
+  - Chest
   layers:
   - Default
   - TransparentFX
