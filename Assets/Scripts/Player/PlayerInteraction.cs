@@ -10,12 +10,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionDistance = 3f;
 
+    public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
 
-    private bool isInteracting = false;
     private bool holdInteractionType;
-    public float holdingDownInteract = 0f;
 
     private void Awake()
     {
@@ -34,6 +33,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         ClosestInteractableCheck();
         Interact();
+        //Debug.Log(currentInteractable);
     }
 
     private void ClosestInteractableCheck()
@@ -61,17 +61,19 @@ public class PlayerInteraction : MonoBehaviour
             if (closestInteractable != currentInteractable)
             {
                 currentInteractable = closestInteractable;
-                holdingDownInteract = 0f;
                 if(currentInteractable.TryGetComponent(out Interactable a)) 
                 {
                     currentInteractableObject = a;
-                };
+                }
+                else
+                {
+                    Debug.LogError("TryGet failed");
+                }
             }
         }
         else
         {
             currentInteractable = null;
-            holdingDownInteract = 0f;
             currentInteractableObject = null;
         }
     }
@@ -79,11 +81,22 @@ public class PlayerInteraction : MonoBehaviour
     private void Interact()
     {
         if (currentInteractable != null)
-        if (Input.GetKey(KeyCode.E))
-        {
-            holdingDownInteract += Time.deltaTime;
-        }   
-    }
 
-    public Interactable GetInteractable() => currentInteractableObject;
+            if (Input.GetKey(KeyCode.E))
+            {
+                currentInteractableObject.AddProgress(Time.deltaTime);
+                InteractionHappening.Invoke(true);
+
+                //Trigger the finish interaction method on the object we are interacting with
+                if (currentInteractableObject.CheckProgressComplete())
+                {
+                    currentInteractableObject.InteractComplete();
+                    InteractionHappening.Invoke(false);
+                }
+            }
+            else
+            {
+                InteractionHappening.Invoke(false);
+            }
+    }
 }

@@ -65,10 +65,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3456408743660828639, guid: 3aa246d09b2654241a1f9cc3a7b94ce6, type: 3}
+  - {fileID: 2100000, guid: 6b83b1daa2be71e42ba0dd46a8dae3f0, type: 2}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
-  - {fileID: 2100000, guid: 8df181eaa30c3f44083f0a2b6359b941, type: 2}
+  - {fileID: -6887962171625291700, guid: 979764ea538b4ea4f93ecf1fd500071f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,5 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913d8dcf310bc8d46aa361464034370c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactInSeconds: 2
   waitForTreeToFallTime: 0.25
   rigidBody: {fileID: 2574345111663230254}

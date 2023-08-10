@@ -2,38 +2,26 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    protected PlayerInteraction playerInteraction;
-
-    private bool isInteracting;
+    public float savedProgressInSeconds;
     public float interactInSeconds;
 
-    protected virtual void Start()
+
+    public virtual void AddProgress(float progressInSeconds)
     {
-        playerInteraction = PlayerInteraction.Instance;
+        if (savedProgressInSeconds <= interactInSeconds)
+        {
+            savedProgressInSeconds += progressInSeconds;
+        }
+        
     }
 
-    protected virtual void Update()
+    public virtual bool CheckProgressComplete()
     {
-        if (!isInteracting) return;
-        if (playerInteraction.GetInteractable() != this) return;
-
-        interactInSeconds += Time.deltaTime;
-        playerInteraction.holdingDownInteract = interactInSeconds;
-    }
-
-    public virtual void StartInteract()
-    {
-        isInteracting = true;
-    }
-
-    public virtual void StopInteract()
-    {
-        isInteracting = false;
-        playerInteraction.holdingDownInteract = 0;
+        return (savedProgressInSeconds >= interactInSeconds);
     }
 
     public virtual void InteractComplete()
     {
-        playerInteraction.holdingDownInteract = 0;
+        //do something
     }
 }

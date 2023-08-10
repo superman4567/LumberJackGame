@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2574345111663230254}
   - component: {fileID: 1838382077258892653}
   - component: {fileID: 4809453855863449626}
-  - component: {fileID: 9013202467970586831}
+  - component: {fileID: 6696797985316757477}
   m_Layer: 8
   m_Name: Tree_Top_Static
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7217426157975694670}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65,10 +65,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3456408743660828639, guid: 3aa246d09b2654241a1f9cc3a7b94ce6, type: 3}
+  - {fileID: 2100000, guid: 6b83b1daa2be71e42ba0dd46a8dae3f0, type: 2}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
   - {fileID: 2100000, guid: fbebccb5996fb0b4f88c116bf893e4ad, type: 2}
-  - {fileID: 2100000, guid: 8df181eaa30c3f44083f0a2b6359b941, type: 2}
+  - {fileID: -6887962171625291700, guid: 979764ea538b4ea4f93ecf1fd500071f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,7 +133,7 @@ CapsuleCollider:
   m_Height: 13.12
   m_Direction: 1
   m_Center: {x: 0, y: 1.73, z: 0}
---- !u!114 &9013202467970586831
+--- !u!114 &6696797985316757477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,8 +142,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7217426157975694670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2154f41ff2c5acc4eadbffc3084f0e52, type: 3}
+  m_Script: {fileID: 11500000, guid: 913d8dcf310bc8d46aa361464034370c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreeBreakingSound: {fileID: 0}
-  fallingTreePrefab: {fileID: 0}
+  interactInSeconds: 2
+  waitForTreeToFallTime: 0.5
+  rigidBody: {fileID: 2574345111663230254}

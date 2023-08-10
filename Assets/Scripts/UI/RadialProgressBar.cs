@@ -10,47 +10,47 @@ public class RadialProgressBar : MonoBehaviour
     [SerializeField] private PlayerInteraction playerInteraction;
 
     private float normalizedValue;
-    private float temp;
-    private bool isInteracting = false;
+
+    private void OnEnable()
+    {
+        playerInteraction.InteractionHappening += UpdateAndShowRadialUI;
+    }
+
+    private void OnDisable()
+    {
+        playerInteraction.InteractionHappening -= UpdateAndShowRadialUI;
+    }
 
     private void Start()
     {
+        radialFill.color = Color.clear;
+        radialBG.color = Color.clear;
+
         radialFill = GetComponent<Image>();
         radialFill.fillAmount = 0;
     }
 
     private void Update()
     {
-        ShowRadialUI();
-        ResetRadialUI();
+        //Debug.Log(normalizedValue);
     }
 
-    private void InteractingTrue()
+    private void UpdateAndShowRadialUI(bool isInteracting)
     {
-        isInteracting = true;
-    }
-
-    private void InteractingFalse()
-    {
-        isInteracting = false;
-    }
-
-    private void ShowRadialUI()
-    {
-        if (this.isInteracting)
+        if (isInteracting)
         {
-            normalizedValue = playerInteraction.currentInteractable.GetComponent<Interactable>().interactInSeconds / playerInteraction.holdingDownInteract;
-            normalizedValue = Mathf.Clamp01(normalizedValue);
+            radialFill.color = Color.white;
+            radialBG.color = Color.white;
 
-            radialFill.fillAmount = normalizedValue; 
+            normalizedValue = playerInteraction.currentInteractable.GetComponent<Interactable>().savedProgressInSeconds / playerInteraction.currentInteractable.GetComponent<Interactable>().interactInSeconds;
+
+            radialFill.fillAmount = normalizedValue;
+            
         }
-    }
-
-    private void ResetRadialUI()
-    {
-        if (this.isInteracting == false)
+        else
         {
-            radialFill.fillAmount = playerInteraction.holdingDownInteract;
+            radialFill.color = Color.clear;
+            radialBG.color = Color.clear;
         }
     }
 }

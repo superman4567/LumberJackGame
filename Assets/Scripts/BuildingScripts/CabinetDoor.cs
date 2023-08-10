@@ -8,6 +8,7 @@ public class CabinetDoor : MonoBehaviour
     [SerializeField] private float timeToArrive;
 
     private bool isMoving = false;
+    public bool canInteract= false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class CabinetDoor : MonoBehaviour
         {
             isMoving = true;
             StartCoroutine(DoorLerp(doorRotationClosed.localEulerAngles, doorRotationOpen.localEulerAngles));
+            canInteract = true;
         }
     }
 
@@ -24,6 +26,7 @@ public class CabinetDoor : MonoBehaviour
         {
             isMoving = true;
             StartCoroutine(DoorLerp(doorRotationOpen.localEulerAngles, doorRotationClosed.localEulerAngles));
+            canInteract = false;
         }
     }
 

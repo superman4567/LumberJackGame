@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7807719679835969205}
   - component: {fileID: 3310820412374227372}
   m_Layer: 0
-  m_Name: SM_CabinetDoor
+  m_Name: SM_CabinetDoorTier4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d743142ca51c874b9f11ca6dac907c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndexToLoad: 0
+  sceneIndexToLoad: 1
 --- !u!1 &3072048867133893814
 GameObject:
   m_ObjectHideFlags: 0

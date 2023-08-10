@@ -41,7 +41,7 @@ public class BuildingStructures : MonoBehaviour
             if (currentBuildingLevel + 1 < BuildingLevels.Count)
             {
                 //I think I whould use a getter/setter
-                if (costUpgradeTier1 < gameManager.rawWood && currentBuildingLevel == 0)
+                if (costUpgradeTier1 < gameManager.wood && currentBuildingLevel == 0)
                 {
                     currentBuildingLevel = 1;
                     gameManager.SubstractWood(costUpgradeTier1);
@@ -51,7 +51,7 @@ public class BuildingStructures : MonoBehaviour
                     return;
                 }
 
-                else if (costUpgradeTier2 < gameManager.rawWood && currentBuildingLevel == 1)
+                else if (costUpgradeTier2 < gameManager.wood && currentBuildingLevel == 1)
                 {
                     currentBuildingLevel = 2;
                     gameManager.SubstractWood(costUpgradeTier2);
@@ -61,7 +61,7 @@ public class BuildingStructures : MonoBehaviour
                     return;
                 }
 
-                else if (costUpgradeTier3 < gameManager.rawWood && currentBuildingLevel == 2)
+                else if (costUpgradeTier3 < gameManager.wood && currentBuildingLevel == 2)
                 {
                     currentBuildingLevel = 3;
                     gameManager.SubstractWood(costUpgradeTier3);
