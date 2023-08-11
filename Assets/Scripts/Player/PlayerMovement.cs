@@ -6,12 +6,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController CharacterController;
+    [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] private PlayerAnimations playerAnimations;
     [SerializeField] private float movSpeed = 6f;
     public PlayerLook playerLook;
 
     void Update()
     {
+        //if (!playerInteraction.interactionHappening) { TryMovement(); }
         TryMovement();
         playerLook.PlayerLookDir();
     }

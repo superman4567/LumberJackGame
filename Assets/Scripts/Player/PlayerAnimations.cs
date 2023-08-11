@@ -10,10 +10,11 @@ public class PlayerAnimations : MonoBehaviour
 
     private int VelocityHash;
     private int IdleAnimationsHash;
-    private int InteractionAnimationsHash;
 
-    private float idleAnimation1Frequency = 70f;
+    private float idleAnimation1Frequency = 85f;
     private float timeSinceLastIdleChange = 0f;
+
+    private string interactableTag;
 
     private void OnEnable()
     {
@@ -31,8 +32,6 @@ public class PlayerAnimations : MonoBehaviour
 
         IdleAnimationsHash = Animator.StringToHash("IdleAnimations");
         VelocityHash = Animator.StringToHash("Velocity");
-        InteractionAnimationsHash = Animator.StringToHash("InteractionAnimationsHash");
-
     }
 
     private void Update()
@@ -40,15 +39,12 @@ public class PlayerAnimations : MonoBehaviour
         IdleChange();
     }
 
-
     private void IdleChange()
     {
         timeSinceLastIdleChange += Time.deltaTime;
 
-        // Check if it's time to change the idle animation
         if (timeSinceLastIdleChange >= Random.Range(3f, 6f))
         {
-            // Randomly select the next idle animation
             if (Random.Range(0f, 100f) <= idleAnimation1Frequency)
             {
                 animator.SetFloat(IdleAnimationsHash, 0f);
@@ -69,6 +65,10 @@ public class PlayerAnimations : MonoBehaviour
 
     private void InteractionAnimations(bool isInteracting)
     {
-        animator.SetBool(playerInteraction.currentInteractable.tag, isInteracting);
+        if (isInteracting)
+        {
+            interactableTag = playerInteraction.currentInteractable.tag;
+        }
+        animator.SetBool(interactableTag, isInteracting);
     }
 }

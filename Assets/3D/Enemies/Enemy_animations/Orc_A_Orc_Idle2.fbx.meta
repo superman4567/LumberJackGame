@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca08763a19c49024daaec8908c11785b
+guid: 1a8834c879444034294f6da548706633
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: root|A_Walk
-      takeName: root|A_Walk
-      internalID: -1970561371197405726
+      name: root|A_Orc_Idle2
+      takeName: root|A_Orc_Idle2
+      internalID: 5383346402623939654
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 159
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

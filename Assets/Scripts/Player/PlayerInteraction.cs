@@ -14,8 +14,6 @@ public class PlayerInteraction : MonoBehaviour
     public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
 
-    private bool holdInteractionType;
-
     private void Awake()
     {
         if (Instance == null)
@@ -33,13 +31,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         ClosestInteractableCheck();
         Interact();
-        //Debug.Log(currentInteractable);
     }
 
     private void ClosestInteractableCheck()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, interactionDistance, interactableLayer);
-        float closestDot = -1f;
+        float closestDot = .7f;
         GameObject closestInteractable = null;
 
         foreach (Collider collider in colliders)
@@ -85,18 +82,22 @@ public class PlayerInteraction : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 currentInteractableObject.AddProgress(Time.deltaTime);
-                InteractionHappening.Invoke(true);
+                InteractionHappening?.Invoke(true);
 
                 //Trigger the finish interaction method on the object we are interacting with
                 if (currentInteractableObject.CheckProgressComplete())
                 {
-                    currentInteractableObject.InteractComplete();
-                    InteractionHappening.Invoke(false);
+                    currentInteractableObject?.InteractComplete();
+                    InteractionHappening?.Invoke(false);
                 }
             }
             else
             {
-                InteractionHappening.Invoke(false);
+                InteractionHappening?.Invoke(false);
             }
+        else
+        {
+            InteractionHappening?.Invoke(false);
+        }
     }
 }

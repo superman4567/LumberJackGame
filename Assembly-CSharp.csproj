@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\RadialProgressBar.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
@@ -75,15 +76,17 @@
     <Compile Include="Assets\Scripts\BuildingScripts\BuildingStructures.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
-    <Compile Include="Assets\Rock.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentScripts\Rock.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeFalling.cs" />
     <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\StorePlayerLocations.cs" />
+    <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
-    <Compile Include="Assets\PlayerAnimations.cs" />
+    <Compile Include="Assets\InteractionPosition.cs" />
+    <Compile Include="Assets\Orc_Animations.cs" />
+    <Compile Include="Assets\Orc_Patrol.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
