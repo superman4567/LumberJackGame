@@ -9,6 +9,8 @@ TagManager:
   - Pickups
   - NPC
   - Chest
+  - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX

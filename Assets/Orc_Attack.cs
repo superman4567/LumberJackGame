@@ -23,7 +23,6 @@ public class Orc_Attack : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(orcPatrolScript.isChasing);
         if (player != null)
         {
             MeleeOrRangedAttack();
@@ -72,7 +71,6 @@ public class Orc_Attack : MonoBehaviour
     private IEnumerator MeleeAttackCoroutine()
     {
         isMeleeAttacking = true;
-        Debug.Log("I am MELEE attacking");
         yield return new WaitForSeconds(meleeAttackDuration);
         isMeleeAttacking = false;
     }

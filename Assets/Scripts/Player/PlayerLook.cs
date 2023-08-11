@@ -7,6 +7,7 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask floorMask;
+    private RaycastHit hit;
     public Vector3 lookDirection;
 
     private void Update()
@@ -20,9 +21,9 @@ public class PlayerLook : MonoBehaviour
             Input.mousePosition.y >= 0 && Input.mousePosition.y <= Screen.height)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, floorMask))
+            if (Physics.Raycast(ray, out RaycastHit hitPos, Mathf.Infinity, floorMask))
             {
+                hit = hitPos;
                 lookDirection = hit.point - transform.position;
                 lookDirection.y = 0f;
                 if (lookDirection != Vector3.zero)
@@ -31,5 +32,10 @@ public class PlayerLook : MonoBehaviour
                 }
             }
         }
+    }
+
+    public RaycastHit GetRayCastHit()
+    {
+        return hit;
     }
 }
