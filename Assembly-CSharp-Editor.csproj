@@ -892,6 +892,10 @@
       <Project>{09C6C9F0-8F95-CBC5-ED0E-78725C4ED67F}</Project>
       <Name>Building</Name>
     </ProjectReference>
+    <ProjectReference Include="Orc.csproj">
+      <Project>{F35D80F1-B358-BE5F-5EF3-CD5F43675FBE}</Project>
+      <Name>Orc</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

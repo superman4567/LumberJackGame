@@ -87,7 +87,7 @@ public class PlayerThrowAxe : MonoBehaviour
 
     private void ReturnAxe()
     {
-        if (!isReturning)
+        if (isAxeThrown)
         {
             // Disable most of the RB
             isReturning = true;
@@ -96,12 +96,15 @@ public class PlayerThrowAxe : MonoBehaviour
             axeRb.angularVelocity = Vector3.zero;
         }
 
-        // Smoothly move the axe towards the throwSpawnPoint
-        Vector3 targetPosition = Vector3.Lerp(axeModel.transform.position, throwSpawnPoint.position, returnSpeed * Time.deltaTime);
-        axeModel.transform.position = targetPosition;
-
-        if (Vector3.Distance(axeModel.transform.position, throwSpawnPoint.position) < 2f)
+        while (isReturning)
         {
+            // Smoothly move the axe towards the throwSpawnPoint
+            Vector3 targetPosition = Vector3.Lerp(axeModel.transform.position, throwSpawnPoint.position, returnSpeed * Time.deltaTime);
+            axeModel.transform.position = targetPosition;
+
+            if (Vector3.Distance(axeModel.transform.position, throwSpawnPoint.position) < 2f)
+                break;
+            
             // If the axe is close to the throwSpawnPoint, reset the position and rotation
             axeModel.transform.parent = throwSpawnPoint;
             axeModel.transform.localPosition = Vector3.zero;

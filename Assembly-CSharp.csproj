@@ -56,12 +56,8 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Interactable.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Orc_Patrol.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
-    <Compile Include="Assets\Scripts\SetInteractiveShaderEffects.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerSnow.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowAssetManager.cs" />
@@ -890,6 +886,10 @@
     <ProjectReference Include="Building.csproj">
       <Project>{09C6C9F0-8F95-CBC5-ED0E-78725C4ED67F}</Project>
       <Name>Building</Name>
+    </ProjectReference>
+    <ProjectReference Include="Orc.csproj">
+      <Project>{F35D80F1-B358-BE5F-5EF3-CD5F43675FBE}</Project>
+      <Name>Orc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

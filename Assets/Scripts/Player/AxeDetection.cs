@@ -7,6 +7,7 @@ public class AxeDetection : MonoBehaviour
 {
     public bool axeHitSomething = false;
     public Transform axe;
+    public int axeDamage = 20;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -20,5 +21,10 @@ public class AxeDetection : MonoBehaviour
             Debug.Log("I hit an Enemy!");
             axeHitSomething = true;
         }
+    }
+
+    public int GetAxeDamage()
+    {
+        return axeDamage;
     }
 }

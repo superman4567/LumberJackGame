@@ -1,0 +1,16 @@
+{
+    "name": "Orc",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b9ba99edb0906f840871754ac1e0fe5e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
