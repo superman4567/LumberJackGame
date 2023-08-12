@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float  maxHealth = 100f;
     [SerializeField] private float initialHealth = 100f;
     [SerializeField] private float health;
-    [SerializeField] private EnvironmentControls environmentControls;
+    [SerializeField] private EnvironmentManager environmentControls;
 
     private float startTime;
     private float baseDecreaseRate = 0.1f;  // Adjust this value to control the initial decrease rate

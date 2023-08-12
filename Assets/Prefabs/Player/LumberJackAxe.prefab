@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8739377448102000304}
   - component: {fileID: 5685613011992246549}
   - component: {fileID: 7567082705044770271}
+  - component: {fileID: 7872477347734461618}
   - component: {fileID: 3403596208368758445}
   - component: {fileID: 6227500898751990787}
   m_Layer: 0
@@ -85,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7872477347734461618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215500103253601290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4b9ab08828a14e8381ddd3faec7d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axeHitSomething: 0
+  axe: {fileID: 8739377448102000304}
 --- !u!54 &3403596208368758445
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,12 +109,12 @@ Rigidbody:
   m_GameObject: {fileID: 8215500103253601290}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 3
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!65 &6227500898751990787
 BoxCollider:

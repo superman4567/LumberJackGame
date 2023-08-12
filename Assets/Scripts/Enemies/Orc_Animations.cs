@@ -1,29 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Orc_Animations : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField] Orc_Patrol orcPatrol;
+    [SerializeField] NavMeshAgent orcNavMeshAgent;
 
     private int OrcVelocityHash;
     private int OrcIdleAnimationsHash;
 
-    private float idleAnimation1Frequency = 80f;
-    private float idleAnimation1Frequency2 = 20f;
+    private List<string> idleAnimationStates = new List<string>();
     private float timeSinceLastIdleChange = 0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         OrcIdleAnimationsHash = Animator.StringToHash("OrcIdleAnimations");
-        OrcVelocityHash = Animator.StringToHash("Velocity");
+        OrcVelocityHash = Animator.StringToHash("OrcVelocity");
+
+        // Add your idle animation state strings here
+        idleAnimationStates.Add("Idle1");
+        idleAnimationStates.Add("Idle2");
+        idleAnimationStates.Add("Idle3");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        IdleChange();
+        OrcVelocity();
     }
 
     private void IdleChange()
@@ -32,20 +37,43 @@ public class Orc_Animations : MonoBehaviour
 
         if (timeSinceLastIdleChange >= Random.Range(3f, 6f))
         {
-            if (Random.Range(0f, 100f) <= idleAnimation1Frequency)
+            string newIdleState = GetRandomIdleState();
+
+            // Only update the idle animation if the state has changed
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(newIdleState))
             {
-                animator.SetFloat(OrcIdleAnimationsHash, 0f);
-            }
-            else if (Random.Range(0f, 100f) >= idleAnimation1Frequency2)
-            {
-                animator.SetFloat(OrcIdleAnimationsHash, 0.5f);
-            }
-            else
-            {
-                animator.SetFloat(OrcIdleAnimationsHash, 1f);
+                UpdateMovementAnimationState(idleAnimationStates.IndexOf(newIdleState) * 0.5f);
             }
 
             timeSinceLastIdleChange = 0f;
         }
+    }
+
+    private void OrcVelocity()
+    {
+        if (orcNavMeshAgent.speed == 0)
+        {
+            IdleChange();
+            UpdateMovementAnimationState(0f);
+        }
+        else if (orcNavMeshAgent.speed == orcPatrol.orcWalkSpeed)
+        {
+            UpdateMovementAnimationState(0.5f);
+        }
+        else if (orcNavMeshAgent.speed == orcPatrol.orcChaseSpeed)
+        {
+            UpdateMovementAnimationState(1f);
+        }
+    }
+
+    private void UpdateMovementAnimationState(float value)
+    {
+        animator.SetFloat(OrcVelocityHash, value);
+    }
+
+    private string GetRandomIdleState()
+    {
+        int randomIndex = Random.Range(0, idleAnimationStates.Count);
+        return idleAnimationStates[randomIndex];
     }
 }

@@ -12,8 +12,12 @@ public class Orc_Patrol : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform player;
 
+    [SerializeField] public float orcWalkSpeed = 1.2f;
+    [SerializeField] public float orcChaseSpeed = 4f;
+
     public bool isAlerted = false;
-    public bool isChasing = false; 
+    public bool isChasing = false;
+    private bool playerInRange = false;
     private float chaseTimer = 0.0f;
     private int currentPatrolIndex = 0;
     
@@ -21,7 +25,7 @@ public class Orc_Patrol : MonoBehaviour
     {
         ShufflePatrolPoints();
         SetNextPatrolPoint();
-        navMeshAgent.speed = 2f;
+        navMeshAgent.speed = orcWalkSpeed;
     }
 
     private void Update()
@@ -30,41 +34,44 @@ public class Orc_Patrol : MonoBehaviour
         {
             if (IsPlayerNearby() || isAlerted)
             {
+                IsChasing();
                 isChasing = true;
-                navMeshAgent.speed = 5f;
-                chaseTimer = 0.0f;
-                CheckIfChasing();
-                AlertNearbyAI();
             }
             else if (!IsPlayerNearby())
             {
+                IsNotChasing();
                 isChasing = false;
-                navMeshAgent.speed = 2f;
             }
         }
     }
-
-    public void CheckIfChasing()
+    public void IsChasing()
     {
+        navMeshAgent.speed = orcChaseSpeed;
+        chaseTimer = 0.0f;
+        AlertNearbyAI();
+
+        navMeshAgent.destination = player.position;
+
+        //If something changes, like the chase take to long then we stop
         if (isChasing && chaseTimer >= chaseDuration)
         {
+            IsNotChasing();
             isChasing = false;
-            isAlerted = false;
-            SetNextPatrolPoint();
         }
-        else
-        {
-            chaseTimer += Time.deltaTime;
-            navMeshAgent.destination = player.position;
-        }
+    }
 
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+    public void IsNotChasing()
+    {
+        navMeshAgent.speed = orcWalkSpeed;
+        isChasing = false;
+        isAlerted = false;
+
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             SetNextPatrolPoint();
         }
     }
     
-
     private void ShufflePatrolPoints()
     {
         // Fisher-Yates shuffle algorithm
@@ -82,8 +89,8 @@ public class Orc_Patrol : MonoBehaviour
         if (patrolPoints.Length == 0)
             return;
 
-        navMeshAgent.destination = patrolPoints[currentPatrolIndex].position;
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+        navMeshAgent.destination = patrolPoints[currentPatrolIndex].position;
     }
 
     public bool IsPlayerNearby()

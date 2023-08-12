@@ -56,47 +56,43 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\RadialProgressBar.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\Tree.cs" />
-    <Compile Include="Assets\Scripts\Player\Interactable.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
-    <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\Scripts\TestScripts\TEST_Interactable.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\EnvironmentControls.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\PlacingStructures.cs" />
-    <Compile Include="Assets\Scripts\DataPersistence\DataPersistenceManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
-    <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\BuildingStructures.cs" />
-    <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
-    <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\Rock.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\TreeFalling.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentScripts\TreeManager.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Scripts\UI\NoFog.cs" />
-    <Compile Include="Assets\InteractionPosition.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Patrol.cs" />
-    <Compile Include="Assets\Orc_Attack.cs" />
-    <Compile Include="Assets\PlayerThrowAxe.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
+    <Compile Include="Assets\Scripts\TestScripts\TEST_Player.cs" />
+    <Compile Include="Assets\Scripts\SetInteractiveShaderEffects.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_PlayerSnow.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_SnowAssetManager.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_LightSwitch.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_SnowSubShowcase.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffects.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
+    <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_SnowTerrain.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_AddSnow.cs" />
+    <Compile Include="Assets\BruteForce\Scripts\BF_FxMouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\BruteForce\Shaders\SnowIce\URP\BF_SnowIceNoTessURP.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\BruteForce\Shaders\SnowIce\Standard\BF_SnowIceNoTess.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\BruteForce\Shaders\Extra\VertexColorDemo.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\BruteForce\Shaders\SnowIce\Standard\BF_SnowIce.shader" />
+    <None Include="Assets\BruteForce\Shaders\SnowIce\URP\BF_SnowIceURP.shader" />
+    <None Include="Assets\BruteForce\Shaders\Extra\SkyboxGradient.shader" />
+    <None Include="Assets\BruteForce\Shaders\Extra\SquareBanding.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -105,7 +101,9 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\BruteForce\Extra\BloomKino\BloomKino.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -869,6 +867,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Player.csproj">
+      <Project>{13BAC94D-84BF-0102-387F-CBBC4CDF3914}</Project>
+      <Name>Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="UI.csproj">
+      <Project>{38905CB0-37BE-19B2-976E-9D9AE77FD0A5}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Saving.csproj">
+      <Project>{3AACDC6F-ED9D-55C6-5C9B-48440612DE1F}</Project>
+      <Name>Saving</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameManager.csproj">
+      <Project>{CCD18A9C-D00C-7A77-72E1-FDBA9C5CDF71}</Project>
+      <Name>GameManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="Interactables.csproj">
+      <Project>{1138D720-A7F2-EAEA-AC9E-F75EB256B067}</Project>
+      <Name>Interactables</Name>
+    </ProjectReference>
+    <ProjectReference Include="Building.csproj">
+      <Project>{09C6C9F0-8F95-CBC5-ED0E-78725C4ED67F}</Project>
+      <Name>Building</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
