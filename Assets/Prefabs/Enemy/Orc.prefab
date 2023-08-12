@@ -76,8 +76,10 @@ GameObject:
   - component: {fileID: 5676187844564778095}
   - component: {fileID: 422541907897032435}
   - component: {fileID: 2915925939460639529}
+  - component: {fileID: 8827841133687426857}
   - component: {fileID: 5271779194425280954}
   - component: {fileID: 4079798335311215918}
+  - component: {fileID: 1751388962651848535}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Enemy
@@ -189,6 +191,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   orcPatrolScript: {fileID: 0}
+--- !u!114 &8827841133687426857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444096053169084497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db95df3450d56045a815b8504f62afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!195 &5271779194425280954
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -222,8 +237,22 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.83
-  m_Center: {x: 0, y: 2.15, z: 0}
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1.65, z: 0}
+--- !u!136 &1751388962651848535
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444096053169084497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.62
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.75, z: 0}
 --- !u!1001 &859656089468897843
 PrefabInstance:
   m_ObjectHideFlags: 0

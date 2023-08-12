@@ -9171,6 +9171,26 @@ PrefabInstance:
       propertyPath: transformToFollow
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 8282781473227979367, guid: 8c88a45db87ca8b4d80bfbf7955aa24d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.021347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282781473227979367, guid: 8c88a45db87ca8b4d80bfbf7955aa24d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.704777
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282781473453269640, guid: 8c88a45db87ca8b4d80bfbf7955aa24d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40.021347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282781473453269640, guid: 8c88a45db87ca8b4d80bfbf7955aa24d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.704777
+      objectReference: {fileID: 0}
     - target: {fileID: 8282781473453269653, guid: 8c88a45db87ca8b4d80bfbf7955aa24d,
         type: 3}
       propertyPath: mainCamera
@@ -17696,6 +17716,16 @@ PrefabInstance:
       propertyPath: environmentControls
       value: 
       objectReference: {fileID: 352479156}
+    - target: {fileID: 7322189240873099811, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
+      propertyPath: throwForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322189240873099811, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
+      propertyPath: returnSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7354386558332657380, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
       propertyPath: m_Camera
@@ -17708,8 +17738,23 @@ PrefabInstance:
       objectReference: {fileID: 330585545}
     - target: {fileID: 7354386558889206822, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354386558889206822, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354386558889206822, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354386558889206822, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354386558889207768, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
@@ -17771,7 +17816,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7354386558889207771, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
+        type: 3}
+      propertyPath: m_SlopeLimit
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7354386558889206822, guid: 3a7f07a0cf2777c4392a3192c97b2df7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3a7f07a0cf2777c4392a3192c97b2df7, type: 3}
 --- !u!1001 &7750646831829185379
 PrefabInstance:

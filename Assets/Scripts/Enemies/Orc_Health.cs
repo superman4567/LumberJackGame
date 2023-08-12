@@ -13,9 +13,14 @@ public class Orc_Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.collider.CompareTag("Axe"))
+        Debug.Log(currentHealth);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Axe"))
         {
            TakeDamage();
         }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6227500898751990787}
   m_Layer: 0
   m_Name: LumberJackAxe
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axeHitSomething: 0
   axe: {fileID: 8739377448102000304}
+  axeDamage: 20
 --- !u!54 &3403596208368758445
 Rigidbody:
   m_ObjectHideFlags: 0

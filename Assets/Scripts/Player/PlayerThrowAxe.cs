@@ -26,13 +26,13 @@ public class PlayerThrowAxe : MonoBehaviour
     private void Start()
     {
         axeRb.useGravity = false;
+        axeRb.isKinematic = true;
         initialParent = throwSpawnPoint;
         initialAxePosition = axeModel.transform.position;
     }
 
     private void Update()
     {
-        Debug.Log(isReturning);
         InputThrowAndReceiveAxe();
 
         if (isReturning) {
@@ -65,7 +65,8 @@ public class PlayerThrowAxe : MonoBehaviour
     {
         isAxeThrown = true;
         axeModel.transform.parent = null;
-        axeRb.useGravity = true;
+        axeRb.isKinematic = false;
+        axeRb.useGravity = false;
         axeRb.constraints =  RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         // Apply angular velocity for initial spin
@@ -82,6 +83,10 @@ public class PlayerThrowAxe : MonoBehaviour
     private IEnumerator StopContstraint()
     {
         yield return new WaitForSeconds(constraintTimer);
+        axeRb.isKinematic = false;
+        axeModel.transform.parent = null;
+        axeRb.useGravity = true;
+        axeRb.mass = 50f;
         axeRb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
@@ -91,7 +96,7 @@ public class PlayerThrowAxe : MonoBehaviour
         {
             // Disable most of the RB
             isReturning = true;
-            axeRb.useGravity = false;
+            axeRb.useGravity = true;
             axeRb.velocity = Vector3.zero;
             axeRb.angularVelocity = Vector3.zero;
         }
@@ -103,17 +108,21 @@ public class PlayerThrowAxe : MonoBehaviour
             axeModel.transform.position = targetPosition;
 
             if (Vector3.Distance(axeModel.transform.position, throwSpawnPoint.position) < 2f)
-                break;
-            
-            // If the axe is close to the throwSpawnPoint, reset the position and rotation
-            axeModel.transform.parent = throwSpawnPoint;
-            axeModel.transform.localPosition = Vector3.zero;
-            axeModel.transform.localRotation = Quaternion.identity;
+            {
+                // If the axe is close to the throwSpawnPoint, reset the position and rotation
+                axeRb.isKinematic = true;
+                axeModel.transform.parent = throwSpawnPoint;
+                axeModel.transform.localPosition = Vector3.zero;
+                axeModel.transform.localRotation = Quaternion.identity;
 
-            // Reset values
-            isAxeThrown = false;
-            isReturning = false;
-            axe.axeHitSomething = false;
+
+                // Reset values
+                isAxeThrown = false;
+                isReturning = false;
+                axe.axeHitSomething = false;
+
+                break;
+            }
         }
     }
 
