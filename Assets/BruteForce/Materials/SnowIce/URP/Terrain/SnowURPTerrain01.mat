@@ -263,16 +263,16 @@ Material:
     - _DetailBumpScale: 3.07
     - _DetailNormalMapScale: 1
     - _DisplacementColorMult: 0.9
-    - _DisplacementOffset: 0.1
+    - _DisplacementOffset: 0.93
     - _DisplacementShadowMult: 1.6
-    - _DisplacementStrength: 0.3
+    - _DisplacementStrength: 0.25
     - _DstBlend: 0
     - _EffectDisplacementStrength: 0.5
     - _Emission: 0.25
     - _FishAngle: 0
     - _FishIntensity: 6.32
     - _FishMaskIntensity: 0.25
-    - _FishScale: 0.51
+    - _FishScale: 0.05
     - _FishSpeed: 1
     - _FlowMultiplier: 0.3
     - _FogIntensity: 0.3
@@ -308,7 +308,7 @@ Material:
     - _NormalMultiplier: 0.47
     - _NormalRTDepth: 0.18
     - _NormalRTStrength: 4
-    - _NormalScale: 0.766
+    - _NormalScale: 0.792
     - _NormalScale0: 1
     - _NormalScale1: 1
     - _NormalScale2: 1
@@ -328,7 +328,7 @@ Material:
     - _ProceduralStrength: 1.5
     - _ReflectionOpacity: 0.25
     - _ReflectionStrength: 0.07
-    - _RemoveSnowStrength: 0.5
+    - _RemoveSnowStrength: 0
     - _RoughnessStrength: 2.26
     - _Shininess: 17.3
     - _ShininessIce: 10
@@ -346,7 +346,7 @@ Material:
     - _TessellationEdgeLength: 50
     - _TessellationUniform: 1
     - _TransitionPower: 0.3
-    - _TransitionScale: 13.7
+    - _TransitionScale: -2.8
     - _TransparencyValue: 1
     - _USEDECAL: 0
     - _USEFOG: 1
@@ -366,7 +366,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0, g: 0.65999997, b: 0.73, a: 1}
-    - _BotColor: {r: 0.576631, g: 0.7499591, b: 0.97900003, a: 1}
+    - _BotColor: {r: 0.8240477, g: 0.8674257, b: 0.8867924, a: 1}
     - _Color: {r: 0.8509804, g: 0.9608221, b: 1, a: 1}
     - _CracksStrength: {r: -1.04, g: 0.36, b: -0.25, a: 0.1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
@@ -374,10 +374,10 @@ Material:
     - _FogDirection: {r: 1, g: 0.3, b: 2, a: 0}
     - _IceTint: {r: 0.51744187, g: 0.8081396, b: 1, a: 1}
     - _IceTrail: {r: 0.4056604, g: 0.17573498, b: 0.017443415, a: 1}
-    - _MountColor: {r: 0.120717645, g: 0.121025234, b: 0.12156863, a: 1}
+    - _MountColor: {r: 0.6693218, g: 0.80406153, b: 0.8396226, a: 1}
     - _ParalaxColor: {r: 0, g: 0, b: 0, a: 1}
     - _ParallaxStrength: {r: 0, g: 0.5, b: 0.25, a: 0.15}
-    - _ProjectedShadowColor: {r: 0.42166796, g: 0.7136274, b: 0.90099996, a: 1}
+    - _ProjectedShadowColor: {r: 0.68369526, g: 0.79544085, b: 0.8679245, a: 1}
     - _ReflectionColor: {r: 0, g: 0.099333376, b: 0.14899999, a: 0.8}
     - _RimColor: {r: 0.03, g: 0.03, b: 0.03, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
