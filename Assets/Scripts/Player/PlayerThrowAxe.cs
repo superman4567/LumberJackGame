@@ -13,6 +13,7 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float spinForce;
     [SerializeField] private float constraintTimer = 0.2f;
+    [SerializeField] private Animator animator;
 
     private bool isAxeThrown = false;
     private bool isReturning;
@@ -35,7 +36,8 @@ public class PlayerThrowAxe : MonoBehaviour
     {
         InputThrowAndReceiveAxe();
 
-        if (isReturning) {
+        if (isReturning) 
+        {
             ReturnAxe();
         }
     }
@@ -46,23 +48,20 @@ public class PlayerThrowAxe : MonoBehaviour
 
         if (!isAxeThrown && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ThrowAxe();
+            animator.SetBool("Throw", true);
             isReturning = false;
             timeSinceAxeThrown = 0f;
         }
 
         if (axe.axeHitSomething && Input.GetKeyDown(KeyCode.Mouse0) || timeSinceAxeThrown >= 0.4f && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            isReturning = true;
-        }
-        else
-        {
-            isReturning = false;
+            animator.SetBool("Recall", true);
         }
     }
 
-    private void ThrowAxe()
+    public void ThrowAxe()
     {
+        animator.SetBool("Throw", false);
         isAxeThrown = true;
         axeModel.transform.parent = null;
         axeRb.isKinematic = false;
@@ -92,20 +91,28 @@ public class PlayerThrowAxe : MonoBehaviour
 
     private void ReturnAxe()
     {
+        animator.SetBool("Recall", false);
+        isReturning = true;
+
         if (isAxeThrown)
         {
-            // Disable most of the RB
             isReturning = true;
             axeRb.useGravity = true;
             axeRb.velocity = Vector3.zero;
             axeRb.angularVelocity = Vector3.zero;
         }
+        StartCoroutine(AxeReturnLerp());
+        
+    }
 
+    private IEnumerator AxeReturnLerp()
+    {
         while (isReturning)
         {
             // Smoothly move the axe towards the throwSpawnPoint
             Vector3 targetPosition = Vector3.Lerp(axeModel.transform.position, throwSpawnPoint.position, returnSpeed * Time.deltaTime);
             axeModel.transform.position = targetPosition;
+            yield return new WaitForEndOfFrame();
 
             if (Vector3.Distance(axeModel.transform.position, throwSpawnPoint.position) < 2f)
             {
@@ -115,15 +122,12 @@ public class PlayerThrowAxe : MonoBehaviour
                 axeModel.transform.localPosition = Vector3.zero;
                 axeModel.transform.localRotation = Quaternion.identity;
 
-
                 // Reset values
                 isAxeThrown = false;
                 isReturning = false;
                 axe.axeHitSomething = false;
-
                 break;
             }
         }
     }
-
 }
