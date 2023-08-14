@@ -1,10 +1,16 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BlueprintUI : MonoBehaviour
 {
-    [SerializeField] private Image[] iconImages;
-    [SerializeField] private Text[] nameLabel;
+    [SerializeField] private Image lockedImage;
+    [SerializeField] private TextMeshProUGUI lockedTitle;
+    [SerializeField] private TextMeshProUGUI lockedDescription;
+
+    private Image[] iconImages;
+    private TextMeshProUGUI[] nameLabel;
+    private TextMeshProUGUI[] descriptionLabel;
 
     private void OnEnable()
     {
@@ -22,12 +28,14 @@ public class BlueprintUI : MonoBehaviour
                 {
                     iconImages[i].sprite = blueprintData.icon;
                     nameLabel[i].text = blueprintData.blueprintName;
+                    descriptionLabel[i].text = blueprintData.description;
                 }
             }
             else
             {
-                iconImages[i].sprite = null;
+                iconImages[i].sprite = lockedImage.sprite;
                 nameLabel[i].text = "Locked";
+                descriptionLabel[i].text = "...";
             }
         }
     }
