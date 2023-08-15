@@ -20,17 +20,12 @@ public class PlayerThrowAxe : MonoBehaviour
     private bool isReturning;
 
     private float timeSinceAxeThrown = 0f;
-    private Transform initialParent;
-    private Vector3 initialAxePosition;
-    private Vector3 returnStartPosition;
     
 
     private void Start()
     {
         axeRb.useGravity = false;
         axeRb.isKinematic = true;
-        initialParent = throwSpawnPoint;
-        initialAxePosition = axeModel.transform.position;
     }
 
     private void Update()
@@ -63,11 +58,11 @@ public class PlayerThrowAxe : MonoBehaviour
     public void ThrowAxe()
     {
         animator.SetBool("Throw", false);
-        isAxeThrown = true;
         axeModel.transform.parent = null;
+        isAxeThrown = true;
         axeRb.isKinematic = false;
-        axeRb.useGravity = false;
-        axeRb.constraints =  RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        axeRb.useGravity = true;
+        axeRb.constraints =  RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         // Apply angular velocity for initial spin
         Vector3 spinAxis = transform.up;
@@ -76,18 +71,6 @@ public class PlayerThrowAxe : MonoBehaviour
         // Apply forward force for throwing
         Vector3 throwDirection = playerModelTransform.forward;
         axeRb.velocity = throwDirection * throwForce;
-
-        StartCoroutine(StopContstraint());
-    }
-
-    private IEnumerator StopContstraint()
-    {
-        yield return new WaitForSeconds(constraintTimer);
-        axeRb.isKinematic = false;
-        axeModel.transform.parent = null;
-        axeRb.useGravity = true;
-        axeRb.mass = 50f;
-        axeRb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 
     private void ReturnAxe()
@@ -103,7 +86,6 @@ public class PlayerThrowAxe : MonoBehaviour
             axeRb.angularVelocity = Vector3.zero;
         }
         StartCoroutine(AxeReturnLerp());
-        
     }
 
     private IEnumerator AxeReturnLerp()

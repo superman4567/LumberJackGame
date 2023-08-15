@@ -9,7 +9,8 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float rangedAttackRange = 10.0f;
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwAttackDuration = 1.0f; 
-    [SerializeField] private float throwCooldown = 4.0f; 
+    [SerializeField] private float throwCooldown = 4.0f;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private GameObject rockPrefab; 
     [SerializeField] private Transform throwSpawnPoint; 
@@ -38,6 +39,7 @@ public class Orc_Attack : MonoBehaviour
             if (distanceToPlayer <= meleeAttackRange)
             {
                 MeleeAttack();
+                animator.SetBool("OrcMeleeAttack", true);
             }
             else if (distanceToPlayer <= rangedAttackRange && orcPatrolScript.isChasing)
             {
@@ -45,11 +47,14 @@ public class Orc_Attack : MonoBehaviour
                 if (throwCooldownTimer >= throwCooldown)
                 {
                     ThrowAttack();
+                    animator.SetBool("OrcRangedAttack", true);
                 }
                 else 
                 {
                     isChasingPlayer = true;
                     orcPatrolScript.IsChasing();
+                    animator.SetBool("OrcMeleeAttack", false);
+                    animator.SetBool("OrcRangedAttack", false);
                 }
             }
         }
