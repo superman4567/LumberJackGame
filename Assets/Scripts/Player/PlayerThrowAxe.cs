@@ -14,6 +14,7 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private float spinForce;
     [SerializeField] private float constraintTimer = 0.2f;
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform playerModelTransform;
 
     private bool isAxeThrown = false;
     private bool isReturning;
@@ -73,7 +74,7 @@ public class PlayerThrowAxe : MonoBehaviour
         axeRb.angularVelocity = spinAxis * spinForce;
 
         // Apply forward force for throwing
-        Vector3 throwDirection = transform.forward;
+        Vector3 throwDirection = playerModelTransform.forward;
         axeRb.velocity = throwDirection * throwForce;
 
         StartCoroutine(StopContstraint());

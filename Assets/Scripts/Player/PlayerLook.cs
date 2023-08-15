@@ -7,6 +7,8 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask floorMask;
+    [SerializeField] private Transform playerModel;
+
     private RaycastHit hit;
     public Vector3 lookDirection;
 
@@ -28,7 +30,7 @@ public class PlayerLook : MonoBehaviour
                 lookDirection.y = 0f;
                 if (lookDirection != Vector3.zero)
                 {
-                    transform.rotation = Quaternion.LookRotation(lookDirection);
+                    playerModel.rotation = Quaternion.LookRotation(lookDirection);
                 }
             }
         }
