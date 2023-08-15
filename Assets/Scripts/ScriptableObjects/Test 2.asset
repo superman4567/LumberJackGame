@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f432fcc148bb9e48af56de6b0725472, type: 3}
-  m_Name: New Blueprint Data
+  m_Name: Test 2
   m_EditorClassIdentifier: 
-  blueprintName: AAAAAAAAA
-  description: BBBBBBBBBBB
-  icon: {fileID: 21300000, guid: dae33700bd23f76409a80bf78fdb8a42, type: 3}
-  isUnlocked: 1
+  blueprintName: TEST 2
+  description: Second Test
+  icon: {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
+  isUnlocked: 0
