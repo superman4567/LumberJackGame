@@ -100,4 +100,12 @@ public class PlayerInteraction : MonoBehaviour
             InteractionHappening?.Invoke(false);
         }
     }
+
+    public void OpenChest()
+    {
+        if (currentInteractableObject.tag == "Chest")
+        {
+            currentInteractableObject.GetComponent<ChestAnimations>().ChestOpen();
+        }
+    }
 }

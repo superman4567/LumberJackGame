@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BlueprintManager : MonoBehaviour
 {
-    [SerializeField] private BlueprintData[] blueprints;
-    private bool[] unlockedBlueprints;
+    [SerializeField] public BlueprintData[] blueprints;
+    public bool[] unlockedBlueprints;
 
     private static BlueprintManager instance;
     public static BlueprintManager Instance => instance;

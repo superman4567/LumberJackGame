@@ -16,6 +16,8 @@ public class PlayerAnimations : MonoBehaviour
 
     private string interactableTag;
 
+    
+
     private void OnEnable()
     {
         playerInteraction.InteractionHappening += InteractionAnimations;

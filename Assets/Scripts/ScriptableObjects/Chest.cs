@@ -8,6 +8,14 @@ public class Chest : Interactable
     {
         base.InteractComplete();
         BlueprintManager.Instance.UnlockBlueprint(blueprintIndex);
+
+
+        //Show in the UI what you have unlocked
+        Invoke("DestroyChest", 60f);
+    }
+
+    private void DestroyChest()
+    {
         Destroy(gameObject);
     }
 }

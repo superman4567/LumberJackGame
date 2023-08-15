@@ -6,13 +6,19 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("HUD Buttons")]
+    [Header("Build panel")]
     [SerializeField] private GameObject strucutres_panel;
+
+    [Header("Build panel Blueprints")]
+
+    [Header("Storm text")]
     [SerializeField] private TMP_Text stormTimerText;
     [SerializeField] private EnvironmentManager environmentManager;
 
-    public Action woodCheat;
+    private GameObject lastActivePanel; // Store the last active panel here
     private bool strucutresPanelActive = false;
+
+    public Action woodCheat;
 
     public static UIManager Instance;
 
@@ -24,17 +30,29 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         strucutres_panel.SetActive(false);
+        lastActivePanel = null; // Initialize lastActivePanel to null
     }
 
     private void Update()
     {
+        closeLastPanel(); // Check for closing the last active panel
         DisplayStormTimer();
+    }
+
+    private void closeLastPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && lastActivePanel != null)
+        {
+            lastActivePanel.SetActive(false);
+            lastActivePanel = null; // Reset the last active panel
+        }
     }
 
     public void ActivationStrucutresPanel()
     {
         if (!strucutresPanelActive)
         {
+            lastActivePanel = strucutres_panel; // Update the last active panel
             ActivationStrucutresPanel(true);
         }
         else if (strucutresPanelActive)
