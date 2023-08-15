@@ -1,17 +1,20 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BlueprintUI : MonoBehaviour
 {
-    [Header("Blueprint icons")]
-    [SerializeField] private Image[] bp_retrievedIcons;
+    [Header("Overview UI")]
+    [SerializeField] private Image overviewImage;
+    [SerializeField] private TMP_Text overviewTitle;
+    [SerializeField] private TMP_Text overviewDescription;
 
-    [Header("Blueprint titles")]
-    [SerializeField] private TextMeshProUGUI[] bp_retrievedTitles;
+    [Header("Blueprint Prefab")]
+    [SerializeField] private Transform blueprintPrefab;
 
-    [Header("Blueprint descriptions")]
-    [SerializeField] private TextMeshProUGUI[] bp_retrievedDescription;
+    [Header("UI Components")]
+    [SerializeField] private Transform prefabParent;
 
     [Header("Blueprint default components")]
     [SerializeField] private Sprite lockedIcon;
@@ -20,50 +23,47 @@ public class BlueprintUI : MonoBehaviour
 
     private void OnEnable()
     {
-        RetreiveSOData();
+        ResetChildren();
+        InstatiatePrefabs();
     }
 
-    private void RetreiveSOData()
+    private void ResetChildren()
     {
-        int blueprintCount = BlueprintManager.Instance.blueprints.Length;
-        Image[] iconImages = new Image[blueprintCount];
-        TextMeshProUGUI[] nameLabel = new TextMeshProUGUI[blueprintCount];
-        TextMeshProUGUI[] descriptionLabel = new TextMeshProUGUI[blueprintCount];
-
-        for (int i = 0; i < blueprintCount; i++)
+        foreach (Transform child in prefabParent)
         {
-            if (BlueprintManager.Instance.IsBlueprintUnlocked(i))
-            {
-                BlueprintData blueprintData = BlueprintManager.Instance.GetBlueprint(i);
-                if (blueprintData != null)
-                {
-                    bp_retrievedIcons[i].sprite = blueprintData.icon;
-                    bp_retrievedTitles[i].text = blueprintData.blueprintName;
-                    bp_retrievedDescription[i].text = blueprintData.description;
-
-                    iconImages[i].sprite = blueprintData.icon;
-                    nameLabel[i].text = blueprintData.blueprintName;
-                    descriptionLabel[i].text = blueprintData.description;
-                }
-            }
-            else
-            {
-                iconImages[i].sprite = lockedIcon;
-                nameLabel[i].text = defaultTitle;
-                descriptionLabel[i].text = defaultDescription;
-            }
+            Destroy(child.gameObject);
         }
-
-        AssignSOData(iconImages, nameLabel, descriptionLabel);
     }
 
-    private void AssignSOData(Image[] iconImages, TextMeshProUGUI[] nameLabel, TextMeshProUGUI[] descriptionLabel)
+    private void InstatiatePrefabs()
     {
-        for (int i = 0; i < iconImages.Length; i++)
+        BlueprintData[] blueprints = BlueprintManager.Instance.blueprints;
+
+        for (int i = 0; i < blueprints.Length; i++)
         {
-            bp_retrievedIcons[i].sprite = iconImages[i].sprite;
-            bp_retrievedTitles[i].text = nameLabel[i].text;
-            bp_retrievedDescription[i].text = descriptionLabel[i].text;
+            Transform prefab = Instantiate(blueprintPrefab, prefabParent);
+
+            if (blueprints[i].isUnlocked)
+            {
+                prefab.GetChild(0).GetComponent<Image>().sprite = blueprints[i].icon;
+                prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = blueprints[i].blueprintName;
+            } else
+            {
+                prefab.GetChild(0).GetComponent<Image>().sprite = lockedIcon;
+                prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = defaultTitle;
+            }
+            
+
+            int prefabValue = i;
+
+            prefab.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                if (!blueprints[prefabValue].isUnlocked) return;
+
+                overviewImage.sprite = blueprints[prefabValue].icon;
+                overviewTitle.text = blueprints[prefabValue].blueprintName;
+                overviewDescription.text = blueprints[prefabValue].description;
+            });
         }
     }
 }
