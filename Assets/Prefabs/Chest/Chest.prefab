@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savedProgressInSeconds: 0
-  interactInSeconds: 1
+  interactInSeconds: 0.5
   blueprintIndex: 0
 --- !u!114 &2661932004220360459
 MonoBehaviour:
