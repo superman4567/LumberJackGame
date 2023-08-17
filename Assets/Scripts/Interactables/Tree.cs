@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,15 +13,13 @@ public class Tree : Interactable
     {
         base.InteractComplete();
         TreeBreakingSound.Play();
-        
 
-        if(hasInstantiatedPrefab == false)
+        if (!hasInstantiatedPrefab)
         {
             Instantiate(fallingTreePrefab, transform.position, transform.rotation, transform.parent);
             hasInstantiatedPrefab = true;
             GameManager.Instance.AddWood();
         }
-        
         Destroy(TreeChild);
     }
 }

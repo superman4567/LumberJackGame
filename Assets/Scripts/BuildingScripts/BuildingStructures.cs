@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingStructures : MonoBehaviour
+public class UpgradingStructures : MonoBehaviour
 {
     [Header("List of building objects")]
     [SerializeField] private List<GameObject> BuildingLevels = new List<GameObject>();
@@ -69,6 +69,10 @@ public class BuildingStructures : MonoBehaviour
                     BuildingLevels[2].SetActive(false);
                     BuildingLevels[3].SetActive(true);
                     return;
+                }
+                else if(currentBuildingLevel == 3)
+                {
+
                 }
             }
         }

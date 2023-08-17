@@ -8,6 +8,7 @@ public class PlacingStructures : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     CinemachineFramingTransposer cinemachineFramingTransposer;
+    private QuestManager questManager;
 
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rotateAmount;
@@ -18,6 +19,11 @@ public class PlacingStructures : MonoBehaviour
     private GameObject pendingObject;
     private Vector3 pos;
     private RaycastHit hit;
+
+    private void Awake()
+    {
+        questManager = FindObjectOfType<QuestManager>();
+    }
 
     void Start()
     {
@@ -77,6 +83,25 @@ public class PlacingStructures : MonoBehaviour
     {
         UIManager.Instance.ActivationStrucutresPanel(false);
         pendingObject = Instantiate(building[0], pos, transform.rotation);
+        CheckOffQuest();
+    }
+
+    private void CheckOffQuest()
+    {
+        string questName = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].questName;
+        int requiredAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].requiredAmount;
+
+
+        //check for quest names
+        if (questName == "A place to sleep")
+        {
+            int currentAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount;
+
+            if (currentAmount >= requiredAmount)
+            {
+                QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].isCompleted = true;
+            }
+        }
     }
 
     public void PlaceObject()
@@ -93,4 +118,6 @@ public class PlacingStructures : MonoBehaviour
     {
         pendingObject.transform.Rotate(Vector3.up, -rotateAmount);
     }
+
+    
 }

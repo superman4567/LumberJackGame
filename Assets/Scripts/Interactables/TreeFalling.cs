@@ -43,8 +43,28 @@ public class TreeFalling : Interactable
         {
             GameManager.Instance.AddWood();
             completedOnce = true;
+            CheckOffQuest();
+
             Destroy(gameObject);
         }
-        
+    }
+
+    private void CheckOffQuest()
+    {
+        string questName = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].questName;
+        int requiredAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].requiredAmount;
+
+        //check for quest names
+        if (questName == "Gather Wood")
+        {
+            QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount += 1;
+
+            int currentAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount;
+
+            if (currentAmount >= requiredAmount)
+            {
+                QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].isCompleted = true;
+            }
+        }
     }
 }

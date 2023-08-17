@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour, IDataPersistance
 {
     public static GameManager Instance;
+    private UIManager uiManager;
 
     [Header("Resources")]
     public int wood = 0;
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public TextMeshProUGUI planksUI;
     public TextMeshProUGUI woodenSpikesUI;
     public TextMeshProUGUI RockUI;
+
+    private void Awake()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+    }
 
     private void OnEnable()
     {
@@ -83,11 +89,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     public void AddWoodCheat()
     {
-        if(UIManager.Instance.woodCheat != null)
-        {
-            wood += 200;
-            UpdateUI();
-        }
+        wood += 200;
+        UpdateUI();
     }
 
     

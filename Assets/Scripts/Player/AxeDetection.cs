@@ -13,7 +13,6 @@ public class AxeDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            Debug.Log("I hit the floor!");
             axeHitSomething = true;
         }
         else if (other.gameObject.CompareTag("Enemy"))

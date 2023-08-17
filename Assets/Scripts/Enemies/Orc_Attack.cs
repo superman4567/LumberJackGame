@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Orc_Attack : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    
     [SerializeField] private float meleeAttackRange = 3.0f;
     [SerializeField] private float rangedAttackRange = 10.0f;
     [SerializeField] private float meleeAttackDuration = 1.0f; 
@@ -17,79 +17,61 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private Orc_Patrol orcPatrolScript;
 
-    private bool isMeleeAttacking = false;
-    private bool isThrowAttacking = false;
-    private bool isChasingPlayer = false;
+    private Transform player;
     private float throwCooldownTimer = 0.0f;
+
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void Update()
     {
-        if (player != null)
-        {
-            MeleeOrRangedAttack();
-        }
+        MeleeOrRangedAttack();
     }
 
     private void MeleeOrRangedAttack()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (!isMeleeAttacking && !isThrowAttacking)
+        if (distanceToPlayer <= rangedAttackRange && orcPatrolScript.isChasing)
         {
-            if (distanceToPlayer <= meleeAttackRange)
+            //Making sure the or does not rapid fire the rocks
+            throwCooldownTimer += Time.deltaTime;
+            if (throwCooldownTimer >= throwCooldown)
             {
-                MeleeAttack();
-                animator.SetBool("OrcMeleeAttack", true);
+                animator.SetBool("OrcRangedAttack", true);
             }
-            else if (distanceToPlayer <= rangedAttackRange && orcPatrolScript.isChasing)
-            {
-                throwCooldownTimer += Time.deltaTime;
-                if (throwCooldownTimer >= throwCooldown)
-                {
-                    ThrowAttack();
-                    animator.SetBool("OrcRangedAttack", true);
-                }
-                else 
-                {
-                    isChasingPlayer = true;
-                    orcPatrolScript.IsChasing();
-                    animator.SetBool("OrcMeleeAttack", false);
-                    animator.SetBool("OrcRangedAttack", false);
-                }
-            }
+        }
+        else if (distanceToPlayer < meleeAttackRange)
+        {
+            MeleeAttack();
+            animator.SetBool("OrcMeleeAttack", true);
         }
     }
 
     private void MeleeAttack()
     {
-        if (isMeleeAttacking) { return; }
         StartCoroutine(MeleeAttackCoroutine());
-    }
-
-    private void ThrowAttack()
-    {
-        if (isThrowAttacking) { return; }
-        StartCoroutine(ThrowAttackCoroutine());
-        throwCooldownTimer = throwCooldown;
     }
 
     private IEnumerator MeleeAttackCoroutine()
     {
-        isMeleeAttacking = true;
+        animator.SetBool("OrcMeleeAttack", true);
         yield return new WaitForSeconds(meleeAttackDuration);
-        isMeleeAttacking = false;
+        animator.SetBool("OrcMeleeAttack", false);
     }
 
-    private IEnumerator ThrowAttackCoroutine()
+    public void ThrowAttack()
     {
-        isThrowAttacking = true;
-
         GameObject rock = Instantiate(rockPrefab, throwSpawnPoint.position, Quaternion.identity);
         Vector3 throwDirection = (player.position - throwSpawnPoint.position).normalized;
         rock.GetComponent<Rigidbody>().AddForce(throwDirection * 10f, ForceMode.Impulse);
 
-        yield return new WaitForSeconds(throwAttackDuration);
-        isThrowAttacking = false;
+        throwCooldownTimer = throwCooldown;
+        animator.SetBool("OrcRangedAttack", false);
+        animator.SetBool("OrcMeleeAttack", false); // Add this line
     }
 
     private void OnDrawGizmosSelected()

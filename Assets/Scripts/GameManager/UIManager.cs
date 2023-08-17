@@ -13,18 +13,25 @@ public class UIManager : MonoBehaviour
 
     [Header("Storm text")]
     [SerializeField] private TMP_Text stormTimerText;
-    [SerializeField] private EnvironmentManager environmentManager;
-
+    
+    private EnvironmentManager environmentManager;
     private GameObject lastActivePanel; // Store the last active panel here
     private bool strucutresPanelActive = false;
+    private bool playerIsInside = false;
 
     public Action woodCheat;
-
     public static UIManager Instance;
 
     private void Awake()
     {
         Instance = this;
+        {
+            environmentManager = FindObjectOfType<EnvironmentManager>();
+            if (environmentManager == null)
+            {
+                playerIsInside = true;
+            }
+        }
     }
 
     private void Start()
@@ -36,6 +43,8 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         closeLastPanel(); // Check for closing the last active panel
+
+        if (playerIsInside) { return; }
         DisplayStormTimer();
     }
 
