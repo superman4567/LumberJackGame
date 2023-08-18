@@ -21,15 +21,15 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public TextMeshProUGUI sticksUI;
     public TextMeshProUGUI planksUI;
     public TextMeshProUGUI woodenSpikesUI;
-    public TextMeshProUGUI RockUI;
+    public TextMeshProUGUI rockUI;
 
     public enum ResourceType
     {
         Wood,
         Sticks,
         Planks,
-        woodenSpikes,
-        rock
+        WoodenSpikes,
+        Rock
     }
 
     private void Start()
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
         sticksUI.text = "Sticks: " + sticks.ToString();
         planksUI.text = "Planks: " + planks.ToString();
         woodenSpikesUI.text = "WoodenSpikes: " + woodenSpikes.ToString();
-        RockUI.text = "Rock: " + rock.ToString();
+        rockUI.text = "Rock: " + rock.ToString();
     }
 
     public void AddResource(ResourceType resourceType, int amount)
@@ -77,6 +77,14 @@ public class GameManager : MonoBehaviour, IDataPersistance
                 break;
             case ResourceType.Planks:
                 planks += amount;
+                break;
+            case ResourceType.WoodenSpikes:
+                woodenSpikes += amount;
+                break;
+            case ResourceType.Rock:
+                rock += amount;
+                break;
+            default: Debug.LogError("Add resource method in game manager not working properly");
                 break;
         }
 

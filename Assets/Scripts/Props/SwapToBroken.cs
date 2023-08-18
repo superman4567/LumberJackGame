@@ -14,6 +14,7 @@ public class SwapToBroken : MonoBehaviour
     [SerializeField] private float DestroyInstantiationTime = 12;
 
     [SerializeField] Material[] materials;
+    public Action dropSpikesAndSticks;
 
 
     private void Start()
@@ -35,6 +36,7 @@ public class SwapToBroken : MonoBehaviour
             brokenVersion.SetActive(true);
 
             StartCoroutine(StartFade());
+            dropSpikesAndSticks?.Invoke();
             Invoke("DestroyGameObject", DestroyInstantiationTime);
         }
     }

@@ -18,7 +18,7 @@ public class Rock : Interactable
 
         randomAddRocks = Random.Range(addRocksMin, addRocksMax);
 
-        GameManager.Instance.AddResource(ResourceType.rock, randomAddRocks);
+        GameManager.Instance.AddResource(ResourceType.Rock, randomAddRocks);
         Instantiate(brokenRock, transform.position, transform.rotation, transform.parent);
         Destroy(gameObject);
     }
