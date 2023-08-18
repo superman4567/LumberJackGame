@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BlueprintData : ScriptableObject
 {
     public string blueprintName;
-    public string description;
+    [TextArea(3,8)]  public string description;
     public Sprite icon;
     public bool isUnlocked; 
 }

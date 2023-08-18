@@ -8,8 +8,6 @@ public class PlacingStructures : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     CinemachineFramingTransposer cinemachineFramingTransposer;
-    private QuestManager questManager;
-
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rotateAmount;
     [SerializeField] private float cameraDistanceDefault = 18;
@@ -19,11 +17,6 @@ public class PlacingStructures : MonoBehaviour
     private GameObject pendingObject;
     private Vector3 pos;
     private RaycastHit hit;
-
-    private void Awake()
-    {
-        questManager = FindObjectOfType<QuestManager>();
-    }
 
     void Start()
     {
@@ -82,7 +75,7 @@ public class PlacingStructures : MonoBehaviour
     public void SelectObject(int index)
     {
         UIManager.Instance.CloseAllPanels();
-        pendingObject = Instantiate(building[0], pos, transform.rotation);
+        pendingObject = Instantiate(building[index], pos, transform.rotation);
         CheckOffQuest();
     }
 
@@ -118,6 +111,4 @@ public class PlacingStructures : MonoBehaviour
     {
         pendingObject.transform.Rotate(Vector3.up, -rotateAmount);
     }
-
-    
 }

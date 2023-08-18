@@ -13,6 +13,7 @@ public class BlueprintUI : MonoBehaviour
 
     [Header("Blueprint Prefab")]
     [SerializeField] private Transform blueprintPrefab;
+    public int currentBPbyIndex;
 
     [Header("UI Components")]
     [SerializeField] private Transform prefabParent;
@@ -55,6 +56,7 @@ public class BlueprintUI : MonoBehaviour
             {
                 prefab.GetChild(0).GetComponent<Image>().sprite = lockedIcon;
                 prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = defaultTitle;
+                prefab.GetComponent<Button>().interactable = false;
             }
             
             int prefabValue = i;
@@ -62,6 +64,7 @@ public class BlueprintUI : MonoBehaviour
             prefab.GetComponent<Button>().onClick.AddListener(() =>
             {
                 if (!blueprints[prefabValue].isUnlocked) return;
+                currentBPbyIndex = prefabValue;
 
                 overviewImage.sprite = blueprints[prefabValue].icon;
                 overviewTitle.text = blueprints[prefabValue].blueprintName;
@@ -79,7 +82,14 @@ public class BlueprintUI : MonoBehaviour
             overviewImage.sprite = blueprints[0].icon;
             overviewTitle.text = blueprints[0].blueprintName;
             overviewDescription.text = blueprints[0].description;
+
+            prefabParent.GetChild(0).GetComponent<Button>().Select();
         }
+    }
+
+    public void BuildBP()
+    {
+       FindObjectOfType<PlacingStructures>().SelectObject(currentBPbyIndex);
     }
 
 }

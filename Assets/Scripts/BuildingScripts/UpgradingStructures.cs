@@ -75,6 +75,11 @@ public class BuildingStructures : MonoBehaviour
                     BuildingLevels[3].SetActive(true);
                     return;
                 }
+
+                else if (currentBuildingLevel == 3)
+                {
+                    //enable powerup after interacting
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [Header("Panels")]
-    [SerializeField] private List<GameObject> panels;
+    [SerializeField] private List<GameObject> panels = new List<GameObject>();
 
     [Header("Storm text")]
     [SerializeField] private TMP_Text stormTimerText;
@@ -18,6 +18,11 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("You have another instance of the UI manager");
+            Destroy(this);
+        }
         Instance = this;
         environmentManager = FindObjectOfType<EnvironmentManager>();
         if (environmentManager == null)
@@ -53,26 +58,15 @@ public class UIManager : MonoBehaviour
 
     public void OpenPanelByIndex(int panelIndex)
     {
-        Debug.Log(this == Instance);
-        Debug.Log(panels.Count);
-        for (int i = 0; i < panels.Count; i++)
-        {
-            if (i == panelIndex)
-            {
-                Debug.Log(panels[i]);
-                panels[i].SetActive(true);
-            }
-            else
-            {
-                panels[i].SetActive(false);
-            }
-        }
+        CloseAllPanels();
+        panels[panelIndex].SetActive(true);
     }
 
     public void CloseAllPanels()
     {
         foreach (GameObject panel in panels)
         {
+            Debug.Log(panel.name);
             panel.SetActive(false);
         }
     }

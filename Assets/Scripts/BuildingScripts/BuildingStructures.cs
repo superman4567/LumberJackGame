@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static GameManager;
 
 public class UpgradingStructures : MonoBehaviour
 {
@@ -45,7 +44,7 @@ public class UpgradingStructures : MonoBehaviour
                 if (costUpgradeTier1 < gameManager.wood && currentBuildingLevel == 0)
                 {
                     currentBuildingLevel = 1;
-                    gameManager.SubstractResource(ResourceType.Wood, costUpgradeTier1);
+                    gameManager.SubstractResource(GameManager.ResourceType.Wood, costUpgradeTier1);
 
                     BuildingLevels[0].SetActive(false);
                     BuildingLevels[1].SetActive(true);
@@ -55,7 +54,7 @@ public class UpgradingStructures : MonoBehaviour
                 else if (costUpgradeTier2 < gameManager.wood && currentBuildingLevel == 1)
                 {
                     currentBuildingLevel = 2;
-                    gameManager.SubstractResource(ResourceType.Wood, costUpgradeTier2);
+                    gameManager.SubstractResource(GameManager.ResourceType.Wood, costUpgradeTier2);
 
                     BuildingLevels[1].SetActive(false);
                     BuildingLevels[2].SetActive(true);
@@ -65,7 +64,7 @@ public class UpgradingStructures : MonoBehaviour
                 else if (costUpgradeTier3 < gameManager.wood && currentBuildingLevel == 2)
                 {
                     currentBuildingLevel = 3;
-                    gameManager.SubstractResource(ResourceType.Wood, costUpgradeTier3);
+                    gameManager.SubstractResource(GameManager.ResourceType.Wood, costUpgradeTier3);
 
                     BuildingLevels[2].SetActive(false);
                     BuildingLevels[3].SetActive(true);

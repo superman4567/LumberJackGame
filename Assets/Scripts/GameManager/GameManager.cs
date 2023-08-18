@@ -8,7 +8,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour, IDataPersistance
 {
     public static GameManager Instance;
-    private UIManager uiManager;
 
     [Header("Resources")]
     public int wood = 0;
@@ -31,11 +30,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
         Planks,
         woodenSpikes,
         rock
-    }
-
-    private void Awake()
-    {
-        uiManager = FindObjectOfType<UIManager>();
     }
 
     private void Start()
