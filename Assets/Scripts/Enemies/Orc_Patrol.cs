@@ -17,7 +17,6 @@ public class Orc_Patrol : MonoBehaviour
 
     public bool isAlerted = false;
     public bool isChasing = false;
-    private bool playerInRange = false;
     private float chaseTimer = 0.0f;
     private int currentPatrolIndex = 0;
     

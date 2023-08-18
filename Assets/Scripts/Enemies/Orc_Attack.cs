@@ -8,7 +8,6 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackRange = 3.0f;
     [SerializeField] private float rangedAttackRange = 10.0f;
     [SerializeField] private float meleeAttackDuration = 1.0f; 
-    [SerializeField] private float throwAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private Animator animator;
 

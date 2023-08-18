@@ -149,7 +149,7 @@ MonoBehaviour:
   floorMask:
     serializedVersion: 2
     m_Bits: 512
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 72843859898692482}
   lookDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &4226212422562731673
 MonoBehaviour:
@@ -163,15 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908bddf9a644b8647bdb1ba2e84ed323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  healthUIAmount: {fileID: 0}
+  deathUI: {fileID: 0}
   initialHealth: 100
   health: 0
-  environmentControls: {fileID: 0}
-  maxStamina: 50
-  initialStamina: 50
-  stamina: 0
-  healthUIAmount: {fileID: 0}
-  staminaUIAmount: {fileID: 0}
 --- !u!114 &1339500863146655895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +203,7 @@ MonoBehaviour:
   spinForce: 750
   constraintTimer: 0.2
   animator: {fileID: 8609658880822775392}
-  playerModelTransform: {fileID: 0}
+  playerModelTransform: {fileID: 72843859898692482}
 --- !u!114 &6349285708817845307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +221,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rotateAmount: 30
-  cameraDistanceDefault: 22
+  cameraDistanceDefault: 18
   cameraDistanceBuilding: 35
   building:
   - {fileID: 1978430117570926462, guid: cb68c7bce0d5cb041ae5affd6b85db1d, type: 3}
@@ -1912,7 +1907,7 @@ PrefabInstance:
     - target: {fileID: 8101565807951273311, guid: 6dd73f5bfbe47fc4ba9c64480f6d89fa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.049110357
+      value: -0.04911036
       objectReference: {fileID: 0}
     - target: {fileID: 8101565807951273311, guid: 6dd73f5bfbe47fc4ba9c64480f6d89fa,
         type: 3}
@@ -1922,7 +1917,7 @@ PrefabInstance:
     - target: {fileID: 8101565807951273311, guid: 6dd73f5bfbe47fc4ba9c64480f6d89fa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05659656
+      value: -0.056596562
       objectReference: {fileID: 0}
     - target: {fileID: 8174140538269110592, guid: 6dd73f5bfbe47fc4ba9c64480f6d89fa,
         type: 3}
@@ -2143,7 +2138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4470467910511948946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -25,7 +26,10 @@ public class BlueprintUI : MonoBehaviour
     {
         ResetChildren();
         InstatiatePrefabs();
+        SetFirstPrefabToPreview();
     }
+
+   
 
     private void ResetChildren()
     {
@@ -53,7 +57,6 @@ public class BlueprintUI : MonoBehaviour
                 prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = defaultTitle;
             }
             
-
             int prefabValue = i;
 
             prefab.GetComponent<Button>().onClick.AddListener(() =>
@@ -66,4 +69,17 @@ public class BlueprintUI : MonoBehaviour
             });
         }
     }
+
+    private void SetFirstPrefabToPreview()
+    {
+        BlueprintData[] blueprints = BlueprintManager.Instance.blueprints;
+
+        if (blueprints[0].isUnlocked)
+        {
+            overviewImage.sprite = blueprints[0].icon;
+            overviewTitle.text = blueprints[0].blueprintName;
+            overviewDescription.text = blueprints[0].description;
+        }
+    }
+
 }

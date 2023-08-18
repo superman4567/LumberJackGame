@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f432fcc148bb9e48af56de6b0725472, type: 3}
-  m_Name: Test 3
+  m_Name: 1. Cabin
   m_EditorClassIdentifier: 
-  blueprintName: 3
-  description: third test
-  icon: {fileID: 21300000, guid: c887ed2a931c29040bc544cd8c546e9f, type: 3}
+  blueprintName: Cabin
+  description: A safe place resistent to the strongest storms.
+  icon: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
   isUnlocked: 1

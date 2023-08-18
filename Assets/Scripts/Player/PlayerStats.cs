@@ -6,11 +6,14 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("Playerstats UI")]
+    [SerializeField] private TextMeshProUGUI healthUIAmount;
+    [SerializeField] private GameObject deathUI;
+
     [Header("Health ")]
-    [SerializeField] private float  maxHealth = 100f;
     [SerializeField] private float initialHealth = 100f;
     [SerializeField] private float health;
-    
+
     private EnvironmentManager environmentControls;
     private float startTime;
     private float baseDecreaseRate = 0.1f;  // Adjust this value to control the initial decrease rate
@@ -18,16 +21,6 @@ public class PlayerStats : MonoBehaviour
 
     private bool damageByStorm = false;
     private bool playerIsOutside = false;
-
-    [Header("Stamina")]
-    [SerializeField] private float maxStamina = 50;
-    [SerializeField] private float initialStamina = 50f;
-    [SerializeField] private float stamina;
-    
-
-    [Header("Playerstats UI")]
-    [SerializeField] private TextMeshProUGUI healthUIAmount;
-    [SerializeField] private TextMeshProUGUI staminaUIAmount;
 
     private void Awake()
     {
@@ -57,12 +50,10 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         health = initialHealth;
-        stamina = initialStamina;
 
         startTime = Time.time;
 
         healthUIAmount.text = health.ToString();
-        staminaUIAmount.text = stamina.ToString();
     }
 
     void Update()
@@ -72,12 +63,13 @@ public class PlayerStats : MonoBehaviour
 
     private void IsStormStarting()
     {
+        //is being set by external script
         damageByStorm = true;
     }
 
     private void DamageByStorm()
     {
-        if(damageByStorm)
+        if(damageByStorm && playerIsOutside)
         {
             float currentTime = Time.time;
             float elapsedTime = currentTime - startTime;
@@ -113,6 +105,9 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerDeath()
     {
-
+        //Show UI animation
+        //Invoke restart level
+        deathUI.SetActive(true);
+        Time.timeScale = 0;
     }
 }

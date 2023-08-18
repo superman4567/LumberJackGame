@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,19 +24,18 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public TextMeshProUGUI woodenSpikesUI;
     public TextMeshProUGUI RockUI;
 
+    public enum ResourceType
+    {
+        Wood,
+        Sticks,
+        Planks,
+        woodenSpikes,
+        rock
+    }
+
     private void Awake()
     {
         uiManager = FindObjectOfType<UIManager>();
-    }
-
-    private void OnEnable()
-    {
-        UIManager.Instance.woodCheat += AddWoodCheat;
-    }
-
-    private void OnDisable()
-    {
-        UIManager.Instance.woodCheat -= AddWoodCheat;
     }
 
     private void Start()
@@ -47,11 +47,19 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         this.wood = data.wood;
+        this.sticks = data.sticks;
+        this.planks = data.planks;
+        this.woodenSpikes = data.woodenSpikes;
+        this.rock = data.rock;
     }
 
     public void SaveData(ref GameData data)
     {
         data.wood = this.wood;
+        data.sticks = this.sticks;
+        data.planks = this.planks;
+        data.woodenSpikes = this.woodenSpikes;
+        data.rock = this.rock;
     }
 
     private void UpdateUI()
@@ -63,35 +71,39 @@ public class GameManager : MonoBehaviour, IDataPersistance
         RockUI.text = "Rock: " + rock.ToString();
     }
 
-    public void AddWood()
+    public void AddResource(ResourceType resourceType, int amount)
     {
-        wood += 2;
+        switch (resourceType)
+        {
+            case ResourceType.Wood:
+                wood += amount;
+                break;
+            case ResourceType.Sticks:
+                sticks += amount;
+                break;
+            case ResourceType.Planks:
+                planks += amount;
+                break;
+        }
+
         UpdateUI();
     }
 
-    public void AddSticks()
+    public void SubstractResource(ResourceType resourceType, int amount)
     {
-        sticks += 2;
+        switch (resourceType)
+        {
+            case ResourceType.Wood:
+                wood += amount;
+                break;
+            case ResourceType.Sticks:
+                sticks += amount;
+                break;
+            case ResourceType.Planks:
+                planks += amount;
+                break;
+        }
+
         UpdateUI();
     }
-
-    public void AddPlanks()
-    {
-        planks += 2;
-        UpdateUI();
-    }
-
-    public void SubstractWood(int woodToSubsubstract)
-    {
-        wood -= woodToSubsubstract;
-        UpdateUI();
-    }
-
-    public void AddWoodCheat()
-    {
-        wood += 200;
-        UpdateUI();
-    }
-
-    
 }

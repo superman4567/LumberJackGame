@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class TreeFalling : Interactable
 {
     [SerializeField] private float waitForTreeToFallTime;
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private int addWoodsMin, addWoodsMax;
 
     private bool treeIsStatic;
     private float timer;
+    private int randomAddWood;
 
 
     private void Update()
@@ -41,7 +44,8 @@ public class TreeFalling : Interactable
         bool completedOnce = false;
         if (treeIsStatic && !completedOnce)
         {
-            GameManager.Instance.AddWood();
+            randomAddWood = Random.Range(addWoodsMin, addWoodsMax);
+            GameManager.Instance.AddResource(ResourceType.Wood, 5);
             completedOnce = true;
             CheckOffQuest();
 

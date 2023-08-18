@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86d3623971e70746a6c4dd336243415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strucutres_panel: {fileID: 0}
+  panels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   stormTimerText: {fileID: 0}
-  environmentControls: {fileID: 0}

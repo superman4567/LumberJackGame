@@ -15,6 +15,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(subQuests[0].questName);
         for (int i = 0; i < subQuests.Length; i++)
         {
             subQuests[i].isCompleted = false;
@@ -28,12 +29,11 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(subQuests[0].questName);
-
         // Check if the current active quest is complete
         if (subQuests[activeQuestIndex].isCompleted)
         {
             Debug.Log("Sub Quest complete");
+            Debug.Log(subQuests[0].questName);
             // Move to the next quest in the sequence if available
             if (activeQuestIndex < subQuests.Length - 1)
             {

@@ -149,3 +149,5 @@ MonoBehaviour:
   interactInSeconds: 2
   waitForTreeToFallTime: 0.25
   rigidBody: {fileID: 2574345111663230254}
+  addWoodsMin: 3
+  addWoodsMax: 10
