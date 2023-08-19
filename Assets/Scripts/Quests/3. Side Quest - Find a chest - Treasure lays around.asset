@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d479d2e4d3c2ed4a93ae244b5a72b38, type: 3}
-  m_Name: 1. Side Quest[tut] - Gather Wood
+  m_Name: 3. Side Quest - Find a chest - Treasure lays around
   m_EditorClassIdentifier: 
-  questName: Gather Wood
-  description: Use your axe to chop down 1 trees. When the tree is down, cut it into
-    smaller pieces.
+  questName: Treasure lays around
+  description: Word goes that the ancient who lived here have stored the knowledge
+    around this area.
   requiredAmount: 1
   currentAmount: 0
-  isActive: 1
+  isActive: 0
   isCompleted: 0

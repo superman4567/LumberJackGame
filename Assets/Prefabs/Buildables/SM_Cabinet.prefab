@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1170684222999858628}
-  - component: {fileID: -7018276440698522148}
+  - component: {fileID: 7007247734605634749}
   m_Layer: 0
   m_Name: SM_Cabinet
   m_TagString: Untagged
@@ -161,10 +161,11 @@ Transform:
   - {fileID: 7884538183617943797}
   - {fileID: 7684518346274926692}
   - {fileID: 7356710143179353549}
+  - {fileID: 1663921328472344337}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7018276440698522148
+--- !u!114 &7007247734605634749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,13 +174,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978430117570926462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f9497992608d0f4a81c50347594862d, type: 3}
+  m_Script: {fileID: 11500000, guid: ef4ca0175b884cf4483adf39d96189ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingLevels: []
-  costUpgradeTier1: 30
-  costUpgradeTier2: 60
-  costUpgradeTier3: 90
+  BuildingLevels:
+  - {fileID: 7955775215632087259}
+  - {fileID: 7894122422236413547}
+  - {fileID: 6778879731932792584}
+  - {fileID: 8777483022523772654}
+  costUpgradeTier1: 1
+  costUpgradeTier2: 2
+  costUpgradeTier3: 3
+  interactionTrigger: {fileID: 3884271586481058313}
+  upgradeTrigger: {fileID: 842909078852452073}
+  playerInRange: 0
 --- !u!1 &3689850361209953441
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +388,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3884271586481058313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663921328472344337}
+  - component: {fileID: 842909078852452073}
+  - component: {fileID: 7058793490505947849}
+  m_Layer: 0
+  m_Name: InteractLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1663921328472344337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884271586481058313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1170684222999858628}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &842909078852452073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884271586481058313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.217349, y: 5.255001, z: 4.6191187}
+  m_Center: {x: 0, y: 2.4153728, z: 0.57574415}
+--- !u!114 &7058793490505947849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884271586481058313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226eb5b6bccc6ba41a95dc910624592b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradingStructures: {fileID: 7007247734605634749}
 --- !u!1 &6778879731932792584
 GameObject:
   m_ObjectHideFlags: 0

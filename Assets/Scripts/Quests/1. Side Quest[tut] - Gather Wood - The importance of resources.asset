@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d479d2e4d3c2ed4a93ae244b5a72b38, type: 3}
-  m_Name: 2. Side Quest[tut] - Build a Cabin
+  m_Name: 1. Side Quest[tut] - Gather Wood - The importance of resources
   m_EditorClassIdentifier: 
-  questName: A place to sleep
-  description: Use the choppped wood to create a place to stay warm and survive the
-    upcoming storm!
+  questName: The importance of resources
+  description: Use your axe to chop down 1 trees. When the tree is down, cut it into
+    smaller pieces.
   requiredAmount: 1
   currentAmount: 0
   isActive: 1

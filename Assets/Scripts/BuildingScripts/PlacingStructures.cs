@@ -27,6 +27,7 @@ public class PlacingStructures : MonoBehaviour
     void Update()
     {
         BuildingMode();
+
     }
 
     private void FixedUpdate()
@@ -79,26 +80,9 @@ public class PlacingStructures : MonoBehaviour
         CheckOffQuest();
     }
 
-    private void CheckOffQuest()
-    {
-        string questName = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].questName;
-        int requiredAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].requiredAmount;
-
-
-        //check for quest names
-        if (questName == "A place to sleep")
-        {
-            int currentAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount;
-
-            if (currentAmount >= requiredAmount)
-            {
-                QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].isCompleted = true;
-            }
-        }
-    }
-
     public void PlaceObject()
     {
+        pendingObject.GetComponent<UpgradingStructures>().SetTriggerActive();
         pendingObject = null;
     }
 
@@ -110,5 +94,22 @@ public class PlacingStructures : MonoBehaviour
     public void RotateObjectCounterClock()
     {
         pendingObject.transform.Rotate(Vector3.up, -rotateAmount);
+    }
+
+    private void CheckOffQuest()
+    {
+        string questName = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].questName;
+        int requiredAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].requiredAmount;
+
+        //check for quest names
+        if (questName == "A place to sleep")
+        {
+            int currentAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount;
+
+            if (currentAmount >= requiredAmount)
+            {
+                QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].isCompleted = true;
+            }
+        }
     }
 }

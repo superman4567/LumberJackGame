@@ -15,7 +15,6 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(subQuests[0].questName);
         for (int i = 0; i < subQuests.Length; i++)
         {
             subQuests[i].isCompleted = false;

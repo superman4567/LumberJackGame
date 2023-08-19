@@ -10,9 +10,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionDistance = 3f;
 
+    private UpgradingStructures currentBuildingToUpgrade = null;
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
+
 
     private void Awake()
     {
@@ -106,6 +108,25 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteractableObject.tag == "Chest")
         {
             currentInteractableObject.GetComponent<ChestAnimations>().ChestOpen();
+        }
+    }
+
+    public void SetBuildingToUpgrade(UpgradingStructures buildingScript)
+    {
+        currentBuildingToUpgrade = buildingScript;
+        Debug.Log(currentBuildingToUpgrade.ToString());
+    }
+
+    public void ClearBuildingToUpgrade()
+    {
+        currentBuildingToUpgrade = null;
+    }
+
+    public void UpgradeCurrentBuilding()
+    {
+        if (currentBuildingToUpgrade != null)
+        {
+            currentBuildingToUpgrade.PurchaseButtonPressed();
         }
     }
 }

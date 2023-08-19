@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [Header("Panels")]
-    [SerializeField] private List<GameObject> panels = new List<GameObject>();
+    [SerializeField] public List<GameObject> panels = new List<GameObject>();
 
     [Header("Storm text")]
     [SerializeField] private TMP_Text stormTimerText;
@@ -66,7 +67,6 @@ public class UIManager : MonoBehaviour
     {
         foreach (GameObject panel in panels)
         {
-            Debug.Log(panel.name);
             panel.SetActive(false);
         }
     }

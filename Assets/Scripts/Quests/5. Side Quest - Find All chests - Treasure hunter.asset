@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d479d2e4d3c2ed4a93ae244b5a72b38, type: 3}
-  m_Name: 4. Side Quest - Craft BP
+  m_Name: 5. Side Quest - Find All chests - Treasure hunter
   m_EditorClassIdentifier: 
-  questName: First Discovery
-  description: Use your the ancient discovery and craft it
-  requiredAmount: 1
+  questName: Treasure hunter
+  description: Find all chest and retreieve all upgrades.
+  requiredAmount: 6
   currentAmount: 0
   isActive: 0
   isCompleted: 0

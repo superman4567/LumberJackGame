@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\Interactables\Tree.cs" />
     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\BuildingStructures.cs" />
+    <Compile Include="Assets\SticksAndNails.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
@@ -88,7 +88,6 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
-    <Compile Include="Assets\Scripts\BuildingScripts\UpgradingStructures.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Ragdoll.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowSubShowcase.cs" />
@@ -115,7 +114,8 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\SticksAndNails.cs" />
+    <Compile Include="Assets\UpgradingStructures.cs" />
+    <Compile Include="Assets\PlayerDetection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

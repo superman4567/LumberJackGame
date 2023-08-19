@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d479d2e4d3c2ed4a93ae244b5a72b38, type: 3}
-  m_Name: 3. Side Quest - Find a chest
+  m_Name: 4. Side Quest - Craft BP - First Discovery
   m_EditorClassIdentifier: 
-  questName: Treasure lays around
-  description: Word goes that the ancient who lived here have stored the knowledge
-    around this area.
+  questName: First Discovery
+  description: Use your the ancient discovery and craft it
   requiredAmount: 1
   currentAmount: 0
   isActive: 0
