@@ -30,8 +30,6 @@ public class BlueprintUI : MonoBehaviour
         SetFirstPrefabToPreview();
     }
 
-   
-
     private void ResetChildren()
     {
         foreach (Transform child in prefabParent)
@@ -52,7 +50,8 @@ public class BlueprintUI : MonoBehaviour
             {
                 prefab.GetChild(0).GetComponent<Image>().sprite = blueprints[i].icon;
                 prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = blueprints[i].blueprintName;
-            } else
+            } 
+            else
             {
                 prefab.GetChild(0).GetComponent<Image>().sprite = lockedIcon;
                 prefab.GetChild(0).GetComponentInChildren<TMP_Text>().text = defaultTitle;
@@ -91,5 +90,4 @@ public class BlueprintUI : MonoBehaviour
     {
        FindObjectOfType<PlacingStructures>().SelectObject(currentBPbyIndex);
     }
-
 }

@@ -12,7 +12,6 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private float throwForce = 10f;
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float spinForce;
-    [SerializeField] private float constraintTimer = 0.2f;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerModelTransform;
 

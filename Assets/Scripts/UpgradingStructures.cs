@@ -25,7 +25,6 @@ public class UpgradingStructures : MonoBehaviour
 
     public bool playerInRange = false;
     private bool canPurchase = true;
-    private bool isUpgraded = false;
     private int currentBuildingLevel = 0;
 
     public enum PurchaseState
@@ -66,7 +65,6 @@ public class UpgradingStructures : MonoBehaviour
         if (currentState == PurchaseState.Idle && canPurchase)
         {
             NextBuildingTier();
-            isUpgraded = true;
         }
     }
 
@@ -114,7 +112,8 @@ public class UpgradingStructures : MonoBehaviour
                 BuildingLevels[3].SetActive(true);
 
                 currentState = PurchaseState.Idle;
-                canPurchase = true; // Set to true after successful upgrade
+                canPurchase = false;
+                uiManager.CloseAllPanels();
             }
         }
         if (currentBuildingLevel == BuildingLevels.Count - 1)

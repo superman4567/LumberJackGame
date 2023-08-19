@@ -4,17 +4,16 @@ public class BlueprintManager : MonoBehaviour
 {
     [SerializeField] public BlueprintData[] blueprints;
     public bool[] unlockedBlueprints;
-
-    private static BlueprintManager instance;
-    public static BlueprintManager Instance => instance;
+    public static BlueprintManager Instance;
 
     private int unlockCount = 0; 
 
     private void Awake()
     {
-        if (instance == null)
+        
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {

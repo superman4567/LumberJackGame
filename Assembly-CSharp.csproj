@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\RadialProgressBar.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
-    <Compile Include="Assets\ChestAnimations.cs" />
+    <Compile Include="Assets\Scripts\ChestAnimations.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowTerrain.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\Interactables\Tree.cs" />
     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
-    <Compile Include="Assets\SticksAndNails.cs" />
+    <Compile Include="Assets\Scripts\SticksAndNails.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
@@ -80,10 +80,12 @@
     <Compile Include="Assets\Scripts\DataPersistence\DataPersistenceManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_AddSnow.cs" />
     <Compile Include="Assets\Scripts\GameManager\UIManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerDetection.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractionPosition.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffects.cs" />
     <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UpgradingStructures.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\BlueprintManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
@@ -103,7 +105,7 @@
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\UI\BlueprintUI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\QuestManager.cs" />
+    <Compile Include="Assets\Scripts\QuestManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
@@ -114,8 +116,7 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\UpgradingStructures.cs" />
-    <Compile Include="Assets\PlayerDetection.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
