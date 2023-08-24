@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Orc_Animations : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] Orc_Patrol orcPatrol;
     [SerializeField] NavMeshAgent orcNavMeshAgent;
 
     private int OrcVelocityHash;
@@ -56,11 +55,7 @@ public class Orc_Animations : MonoBehaviour
             IdleChange();
             UpdateMovementAnimationState(0f);
         }
-        else if (orcNavMeshAgent.speed == orcPatrol.orcWalkSpeed)
-        {
-            UpdateMovementAnimationState(0.5f);
-        }
-        else if (orcNavMeshAgent.speed == orcPatrol.orcChaseSpeed)
+        else if (orcNavMeshAgent.speed >= 0.1f )
         {
             UpdateMovementAnimationState(1f);
         }

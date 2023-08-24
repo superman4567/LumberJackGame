@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 4226212422562731673}
   - component: {fileID: 1339500863146655895}
   - component: {fileID: 7322189240873099811}
-  - component: {fileID: 6349285708817845307}
   - component: {fileID: 7354386558889207771}
   - component: {fileID: 6323711171677270123}
   m_Layer: 6
@@ -201,30 +200,8 @@ MonoBehaviour:
   throwForce: 25
   returnSpeed: 1
   spinForce: 750
-  constraintTimer: 0.2
   animator: {fileID: 8609658880822775392}
   playerModelTransform: {fileID: 72843859898692482}
---- !u!114 &6349285708817845307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7354386558889207768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44f5151f142dfd439c1576aa90619a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  rotateAmount: 30
-  cameraDistanceDefault: 18
-  cameraDistanceBuilding: 35
-  building:
-  - {fileID: 1978430117570926462, guid: cb68c7bce0d5cb041ae5affd6b85db1d, type: 3}
 --- !u!143 &7354386558889207771
 CharacterController:
   m_ObjectHideFlags: 0

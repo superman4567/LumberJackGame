@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OutsideCabinet.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/0. Splash screen.unity
+    guid: 6787eeb8f0682f949b535cbc447548ef
   - enabled: 1
-    path: Assets/Scenes/InsideCabinet.unity
+    path: Assets/Scenes/1. Interactive Main Menu.unity
     guid: 712c0e5e0f63f8d438db07b0d0c381ac
+  - enabled: 1
+    path: Assets/Scenes/2. Main Level.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}

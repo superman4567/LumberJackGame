@@ -18,7 +18,7 @@ public class SticksAndNails : MonoBehaviour
 
     private void AddSpikesAndSticks()
     {
-        GameManager.Instance.AddResource(GameManager.ResourceType.WoodenSpikes, 5);
-        GameManager.Instance.AddResource(GameManager.ResourceType.Sticks, 5);
+        GameManager.Instance.AddResource(GameManager.ResourceType.Wood, 5);
+        GameManager.Instance.AddResource(GameManager.ResourceType.Coins, 2);
     }
 }

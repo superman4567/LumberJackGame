@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IDataPersistance
 {
@@ -11,25 +12,18 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     [Header("Resources")]
     public int wood = 0;
-    public int sticks = 0;
-    public int planks = 0;
-    public int woodenSpikes = 0;
-    public int rock = 0;
+    public int coins = 0;
+    
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
-    public TextMeshProUGUI sticksUI;
-    public TextMeshProUGUI planksUI;
-    public TextMeshProUGUI woodenSpikesUI;
-    public TextMeshProUGUI rockUI;
+    public TextMeshProUGUI coinsUI;
+ 
 
     public enum ResourceType
     {
         Wood,
-        Sticks,
-        Planks,
-        WoodenSpikes,
-        Rock
+        Coins,
     }
 
     private void Start()
@@ -41,28 +35,19 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         this.wood = data.wood;
-        this.sticks = data.sticks;
-        this.planks = data.planks;
-        this.woodenSpikes = data.woodenSpikes;
-        this.rock = data.rock;
+        this.coins = data.sticks;
     }
 
     public void SaveData(ref GameData data)
     {
         data.wood = this.wood;
-        data.sticks = this.sticks;
-        data.planks = this.planks;
-        data.woodenSpikes = this.woodenSpikes;
-        data.rock = this.rock;
+        data.sticks = this.coins;
     }
 
     private void UpdateUI()
     {
         woodUI.text = "Wood: " + wood.ToString();
-        sticksUI.text = "Sticks: " + sticks.ToString();
-        planksUI.text = "Planks: " + planks.ToString();
-        woodenSpikesUI.text = "WoodenSpikes: " + woodenSpikes.ToString();
-        rockUI.text = "Rock: " + rock.ToString();
+        coinsUI.text = "Sticks: " + coins.ToString();
     }
 
     public void AddResource(ResourceType resourceType, int amount)
@@ -72,18 +57,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
             case ResourceType.Wood:
                 wood += amount;
                 break;
-            case ResourceType.Sticks:
-                sticks += amount;
+            case ResourceType.Coins:
+                coins += amount;
                 break;
-            case ResourceType.Planks:
-                planks += amount;
-                break;
-            case ResourceType.WoodenSpikes:
-                woodenSpikes += amount;
-                break;
-            case ResourceType.Rock:
-                rock += amount;
-                break;
+           
             default: Debug.LogError("Add resource method in game manager not working properly");
                 break;
         }
@@ -98,14 +75,25 @@ public class GameManager : MonoBehaviour, IDataPersistance
             case ResourceType.Wood:
                 wood += amount;
                 break;
-            case ResourceType.Sticks:
-                sticks += amount;
+            case ResourceType.Coins:
+                coins += amount;
                 break;
-            case ResourceType.Planks:
-                planks += amount;
-                break;
+            
         }
 
         UpdateUI();
+    }
+
+    public void ReplayLevel()
+    {
+        Time.timeScale = 1f;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
+    public void GoToCabin()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
     }
 }

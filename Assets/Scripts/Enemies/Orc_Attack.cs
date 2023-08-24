@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Orc_Attack : MonoBehaviour
 {
@@ -9,32 +10,53 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float rangedAttackRange = 10.0f;
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
+    [SerializeField] private float baseOrcSpeed = 2;
+    
     [SerializeField] private Animator animator;
 
     [SerializeField] private GameObject rockPrefab; 
     [SerializeField] private Transform throwSpawnPoint; 
     [SerializeField] private LayerMask attackLayer;
-    [SerializeField] private Orc_Patrol orcPatrolScript;
+    [SerializeField] private RoundManager roundManager;
 
     private Transform player;
+    public NavMeshAgent navMeshAgent;
     private float throwCooldownTimer = 0.0f;
 
 
     private void Awake()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        roundManager = FindObjectOfType<RoundManager>();
     }
 
     private void Update()
     {
+        ChasePlayer();
         MeleeOrRangedAttack();
+    }
+
+    private void ChasePlayer()
+    {
+        navMeshAgent.SetDestination(player.position);
+
+        // Get the orc's base speed
+        float baseSpeed = navMeshAgent.speed;
+
+        // Add a small random value to the speed to create variation
+        float randomSpeedOffset = Random.Range(-0.1f, 0.1f); // Adjust the range as needed
+        float orcSpeed = baseSpeed + randomSpeedOffset;
+
+        // Set the orc's speed
+        navMeshAgent.speed = orcSpeed;
     }
 
     private void MeleeOrRangedAttack()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= rangedAttackRange && orcPatrolScript.isChasing)
+        if (distanceToPlayer <= rangedAttackRange)
         {
             //Making sure the or does not rapid fire the rocks
             throwCooldownTimer += Time.deltaTime;

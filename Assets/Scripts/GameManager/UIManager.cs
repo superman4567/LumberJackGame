@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] public List<GameObject> panels = new List<GameObject>();
 
     [Header("Storm text")]
-    [SerializeField] private TMP_Text stormTimerText;
     private EnvironmentManager environmentManager;
     private bool playerIsInside = false;
 
@@ -32,14 +31,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        foreach (GameObject panel in panels)
-        {
-            panel.SetActive(false);
-        }
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -48,13 +39,6 @@ public class UIManager : MonoBehaviour
         }
 
         if (playerIsInside) { return; }
-        DisplayStormTimer();
-    }
-
-    private void DisplayStormTimer()
-    {
-        float timeText = Mathf.Ceil(environmentManager.timeRemaining); // Changed MathF to Mathf
-        stormTimerText.text = timeText.ToString();
     }
 
     public void OpenPanelByIndex(int panelIndex)

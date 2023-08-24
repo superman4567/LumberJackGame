@@ -8,11 +8,16 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Playerstats UI")]
     [SerializeField] private TextMeshProUGUI healthUIAmount;
+    [SerializeField] private TextMeshProUGUI staminaUIAmount;
     [SerializeField] private GameObject deathUI;
 
     [Header("Health ")]
     [SerializeField] private float initialHealth = 100f;
     [SerializeField] private float health;
+
+    [Header("Stamina ")]
+    [SerializeField] private float initialStamina = 100f;
+    [SerializeField] private float stamina;
 
     private EnvironmentManager environmentControls;
     private float startTime;
@@ -31,56 +36,44 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        if (environmentControls != null)
-        {
-            environmentControls.stormStart += IsStormStarting;
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (environmentControls != null)
-        {
-            environmentControls.stormStart -= IsStormStarting;
-        }
-    }
-
     void Start()
     {
-        health = initialHealth;
-
         startTime = Time.time;
 
+        health = initialHealth;
+        stamina = initialStamina;
+
         healthUIAmount.text = health.ToString();
+        staminaUIAmount.text = stamina.ToString();
+
+        deathUI.SetActive(false);
     }
 
     void Update()
     {
-        DamageByStorm();
+        ReduceStaminaByStorm();
     }
+    
 
-    private void IsStormStarting()
+    private void ReduceStaminaByStorm()
     {
-        //is being set by external script
-        damageByStorm = true;
-    }
-
-    private void DamageByStorm()
-    {
-        if(damageByStorm && playerIsOutside)
+        if(playerIsOutside)
         {
             float currentTime = Time.time;
             float elapsedTime = currentTime - startTime;
 
             float decreaseRate = baseDecreaseRate * Mathf.Pow(increaseFactor, elapsedTime);
 
-            health -= decreaseRate * Time.deltaTime;
-            health = Mathf.Max(health, 0f);
+            stamina -= decreaseRate * Time.deltaTime;
+            stamina = Mathf.Max(health, 0f);
 
-            int intHealth = Mathf.RoundToInt(health);
-            healthUIAmount.text = intHealth.ToString();
+            int intStamina = Mathf.RoundToInt(stamina);
+            staminaUIAmount.text = intStamina.ToString();
+
+            if (stamina <= 0)
+            {
+                TakeDamage(1);
+            }
         }
     }
 
@@ -98,16 +91,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void StaminaManagment()
-    {
-        
-    }
-
     private void PlayerDeath()
     {
-        //Show UI animation
-        //Invoke restart level
         deathUI.SetActive(true);
-        Time.timeScale = 0;
+        Invoke("FreezeTime", 1f);
+    }
+
+    public void FreezeTime()
+    {
+        Time.timeScale = 0.05f;
     }
 }
