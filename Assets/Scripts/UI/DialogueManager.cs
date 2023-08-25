@@ -7,43 +7,85 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI dialogueText;
-    public GameObject dialogueObject;
-    private Animator animator;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Animator aniamtor;
 
-    private bool tutorialTextHasBeenShown = false;
+    [SerializeField]
+    private List<string> tutorial1Texts = new();
 
-    void Start()
+    [SerializeField]
+    private List<string> tutorial2Texts = new();
+
+    private List<string> activeTextList = new();
+    private int currentTextIndex = 0;
+
+    public static DialogueManager Instance { get; private set; }
+
+    private void Awake()
     {
-        animator= dialogueObject.GetComponent<Animator>();
-        dialogueObject.SetActive(true);
+        if (Instance == null) Instance = this;
+        else { Destroy(gameObject); }
+    }
 
-
-        if (SceneManager.GetActiveScene().buildIndex == 1 && !tutorialTextHasBeenShown)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            UpdateDialogueText("Welcome to the game! This is my cabin I build with my own two bare hands. This place allows me to find piece and unlock powers I did not know were possible.");
-        }
-
-        else if (SceneManager.GetActiveScene().buildIndex == 2 && !tutorialTextHasBeenShown)
-        {
-            UpdateDialogueText("Pay attention! Here is where things get real. As soon as we enter this area, orcs will feel our" +
-                " presence and try to eliamte us, on top of that there is also this nasty storm, we should try to make a campfire when our stamina is to low.");
+            ShowNextDialogue();
         }
     }
 
-    public void UpdateDialogueText(string newText)
+    // Call from anywhere you want to show a tutorial
+    private void ShowUI()
     {
-        animator.SetTrigger("StartReading");
-        dialogueText.text = newText;
-
-        if (Input.GetKeyUp(KeyCode.Space)) 
+        if (activeTextList == null || currentTextIndex == -1)
         {
-            animator.SetTrigger("FinishedReading");
+            Debug.LogWarning("No active text list");
+            return;
         }
+
+        aniamtor.SetTrigger("StartReading");
+        dialogueText.text = activeTextList[currentTextIndex];
     }
 
-    public void closeDialoguePanel()
+    public void ShowNextDialogue()
     {
-        animator.SetTrigger("FinishedReading");
+        if (activeTextList == null || currentTextIndex == -1)
+        {
+            Debug.LogWarning("No active text list");
+            return;
+        }
+
+        currentTextIndex++;
+        if (currentTextIndex > tutorial1Texts.Count - 1)
+        {
+            HideTutorialUI();
+            return;
+        }
+        dialogueText.text = activeTextList[currentTextIndex];
+    }
+
+    public void HideTutorialUI()
+    {
+        // TODO Animate / disable the gameobject with the text etc on it
+        aniamtor.SetTrigger("FinishedReading");
+        activeTextList = null; // For safety
+        currentTextIndex = -1; // For safety so we know no active index
+    }
+
+    public void ShowTutorial1()
+    {
+        // TODO laat 1 x zien etc
+        activeTextList = tutorial1Texts;
+        currentTextIndex = 0;
+        ShowUI();
+    }
+
+    // Call from anywhere you want to show a tutorial
+    public void ShowTutorial2()
+    {
+        activeTextList = tutorial2Texts;
+        currentTextIndex = 0;
+        ShowUI();
     }
 }

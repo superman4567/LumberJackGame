@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerAnimations playerAnimations;
     [SerializeField] private PlayerLook playerLook;
     [SerializeField] private float movSpeed = 6f;
+    [SerializeField] private float lowerBodyRotationSpeed = 5;
 
     private float verticalVelocity = 0.0f; 
     private float gravity = -9.81f; 
@@ -19,25 +20,33 @@ public class PlayerMovement : MonoBehaviour
     {
         TryMovement();
         playerGravity();
-        playerLook.PlayerLookDir();
     }
 
-    public bool TryMovement()
+    public void TryMovement()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-        playerAnimations.IdleAndWalk(direction.magnitude);
+        Vector3 movementDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (movementDirection.magnitude >= 0.1f)
         {
-            Vector3 movementDirection = transform.forward * vertical + transform.right * horizontal;
-            characterController.Move(movementDirection * movSpeed * Time.deltaTime);
-            return true;
+            float targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation, targetRotation, lowerBodyRotationSpeed * Time.deltaTime
+            );
+
+            // Apply the rotation to the movement direction
+            Vector3 rotatedMovement = targetRotation * Vector3.forward;
+
+            // Move the character using the rotated movement direction
+            characterController.Move(rotatedMovement * movSpeed * Time.deltaTime);
         }
-        return false;
+        playerAnimations.IdleAndWalk(movementDirection.magnitude);
     }
+
 
     private void playerGravity()
     {

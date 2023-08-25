@@ -29,7 +29,7 @@ public class RoundManager : MonoBehaviour
 
     private void StartNewRound()
     {
-        Debug.Log(currentRound);
+        Debug.Log("Current round =" + currentRound);
         currentRound++;
         orcsToSpawnInCurrentRound = Mathf.CeilToInt(orcsToSpawnInCurrentRound * (1 + orcSpawnIncreasePercentage));
         orcsSpawnedInCurrentRound = 0;

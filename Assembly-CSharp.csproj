@@ -69,10 +69,13 @@
     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
     <Compile Include="Assets\Scripts\SticksAndNails.cs" />
+    <Compile Include="Assets\Scripts\Enemies\OrcSpawner.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
+    <Compile Include="Assets\Tutorial1Script.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
+    <Compile Include="Assets\Scripts\RoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
     <Compile Include="Assets\Scripts\GameManager\EnvironmentManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowAssetManager.cs" />
@@ -85,12 +88,15 @@
     <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ChestSpawner.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Ragdoll.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowSubShowcase.cs" />
+    <Compile Include="Assets\DifficultySelection.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Chest.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerSnow.cs" />
+    <Compile Include="Assets\Scripts\UI\PressAnyKeyToStart.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FxMouse.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_DealDamage.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
@@ -109,9 +115,7 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\UI\PressAnyKeyToStart.cs" />
-    <Compile Include="Assets\Scripts\Enemies\OrcSpawner.cs" />
-    <Compile Include="Assets\Scripts\RoundManager.cs" />
+    <Compile Include="Assets\LookAtMe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

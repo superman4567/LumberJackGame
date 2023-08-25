@@ -26,7 +26,7 @@ public class OrcSpawner : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(orcsToSpawnInCurrentRound);
+        Debug.Log("Orcs amount to be spawned = " + orcsToSpawnInCurrentRound);
         // Populate the spawnPoints list with child transforms from the spawnPointsContainer
         foreach (Transform spawnPoint in spawnPointsContainer)
         {

@@ -6,6 +6,7 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 public class PlayerThrowAxe : MonoBehaviour
 {
     [SerializeField] private GameObject axeModel;
+    [SerializeField] private GameObject throwPoint;
     [SerializeField] private AxeDetection axe;
     [SerializeField] private Transform throwSpawnPoint; 
     [SerializeField] private Rigidbody axeRb;
@@ -17,6 +18,7 @@ public class PlayerThrowAxe : MonoBehaviour
 
     private bool isAxeThrown = false;
     private bool isReturning;
+    public bool CanThrowAxe { get; set; }
 
     private float timeSinceAxeThrown = 0f;
     
@@ -57,6 +59,8 @@ public class PlayerThrowAxe : MonoBehaviour
     public void ThrowAxe()
     {
         animator.SetBool("Throw", false);
+        if (!CanThrowAxe) return;
+        
         axeModel.transform.parent = null;
         isAxeThrown = true;
         axeRb.isKinematic = false;
@@ -68,7 +72,7 @@ public class PlayerThrowAxe : MonoBehaviour
         axeRb.angularVelocity = spinAxis * spinForce;
 
         // Apply forward force for throwing
-        Vector3 throwDirection = playerModelTransform.forward;
+        Vector3 throwDirection = (throwPoint.transform.position - throwSpawnPoint.position).normalized;
         axeRb.velocity = throwDirection * throwForce;
     }
 

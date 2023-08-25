@@ -5,33 +5,30 @@ using Cinemachine;
 
 public class PlayerLook : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
+    [SerializeField] private Animator animator;
     [SerializeField] private LayerMask floorMask;
-    [SerializeField] private Transform playerModel;
+    [SerializeField] private float rotationSpeed = 10f;
 
     private RaycastHit hit;
-    public Vector3 lookDirection;
 
     private void Update()
     {
-        PlayerLookDir();
+        RotateUpperBodyToMouse();
     }
 
-    public void PlayerLookDir()
+    public void RotateUpperBodyToMouse()
     {
-        if (Input.mousePosition.x >= 0 && Input.mousePosition.x <= Screen.width &&
-            Input.mousePosition.y >= 0 && Input.mousePosition.y <= Screen.height)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hitPos, Mathf.Infinity, floorMask))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitPos, Mathf.Infinity, floorMask))
+            hit = hitPos;
+
+            Vector3 lookDirection = hit.point - transform.position;
+            lookDirection.y = 0f;
+
+            if (lookDirection != Vector3.zero)
             {
-                hit = hitPos;
-                lookDirection = hit.point - transform.position;
-                lookDirection.y = 0f;
-                if (lookDirection != Vector3.zero)
-                {
-                    playerModel.rotation = Quaternion.LookRotation(lookDirection);
-                }
+                Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
             }
         }
     }
