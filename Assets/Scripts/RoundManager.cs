@@ -7,7 +7,7 @@ public class RoundManager : MonoBehaviour
     public OrcSpawner orcSpawner; // Reference to the OrcSpawner script
 
     [SerializeField] private float speedIncreasePerRound = 0.5f;
-    private int currentRound = 1;
+    public int currentRound = 1;
     private int orcsToSpawnInCurrentRound = 10;
     private int orcsSpawnedInCurrentRound = 0;
     private int orcsKilledInCurrentRound = 0;

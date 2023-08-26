@@ -2,34 +2,20 @@ using UnityEngine;
 
 public class Chest : Interactable
 {
-    public enum ChestState
-    {
-        Inactive,   // No powerup available
-        Active,     // Powerup available
-        Used        // Powerup collected, waiting to destroy
-    }
+    private PowerUpManager.PowerUpType storedPowerUp;
 
-    public ChestState currentState = ChestState.Inactive;
-    public float powerupDuration = 10f; // Duration of the powerup effect
+    public void AssignPowerUp(PowerUpManager.PowerUpType powerUpType)
+    {
+        storedPowerUp = powerUpType;
+        Debug.Log("Assigned Power-Up to Chest: " + powerUpType);
+    }
 
     public override void InteractComplete()
     {
+        if (interactionComplete) { return; }
         base.InteractComplete();
 
-        switch (currentState)
-        {
-            case ChestState.Inactive:
-                Debug.Log("No powerup available.");
-                break;
-            case ChestState.Active:
-                //ApplyPowerup();
-                currentState = ChestState.Used;
-                Invoke("DestroyChest", powerupDuration);
-                break;
-            case ChestState.Used:
-                Debug.Log("Chest has already been used.");
-                break;
-        }
+        PowerUpManager.Instance.GrantRandomPowerUpToPlayer();
 
         Invoke("DestroyChest", 30f);
     }

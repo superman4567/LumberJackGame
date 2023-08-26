@@ -13,7 +13,6 @@ public class TreeFalling : Interactable
     private float timer;
     private int randomAddWood;
 
-
     private void Update()
     {
         CheckIfStatic();
@@ -25,16 +24,16 @@ public class TreeFalling : Interactable
 
         if (timer > waitForTreeToFallTime)
         {
-            if (!treeIsStatic)
+            if (Mathf.Approximately(rigidBody.velocity.magnitude, 0f))
             {
-                if (Mathf.Approximately(rigidBody.velocity.magnitude, 0f))
-                {
-                    treeIsStatic = true;
-                }
-                else
-                {
-                    treeIsStatic = false;
-                }
+                treeIsStatic = true;
+                canBeInteractedWith = true;
+                rigidBody.isKinematic = true;
+            }
+            else
+            {
+                treeIsStatic = false;
+                canBeInteractedWith = false;
             }
         }
     }
@@ -47,28 +46,8 @@ public class TreeFalling : Interactable
             randomAddWood = Random.Range(addWoodsMin, addWoodsMax);
             GameManager.Instance.AddResource(ResourceType.Wood, 5);
             completedOnce = true;
-            CheckOffQuest();
 
             Destroy(gameObject);
-        }
-    }
-
-    private void CheckOffQuest()
-    {
-        string questName = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].questName;
-        int requiredAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].requiredAmount;
-
-        //check for quest names
-        if (questName == "Gather Wood")
-        {
-            QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount += 1;
-
-            int currentAmount = QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].currentAmount;
-
-            if (currentAmount >= requiredAmount)
-            {
-                QuestManager.Instance.subQuests[QuestManager.Instance.activeQuestIndex].isCompleted = true;
-            }
         }
     }
 }

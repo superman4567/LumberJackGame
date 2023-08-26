@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1941754373806337988}
   - component: {fileID: 990204779762412929}
   - component: {fileID: 3097140120464613072}
-  - component: {fileID: 3649084018724240439}
   m_Layer: 8
   m_Name: Tree
   m_TagString: Tree
@@ -174,24 +173,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3649084018724240439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277245467032941950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2154f41ff2c5acc4eadbffc3084f0e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savedProgressInSeconds: 0
-  interactInSeconds: 2
-  TreeBreakingSound: {fileID: 3097140120464613072}
-  fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
-    type: 3}
-  TreeChild: {fileID: 3142898490195179651}
 --- !u!1 &8667257779688776290
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,12 +361,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9013202467970586831, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097, type: 3}
---- !u!1 &3142898490195179651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7217426157975694670, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-    type: 3}
-  m_PrefabInstance: {fileID: 5743395055569278413}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8260630175071780183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4401991830178605210, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,

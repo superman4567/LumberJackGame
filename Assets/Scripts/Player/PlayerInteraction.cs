@@ -80,7 +80,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentInteractable != null)
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
                 currentInteractableObject.AddProgress(Time.deltaTime);
                 InteractionHappening?.Invoke(true);

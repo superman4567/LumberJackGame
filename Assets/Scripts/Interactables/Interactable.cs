@@ -4,12 +4,9 @@ public abstract class Interactable : MonoBehaviour
 {
     public float savedProgressInSeconds;
     public float interactInSeconds;
-    private QuestManager questManager;
 
-    private void Start()
-    {
-        questManager = FindObjectOfType<QuestManager>();
-    }
+    public bool canBeInteractedWith = true;
+    protected bool interactionComplete = false;
 
     public virtual void AddProgress(float progressInSeconds)
     {
@@ -17,7 +14,6 @@ public abstract class Interactable : MonoBehaviour
         {
             savedProgressInSeconds += progressInSeconds;
         }
-        
     }
 
     public virtual bool CheckProgressComplete()
@@ -27,6 +23,6 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void InteractComplete()
     {
-        //do something
+        interactionComplete = true;
     }
 }

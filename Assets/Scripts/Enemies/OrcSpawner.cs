@@ -11,7 +11,7 @@ public class OrcSpawner : MonoBehaviour
 
     private List<Transform> spawnPoints = new List<Transform>();
     private RoundManager roundManager;
-    private int currentRound = 1;
+    public int currentRound = 1;
     private int orcsToSpawnInCurrentRound = 10;
     private int orcsSpawnedInCurrentRound = 0;
     private int orcsKilledInCurrentRound = 0;
