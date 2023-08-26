@@ -1969,11 +1969,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 7354386558889207771}
-  playerInteraction: {fileID: 7354386558889207770}
+  playerStats: {fileID: 4226212422562731673}
   playerAnimations: {fileID: 1339500863146655895}
   playerLook: {fileID: 7354386558889206821}
-  movSpeed: 6
+  movSpeed: 3.5
   lowerBodyRotationSpeed: 5
+  sprintSpeed: 8
+  sprintStaminaDrain: 5
+  dodgeRollDistance: 10
+  dodgeRollDuration: 0.5
+  dodgeRollCooldown: 1
 --- !u!114 &7354386558889206821
 MonoBehaviour:
   m_ObjectHideFlags: 0

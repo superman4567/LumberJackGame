@@ -74,7 +74,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
-    <Compile Include="Assets\Tutorial1Script.cs" />
+    <Compile Include="Assets\ShowDialogue.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
     <Compile Include="Assets\Scripts\RoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
@@ -105,11 +105,10 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\QuestManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
-    <Compile Include="Assets\Scripts\Quests\QuestSO.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogueContainer.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Props\SwapToBroken.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_LightSwitch.cs" />

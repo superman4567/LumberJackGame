@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
         deathUI.SetActive(false);
 
-        StartCoroutine(CallMethodEverySecond());
+        StartCoroutine(CallStaminaRegen());
     }
 
     void Update()
@@ -49,9 +49,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private IEnumerator CallMethodEverySecond()
+    private IEnumerator CallStaminaRegen()
     {
-        while (true)
+        while (stamina > 0 && stamina <= 100)
         {
             AddStamina(.25f);
             yield return new WaitForSeconds(1f);

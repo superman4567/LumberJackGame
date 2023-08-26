@@ -72,7 +72,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void SprintingCost()
     {
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && playerStats.stamina >= sprintStaminaDrain;
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 movementDirection = new Vector3(horizontal, 0f, vertical).normalized;
+
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) &&
+                          playerStats.stamina >= sprintStaminaDrain &&
+                          movementDirection.magnitude > 0.1f; 
 
         if (isSprinting)
         {

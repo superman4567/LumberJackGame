@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class DifficultySelection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject difficultyPanel;
+    public bool hasPlayerInteractedWithBoard = false;
+
+    private void Start()
     {
-        
+        difficultyPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (!hasPlayerInteractedWithBoard) { return; }
+
+        difficultyPanel.SetActive(true);
+    }
+
+    private void DifficultySelect()
+    {
+        //switchstate
     }
 }

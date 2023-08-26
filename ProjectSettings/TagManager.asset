@@ -12,6 +12,7 @@ TagManager:
   - Floor
   - Enemy
   - Axe
+  - Board
   layers:
   - Default
   - TransparentFX

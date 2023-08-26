@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d479d2e4d3c2ed4a93ae244b5a72b38, type: 3}
-  m_Name: 2. Side Quest[tut] - Build a Cabin - A place to sleep
+  m_Name: DialogueChain - Tutorial - DifficultySelect
   m_EditorClassIdentifier: 
-  questName: A place to sleep
-  description: Use the choppped wood to create a place to stay warm and survive the
-    upcoming storm!
-  requiredAmount: 1
-  currentAmount: 0
-  isActive: 1
-  isCompleted: 0
+  description:
+  - This is the difficulty seclect board, if you feel like you are up for the challange
+    you can increase.
+  - Let's go!
