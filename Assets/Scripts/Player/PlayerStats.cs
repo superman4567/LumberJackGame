@@ -24,15 +24,15 @@ public class PlayerStats : MonoBehaviour
         health = initialHealth;
         stamina = initialStamina;
 
-        healthUIAmount.text = health.ToString();
-        staminaUIAmount.text = stamina.ToString();
-
         deathUI.SetActive(false);
+
+        StartCoroutine(CallMethodEverySecond());
     }
 
     void Update()
     {
-        
+        healthUIAmount.text = Mathf.RoundToInt(health).ToString();
+        staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
     }
 
     public void TakeDamage(float amount)
@@ -47,6 +47,24 @@ public class PlayerStats : MonoBehaviour
         {
             PlayerDeath();
         }
+    }
+
+    private IEnumerator CallMethodEverySecond()
+    {
+        while (true)
+        {
+            AddStamina(.25f);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void AddStamina(float amount)
+    {
+        stamina += amount;
+        stamina = Mathf.Min(stamina, initialStamina); 
+
+        int intStamina = Mathf.RoundToInt(stamina);
+        staminaUIAmount.text = intStamina.ToString();
     }
 
     private void PlayerDeath()
