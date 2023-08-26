@@ -13,33 +13,14 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health ")]
     [SerializeField] private float initialHealth = 100f;
-    [SerializeField] private float health;
+    [SerializeField] public float health;
 
     [Header("Stamina ")]
     [SerializeField] private float initialStamina = 100f;
-    [SerializeField] private float stamina;
-
-    private EnvironmentManager environmentControls;
-    private float startTime;
-    private float baseDecreaseRate = 0.1f;  // Adjust this value to control the initial decrease rate
-    private float increaseFactor = 1.1f;    // Adjust this value to control how the rate increases
-
-    private bool damageByStorm = false;
-    private bool playerIsOutside = false;
-
-    private void Awake()
-    {
-        environmentControls = FindObjectOfType<EnvironmentManager>();
-        if (environmentControls != null)
-        {
-            playerIsOutside = true;
-        }
-    }
+    [SerializeField] public float stamina;
 
     void Start()
     {
-        startTime = Time.time;
-
         health = initialHealth;
         stamina = initialStamina;
 
@@ -51,30 +32,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        ReduceStaminaByStorm();
-    }
-    
-
-    private void ReduceStaminaByStorm()
-    {
-        if(playerIsOutside)
-        {
-            float currentTime = Time.time;
-            float elapsedTime = currentTime - startTime;
-
-            float decreaseRate = baseDecreaseRate * Mathf.Pow(increaseFactor, elapsedTime);
-
-            stamina -= decreaseRate * Time.deltaTime;
-            stamina = Mathf.Max(health, 0f);
-
-            int intStamina = Mathf.RoundToInt(stamina);
-            staminaUIAmount.text = intStamina.ToString();
-
-            if (stamina <= 0)
-            {
-                TakeDamage(1);
-            }
-        }
+        
     }
 
     public void TakeDamage(float amount)

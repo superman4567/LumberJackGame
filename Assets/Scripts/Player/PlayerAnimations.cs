@@ -10,6 +10,7 @@ public class PlayerAnimations : MonoBehaviour
 
     private int VelocityHash;
     private int IdleAnimationsHash;
+    private int IsDodgingHash;
 
     private float idleAnimation1Frequency = 85f;
     private float timeSinceLastIdleChange = 0f;
@@ -32,6 +33,7 @@ public class PlayerAnimations : MonoBehaviour
 
         IdleAnimationsHash = Animator.StringToHash("IdleAnimations");
         VelocityHash = Animator.StringToHash("Velocity");
+        IsDodgingHash = Animator.StringToHash("DodgeRoll");
     }
 
     private void Update()
@@ -70,5 +72,10 @@ public class PlayerAnimations : MonoBehaviour
             interactableTag = playerInteraction.currentInteractable.tag;
         }
         animator.SetBool(interactableTag, isInteracting);
+    }
+
+    public void SetDodgeRollState(bool isDodging)
+    {
+        animator.SetBool(IsDodgingHash, isDodging);
     }
 }
