@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShowDialogue : MonoBehaviour
 {
-    [SerializeField] DialogueContainer dialgoueContainerRference;
+    [SerializeField] DialogueContainer dialogueContainerReference;
     private Collider currentObjectCollider;
 
     private void Start()
@@ -14,17 +14,21 @@ public class ShowDialogue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        DialogueManager.Instance.SetDialogue(dialgoueContainerRference);
+        DialogueManager.Instance.SetDialogue(dialogueContainerReference);
 
         if(gameObject.tag == "Board")
         {
             FindObjectOfType<DifficultySelection>().hasPlayerInteractedWithBoard = true;
         }
+        if (gameObject.tag == "GameStarter")
+        {
+            FindObjectOfType<OrcSpawner>().startToSpawnOrcs = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (DialogueManager.Instance.currentTextIndex >= dialgoueContainerRference.description.Length)
+        if (DialogueManager.Instance.currentTextIndex >= dialogueContainerReference.description.Length)
         {
             DialogueManager.Instance.HideTutorialUI();
             Destroy(currentObjectCollider);

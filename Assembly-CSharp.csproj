@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\UI\PressAnyKeyToStart.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FxMouse.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_DealDamage.cs" />
+    <Compile Include="Assets\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\Interactables\TreeFalling.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
@@ -115,7 +116,6 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\PowerUpManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

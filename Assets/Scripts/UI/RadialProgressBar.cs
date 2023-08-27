@@ -1,7 +1,5 @@
 using UnityEngine;
-using Unity.UI;
 using UnityEngine.UI;
-using System;
 
 public class RadialProgressBar : MonoBehaviour
 {

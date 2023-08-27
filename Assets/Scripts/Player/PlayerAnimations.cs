@@ -8,7 +8,7 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Animator animator;
 
-    private int VelocityHash;
+    private float VelocityHash;
     private int IdleAnimationsHash;
     private int IsDodgingHash;
 
@@ -62,7 +62,7 @@ public class PlayerAnimations : MonoBehaviour
 
     public void IdleAndWalk(float playerSpeed)
     {
-        animator.SetFloat(VelocityHash, playerSpeed);
+        animator.SetFloat("Velocity", playerSpeed);
     }
 
     private void InteractionAnimations(bool isInteracting)

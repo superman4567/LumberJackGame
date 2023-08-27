@@ -18,6 +18,7 @@ public class OrcSpawner : MonoBehaviour
     private float orcSpawnIncreasePercentage = 0.25f;
     private float timeBetweenSpawns; // Time interval between orc spawns
     private float spawnTimer = 0.0f; // Timer for tracking spawning progress
+    public bool startToSpawnOrcs = false;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class OrcSpawner : MonoBehaviour
 
     private void Update()
     {
+        if(!startToSpawnOrcs) { return; }
+
         // Only start spawning orcs if not all orcs are spawned yet
         if (orcsSpawnedInCurrentRound < orcsToSpawnInCurrentRound)
         {

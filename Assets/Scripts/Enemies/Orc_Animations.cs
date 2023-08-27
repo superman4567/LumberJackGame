@@ -9,7 +9,7 @@ public class Orc_Animations : MonoBehaviour
     [SerializeField] NavMeshAgent orcNavMeshAgent;
 
     private int OrcVelocityHash;
-    private int OrcIdleAnimationsHash;
+    private float OrcIdleAnimationsHash;
 
     private List<string> idleAnimationStates = new List<string>();
     private float timeSinceLastIdleChange = 0f;
