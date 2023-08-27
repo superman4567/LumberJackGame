@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3916268054094722296}
   - component: {fileID: 4643954276924186313}
   - component: {fileID: 1771245459579468994}
+  - component: {fileID: 403584302887838216}
   - component: {fileID: 4141137229493115182}
   m_Layer: 0
   m_Name: RockTemp
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252584526232394370}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.35857576, y: -0, z: -0, w: 0.93350065}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6.909451, y: 6.909451, z: 6.909451}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8945944874624410563}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -42.026, y: 0, z: 0}
 --- !u!33 &4643954276924186313
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252584526232394370}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5792744266757404632, guid: 0085654df1d16754182e59f73f357b74, type: 3}
 --- !u!23 &1771245459579468994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30eb5d2d2a440324aae86ddbe0c0d2b7, type: 2}
+  - {fileID: 2100000, guid: 305607f6f6d231e438da2665d4ad1c90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &403584302887838216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252584526232394370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78118116460120b47afbae27e0d19c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 25
 --- !u!135 &4141137229493115182
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +109,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5756687483617082344
 GameObject:

@@ -20,6 +20,7 @@ public class ShowDialogue : MonoBehaviour
         {
             FindObjectOfType<DifficultySelection>().hasPlayerInteractedWithBoard = true;
         }
+
         if (gameObject.tag == "GameStarter")
         {
             FindObjectOfType<OrcSpawner>().startToSpawnOrcs = true;

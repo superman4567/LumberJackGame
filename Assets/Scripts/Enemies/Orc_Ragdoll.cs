@@ -8,7 +8,7 @@ public class Orc_Ragdoll : MonoBehaviour
 
     void Awake()
     {
-        ragdollBodies = GetComponentsInChildren<Rigidbody>();
+        ragdollBodies = gameObject.GetComponentsInChildren<Rigidbody>();
         DisableRagdoll();
     }
 
@@ -26,5 +26,6 @@ public class Orc_Ragdoll : MonoBehaviour
         {
             rigidbody.isKinematic = false;
         }
+        ragdollBodies[0].isKinematic = true;
     }
 }

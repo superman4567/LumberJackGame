@@ -26,7 +26,7 @@ public class Orc_Health : MonoBehaviour
     {
         if (other.collider.CompareTag("Axe"))
         {
-            Debug.Log("I am hit");
+           Debug.Log("I am hit");
            TakeDamage();
         }
     }
@@ -41,17 +41,17 @@ public class Orc_Health : MonoBehaviour
             animator.enabled= false;
             orc_Animations.enabled = false;
             orc_Attack.enabled= false;
-
+            orc_Attack.navMeshAgent.enabled = false;
             hitBox.enabled = false;
+
             orc_Ragdoll.EnableRagdoll();
+            roundManager.OrcKilled();
             Invoke("Die", 10f);
         }
     }
 
     private void Die()
     {
-        orc_Attack.navMeshAgent.enabled= false;
-        roundManager.OrcKilled();
         Destroy(gameObject);
     }
 }
