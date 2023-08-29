@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System;
+using Unity.VisualScripting;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Animator aniamtor;
+    public Action OnNextDialogue;
 
     private DialogueContainer currentDialogue;
     public int currentTextIndex = 0;
@@ -19,16 +22,17 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(currentTextIndex);
         if (Input.GetKeyDown(KeyCode.F))
         {
+            if(currentTextIndex > currentDialogue.description.Length) { return; }
             ShowNextDialogue();
         }
     }
 
-    // Call from anywhere you want to show a tutorial
     private void ShowUI()
     {
-        aniamtor.SetTrigger("StartReading");
+        aniamtor.SetBool("IsReading", true);
         dialogueText.text = currentDialogue.description[currentTextIndex];
     }
 
@@ -41,19 +45,27 @@ public class DialogueManager : MonoBehaviour
     public void ShowNextDialogue()
     {
         currentTextIndex++;
+        OnNextDialogue?.Invoke();
 
         if (currentTextIndex == currentDialogue.description.Length)
         {
             HideTutorialUI();
+            ResetValues();
             return;
         }
 
+        if (currentTextIndex > currentDialogue.description.Length) { return; }
         dialogueText.text = currentDialogue.description[currentTextIndex];
     }
 
     public void HideTutorialUI()
     {
-        aniamtor.SetTrigger("FinishedReading");
-        currentTextIndex = 0; 
+        aniamtor.SetBool("IsReading", false);
+        
+    }
+
+    public void ResetValues()
+    {
+        currentTextIndex = 0;
     }
 }

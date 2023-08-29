@@ -1,43 +1,85 @@
+using Mono.Cecil;
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour, IDataPersistance
 {
     public static GameManager Instance;
 
+    [Header("Difficulty")]
+    public int selectedDifficulty;
+    public List<bool> unlockedDifficultyList = new List<bool>();
+
     [Header("Resources")]
     public int wood = 0;
     public int coins = 0;
-    
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
     public TextMeshProUGUI coinsUI;
- 
 
+    [Header("Buttons")]
+    public Button[] difficultyButtons;
+    [SerializeField] private Sprite selected;
     public enum ResourceType
     {
         Wood,
         Coins,
     }
 
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+
+        unlockedDifficultyList.Add(true); // Adding the first element manually
+        for (int i = 1; i < 3; i++) // Start from 1, assuming you want to add 2 more elements
+        {
+            unlockedDifficultyList.Add(false); // Add new elements
+        }
+    }
+
     private void Start()
     {
-        Instance = this;
         UpdateUI();
+    }
+
+    private void Update()
+    {
+        ClickOnUI();
+    }
+
+    private void ClickOnUI()
+    {
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1)) { return; }
+        ButtonStates();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            SelectButton();
+        }
     }
 
     public void LoadData(GameData data)
     {
         this.wood = data.wood;
-        this.coins = data.sticks;
+        this.coins = data.coins;
+        this.selectedDifficulty = data.difficulty;
     }
 
     public void SaveData(ref GameData data)
     {
         data.wood = this.wood;
-        data.sticks = this.coins;
+        data.coins = this.coins;
+        data.difficulty = this.selectedDifficulty;
     }
 
     private void UpdateUI()
@@ -56,8 +98,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
             case ResourceType.Coins:
                 coins += amount;
                 break;
-           
-            default: Debug.LogError("Add resource method in game manager not working properly");
+
+            default:
+                Debug.LogError("Add resource method in game manager not working properly");
                 break;
         }
 
@@ -74,7 +117,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
             case ResourceType.Coins:
                 coins += amount;
                 break;
-            
+
         }
 
         UpdateUI();
@@ -91,5 +134,63 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+    }
+
+    public void ButtonStates()
+    {
+        difficultyButtons[0].interactable = true;
+
+        if (unlockedDifficultyList[1] == true)
+        {
+            difficultyButtons[1].interactable = true;
+        }
+        else
+        {
+            difficultyButtons[1].interactable = false;
+        }
+
+        if (unlockedDifficultyList[2] == true)
+        {
+            difficultyButtons[2].interactable = true;
+        }
+        else
+        {
+            difficultyButtons[2].interactable = false;
+        }
+
+        IsAButtonSelected();
+    }
+
+    private bool IsAButtonSelected()
+    {
+        for (int i = 0; i < difficultyButtons.Length; i++)
+        {
+            Image currentSprite = difficultyButtons[i].image;
+            Debug.Log(currentSprite.sprite);
+
+            if (currentSprite.sprite == selected)
+            {
+                Debug.Log("AA");
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    private void SelectButton()
+    {
+        difficultyButtons[selectedDifficulty].Select();
+    }
+
+    public void SetDifficulty(int difficulty)
+    {
+        selectedDifficulty = difficulty;
+        SelectButton();
+    }
+
+    public int GetDifficulty()
+    {
+        return selectedDifficulty;
     }
 }

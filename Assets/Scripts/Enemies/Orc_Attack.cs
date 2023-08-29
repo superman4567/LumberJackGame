@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class Orc_Attack : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class Orc_Attack : MonoBehaviour
     
     [SerializeField] private Animator animator;
 
+    [SerializeField] private Orc_DealDamage[] orcDealDamage;
+    [SerializeField] private Orc_Health orcHealth;
     [SerializeField] private GameObject rockPrefab; 
     [SerializeField] private Transform throwSpawnPoint; 
     [SerializeField] private LayerMask attackLayer;
-    [SerializeField] private RoundManager roundManager;
+    private RoundManager roundManager;
 
     private Transform player;
     public NavMeshAgent navMeshAgent;
@@ -26,30 +29,65 @@ public class Orc_Attack : MonoBehaviour
 
     private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        orcDealDamage = GetComponentsInChildren<Orc_DealDamage>();
         roundManager = FindObjectOfType<RoundManager>();
     }
 
     private void Update()
     {
+        Statemachine();
         ChasePlayer();
         MeleeOrRangedAttack();
     }
 
+    private void Statemachine()
+    {
+        switch (GameManager.Instance.GetDifficulty())
+        {
+            case 0:
+                for (int i = 0; i < orcDealDamage.Length; i++)
+                {
+                    orcDealDamage[i].damageAmount = 25;
+                }
+                baseOrcSpeed = Random.Range(0.8f, 1.2f);
+
+                roundManager.orcsToSpawnInCurrentRound = 10;
+                roundManager.orcSpawnIncreasePercentage = 2f;
+                break;
+
+            case 1:
+                for (int i = 0; i < orcDealDamage.Length; i++)
+                {
+                    orcDealDamage[i].damageAmount = 34;
+                }
+                baseOrcSpeed = Random.Range(2f, 3f);
+
+                roundManager.orcsToSpawnInCurrentRound = 20;
+                roundManager.orcSpawnIncreasePercentage = 3f;
+                break;
+
+            case 2:
+                for (int i = 0; i < orcDealDamage.Length; i++)
+                {
+                    orcDealDamage[i].damageAmount = 50;
+                }
+                baseOrcSpeed = Random.Range(4f, 6f);
+
+                roundManager.orcsToSpawnInCurrentRound = 30;
+                roundManager.orcSpawnIncreasePercentage = 4f;
+                break;
+
+            default:
+                break;
+        }
+    }
+
     private void ChasePlayer()
     {
+        navMeshAgent.speed = baseOrcSpeed;
         navMeshAgent.SetDestination(player.position);
-
-        // Get the orc's base speed
-        float baseSpeed = navMeshAgent.speed;
-
-        // Add a small random value to the speed to create variation
-        float randomSpeedOffset = Random.Range(-0.1f, 0.1f); // Adjust the range as needed
-        float orcSpeed = baseSpeed + randomSpeedOffset;
-
-        // Set the orc's speed
-        navMeshAgent.speed = orcSpeed;
     }
 
     private void MeleeOrRangedAttack()

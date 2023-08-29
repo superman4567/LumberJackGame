@@ -7,17 +7,13 @@ using UnityEngine;
 public class GameData
 {
     public int wood;
-    public int sticks;
-    public int planks;
-    public int woodenSpikes;
-    public int rock;
+    public int coins;
+    public int difficulty;
 
     public GameData()
     {
         this.wood = 0;
-        this.sticks= 0;
-        this.planks = 0;
-        this.woodenSpikes = 0;
-        this.rock= 0;
+        this.coins= 0;
+        this.difficulty = 0;
     }
 }

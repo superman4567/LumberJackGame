@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Orc_DealDamage : MonoBehaviour
 {
-    [SerializeField] private float damageAmount = 10f;
+    [SerializeField] public float damageAmount = 10f;
 
     private void OnTriggerEnter(Collider other)
     {

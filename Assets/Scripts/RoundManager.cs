@@ -4,44 +4,68 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    public OrcSpawner orcSpawner; // Reference to the OrcSpawner script
+    // Singleton instance
+    public static RoundManager Instance { get; private set; }
 
-    [SerializeField] private float speedIncreasePerRound = 0.5f;
-    public int currentRound = 1;
-    private int orcsToSpawnInCurrentRound = 10;
-    private int orcsSpawnedInCurrentRound = 0;
-    private int orcsKilledInCurrentRound = 0;
-    private float orcSpawnIncreasePercentage = 0.25f;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public int currentRound = 0;
+    public int orcsToSpawnInCurrentRound = 10;
+    public int orcsSpawnedInCurrentRound = 0;
+    public int orcsKilledInCurrentRound = 0;
+    public float orcSpawnIncreasePercentage;
 
     private void Start()
     {
-        orcSpawner = GetComponent<OrcSpawner>(); // Get the reference to the OrcSpawner script
-        StartNewRound();
+        StartCoroutine(StartNewRoundCoroutine());
     }
 
     private void Update()
     {
-        if (orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
+        Statemachine();
+
+        if (orcsSpawnedInCurrentRound == orcsToSpawnInCurrentRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
         {
-            StartNewRound();
+            StartCoroutine(StartNewRoundCoroutine());
         }
     }
 
-    private void StartNewRound()
+    private IEnumerator StartNewRoundCoroutine()
     {
-        Debug.Log("Current round =" + currentRound);
-        currentRound++;
+        yield return new WaitForSeconds(1.0f); // Adjust the delay time as needed
+
         orcsToSpawnInCurrentRound = Mathf.CeilToInt(orcsToSpawnInCurrentRound * (1 + orcSpawnIncreasePercentage));
+        Debug.Log(orcsToSpawnInCurrentRound);
+
         orcsSpawnedInCurrentRound = 0;
         orcsKilledInCurrentRound = 0;
+
+        currentRound++;
+        Debug.Log("Current round =" + currentRound);
     }
 
-    public float GetCurrentRoundSpeedMultiplier()
+    private void Statemachine()
     {
-        // Calculate the speed multiplier based on the current round
-        // You can adjust the formula as needed
-        float speedMultiplier = 1 + (currentRound - 1) * speedIncreasePerRound;
-        return speedMultiplier;
+        switch (GameManager.Instance.GetDifficulty())
+        {
+            case 0:
+                orcSpawnIncreasePercentage = 1.5f;
+                break;
+
+            case 1:
+                orcSpawnIncreasePercentage = 3f;
+                break;
+
+            case 2:
+                orcSpawnIncreasePercentage = 7.5f;
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void OrcSpawned()

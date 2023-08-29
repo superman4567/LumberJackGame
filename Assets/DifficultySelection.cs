@@ -12,15 +12,15 @@ public class DifficultySelection : MonoBehaviour
         difficultyPanel.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (!hasPlayerInteractedWithBoard) { return; }
 
         difficultyPanel.SetActive(true);
     }
 
-    private void DifficultySelect()
+    private void OnTriggerExit(Collider other)
     {
-        //switchstate
+        difficultyPanel.SetActive(false);
     }
 }

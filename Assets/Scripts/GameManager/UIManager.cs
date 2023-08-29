@@ -1,57 +1,79 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Panels")]
-    [SerializeField] public List<GameObject> panels = new List<GameObject>();
+    public Button button1;
+    public Button button2;
+    public Button button3;
 
-    [Header("Storm text")]
-    private EnvironmentManager environmentManager;
-    private bool playerIsInside = false;
+    public Button[] buttons;
 
-    public Action woodCheat;
-    public static UIManager Instance;
-
-    private void Awake()
+    private void Start()
     {
-        if (Instance != null)
+        foreach (Button button in buttons)
         {
-            Debug.LogError("You have another instance of the UI manager");
-            Destroy(this);
-        }
-        Instance = this;
-        environmentManager = FindObjectOfType<EnvironmentManager>();
-        if (environmentManager == null)
-        {
-            playerIsInside = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CloseAllPanels();
+            button.onClick.AddListener(() => SelectButton(button));
         }
 
-        if (playerIsInside) { return; }
+        UpdateButtonStates();
     }
 
-    public void OpenPanelByIndex(int panelIndex)
+    private void UpdateButtonStates()
     {
-        CloseAllPanels();
-        panels[panelIndex].SetActive(true);
-    }
+        GameManager gameManager = GameManager.Instance;
 
-    public void CloseAllPanels()
-    {
-        foreach (GameObject panel in panels)
+        foreach (Button button in buttons)
         {
-            panel.SetActive(false);
+            bool shouldBeSelected = ShouldButtonBeSelected(button, gameManager);
+            button.interactable = shouldBeSelected;
+        }
+
+        EnsureOneButtonSelected();
+    }
+
+    private bool ShouldButtonBeSelected(Button button, GameManager gameManager)
+    {
+        // Implement your logic here based on the button's properties and GameManager variables
+        // For example:
+        if (button.name == "Button1")
+        {
+            return true;  // Button 1 is always enabled
+        }
+        //else if ((button.name == "Button2" || button.name == "Button3") && gameManager.IsUnlocked())
+        {
+            // Enable Button 2 and 3 only if the game manager indicates they are unlocked
+            return true;
+        }
+
+        return false;
+    }
+
+    private void SelectButton(Button selectedButton)
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
+
+        selectedButton.interactable = false;
+    }
+
+    private void EnsureOneButtonSelected()
+    {
+        bool anyButtonSelected = false;
+        foreach (Button button in buttons)
+        {
+            if (!button.interactable)
+            {
+                anyButtonSelected = true;
+                break;
+            }
+        }
+
+        if (!anyButtonSelected)
+        {
+            buttons[0].interactable = false;
         }
     }
 }

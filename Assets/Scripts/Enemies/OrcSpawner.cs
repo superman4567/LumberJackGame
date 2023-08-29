@@ -6,27 +6,16 @@ public class OrcSpawner : MonoBehaviour
 {
     public GameObject orcPrefab;
     public Transform spawnPointsContainer;
-    public float spawnDuration = 15.0f; // Total duration for spawning orcs
-    public Transform parentTransform; // Assign the parent transform in the Inspector
-
-    private List<Transform> spawnPoints = new List<Transform>();
-    private RoundManager roundManager;
-    private int orcsToSpawnInCurrentRound = 10;
-    private int orcsSpawnedInCurrentRound = 0;
-    private int orcsKilledInCurrentRound = 0;
-    private float orcSpawnIncreasePercentage = 0.25f;
-    private float timeBetweenSpawns; // Time interval between orc spawns
-    private float spawnTimer = 0.0f; // Timer for tracking spawning progress
+    public float spawnDuration = 15.0f;
+    public Transform parentTransform;
     public bool startToSpawnOrcs = false;
 
-    private void Awake()
-    {
-        roundManager = FindObjectOfType<RoundManager>();
-    }
+    private List<Transform> spawnPoints = new List<Transform>();
+    private float timeBetweenSpawns;
+    private float spawnTimer = 0.0f;
 
     private void Start()
     {
-        Debug.Log("Orcs amount to be spawned = " + orcsToSpawnInCurrentRound);
         // Populate the spawnPoints list with child transforms from the spawnPointsContainer
         foreach (Transform spawnPoint in spawnPointsContainer)
         {
@@ -34,15 +23,15 @@ public class OrcSpawner : MonoBehaviour
         }
 
         // Calculate the time interval between orc spawns
-        timeBetweenSpawns = spawnDuration / orcsToSpawnInCurrentRound;
+        timeBetweenSpawns = spawnDuration / RoundManager.Instance.orcsToSpawnInCurrentRound;
     }
 
     private void Update()
     {
-        if(!startToSpawnOrcs) { return; }
+        if (!startToSpawnOrcs) { return; }
 
         // Only start spawning orcs if not all orcs are spawned yet
-        if (orcsSpawnedInCurrentRound < orcsToSpawnInCurrentRound)
+        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.orcsToSpawnInCurrentRound)
         {
             spawnTimer += Time.deltaTime;
 
@@ -56,7 +45,7 @@ public class OrcSpawner : MonoBehaviour
 
     private void SpawnOrc()
     {
-        if (orcsSpawnedInCurrentRound < orcsToSpawnInCurrentRound)
+        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.orcsToSpawnInCurrentRound)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];
@@ -67,10 +56,7 @@ public class OrcSpawner : MonoBehaviour
             // Set the parent transform to the assigned parent
             newOrc.transform.SetParent(parentTransform);
 
-            roundManager.OrcSpawned(); // Inform the RoundManager that an orc is spawned
-
-            // Increment the counter AFTER spawning an orc
-            orcsSpawnedInCurrentRound++;
+            RoundManager.Instance.OrcSpawned(); // Inform the RoundManager that an orc is spawned
         }
     }
 }

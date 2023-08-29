@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8249898056257875261}
   - component: {fileID: 6168086351926221303}
   - component: {fileID: 9209911300645642155}
+  - component: {fileID: 1190633885159163325}
   m_Layer: 0
   m_Name: Fence 2
   m_TagString: Untagged
@@ -98,6 +99,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.243296, y: 1.9870552, z: 0.55322164}
   m_Center: {x: 0.23092204, y: 0.6668163, z: -0.11331589}
+--- !u!208 &1190633885159163325
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663713773464123426}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.1220002, y: 1.195, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.231, y: 0.66700006, z: -0.113000005}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1038746471648415906
 PrefabInstance:
   m_ObjectHideFlags: 0

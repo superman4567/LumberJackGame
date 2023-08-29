@@ -5,34 +5,77 @@ using UnityEngine;
 public class ShowDialogue : MonoBehaviour
 {
     [SerializeField] DialogueContainer dialogueContainerReference;
-    private Collider currentObjectCollider;
+    private static ShowDialogue currentDialogue;
+    private int currentDialogueIndex;
 
-    private void Start()
+    private void Awake()
     {
-        currentObjectCollider = GetComponent<Collider>();
+        currentDialogue = null;
+    }
+
+    private void OnEnable()
+    {
+        DialogueManager.Instance.OnNextDialogue += DoneReading;
+    }
+
+    private void OnDisable()
+    {
+        DialogueManager.Instance.OnNextDialogue -= DoneReading;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "Player") { return; }
+        currentDialogue = this;
         DialogueManager.Instance.SetDialogue(dialogueContainerReference);
+    }
 
-        if(gameObject.tag == "Board")
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag != "Player") { return; }
         {
-            FindObjectOfType<DifficultySelection>().hasPlayerInteractedWithBoard = true;
-        }
-
-        if (gameObject.tag == "GameStarter")
-        {
-            FindObjectOfType<OrcSpawner>().startToSpawnOrcs = true;
+            if (DialogueManager.Instance.currentTextIndex >= dialogueContainerReference.description.Length)
+            {
+                DialogueManager.Instance.HideTutorialUI();
+                DialogueManager.Instance.ResetValues();
+                Destroy();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (DialogueManager.Instance.currentTextIndex >= dialogueContainerReference.description.Length)
+        if (other.gameObject.tag != "Player") { return; }
         {
+            if (DialogueManager.Instance.currentTextIndex >= dialogueContainerReference.description.Length)
+            {
+                DialogueManager.Instance.HideTutorialUI();
+                DialogueManager.Instance.ResetValues();
+                Destroy();
+            }
             DialogueManager.Instance.HideTutorialUI();
-            Destroy(currentObjectCollider);
+            DialogueManager.Instance.ResetValues();
         }
+    }
+
+    private void DoneReading()
+    {
+        if (currentDialogue == this)
+        {
+            currentDialogueIndex++;
+        }
+
+        if (currentDialogue.gameObject.tag == "Board")
+        {
+            if (DialogueManager.Instance.currentTextIndex == dialogueContainerReference.description.Length)
+            {
+                FindObjectOfType<DifficultySelection>().hasPlayerInteractedWithBoard = true;
+            }
+        }
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
