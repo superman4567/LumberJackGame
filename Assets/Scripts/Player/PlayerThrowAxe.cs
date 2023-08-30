@@ -58,8 +58,6 @@ public class PlayerThrowAxe : MonoBehaviour
     public void ThrowAxe()
     {
         animator.SetBool("Throw", false);
-        if (!CanThrowAxe) return;
-        
         axeModel.transform.parent = null;
         isAxeThrown = true;
         axeRb.isKinematic = false;

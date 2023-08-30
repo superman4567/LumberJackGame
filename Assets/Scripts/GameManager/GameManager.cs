@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -38,12 +37,11 @@ public class GameManager : MonoBehaviour, IDataPersistance
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
 
-        unlockedDifficultyList.Add(true); // Adding the first element manually
-        for (int i = 1; i < 3; i++) // Start from 1, assuming you want to add 2 more elements
+        unlockedDifficultyList.Add(true); 
+        for (int i = 1; i < 3; i++) 
         {
-            unlockedDifficultyList.Add(false); // Add new elements
+            unlockedDifficultyList.Add(false); 
         }
     }
 

@@ -34,10 +34,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
         SprintingCost();
-        playerGravity();
         DodgeRoll();
+    }
+
+    private void LateUpdate()
+    {
+        Movement();
+        playerGravity();
     }
 
     public void Movement()

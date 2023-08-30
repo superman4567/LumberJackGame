@@ -24,7 +24,7 @@ public class ChestSpawner : MonoBehaviour
     void Start()
     {
         // If the current round allows chest spawning, and the chest limit is not exceeded
-        if (roundManager.currentRound > 0 && chestsSpawnedInCurrentRound < maxChestsPerRound && currentTotalChests < maxTotalChests)
+        if (roundManager.currentRound > -1 && chestsSpawnedInCurrentRound < maxChestsPerRound && currentTotalChests < maxTotalChests)
         {
             // Shuffle the spawnPoints list using Fisher-Yates shuffle algorithm
             for (int i = spawnPoints.Count - 1; i > 0; i--)

@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 7337426492022847630}
   - component: {fileID: 6680409629534959855}
   - component: {fileID: 1232760192258110968}
-  - component: {fileID: 8693553760446855726}
+  - component: {fileID: 9067072475657198968}
   m_Layer: 0
   m_Name: Tree_Bot
   m_TagString: Untagged
@@ -274,8 +274,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8693553760446855726
-MeshCollider:
+--- !u!65 &9067072475657198968
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -284,10 +284,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5228069485959211500, guid: 3aa246d09b2654241a1f9cc3a7b94ce6, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.2671281, y: 1.350329, z: 1.4630208}
+  m_Center: {x: 0.0014777184, y: 0.26688588, z: 0.006563306}
 --- !u!1001 &5743395055569278413
 PrefabInstance:
   m_ObjectHideFlags: 0

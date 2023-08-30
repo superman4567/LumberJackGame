@@ -59,9 +59,9 @@
     <Compile Include="Assets\Scripts\UI\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\UI\RadialProgressBar.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
-    <Compile Include="Assets\Scripts\ChestAnimations.cs" />
+    <Compile Include="Assets\Scripts\Interactables\ChestAnimations.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\LookAtMe.cs" />
+    <Compile Include="Assets\Scripts\Player\LookAtMe.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowTerrain.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
@@ -69,14 +69,14 @@
     <Compile Include="Assets\Scripts\Interactables\Tree.cs" />
     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
-    <Compile Include="Assets\Scripts\SticksAndNails.cs" />
+    <Compile Include="Assets\Scripts\Interactables\WoodAndCoins.cs" />
     <Compile Include="Assets\Scripts\Enemies\OrcSpawner.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
-    <Compile Include="Assets\ShowDialogue.cs" />
+    <Compile Include="Assets\Scripts\UI\ShowDialogue.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
-    <Compile Include="Assets\Scripts\RoundManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\RoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
     <Compile Include="Assets\Scripts\GameManager\EnvironmentManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowAssetManager.cs" />
@@ -94,18 +94,19 @@
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Ragdoll.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowSubShowcase.cs" />
-    <Compile Include="Assets\DifficultySelection.cs" />
+    <Compile Include="Assets\Scripts\GameManager\DifficultySelection.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Chest.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerSnow.cs" />
     <Compile Include="Assets\Scripts\UI\PressAnyKeyToStart.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FxMouse.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_DealDamage.cs" />
-    <Compile Include="Assets\PowerUpManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\Interactables\TreeFalling.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
+    <Compile Include="Assets\Scripts\Enemies\startSpawing.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
@@ -116,7 +117,6 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\startSpawing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

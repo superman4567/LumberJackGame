@@ -5,10 +5,11 @@ using UnityEngine;
 public class Orc_Ragdoll : MonoBehaviour
 {
     [SerializeField] private Rigidbody[] ragdollBodies;
+    [SerializeField] private GameObject child;
 
     void Awake()
     {
-        ragdollBodies = gameObject.GetComponentsInChildren<Rigidbody>();
+        ragdollBodies = child.GetComponentsInChildren<Rigidbody>();
         DisableRagdoll();
     }
 
@@ -26,6 +27,5 @@ public class Orc_Ragdoll : MonoBehaviour
         {
             rigidbody.isKinematic = false;
         }
-        ragdollBodies[0].isKinematic = true;
     }
 }

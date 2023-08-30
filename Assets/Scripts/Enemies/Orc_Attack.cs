@@ -12,7 +12,8 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float baseOrcSpeed = 2;
-    
+    [SerializeField] private const float lastOrcSpeed = 6;
+
     [SerializeField] private Animator animator;
 
     [SerializeField] private Orc_DealDamage[] orcDealDamage;
@@ -51,7 +52,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 25;
                 }
-                baseOrcSpeed = Random.Range(0.8f, 1.2f);
+                baseOrcSpeed = Random.Range(1.8f, 2.2f);
 
                 roundManager.orcsToSpawnInCurrentRound = 10;
                 roundManager.orcSpawnIncreasePercentage = 2f;
@@ -62,7 +63,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 34;
                 }
-                baseOrcSpeed = Random.Range(2f, 3f);
+                baseOrcSpeed = Random.Range(2.8f, 3.8f);
 
                 roundManager.orcsToSpawnInCurrentRound = 20;
                 roundManager.orcSpawnIncreasePercentage = 3f;
@@ -73,7 +74,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 50;
                 }
-                baseOrcSpeed = Random.Range(4f, 6f);
+                baseOrcSpeed = Random.Range(5f, 7f);
 
                 roundManager.orcsToSpawnInCurrentRound = 30;
                 roundManager.orcSpawnIncreasePercentage = 4f;
@@ -88,6 +89,11 @@ public class Orc_Attack : MonoBehaviour
     {
         navMeshAgent.speed = baseOrcSpeed;
         navMeshAgent.SetDestination(player.position);
+
+        if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
+        {
+            navMeshAgent.speed = lastOrcSpeed;
+        }
     }
 
     private void MeleeOrRangedAttack()
