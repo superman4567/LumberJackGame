@@ -31,7 +31,11 @@ public class AxeDetection : MonoBehaviour
                 // Apply knockback only if angle is within the threshold
                 if (angle < frontHitAngleThreshold)
                 {
-                    orc.KnockBack(knockbackDirection, knockbackForce);
+                    // Only apply knockback if the orc is not currently being knocked back
+                    if (!orc.isKnockbackActive)
+                    {
+                        orc.KnockBack(knockbackDirection);
+                    }
                 }
             }
         }

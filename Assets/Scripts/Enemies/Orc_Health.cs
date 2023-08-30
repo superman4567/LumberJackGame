@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,26 +9,36 @@ public class Orc_Health : MonoBehaviour
     [SerializeField] Orc_Animations orc_Animations;
     [SerializeField] Orc_Attack orc_Attack;
     [SerializeField] Collider hitBox;
-    [SerializeField] Rigidbody rb;
 
     [SerializeField] private float knockbackDuration = 0.5f;
     [SerializeField] private float knockbackSpeed = 5.0f;
 
     [SerializeField] Animator animator;
     private RoundManager roundManager;
+    private AxeDetection axeDetection;
+
     public float maxHealth = 100;
     private float currentHealth;
 
+    private Transform player;
+    private NavMeshAgent navMeshAgent;
+    public bool isKnockbackActive = false;
+    private Vector3 knockbackDirection;
+
+
+
     private void Awake()
     {
-        rb.isKinematic = true;
         roundManager = FindObjectOfType<RoundManager>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        axeDetection = FindObjectOfType<AxeDetection>();
     }
 
     private void Start()
     {
         Statemachine();
-        
+
         currentHealth = maxHealth;
 
         if (roundManager == null)
@@ -38,13 +47,43 @@ public class Orc_Health : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isKnockbackActive)
+        {
+            PerformKnockback();
+        }
+    }
+
+    public void KnockBack(Vector3 direction)
+    {
+        isKnockbackActive = true;
+        knockbackDirection = direction;
+        navMeshAgent.enabled = false;
+
+        Invoke("EndKnockback", knockbackDuration);
+    }
+
+    private void PerformKnockback()
+    {
+        Vector3 newPosition = transform.position + new Vector3(knockbackDirection.x, 0f, knockbackDirection.z) * knockbackSpeed * Time.deltaTime;
+        transform.position = newPosition;
+    }
+
+    private void EndKnockback()
+    {
+        isKnockbackActive = false;
+        navMeshAgent.enabled = true;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag != "Axe") { return; }
 
-        currentHealth -= 50;
+        currentHealth -= axeDetection.axeDamage;
         Debug.Log(currentHealth);
 
+        //health is 0
         if (currentHealth <= 0)
         {
             animator.enabled = false;
@@ -57,22 +96,6 @@ public class Orc_Health : MonoBehaviour
             roundManager.OrcKilled();
             Invoke("Die", 10f);
         }
-    }
-
-    public void KnockBack(Vector3 knockbackDirection, float knockbackForce)
-    {
-        orc_Attack.navMeshAgent.enabled = false;
-        Vector3 knockbackVelocity = -knockbackDirection.normalized * knockbackSpeed;
-
-        // Simulate knockback using translations
-        float elapsedTime = 0f;
-        while (elapsedTime < knockbackDuration)
-        {
-            transform.Translate(knockbackVelocity * Time.deltaTime);
-            elapsedTime += Time.deltaTime;
-        }
-
-        orc_Attack.navMeshAgent.enabled = true;
     }
 
     private void Statemachine()

@@ -106,7 +106,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\Enemies\startSpawing.cs" />
+    <Compile Include="Assets\Scripts\Enemies\StartSpawing.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
@@ -117,6 +117,8 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemies\RockPool.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ThrowableRock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

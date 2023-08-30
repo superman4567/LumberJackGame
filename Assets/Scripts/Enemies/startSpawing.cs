@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class startSpawing : MonoBehaviour
+public class StartSpawing : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {

@@ -1889,7 +1889,6 @@ GameObject:
   - component: {fileID: 1339500863146655895}
   - component: {fileID: 7322189240873099811}
   - component: {fileID: 7354386558889207771}
-  - component: {fileID: 6323711171677270123}
   - component: {fileID: 7515178835910444018}
   m_Layer: 6
   m_Name: Player
@@ -2047,11 +2046,12 @@ MonoBehaviour:
   axe: {fileID: 3460048381738171339}
   throwSpawnPoint: {fileID: 7629024681663305202}
   axeRb: {fileID: 8248386062934673876}
-  throwForce: 25
-  returnSpeed: 1
-  spinForce: 750
+  throwForce: 50
+  returnSpeed: 2
+  spinForce: 1500
   animator: {fileID: 8609658880822775392}
   playerModelTransform: {fileID: 7151995344899385449}
+  isReturning: 0
 --- !u!143 &7354386558889207771
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2063,27 +2063,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.78
-  m_Radius: 0.64
-  m_SlopeLimit: 30
+  m_Height: 3.75
+  m_Radius: 0.4
+  m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.9, z: 0}
---- !u!136 &6323711171677270123
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7354386558889207768}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.91
-  m_Height: 3.81
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.9, z: 0}
+  m_Center: {x: 0, y: 1.81, z: 0.09}
 --- !u!114 &7515178835910444018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,7 +2880,7 @@ PrefabInstance:
     - target: {fileID: 3403596208368758445, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
         type: 3}
       propertyPath: m_Drag
-      value: 0.2
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3403596208368758445, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
         type: 3}
@@ -2906,10 +2892,55 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3403596208368758445, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403596208368758445, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227500898751990787, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6956433
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227500898751990787, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.6728392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227500898751990787, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000010275396
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227500898751990787, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.7000577
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227500898751990787, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.31256923
+      objectReference: {fileID: 0}
     - target: {fileID: 7872477347734461618, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
         type: 3}
       propertyPath: axeDamage
-      value: 100
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872477347734461618, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872477347734461618, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
+        type: 3}
+      propertyPath: frontHitAngleThreshold
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8215500103253601290, guid: 078f5f0c39cb28847bf8d44b42d4aabd,
         type: 3}
@@ -2976,7 +3007,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8474440432470190136, guid: 078f5f0c39cb28847bf8d44b42d4aabd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 078f5f0c39cb28847bf8d44b42d4aabd, type: 3}
 --- !u!4 &2597634324178358729 stripped
 Transform:

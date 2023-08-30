@@ -16,7 +16,7 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private Transform playerModelTransform;
 
     private bool isAxeThrown = false;
-    private bool isReturning;
+    public bool isReturning;
     public bool CanThrowAxe { get; set; }
 
     private float timeSinceAxeThrown = 0f;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c84673969a0d5cd459a246f8a9c1c0a1
+guid: dc1f9db316475b449a0ba8c22c3881d0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: root|A_Throw
       internalID: 8827654099151812606
       firstFrame: 0
-      lastFrame: 52
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -57,7 +57,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5622643
+      - time: 0.6590258
         functionName: ThrowAxe
         data: 
         objectReferenceParameter: {instanceID: 0}
