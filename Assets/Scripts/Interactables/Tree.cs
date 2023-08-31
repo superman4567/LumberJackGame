@@ -8,12 +8,6 @@ public class Tree : Interactable
 {
     [SerializeField] private AudioSource TreeBreakingSound;
     [SerializeField] private Transform fallingTreePrefab;
-    [SerializeField] Image interactIcon;
-
-    private void Start()
-    {
-        interactIcon.enabled = false;
-    }
 
     public override void InteractComplete()
     {
@@ -24,21 +18,5 @@ public class Tree : Interactable
         GameManager.Instance.AddResource(ResourceType.Wood, 5);
         
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            interactIcon.enabled = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            interactIcon.enabled = false;
-        }
     }
 }

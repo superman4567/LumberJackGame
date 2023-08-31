@@ -150,6 +150,8 @@ MonoBehaviour:
   savedProgressInSeconds: 0
   interactInSeconds: 1
   canBeInteractedWith: 1
+  canvas: {fileID: 4729811372820036159}
+  fill: {fileID: 1765922927689861976}
   TreeBreakingSound: {fileID: 834441125565043186}
   fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
     type: 3}
@@ -396,6 +398,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4729811372820036159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5813673902500041167, guid: 4adfa9e68f5d4a341a382a0c7ea8cdfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1228915345942850544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7010328116557648781 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8089674090344429693, guid: 4adfa9e68f5d4a341a382a0c7ea8cdfa,

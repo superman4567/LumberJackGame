@@ -59,13 +59,9 @@ public class PlayerInteraction : MonoBehaviour
             if (closestInteractable != currentInteractable)
             {
                 currentInteractable = closestInteractable;
-                if(currentInteractable.TryGetComponent(out Interactable a)) 
+                if(currentInteractable.TryGetComponent(out Interactable interactableComponent)) 
                 {
-                    currentInteractableObject = a;
-                }
-                else
-                {
-                    Debug.LogError("TryGet failed");
+                    currentInteractableObject = interactableComponent;
                 }
             }
         }
