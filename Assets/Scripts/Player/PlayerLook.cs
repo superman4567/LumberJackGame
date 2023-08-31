@@ -7,7 +7,6 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private LayerMask floorMask;
-    [SerializeField] private float rotationSpeed = 10f;
 
     private RaycastHit hit;
 

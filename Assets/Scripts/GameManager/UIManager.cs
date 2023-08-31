@@ -45,8 +45,6 @@ public class UIManager : MonoBehaviour
             // Enable Button 2 and 3 only if the game manager indicates they are unlocked
             return true;
         }
-
-        return false;
     }
 
     private void SelectButton(Button selectedButton)

@@ -3,48 +3,32 @@ using UnityEngine.UI;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public float savedProgressInSeconds;
-    public float interactInSeconds;
-
-    public bool canBeInteractedWith = true;
-    protected bool interactionComplete = false;
-
-    
     [SerializeField] protected Image fill;
     [SerializeField] protected GameObject canvas;
-    [SerializeField] protected Transform playerSocket;
-    protected GameObject player;
-    protected PlayerInteraction playerInteraction;
-    protected PlayerMovement playerMovement;
 
-    private bool isMovingToSocket = false;
-    private Vector3 initialPlayerPosition;
-    private Quaternion initialPlayerRotation;
+    protected PlayerInteraction playerInteraction;
+    public float savedProgressInSeconds;
+    public float interactInSeconds;
+    public bool canBeInteractedWith = true;
+    protected bool interactionComplete = false;
 
     private void Start()
     {
         playerInteraction = FindObjectOfType<PlayerInteraction>();
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        canvas.SetActive(false);
+        if (gameObject.tag != "Chest") 
+        {
+            canvas.SetActive(false); 
+        }
+        else { return; }
     }
 
     public virtual void AddProgress(float progressInSeconds)
     {
-        if (gameObject.tag == "Chest")
-        {
-            player.transform.SetParent(playerSocket);
-            playerMovement.enabled = false;
-        }
-        else
-        {
-            player.transform.SetParent(null);
-            playerMovement.enabled = true;
-        }
-
         if (savedProgressInSeconds <= interactInSeconds)
         {
             savedProgressInSeconds += progressInSeconds;
+
+            if (gameObject.tag == "Chest") { return; }
             fill.fillAmount = savedProgressInSeconds / interactInSeconds;
         }
     }
@@ -53,18 +37,22 @@ public abstract class Interactable : MonoBehaviour
     {
         if (savedProgressInSeconds >= interactInSeconds)
         {
-            canvas.SetActive(false); 
+            canvas.SetActive(false);
         }
         return (savedProgressInSeconds >= interactInSeconds);
     }
 
     public virtual void InteractComplete()
     {
+        canBeInteractedWith = false;
         interactionComplete = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (gameObject.tag == "Chest") { return; }
+        if (interactionComplete) { return; }
+
         if (playerInteraction.currentInteractableObject == this)
         {
             canvas.SetActive(true);
@@ -73,6 +61,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (gameObject.tag == "Chest") { return; }
         canvas.SetActive(false);
     }
 }

@@ -22,12 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dodgeRollDuration = 0.5f;
     [SerializeField] private float dodgeRollCooldown = 2f;
 
-    private bool isDodging = false;
-    private float dodgeRollStartTime = 0f;
-
     private Vector3 dodgeRollStartPosition;
     private bool isDodgeRolling = false;
-
+    private float dodgeRollStartTime = 0f;
     private float verticalVelocity = 0.0f;
     private float gravity = -9.81f;
 

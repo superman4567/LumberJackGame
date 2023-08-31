@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Interactable object detection")]
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionDistance = 3f;
+    [SerializeField] private Animator animator;
 
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
@@ -59,7 +60,7 @@ public class PlayerInteraction : MonoBehaviour
             if (closestInteractable != currentInteractable)
             {
                 currentInteractable = closestInteractable;
-                if(currentInteractable.TryGetComponent(out Interactable interactableComponent)) 
+                if(currentInteractable.TryGetComponent(out Interactable interactableComponent))
                 {
                     currentInteractableObject = interactableComponent;
                 }
@@ -78,8 +79,15 @@ public class PlayerInteraction : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
-                currentInteractableObject.AddProgress(Time.deltaTime);
                 InteractionHappening?.Invoke(true);
+                if (currentInteractable.tag == "Chest")
+                {
+                    currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
+                }
+                else
+                {
+                    currentInteractableObject.AddProgress(Time.deltaTime);
+                }
 
                 //Trigger the finish interaction method on the object we are interacting with
                 if (currentInteractableObject.CheckProgressComplete())
@@ -95,14 +103,6 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             InteractionHappening?.Invoke(false);
-        }
-    }
-
-    public void OpenChest()
-    {
-        if (currentInteractableObject.tag == "Chest")
-        {
-            currentInteractableObject.GetComponent<ChestAnimations>().ChestOpen();
         }
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AxeDetection : MonoBehaviour
 {
-    [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float frontHitAngleThreshold = 60.0f;
 
     public bool axeHitSomething = false;
