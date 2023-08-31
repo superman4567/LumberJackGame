@@ -35,6 +35,8 @@ public class Orc_Attack : MonoBehaviour
 
     private void Awake()
     {
+        Statemachine();
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<CharacterController>();
         rockPool = FindObjectOfType<RockPool>();
@@ -62,9 +64,6 @@ public class Orc_Attack : MonoBehaviour
                     orcDealDamage[i].damageAmount = 25;
                 }
                 baseOrcSpeed = Random.Range(1.8f, 2.2f);
-
-                roundManager.orcsToSpawnInCurrentRound = 10;
-                roundManager.orcSpawnIncreasePercentage = 2f;
                 break;
 
             case 1:
@@ -73,9 +72,6 @@ public class Orc_Attack : MonoBehaviour
                     orcDealDamage[i].damageAmount = 34;
                 }
                 baseOrcSpeed = Random.Range(2.8f, 3.8f);
-
-                roundManager.orcsToSpawnInCurrentRound = 20;
-                roundManager.orcSpawnIncreasePercentage = 3f;
                 break;
 
             case 2:
@@ -84,9 +80,6 @@ public class Orc_Attack : MonoBehaviour
                     orcDealDamage[i].damageAmount = 50;
                 }
                 baseOrcSpeed = Random.Range(5f, 7f);
-
-                roundManager.orcsToSpawnInCurrentRound = 30;
-                roundManager.orcSpawnIncreasePercentage = 4f;
                 break;
 
             default:

@@ -22,7 +22,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentTextIndex);
         if (Input.GetKeyDown(KeyCode.F))
         {
             if(currentTextIndex > currentDialogue.description.Length) { return; }

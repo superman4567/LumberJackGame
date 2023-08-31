@@ -78,9 +78,11 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
     <Compile Include="Assets\Scripts\GameManager\RoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ThrowableRock.cs" />
     <Compile Include="Assets\Scripts\GameManager\EnvironmentManager.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowAssetManager.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\DataPersistenceManager.cs" />
+    <Compile Include="Assets\Scripts\Enemies\RockPool.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_AddSnow.cs" />
     <Compile Include="Assets\Scripts\GameManager\UIManager.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractionPosition.cs" />
@@ -117,8 +119,7 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Enemies\RockPool.cs" />
-    <Compile Include="Assets\Scripts\Enemies\ThrowableRock.cs" />
+    <Compile Include="Assets\RoundStatsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

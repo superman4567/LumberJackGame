@@ -81,7 +81,6 @@ public class Orc_Health : MonoBehaviour
         if (collision.gameObject.tag != "Axe") { return; }
 
         currentHealth -= axeDetection.axeDamage;
-        Debug.Log(currentHealth);
 
         //health is 0
         if (currentHealth <= 0)
@@ -103,15 +102,15 @@ public class Orc_Health : MonoBehaviour
         switch (GameManager.Instance.GetDifficulty())
         {
             case 0:
-                maxHealth += (maxHealth + (roundManager.currentRound * 2f));
+                maxHealth = (maxHealth + (roundManager.currentRound * 1.25f));
                 break;
 
             case 1:
-                maxHealth += (maxHealth + (roundManager.currentRound * 7.5f));
+                maxHealth = (maxHealth + (roundManager.currentRound * 1.5f));
                 break;
 
             case 2:
-                maxHealth += (maxHealth + (roundManager.currentRound * 15f));
+                maxHealth = (maxHealth + (roundManager.currentRound * 2f));
                 break;
 
             default:
