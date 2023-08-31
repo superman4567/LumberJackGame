@@ -19,9 +19,6 @@ public class PowerUpManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
-            // Populate powerUpOptions array
-            PopulatePowerUpOptions();
         }
         else
         {
@@ -29,6 +26,10 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PopulatePowerUpOptions();
+    }
     private void PopulatePowerUpOptions()
     {
         // Set powerUpOptions array based on the PowerUpType enum

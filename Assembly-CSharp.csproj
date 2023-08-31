@@ -89,9 +89,11 @@
     <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffects.cs" />
     <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UI\HideStats.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChestSpawner.cs" />
+    <Compile Include="Assets\RoundStatsManager.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Ragdoll.cs" />
@@ -119,7 +121,6 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\RoundStatsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

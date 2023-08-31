@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CanvasFacesUser : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject mainCamera;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera"); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         CanvasFaceCamera();

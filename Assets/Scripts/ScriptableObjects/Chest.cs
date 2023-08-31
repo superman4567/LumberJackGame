@@ -1,13 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chest : Interactable
 {
-    private PowerUpManager.PowerUpType storedPowerUp;
+    [SerializeField] Image interactIcon;
 
-    public void AssignPowerUp(PowerUpManager.PowerUpType powerUpType)
+    private void Start()
     {
-        storedPowerUp = powerUpType;
-        Debug.Log("Assigned Power-Up to Chest: " + powerUpType);
+        interactIcon.enabled = false;
     }
 
     public override void InteractComplete()
@@ -23,5 +23,21 @@ public class Chest : Interactable
     private void DestroyChest()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            interactIcon.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            interactIcon.enabled = false;
+        }
     }
 }
