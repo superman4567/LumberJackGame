@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc2200fc0682cf4291e7e71d5104662, type: 3}
+  m_Name: 1.HealthBoost
+  m_EditorClassIdentifier: 
+  PowerUpSrpite: {fileID: 21300000, guid: d6e6b86fa9b570c4f94409e2cccf513b, type: 3}
+  PowerupTitle: Health Boost
+  PowerupDescription: You find a vitality potion and you gain health. If you are
+    at fuill health it will function as overheal.

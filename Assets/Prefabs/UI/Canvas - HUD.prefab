@@ -1937,6 +1937,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3811500737822827941, guid: 0a1901d03e6bd074684454e1a6795918,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811500737822827941, guid: 0a1901d03e6bd074684454e1a6795918,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811500737822827941, guid: 0a1901d03e6bd074684454e1a6795918,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3811500737822827942, guid: 0a1901d03e6bd074684454e1a6795918,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2071,6 +2086,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610371352395805877, guid: 0a1901d03e6bd074684454e1a6795918,
+        type: 3}
+      propertyPath: m_Spacing
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a1901d03e6bd074684454e1a6795918, type: 3}

@@ -8,10 +8,7 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Animator animator;
 
-    private float VelocityHash;
-    private int IdleAnimationsHash;
     private int IsDodgingHash;
-
     private float idleAnimation1Frequency = 85f;
     private float timeSinceLastIdleChange = 0f;
 
@@ -31,8 +28,6 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        IdleAnimationsHash = Animator.StringToHash("IdleAnimations");
-        VelocityHash = Animator.StringToHash("Velocity");
         IsDodgingHash = Animator.StringToHash("DodgeRoll");
     }
 
@@ -49,11 +44,13 @@ public class PlayerAnimations : MonoBehaviour
         {
             if (Random.Range(0f, 100f) <= idleAnimation1Frequency)
             {
-                animator.SetFloat(IdleAnimationsHash, 0f);
+                animator.SetBool("Idle1", true);
+                animator.SetBool("Idle2", false);
             }
             else
             {
-                animator.SetFloat(IdleAnimationsHash, 1f);
+                animator.SetBool("Idle2", true);
+                animator.SetBool("Idle1", false);
             }
 
             timeSinceLastIdleChange = 0f;
@@ -70,6 +67,7 @@ public class PlayerAnimations : MonoBehaviour
         if (isInteracting)
         {
             interactableTag = playerInteraction.currentInteractable.tag;
+            animator.SetBool(interactableTag, isInteracting);
         }
         animator.SetBool(interactableTag, isInteracting);
     }

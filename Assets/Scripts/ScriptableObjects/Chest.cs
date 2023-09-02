@@ -5,6 +5,8 @@ public class Chest : Interactable
 {
     [SerializeField] protected Transform playerSocket;
     [SerializeField] private Animator animator;
+
+    public bool isOpen = false;
     private bool isopening = false;
     private PlayerMovement playerMovement;
     private GameObject player;
@@ -17,13 +19,14 @@ public class Chest : Interactable
 
     public void ChestInteract()
     {
-        if (!isopening)
+        if (!isopening && !isOpen)
         {
             player.transform.SetParent(playerSocket);
             playerMovement.enabled = false;
             animator.SetTrigger("OpenChestTrigger");
             
             Invoke("UnlockPlayer", 1.8f);
+            isOpen = true;
             Invoke("DestroyChest", 30f);
 
             isopening = true;
@@ -37,7 +40,6 @@ public class Chest : Interactable
 
     private void UnlockPlayer()
     {
-        Debug.Log("B");
         PowerUpManager.Instance.GrantRandomPowerUpToPlayer();
         player.transform.SetParent(null);
         playerMovement.enabled = true;

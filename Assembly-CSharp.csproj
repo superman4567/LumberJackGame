@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
     <Compile Include="Assets\Scripts\Interactables\ChestAnimations.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\UI\PowerupSO.cs" />
     <Compile Include="Assets\Scripts\Player\LookAtMe.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowTerrain.cs" />
@@ -93,7 +94,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChestSpawner.cs" />
-    <Compile Include="Assets\RoundStatsManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\RoundStatsManager.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\CabinetDoor.cs" />
     <Compile Include="Assets\Scripts\UI\CanvasFacesUser.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Ragdoll.cs" />
@@ -121,6 +122,10 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Interactables\TreeChopProgress.cs" />
+    <Compile Include="Assets\Scripts\ObjectFader.cs" />
+    <Compile Include="Assets\Scripts\CameraBlockDetection.cs" />
+    <Compile Include="Assets\Scripts\Interactables\InteractPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

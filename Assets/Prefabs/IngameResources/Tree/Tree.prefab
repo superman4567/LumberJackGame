@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941754373806337988}
-  - component: {fileID: 990204779762412929}
   - component: {fileID: 3097140120464613072}
   - component: {fileID: 1421976408568321078}
   m_Layer: 8
@@ -36,48 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &990204779762412929
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277245467032941950}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!82 &3097140120464613072
 AudioSource:
   m_ObjectHideFlags: 0
@@ -201,7 +158,7 @@ GameObject:
   - component: {fileID: 7337426492022847630}
   - component: {fileID: 6680409629534959855}
   - component: {fileID: 1232760192258110968}
-  - component: {fileID: 9067072475657198968}
+  - component: {fileID: 8748461813881451189}
   m_Layer: 0
   m_Name: Tree_Bot
   m_TagString: Untagged
@@ -274,8 +231,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9067072475657198968
-BoxCollider:
+--- !u!64 &8748461813881451189
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -284,9 +241,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2671281, y: 1.350329, z: 1.4630208}
-  m_Center: {x: 0.0014777184, y: 0.26688588, z: 0.006563306}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5228069485959211500, guid: 3aa246d09b2654241a1f9cc3a7b94ce6, type: 3}
 --- !u!1001 &5743395055569278413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,11 +252,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1941754373806337988}
     m_Modifications:
-    - target: {fileID: 2964484717773235309, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: b629d324908b02c4b96a24fdaf4a7f70, type: 2}
     - target: {fileID: 4401991830178605210, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
         type: 3}
       propertyPath: m_RootOrder
@@ -354,28 +307,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6696797985316757477, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-        type: 3}
-      propertyPath: addWoodsMax
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696797985316757477, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-        type: 3}
-      propertyPath: addWoodsMin
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7217426157975694670, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
         type: 3}
       propertyPath: m_Name
       value: Tree_Top_Static
       objectReference: {fileID: 0}
-    - target: {fileID: 9013202467970586831, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-        type: 3}
-      propertyPath: TreeBreakingSound
-      value: 
-      objectReference: {fileID: 3097140120464613072}
-    m_RemovedComponents:
-    - {fileID: 9013202467970586831, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097, type: 3}
 --- !u!4 &8260630175071780183 stripped
 Transform:

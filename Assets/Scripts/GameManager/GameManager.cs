@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
     [Header("Resources")]
     public int wood = 0;
     public int coins = 0;
+    public int woodMultiplier = 0;
+    public int coinMultiplier = 0;
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
     [Header("Buttons")]
     public Button[] difficultyButtons;
     [SerializeField] private Sprite selected;
+
+    [Header("Buttons")]
+    [SerializeField] private GameObject pausePanel;
+
     public enum ResourceType
     {
         Wood,
@@ -48,11 +54,13 @@ public class GameManager : MonoBehaviour, IDataPersistance
     private void Start()
     {
         UpdateUI();
+        pausePanel.SetActive(false);
     }
 
     private void Update()
     {
         ClickOnUI();
+        PauseGame();
     }
 
     private void ClickOnUI()
@@ -91,10 +99,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
         switch (resourceType)
         {
             case ResourceType.Wood:
-                wood += amount;
+                wood += (amount * woodMultiplier);
                 break;
             case ResourceType.Coins:
-                coins += amount;
+                coins += (amount * coinMultiplier);
                 break;
 
             default:
@@ -121,6 +129,21 @@ public class GameManager : MonoBehaviour, IDataPersistance
         UpdateUI();
     }
 
+    private void PauseGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0.05f;
+            pausePanel.SetActive(true);
+        }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+    }
+
     public void ReplayLevel()
     {
         Time.timeScale = 1f;
@@ -132,6 +155,11 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void ButtonStates()

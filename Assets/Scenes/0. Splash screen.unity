@@ -8689,12 +8689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2154f41ff2c5acc4eadbffc3084f0e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fill: {fileID: 0}
+  canvas: {fileID: 0}
   savedProgressInSeconds: 0
   interactInSeconds: 2
   canBeInteractedWith: 1
-  fill: {fileID: 0}
-  canvas: {fileID: 0}
-  playerSocket: {fileID: 0}
   TreeBreakingSound: {fileID: 3490489455199113438}
   fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
     type: 3}

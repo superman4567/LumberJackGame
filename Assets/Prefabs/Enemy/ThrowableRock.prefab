@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4643954276924186313}
   - component: {fileID: 1771245459579468994}
   - component: {fileID: 403584302887838216}
-  - component: {fileID: 4141137229493115182}
   - component: {fileID: 3530613937607041595}
+  - component: {fileID: 2258981172030989449}
+  - component: {fileID: 7909319213905186670}
   m_Layer: 0
   m_Name: RockTemp
   m_TagString: Untagged
@@ -99,19 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 25
---- !u!135 &4141137229493115182
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252584526232394370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3530613937607041595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +115,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e63aa94258766468de949354f027ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &2258981172030989449
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252584526232394370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5792744266757404632, guid: 0085654df1d16754182e59f73f357b74, type: 3}
+--- !u!135 &7909319213905186670
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252584526232394370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5756687483617082344
 GameObject:
   m_ObjectHideFlags: 0

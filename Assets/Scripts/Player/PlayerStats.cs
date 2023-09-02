@@ -14,10 +14,18 @@ public class PlayerStats : MonoBehaviour
     [Header("Health ")]
     [SerializeField] private float initialHealth = 100f;
     [SerializeField] public float health;
+    [SerializeField] public float maxHealth = 100f;
 
     [Header("Stamina ")]
     [SerializeField] private float initialStamina = 100f;
     [SerializeField] public float stamina;
+    [SerializeField] public float maxstamina = 100f;
+
+    [Header("Stamina ")]
+    [SerializeField] Animator getHitpanel;
+
+    [Header("Collider ")]
+    [SerializeField] private CharacterController hitbox;
 
     void Start()
     {
@@ -25,18 +33,19 @@ public class PlayerStats : MonoBehaviour
         stamina = initialStamina;
 
         deathUI.SetActive(false);
-
-        StartCoroutine(CallStaminaRegen());
     }
 
     void Update()
     {
         healthUIAmount.text = Mathf.RoundToInt(health).ToString();
         staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
+        HideHitCanvas();
+        AddStamina(0.25f);
     }
 
     public void TakeDamage(float amount)
     {
+        ShowHitCanvas();
         health -= amount;
         health = Mathf.Max(health, 0f);
 
@@ -49,22 +58,31 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private IEnumerator CallStaminaRegen()
-    {
-        while (stamina > 0 && stamina <= 100)
-        {
-            AddStamina(.25f);
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
     public void AddStamina(float amount)
     {
-        stamina += amount;
+        stamina += amount * Time.deltaTime;
         stamina = Mathf.Min(stamina, initialStamina); 
 
         int intStamina = Mathf.RoundToInt(stamina);
         staminaUIAmount.text = intStamina.ToString();
+    }
+
+    private void ShowHitCanvas()
+    {
+        if (health == maxHealth)
+        {
+            getHitpanel.SetBool("GetHit", true);
+        }
+        else
+        {
+            getHitpanel.SetTrigger("GetHitTrigger");
+        }
+    }
+
+    private void HideHitCanvas()
+    {
+        if (health != maxHealth) { return; }    
+        getHitpanel.SetBool("GetHit", false);
     }
 
     private void PlayerDeath()
@@ -76,5 +94,20 @@ public class PlayerStats : MonoBehaviour
     public void FreezeTime()
     {
         Time.timeScale = 0.05f;
+    }
+
+    public void UnfreezeTime()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void IFrameOn()
+    {
+        gameObject.layer = LayerMask.NameToLayer("NoCollisionWithEnemies");
+    }
+
+    public void IFrameOff()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 }

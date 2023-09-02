@@ -76,33 +76,31 @@ public class PlayerInteraction : MonoBehaviour
     private void Interact()
     {
         if (currentInteractable != null)
-
+        {
             if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
                 InteractionHappening?.Invoke(true);
                 if (currentInteractable.tag == "Chest")
                 {
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
+                    currentInteractableObject.AddProgress(Time.deltaTime);
                 }
                 else
                 {
                     currentInteractableObject.AddProgress(Time.deltaTime);
                 }
 
-                //Trigger the finish interaction method on the object we are interacting with
                 if (currentInteractableObject.CheckProgressComplete())
                 {
                     currentInteractableObject?.InteractComplete();
                     InteractionHappening?.Invoke(false);
                 }
             }
-            else
-            {
-                InteractionHappening?.Invoke(false);
-            }
+        }
         else
         {
-            InteractionHappening?.Invoke(false);
+            animator.SetBool("Tree", false);
+            animator.SetBool("Chest", false);
         }
     }
 }

@@ -9,16 +9,6 @@ public class RadialProgressBar : MonoBehaviour
 
     private float normalizedValue;
 
-    private void OnEnable()
-    {
-        playerInteraction.InteractionHappening += UpdateAndShowRadialUI;
-    }
-
-    private void OnDisable()
-    {
-        playerInteraction.InteractionHappening -= UpdateAndShowRadialUI;
-    }
-
     private void Start()
     {
         radialFill.color = Color.clear;
@@ -28,12 +18,7 @@ public class RadialProgressBar : MonoBehaviour
         radialFill.fillAmount = 0;
     }
 
-    private void Update()
-    {
-        //Debug.Log(normalizedValue);
-    }
-
-    private void UpdateAndShowRadialUI(bool isInteracting)
+    public void UpdateAndShowRadialUI(bool isInteracting)
     {
         if (isInteracting)
         {

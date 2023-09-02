@@ -120,6 +120,10 @@ public class Orc_Health : MonoBehaviour
 
     private void Die()
     {
+        foreach (var trigger in orc_Attack.handTriggers)
+        {
+            trigger.enabled = false;
+        }
         Destroy(gameObject);
     }
 }

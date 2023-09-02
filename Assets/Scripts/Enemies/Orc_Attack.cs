@@ -12,6 +12,7 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float throwForce = 15f;
+    [SerializeField] public Collider[] handTriggers;
 
     [Header("Orc speed")]
     [SerializeField] private float baseOrcSpeed = 2;
@@ -31,6 +32,8 @@ public class Orc_Attack : MonoBehaviour
     private Transform player;
     public NavMeshAgent navMeshAgent;
     private float throwCooldownTimer = 0.0f;
+    private float distanceToPlayer;
+    private bool startThrowing = false;
 
 
     private void Awake()
@@ -44,7 +47,14 @@ public class Orc_Attack : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         orcDealDamage = GetComponentsInChildren<Orc_DealDamage>();
-        
+    }
+
+    private void Start()
+    {
+        foreach (var trigger in handTriggers)
+        {
+            trigger.enabled = false;
+        }
     }
 
     private void Update()
@@ -63,7 +73,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 25;
                 }
-                baseOrcSpeed = Random.Range(1.8f, 2.2f);
+                baseOrcSpeed = Random.Range(2.5f, 3f);
                 break;
 
             case 1:
@@ -71,7 +81,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 34;
                 }
-                baseOrcSpeed = Random.Range(2.8f, 3.8f);
+                baseOrcSpeed = Random.Range(3f, 3.5f);
                 break;
 
             case 2:
@@ -79,7 +89,7 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 50;
                 }
-                baseOrcSpeed = Random.Range(5f, 7f);
+                baseOrcSpeed = Random.Range(3.5f, 4f);
                 break;
 
             default:
@@ -87,40 +97,36 @@ public class Orc_Attack : MonoBehaviour
         }
     }
 
-    private void ChasePlayer()
-    {
-        navMeshAgent.speed = baseOrcSpeed;
-        navMeshAgent.SetDestination(player.position);
-
-        if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
-        {
-            navMeshAgent.speed = lastOrcSpeed;
-        }
-    }
-
     private void MeleeOrRangedAttack()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        startThrowing = (distanceToPlayer < rangedAttackRange) ? true : false;
 
         if (distanceToPlayer < meleeAttackRange)
         {
             MeleeAttack();
             animator.SetBool("OrcMeleeAttack", true);
         }
-
-        if (distanceToPlayer < rangedAttackRange)
+        else if (distanceToPlayer > meleeAttackRange && startThrowing == true)
         {
-            //Making sure the or does not rapid fire the rocks
             throwCooldownTimer += Time.deltaTime;
             if (throwCooldownTimer >= throwCooldown)
             {
                 animator.SetBool("OrcRangedAttack", true);
             }
         }
+        else
+        {
+            ChasePlayer();
+        }
     }
 
     private void MeleeAttack()
     {
+        foreach (var trigger in handTriggers)
+        {
+            trigger.enabled = true;
+        }
         StartCoroutine(MeleeAttackCoroutine());
     }
 
@@ -147,6 +153,27 @@ public class Orc_Attack : MonoBehaviour
 
             throwCooldownTimer = throwCooldown;
             animator.SetBool("OrcRangedAttack", false);
+        }
+    }
+
+    private void ChasePlayer()
+    {
+        navMeshAgent.speed = baseOrcSpeed;
+        navMeshAgent.SetDestination(player.position);
+
+        if (distanceToPlayer <= rangedAttackRange)
+        {
+            navMeshAgent.speed = baseOrcSpeed += 1.5f;
+        }
+
+        if (distanceToPlayer <= meleeAttackRange)
+        {
+            navMeshAgent.speed = baseOrcSpeed += 2.5f;
+        }
+
+        if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
+        {
+            navMeshAgent.speed = baseOrcSpeed += (lastOrcSpeed / 2);
         }
     }
 

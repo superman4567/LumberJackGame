@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private PlayerAnimations playerAnimations;
     [SerializeField] private PlayerLook playerLook;
-    [SerializeField] private float movSpeed = 6f;
+    [SerializeField] public float movSpeed = 6f;
     [SerializeField] private float lowerBodyRotationSpeed = 5;
 
     [Header("Sprinting")]
-    [SerializeField] private float sprintSpeed = 10f;
-    [SerializeField] private float sprintStaminaDrain = 10f;
+    [SerializeField] public float sprintSpeed = 10f;
+    [SerializeField] private float sprintStaminaDrain;
 
     [Header("Dodgeroll")]
     [SerializeField] private float dodgeRollDistance = 5f;
@@ -88,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void playerGravity()
     {
         if (characterController.isGrounded) 
@@ -106,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DodgeRoll()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerStats.stamina >= 5f)
         {
             if (isDodgeRolling) return;
 
@@ -123,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(StartDodgeRoll(dodgeDirection));
 
                     playerAnimations.SetDodgeRollState(true);
+                    playerStats.stamina -= 5f;
                 }
             }
         }
