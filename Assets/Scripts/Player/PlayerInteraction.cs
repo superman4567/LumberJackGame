@@ -80,7 +80,7 @@ public class PlayerInteraction : MonoBehaviour
             if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
                 InteractionHappening?.Invoke(true);
-                if (currentInteractable.tag == "Chest")
+                if (currentInteractable.tag == "Chest" && !currentInteractable.GetComponentInChildren<Chest>().isOpen)
                 {
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
                     currentInteractableObject.AddProgress(Time.deltaTime);
@@ -96,11 +96,11 @@ public class PlayerInteraction : MonoBehaviour
                     InteractionHappening?.Invoke(false);
                 }
             }
-        }
-        else
-        {
-            animator.SetBool("Tree", false);
-            animator.SetBool("Chest", false);
+            else
+            {
+                animator.SetBool("Tree", false);
+                animator.SetBool("Chest", false);
+            }
         }
     }
 }

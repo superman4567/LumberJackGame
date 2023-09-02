@@ -195,22 +195,18 @@ public class PowerUpManager : MonoBehaviour
         PowerupPanelanimator.SetBool("IsVisible", true);
     }
 
-    private void CountDownTimerVisible()
-    {
-        endTime -= Time.deltaTime;
-        while (endTime >= 0)
-        {
-            Time.timeScale = 0.01f;
-        }
-        if (endTime < 0)
-        {
-            PowerupPanelanimator.SetBool("IsVisible", false);
-        }
-    }
-
     private void CloseAbilityPanel(float duration)
     {
         endTime = duration;
         Time.timeScale = 1f;
+    }
+
+    private void CountDownTimerVisible()
+    {
+        endTime -= Time.deltaTime;
+        if (endTime < 0)
+        {
+            PowerupPanelanimator.SetBool("IsVisible", false);
+        }
     }
 }

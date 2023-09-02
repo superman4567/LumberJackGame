@@ -20,8 +20,6 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void AddProgress(float progressInSeconds)
     {
-        if (gameObject.tag != "Tree") { return; }
-        
         if (savedProgressInSeconds <= interactInSeconds)
         {
             savedProgressInSeconds += progressInSeconds;

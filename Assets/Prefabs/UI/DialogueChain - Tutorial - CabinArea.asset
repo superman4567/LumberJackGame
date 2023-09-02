@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DialogueChain - Tutorial - CabinArea
   m_EditorClassIdentifier: 
   description:
-  - AAAAAAAAA
-  - BBBBBBBBB
-  - CCCCCCCCC
+  - Welcome, this is my cabin. In front of me is my quest board, on my left is a
+    nice fire and behind me is the door to go outside.
+  - At the questboard I can choose what challange I want to take on!
+  - And by walking past the door I will adventure in to the wildersniss.
