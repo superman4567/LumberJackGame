@@ -15,12 +15,14 @@ public class PlayerInteraction : MonoBehaviour
 
     [Header("Interactable zoom")]
     [SerializeField] private float defaultzoom = 15f;
-    [SerializeField] private float interactZoom = 10f;
+    [SerializeField] private float interactZoom = 6f;
+    [SerializeField] private GameObject lookAtMe;
     private CinemachineFramingTransposer transposer;
 
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
+    
 
 
     private void Awake()
@@ -38,6 +40,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
+        lookAtMe.SetActive(true);
         transposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
@@ -96,6 +99,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     InteractionHappening?.Invoke(true);
                     transposer.m_CameraDistance = interactZoom;
+                    lookAtMe.SetActive(false);
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
                     currentInteractableObject.AddProgress(Time.deltaTime);
                 }
@@ -116,6 +120,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
+                lookAtMe.SetActive(true);
                 transposer.m_CameraDistance = defaultzoom;
                 animator.SetBool("Tree", false);
                 animator.SetBool("Chest", false);

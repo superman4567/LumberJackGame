@@ -19,6 +19,13 @@ public class DifficultySelection : MonoBehaviour
         difficultyPanel.SetActive(true);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!hasPlayerInteractedWithBoard) { return; }
+
+        difficultyPanel.SetActive(true);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         difficultyPanel.SetActive(false);

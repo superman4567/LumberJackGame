@@ -219,4 +219,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         return selectedDifficulty;
     }
+
+    public void CloseCurrentUI(GameObject ui)
+    {
+        ui.SetActive(false);    
+    }
 }

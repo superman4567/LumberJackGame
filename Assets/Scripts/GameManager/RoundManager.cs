@@ -40,8 +40,8 @@ public class RoundManager : MonoBehaviour
     {
         if (!isStartingNewRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
         {
-            IsDifficultyComplete();
             StartCoroutine(StartNewRoundCoroutine());
+            IsDifficultyComplete();
         }
     }
 
@@ -58,7 +58,7 @@ public class RoundManager : MonoBehaviour
 
         currentRound++;
 
-        isStartingNewRound = false; // Reset the flag after the coroutine finishes
+        isStartingNewRound = false; 
     }
 
     private void Statemachine()
@@ -115,6 +115,19 @@ public class RoundManager : MonoBehaviour
     {
         if (currentRound == roundToCompleteLevel)
         {
+            if (GameManager.Instance.GetDifficulty() == 0)
+            {
+                GameManager.Instance.unlockedDifficultyList[1] = true;
+            }
+            else if (GameManager.Instance.GetDifficulty() == 1)
+            {
+                GameManager.Instance.unlockedDifficultyList[2] = true;
+            }
+            else if (GameManager.Instance.GetDifficulty() == 2)
+            {
+                //thank you for playing
+            }
+            
             Time.timeScale = 0;
             //show UI that the level with current difficulty is complete
             difficultyCompletePanel.SetActive(true);
