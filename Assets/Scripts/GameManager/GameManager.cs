@@ -90,8 +90,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     private void UpdateUI()
     {
-        woodUI.text = "Wood: " + wood.ToString();
-        coinsUI.text = "Sticks: " + coins.ToString();
+        woodUI.text = wood.ToString();
+        coinsUI.text = coins.ToString();
     }
 
     public void AddResource(ResourceType resourceType, int amount)

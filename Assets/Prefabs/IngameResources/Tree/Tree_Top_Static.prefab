@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2964484717773235309}
   - component: {fileID: 7117061292194540812}
   - component: {fileID: 4529164242427808170}
-  - component: {fileID: 7225862436905419379}
   - component: {fileID: 2574345111663230254}
   - component: {fileID: 1838382077258892653}
   - component: {fileID: 4809453855863449626}
@@ -128,22 +127,6 @@ MonoBehaviour:
   radialCanvas: {fileID: 4729811372820036159}
   radialFill: {fileID: 1765922927689861976}
   tree: {fileID: 7117061292194540812}
---- !u!114 &7225862436905419379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7217426157975694670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a9a61ebecdcbe4c8e3aee8d475f9fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeSpeed: 10
-  fadeAmount: 0.5
-  materials: []
-  DoFade: 0
 --- !u!54 &2574345111663230254
 Rigidbody:
   m_ObjectHideFlags: 0

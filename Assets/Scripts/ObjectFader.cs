@@ -23,6 +23,7 @@ public class ObjectFader : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(DoFade);
         if (DoFade)
         {
             FadeNow();
@@ -35,7 +36,6 @@ public class ObjectFader : MonoBehaviour
 
     private void FadeNow()
     {
-
         for (int i = 1; i < materials.Length; i++)
         {
             Color currentColor = materials[i].color;

@@ -5,11 +5,15 @@ using UnityEngine;
 public class CameraBlockDetection : MonoBehaviour
 {
     private ObjectFader fader;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");  
-        
         if(player != null)
         {
             Vector3 dir = player.transform.position - transform.position;
@@ -23,7 +27,7 @@ public class CameraBlockDetection : MonoBehaviour
                 
                 if(hit.collider.gameObject == player)
                 {
-                    if(fader != null)
+                    if (fader != null)
                     {
                         fader.DoFade = false;
                     }
@@ -31,7 +35,7 @@ public class CameraBlockDetection : MonoBehaviour
                 else
                 {
                     fader = hit.collider.gameObject.GetComponent<ObjectFader>();
-                    if(fader != null)
+                    if (fader != null)
                     {
                         fader.DoFade = true;
                     }

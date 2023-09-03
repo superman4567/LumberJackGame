@@ -1,3 +1,4 @@
+using Cinemachine;
 using JetBrains.Annotations;
 using System;
 using UnityEngine;
@@ -10,6 +11,12 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private Animator animator;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+
+    [Header("Interactable zoom")]
+    [SerializeField] private float defaultzoom = 15f;
+    [SerializeField] private float interactZoom = 10f;
+    private CinemachineFramingTransposer transposer;
 
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
@@ -27,6 +34,11 @@ public class PlayerInteraction : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    private void Start()
+    {
+        transposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     private void Update()
@@ -79,17 +91,23 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
-                InteractionHappening?.Invoke(true);
+                //Chest stuff
                 if (currentInteractable.tag == "Chest" && !currentInteractable.GetComponentInChildren<Chest>().isOpen)
                 {
+                    InteractionHappening?.Invoke(true);
+                    transposer.m_CameraDistance = interactZoom;
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
                     currentInteractableObject.AddProgress(Time.deltaTime);
                 }
-                else
+
+                //Tree stuff
+                else if(currentInteractable.tag == "Tree" && currentInteractable.GetComponentInChildren<Tree>().canBeInteractedWith)
                 {
+                    InteractionHappening?.Invoke(true);
                     currentInteractableObject.AddProgress(Time.deltaTime);
                 }
 
+                //Done interacting
                 if (currentInteractableObject.CheckProgressComplete())
                 {
                     currentInteractableObject?.InteractComplete();
@@ -98,6 +116,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
+                transposer.m_CameraDistance = defaultzoom;
                 animator.SetBool("Tree", false);
                 animator.SetBool("Chest", false);
             }
