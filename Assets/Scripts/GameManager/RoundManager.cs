@@ -1,10 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
+    [Header("Round Switch panel")]
+    [SerializeField] private TextMeshProUGUI currentRoundNumber;
+    [SerializeField] private TextMeshProUGUI nextRoundNumber;
+    [SerializeField] private GameObject roundSwitchPanel;
+    [SerializeField] private Animator nextRoundAnimator;
+
+    [Header("Difficulty Complete panel")]
+    [SerializeField] private GameObject difficultyCompletePanel;
+    [SerializeField] private Animator difficultyCompleteAnimator;
+
     public static RoundManager Instance { get; private set; }
     public int currentRound = 0;
     public int orcsToSpawnInCurrentRound;
@@ -37,8 +48,9 @@ public class RoundManager : MonoBehaviour
     private IEnumerator StartNewRoundCoroutine()
     {
         isStartingNewRound = true; // Set the flag to prevent multiple calls
+        RoundCompplete(currentRound);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(5.0f);
 
         orcsToSpawnInCurrentRound = Mathf.CeilToInt(orcsToSpawnInCurrentRound * orcSpawnIncreasePercentage);
         orcsSpawnedInCurrentRound = 0;
@@ -54,8 +66,8 @@ public class RoundManager : MonoBehaviour
         switch (GameManager.Instance.GetDifficulty())
         {
             case 0:
-                orcSpawnIncreasePercentage = 1.5f;
-                orcsToSpawnInCurrentRound = 10;
+                orcSpawnIncreasePercentage = 2f; //1.5
+                orcsToSpawnInCurrentRound = 1; // 10
                 roundToCompleteLevel = 20;
                 break;
 
@@ -86,12 +98,26 @@ public class RoundManager : MonoBehaviour
         orcsKilledInCurrentRound++;
     }
 
+    private void RoundCompplete(int currentRound)
+    {
+        currentRoundNumber.text = currentRound.ToString();
+        nextRoundNumber.text = (currentRound + 1).ToString();
+        nextRoundAnimator.SetBool("NextRound", true);
+        Invoke("ResetRoundComplete", 5f);
+    }
+
+    private void ResetRoundComplete()
+    {
+        nextRoundAnimator.SetBool("NextRound", false);
+    }
+
     private void IsDifficultyComplete()
     {
         if (currentRound == roundToCompleteLevel)
         {
             Time.timeScale = 0;
-            //show UI
+            //show UI that the level with current difficulty is complete
+            difficultyCompletePanel.SetActive(true);
         }
     }
 
