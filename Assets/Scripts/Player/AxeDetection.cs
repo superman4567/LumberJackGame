@@ -16,25 +16,28 @@ public class AxeDetection : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("I hit an Enemy!");
             axeHitSomething = true;
+            OrcSingleKnockback(other);
+        }
+    }
 
-            Orc_Health orc = other.gameObject.GetComponent<Orc_Health>();
-            if (orc != null)
+    private void OrcSingleKnockback(Collision other)
+    {
+        Orc_Health orc = other.gameObject.GetComponent<Orc_Health>();
+        if (orc != null)
+        {
+            Vector3 knockbackDirection = other.contacts[0].point - transform.position;
+
+            // Calculate angle between axe direction and orc local forward direction
+            float angle = Vector3.Angle(knockbackDirection, orc.transform.TransformDirection(Vector3.forward));
+
+            // Apply knockback only if angle is within the threshold
+            if (angle < frontHitAngleThreshold)
             {
-                Vector3 knockbackDirection = other.contacts[0].point - transform.position;
-
-                // Calculate angle between axe direction and orc local forward direction
-                float angle = Vector3.Angle(knockbackDirection, orc.transform.TransformDirection(Vector3.forward));
-
-                // Apply knockback only if angle is within the threshold
-                if (angle < frontHitAngleThreshold)
+                // Only apply knockback if the orc is not currently being knocked back
+                if (!orc.isKnockbackActive)
                 {
-                    // Only apply knockback if the orc is not currently being knocked back
-                    if (!orc.isKnockbackActive)
-                    {
-                        orc.KnockBack(knockbackDirection);
-                    }
+                    orc.KnockBack(knockbackDirection);
                 }
             }
         }

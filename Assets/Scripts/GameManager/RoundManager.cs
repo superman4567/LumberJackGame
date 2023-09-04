@@ -68,7 +68,7 @@ public class RoundManager : MonoBehaviour
             case 0:
                 orcSpawnIncreasePercentage = 2f; //1.5
                 orcsToSpawnInCurrentRound = 1; // 10
-                roundToCompleteLevel = 20;
+                roundToCompleteLevel = 1;
                 break;
 
             case 1:
@@ -117,14 +117,17 @@ public class RoundManager : MonoBehaviour
         {
             if (GameManager.Instance.GetDifficulty() == 0)
             {
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
                 GameManager.Instance.unlockedDifficultyList[1] = true;
             }
             else if (GameManager.Instance.GetDifficulty() == 1)
             {
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
                 GameManager.Instance.unlockedDifficultyList[2] = true;
             }
             else if (GameManager.Instance.GetDifficulty() == 2)
             {
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
                 //thank you for playing
             }
             

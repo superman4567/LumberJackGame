@@ -159,6 +159,8 @@ public class Orc_Attack : MonoBehaviour
     private void ChasePlayer()
     {
         navMeshAgent.speed = baseOrcSpeed;
+
+        if (!navMeshAgent.isActiveAndEnabled) { return; }
         navMeshAgent.SetDestination(player.position);
 
         if (distanceToPlayer <= rangedAttackRange)
