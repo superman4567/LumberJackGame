@@ -280,9 +280,9 @@ MonoBehaviour:
   savedProgressInSeconds: 0
   interactInSeconds: 0
   canBeInteractedWith: 1
-  lookingAtInteractableObject: 0
   playerSocket: {fileID: 4090988744208402684}
   animator: {fileID: 1038407441858797191}
+  canvas: {fileID: 1606730739531699435}
   isOpen: 0
 --- !u!114 &2661932004220360459
 MonoBehaviour:
@@ -310,6 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radialCanvas: {fileID: 1606730739531699435}
+  circle: {fileID: 1425376951824303838}
+  positionOffset: {x: 0, y: -1.8, z: 0}
+  globalScale: {x: 1.6, y: 1.6, z: 1.6}
 --- !u!65 &6248726801985102904
 BoxCollider:
   m_ObjectHideFlags: 0

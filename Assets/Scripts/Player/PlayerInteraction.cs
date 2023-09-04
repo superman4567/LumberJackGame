@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private Animator animator;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private Color blockedColor;
 
     [Header("Interactable zoom")]
     [SerializeField] private float defaultzoom = 15f;
@@ -22,7 +23,8 @@ public class PlayerInteraction : MonoBehaviour
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
     public GameObject currentInteractable = null;
-    
+    private GameObject lastInteractedObject = null;
+
 
 
     private void Awake()
@@ -75,16 +77,29 @@ public class PlayerInteraction : MonoBehaviour
             if (closestInteractable != currentInteractable)
             {
                 currentInteractable = closestInteractable;
-                if(currentInteractable.TryGetComponent(out Interactable interactableComponent))
+                if (currentInteractable.TryGetComponent(out Interactable interactableComponent))
                 {
                     currentInteractableObject = interactableComponent;
                 }
+
+                // Set the color to white when looking at the object
+                currentInteractableObject.GetComponentInParent<InteractPanel>().circle.color = Color.white;
+
+                // Update the last interacted object
+                lastInteractedObject = currentInteractable;
             }
         }
         else
         {
             currentInteractable = null;
             currentInteractableObject = null;
+
+            // Set the color to red when not looking at any object
+            // You might need to adjust this line depending on your UI structure.
+            if (lastInteractedObject != null)
+            {
+                lastInteractedObject.GetComponentInParent<InteractPanel>().circle.color = blockedColor;
+            }
         }
     }
 
@@ -120,11 +135,20 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                lookAtMe.SetActive(true);
-                transposer.m_CameraDistance = defaultzoom;
-                animator.SetBool("Tree", false);
-                animator.SetBool("Chest", false);
+                ResetValues();
             }
         }
+        else
+        {
+            ResetValues();
+        }
+    }
+
+    private void ResetValues()
+    {
+        lookAtMe.SetActive(true);
+        transposer.m_CameraDistance = defaultzoom;
+        animator.SetBool("Tree", false);
+        animator.SetBool("Chest", false);
     }
 }

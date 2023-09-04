@@ -9,7 +9,6 @@ public abstract class Interactable : MonoBehaviour
     public float interactInSeconds;
     public bool canBeInteractedWith = true;
     protected bool interactionComplete = false;
-    public bool lookingAtInteractableObject = false;
 
     private void Start()
     {

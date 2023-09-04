@@ -389,6 +389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  positionOffset: {x: 0, y: 0.5, z: -2}
+  setScale: {x: 3, y: 3, z: 3}
 --- !u!1 &6226804221658469725
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +556,6 @@ GameObject:
   - component: {fileID: 9189629093078499686}
   - component: {fileID: 3368307498091027714}
   - component: {fileID: 4584945144661675978}
-  - component: {fileID: 3728365151941981210}
   m_Layer: 5
   m_Name: InteractImageBG
   m_TagString: Untagged
@@ -620,16 +621,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3728365151941981210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8392279394523293329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104df6d6ef782d84799538aa3cfda811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}

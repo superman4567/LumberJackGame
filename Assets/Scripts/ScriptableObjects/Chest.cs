@@ -5,6 +5,7 @@ public class Chest : Interactable
 {
     [SerializeField] protected Transform playerSocket;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject canvas;
 
     public bool isOpen = false;
     private PlayerMovement playerMovement;
@@ -29,8 +30,13 @@ public class Chest : Interactable
             isOpen = true;
 
             Invoke("UnlockPlayer", 1.8f);
-            Invoke("DestroyChest", 30f);
         }
+        else if (isOpen) 
+        {
+            canvas.SetActive(false);
+            Invoke("DestroyChest", 10f);
+        }
+        
     }
 
     public override void InteractComplete()

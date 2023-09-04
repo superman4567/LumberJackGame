@@ -5,10 +5,11 @@ using UnityEngine;
 public class CanvasFacesUser : MonoBehaviour
 {
     [SerializeField] private GameObject mainCamera;
+    
 
     private void Awake()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera"); 
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update()
@@ -20,7 +21,8 @@ public class CanvasFacesUser : MonoBehaviour
     {
         if (mainCamera != null)
         {
-            transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward, mainCamera.transform.rotation * Vector3.up);
+            // Set the canvas rotation to match the camera's rotation
+            transform.rotation = mainCamera.transform.rotation;
         }
     }
 }

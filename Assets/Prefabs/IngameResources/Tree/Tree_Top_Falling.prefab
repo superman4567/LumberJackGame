@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2558848040221728818}
   m_Layer: 8
   m_Name: Tree_Top_Falling
-  m_TagString: Tree
+  m_TagString: TreeFalling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savedProgressInSeconds: 0
   interactInSeconds: 2
+  canBeInteractedWith: 1
   waitForTreeToFallTime: 0.25
   rigidBody: {fileID: 2574345111663230254}
-  addWoodsMin: 3
-  addWoodsMax: 10
