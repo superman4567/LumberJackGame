@@ -96,7 +96,7 @@ public class PlayerThrowAxe : MonoBehaviour
             Vector3 targetPosition = Vector3.Lerp(axeModel.transform.position, throwSpawnPoint.position, returnSpeed * Time.deltaTime);
             axeModel.transform.position = targetPosition;
             yield return new WaitForEndOfFrame();
-
+            
             if (Vector3.Distance(axeModel.transform.position, throwSpawnPoint.position) < 2f)
             {
                 // If the axe is close to the throwSpawnPoint, reset the position and rotation

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ThrowableRock : MonoBehaviour
 {
-    private RockPool rockPool;
+    private ObjectPool rockPool;
 
     private void Awake()
     {
-        rockPool = FindObjectOfType<RockPool>();
+        rockPool = FindObjectOfType<ObjectPool>();
     }
 
     private void OnCollisionEnter(Collision collision)
