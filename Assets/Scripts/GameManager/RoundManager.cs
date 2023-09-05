@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
+    public static RoundManager Instance { get; private set; }
+
     [Header("Round Switch panel")]
     [SerializeField] private TextMeshProUGUI currentRoundNumber;
     [SerializeField] private TextMeshProUGUI nextRoundNumber;
@@ -14,9 +16,12 @@ public class RoundManager : MonoBehaviour
 
     [Header("Difficulty Complete panel")]
     [SerializeField] private GameObject difficultyCompletePanel;
-    [SerializeField] private Animator difficultyCompleteAnimator;
 
-    public static RoundManager Instance { get; private set; }
+    [Header("Difficulty anim panels")]
+    [SerializeField] private GameObject diffAnimPanel0;
+    [SerializeField] private GameObject diffAnimPanel1;
+    [SerializeField] private GameObject diffAnimPanel2;
+    
     public int currentRound = 0;
     public int orcsToSpawnInCurrentRound;
     public int roundToCompleteLevel;
@@ -34,6 +39,11 @@ public class RoundManager : MonoBehaviour
     {
         Statemachine();
         currentRound++;
+
+        difficultyCompletePanel.SetActive(false);
+        diffAnimPanel0.SetActive(false); 
+        diffAnimPanel1.SetActive(false);
+        diffAnimPanel2.SetActive(false);
     }
 
     private void Update()
@@ -66,9 +76,9 @@ public class RoundManager : MonoBehaviour
         switch (GameManager.Instance.GetDifficulty())
         {
             case 0:
-                orcSpawnIncreasePercentage = 2f; //1.5
-                orcsToSpawnInCurrentRound = 1; // 10
-                roundToCompleteLevel = 1;
+                orcSpawnIncreasePercentage = 1.5f; //1.5
+                orcsToSpawnInCurrentRound = 10; // 10
+                roundToCompleteLevel = 25;
                 break;
 
             case 1:
@@ -117,28 +127,42 @@ public class RoundManager : MonoBehaviour
         {
             if (GameManager.Instance.GetDifficulty() == 0)
             {
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
+                difficultyCompletePanel.SetActive(true);
+                diffAnimPanel0.SetActive(true);
+                
                 GameManager.Instance.unlockedDifficultyList[1] = true;
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
+
+                if (Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene(1);
+                }
             }
             else if (GameManager.Instance.GetDifficulty() == 1)
             {
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
+                difficultyCompletePanel.SetActive(true);
+                diffAnimPanel1.SetActive(true);
+
                 GameManager.Instance.unlockedDifficultyList[2] = true;
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
+
+                if (Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene(1);
+                }
             }
             else if (GameManager.Instance.GetDifficulty() == 2)
             {
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
-                //thank you for playing
-            }
-            
-            Time.timeScale = 0;
-            //show UI that the level with current difficulty is complete
-            difficultyCompletePanel.SetActive(true);
-        }
-    }
+                difficultyCompletePanel.SetActive(true);
+                diffAnimPanel2.SetActive(true);
 
-    private void BackToMainMenu()
-    {
-        SceneManager.LoadScene(1);
+                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
+
+                if (Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene(1);
+                }
+            }
+        }
     }
 }

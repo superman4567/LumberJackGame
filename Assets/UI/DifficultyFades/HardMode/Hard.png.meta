@@ -1,0 +1,651 @@
+fileFormatVersion: 2
+guid: ec3bd3204f5c04149a85f93e217204fc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hard_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2699.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3ddd39b88d0f84ebb23db23f4a3473
+      internalID: 1809458567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_1
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2699.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510272a418f98ec4ba15c2e945ae6785
+      internalID: 2105498347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2699.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8c6cbab50ff1a439633192c49edabf
+      internalID: 379968773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_3
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2699.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c1a302c70efcd45bd2985374272c4d
+      internalID: 1476509611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861e532ef773cd24393eab77fdd1c39f
+      internalID: -418066905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 2160.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604e394bccf441747aaeec4a4b58349e
+      internalID: -894818771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_6
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2160.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4887413ff02c9c945bae143718d047ad
+      internalID: 1397071427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_7
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 2160.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8892fd343ead943b6e7117b5a39cd5
+      internalID: 1562503588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1621.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1c276f530c83e4291f94b0605ce0e9
+      internalID: 691286840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1621.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187f88ffae205e348b3dc2e5d7c28084
+      internalID: -782502054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_10
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1621.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a08827b40982c34eb59ae2d5311eb34
+      internalID: 1041315599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_11
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1621.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6922f0102db4034f853fb87add4d82f
+      internalID: 173760651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1082.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd45dac8f5167849aead38b235dc4b8
+      internalID: 373628267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_13
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1082.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdb27acd16e2cb418cf226422a9c090
+      internalID: 6576354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_14
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1082.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff56d0d4573faa478f10ba305e2f7d7
+      internalID: 1258465371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_15
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1082.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efe3dd545c9b77489bcb7be88ac989c
+      internalID: -342975151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 543.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb6d1ae6bc44bb43ae635f8e6ce368a
+      internalID: 342785902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_17
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 543.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6867e92c86eb37340ba94de42a8439d5
+      internalID: 773094116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_18
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 543.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ba64636befb9e489d684e1928075e2
+      internalID: -1660121027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_19
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 543.1667
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f92cd4a9878384478661a4ca4ac6788
+      internalID: 957482584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4.166687
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d0931669a39b743b5372ee1a7c2969
+      internalID: -2106683984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_21
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 4.166687
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306043616e187a14195474aac716c36b
+      internalID: 1420998096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_22
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4.166687
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20c62f2a8921f94987a6903c339dd23
+      internalID: 150619536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard_23
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 4.166687
+        width: 720
+        height: 539.8333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382a84baa569f3e46b618c67f877a56d
+      internalID: 650638764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hard_3: 1476509611
+      Hard_10: 1041315599
+      Hard_2: 379968773
+      Hard_22: 150619536
+      Hard_8: 691286840
+      Hard_9: -782502054
+      Hard_20: -2106683984
+      Hard_11: 173760651
+      Hard_18: -1660121027
+      Hard_6: 1397071427
+      Hard_4: -418066905
+      Hard_7: 1562503588
+      Hard_5: -894818771
+      Hard_21: 1420998096
+      Hard_13: 6576354
+      Hard_16: 342785902
+      Hard_19: 957482584
+      Hard_12: 373628267
+      Hard_23: 650638764
+      Hard_1: 2105498347
+      Hard_14: 1258465371
+      Hard_15: -342975151
+      Hard_17: 773094116
+      Hard_0: 1809458567
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

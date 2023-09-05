@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
     <Compile Include="Assets\Scripts\BuildingScripts\IndoorTransition.cs" />
     <Compile Include="Assets\Scripts\Interactables\WoodAndCoins.cs" />
+    <Compile Include="Assets\SteamAchievementManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\OrcSpawner.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\Enemies\StartSpawing.cs" />
+    <Compile Include="Assets\SteamIntegration.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
@@ -127,8 +129,6 @@
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
-    <Compile Include="Assets\SteamIntegration.cs" />
-    <Compile Include="Assets\SteamAchievementManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -409,6 +409,9 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\2021.3.17f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>Assets\Plugins\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.8.2\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
@@ -426,9 +429,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Facepunch.Steamworks.Win64">
-      <HintPath>Assets\Plugins\Facepunch.Steamworks.Win64.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\2021.3.17f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
