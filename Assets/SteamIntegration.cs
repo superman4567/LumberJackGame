@@ -18,7 +18,7 @@ public class SteamIntegration : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
     }
 

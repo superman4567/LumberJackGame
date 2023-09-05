@@ -299,7 +299,7 @@ MonoBehaviour:
   radialCanvas: {fileID: 4716676164584591353}
   circle: {fileID: 4971774058583907788}
   positionOffset: {x: 0, y: -0.6, z: -3.5}
-  globalScale: {x: 1.6, y: 1.8, z: 1.6}
+  globalScale: {x: 3, y: 3, z: 3}
 --- !u!1 &4603362094092442394
 GameObject:
   m_ObjectHideFlags: 0

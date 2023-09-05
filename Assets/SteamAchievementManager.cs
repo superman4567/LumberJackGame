@@ -17,7 +17,7 @@ public class SteamAchievementManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
     }
 

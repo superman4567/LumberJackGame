@@ -27,7 +27,7 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private LayerMask attackLayer;
     
     private RoundManager roundManager;
-    private RockPool rockPool;
+    private ObjectPool rockPool;
     private CharacterController playerController;
     private Transform player;
     public NavMeshAgent navMeshAgent;
@@ -42,7 +42,7 @@ public class Orc_Attack : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<CharacterController>();
-        rockPool = FindObjectOfType<RockPool>();
+        rockPool = FindObjectOfType<ObjectPool>();
         roundManager = FindObjectOfType<RoundManager>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -138,7 +138,7 @@ public class Orc_Attack : MonoBehaviour
 
     public void ThrowAttack()
     {
-        GameObject rock = rockPool.GetRock();
+        GameObject rock = rockPool.GetObject();
 
         if (rock != null)
         {
