@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radialCanvas: {fileID: 1606730739531699435}
   circle: {fileID: 1425376951824303838}
-  positionOffset: {x: 0, y: -1.8, z: 0}
+  positionOffset: {x: 0.7, y: -1.8, z: 0}
   globalScale: {x: 1.6, y: 1.6, z: 1.6}
 --- !u!65 &6248726801985102904
 BoxCollider:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHOP TREE
+  m_text: OPEN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f6a81c4f60c62947afe559a61a2b0ee, type: 2}
   m_sharedMaterial: {fileID: 2676630251181506070, guid: 5f6a81c4f60c62947afe559a61a2b0ee,

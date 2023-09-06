@@ -21,7 +21,10 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private GameObject diffAnimPanel0;
     [SerializeField] private GameObject diffAnimPanel1;
     [SerializeField] private GameObject diffAnimPanel2;
-    
+
+    [Header("Chest spawner")]
+    [SerializeField] private ChestSpawner chestSpawner;
+
     public int currentRound = 0;
     public int orcsToSpawnInCurrentRound;
     public int roundToCompleteLevel;
@@ -37,6 +40,7 @@ public class RoundManager : MonoBehaviour
 
     private void Start()
     {
+        chestSpawner.SpawnChest();
         Statemachine();
         currentRound++;
 
@@ -51,6 +55,9 @@ public class RoundManager : MonoBehaviour
         if (!isStartingNewRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
         {
             StartCoroutine(StartNewRoundCoroutine());
+        }
+        if (currentRound == roundToCompleteLevel)
+        {
             IsDifficultyComplete();
         }
     }
@@ -66,6 +73,7 @@ public class RoundManager : MonoBehaviour
         orcsSpawnedInCurrentRound = 0;
         orcsKilledInCurrentRound = 0;
 
+        chestSpawner.SpawnChest();
         currentRound++;
 
         isStartingNewRound = false; 
@@ -124,45 +132,42 @@ public class RoundManager : MonoBehaviour
 
     private void IsDifficultyComplete()
     {
-        if (currentRound == roundToCompleteLevel)
+        if (GameManager.Instance.GetDifficulty() == 0)
         {
-            if (GameManager.Instance.GetDifficulty() == 0)
-            {
-                difficultyCompletePanel.SetActive(true);
-                diffAnimPanel0.SetActive(true);
+            difficultyCompletePanel.SetActive(true);
+            diffAnimPanel0.SetActive(true);
                 
-                GameManager.Instance.unlockedDifficultyList[1] = true;
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
+            GameManager.Instance.unlockedDifficultyList[1] = true;
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
 
-                if (Input.anyKeyDown)
-                {
-                    SceneManager.LoadScene(1);
-                }
-            }
-            else if (GameManager.Instance.GetDifficulty() == 1)
+            if (Input.anyKeyDown)
             {
-                difficultyCompletePanel.SetActive(true);
-                diffAnimPanel1.SetActive(true);
-
-                GameManager.Instance.unlockedDifficultyList[2] = true;
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
-
-                if (Input.anyKeyDown)
-                {
-                    SceneManager.LoadScene(1);
-                }
+                SceneManager.LoadScene(1);
             }
-            else if (GameManager.Instance.GetDifficulty() == 2)
+        }
+        else if (GameManager.Instance.GetDifficulty() == 1)
+        {
+            difficultyCompletePanel.SetActive(true);
+            diffAnimPanel1.SetActive(true);
+
+            GameManager.Instance.unlockedDifficultyList[2] = true;
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
+
+            if (Input.anyKeyDown)
             {
-                difficultyCompletePanel.SetActive(true);
-                diffAnimPanel2.SetActive(true);
+                SceneManager.LoadScene(1);
+            }
+        }
+        else if (GameManager.Instance.GetDifficulty() == 2)
+        {
+            difficultyCompletePanel.SetActive(true);
+            diffAnimPanel2.SetActive(true);
 
-                SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
 
-                if (Input.anyKeyDown)
-                {
-                    SceneManager.LoadScene(1);
-                }
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene(1);
             }
         }
     }

@@ -10,6 +10,7 @@ public class PressAnyKeyToStart : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Image loadingBarFill;
     [SerializeField] private TextMeshProUGUI loadingPercentText;
+    private bool isLoadingNextLevel = false;
 
     private void Start()
     {
@@ -18,8 +19,9 @@ public class PressAnyKeyToStart : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKey && isLoadingNextLevel == false)
         {
+            isLoadingNextLevel = true;
             StartCoroutine(StartLoading());
         }
     }

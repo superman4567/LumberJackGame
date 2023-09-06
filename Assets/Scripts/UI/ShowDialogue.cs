@@ -67,7 +67,7 @@ public class ShowDialogue : MonoBehaviour
 
         if (currentDialogue.gameObject.tag == "Board")
         {
-            if (DialogueManager.Instance.currentTextIndex == dialogueContainerReference.description.Length)
+            if (DialogueManager.Instance.currentTextIndex >= dialogueContainerReference.description.Length)
             {
                 FindObjectOfType<DifficultySelection>().hasPlayerInteractedWithBoard = true;
             }

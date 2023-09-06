@@ -8742,6 +8742,7 @@ MonoBehaviour:
   TreeBreakingSound: {fileID: 3490489455199113438}
   fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
     type: 3}
+  canvas: {fileID: 0}
 --- !u!82 &3490489455199113438
 AudioSource:
   m_ObjectHideFlags: 0

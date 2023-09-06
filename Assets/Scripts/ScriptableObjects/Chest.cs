@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Chest : Interactable
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject canvas;
 
+    public static Action destroyChestAction;
     public bool isOpen = false;
     private PlayerMovement playerMovement;
     private GameObject player;
@@ -31,12 +33,6 @@ public class Chest : Interactable
 
             Invoke("UnlockPlayer", 1.8f);
         }
-        else if (isOpen) 
-        {
-            canvas.SetActive(false);
-            Invoke("DestroyChest", 10f);
-        }
-        
     }
 
     public override void InteractComplete()
@@ -46,9 +42,14 @@ public class Chest : Interactable
 
     private void UnlockPlayer()
     {
+        canvas.SetActive(false);
         PowerUpManager.Instance.GrantRandomPowerUpToPlayer();
         player.transform.SetParent(null);
         playerMovement.enabled = true;
+
+        destroyChestAction?.Invoke();
+        Invoke("DestroyChest", 5f);
+        
     }
 
     private void DestroyChest()

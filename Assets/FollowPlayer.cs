@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player; // Reference to the player's transform
+    public Transform selectedObject; // Reference to the player's transform
 
     private void Update()
     {
-        if (player != null)
+        if (selectedObject != null)
         {
-            // Set the position of this GameObject to follow the player with an offset
-            transform.position = player.position;
+            if (selectedObject.tag == "Axe")
+            {
+                transform.position = selectedObject.position;
+                transform.rotation = Quaternion.identity; 
+            }
+            else
+            {
+                transform.position = selectedObject.position;
+            }
         }
     }
 }
