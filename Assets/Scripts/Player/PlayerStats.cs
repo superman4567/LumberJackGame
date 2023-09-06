@@ -13,12 +13,14 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Health ")]
     [SerializeField] private float initialHealth = 100f;
-    [SerializeField] public float health;
+    [SerializeField] private float health;
+    public float Health { get; private set; }
     [SerializeField] public float maxHealth = 100f;
 
     [Header("Stamina ")]
     [SerializeField] private float initialStamina = 100f;
-    [SerializeField] public float stamina;
+    [SerializeField] private float stamina;
+    public float Stamina { get; private set; }
     [SerializeField] public float maxstamina = 100f;
 
     [Header("Stamina ")]
@@ -32,6 +34,9 @@ public class PlayerStats : MonoBehaviour
         health = initialHealth;
         stamina = initialStamina;
 
+        Health = health;
+        Stamina = stamina;
+
         deathUI.SetActive(false);
     }
 
@@ -40,7 +45,7 @@ public class PlayerStats : MonoBehaviour
         healthUIAmount.text = Mathf.RoundToInt(health).ToString();
         staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
         HideHitCanvas();
-        AddStamina(0.25f);
+        AddStamina(0.25f * Time.deltaTime);
     }
 
     public void TakeDamage(float amount)
@@ -58,14 +63,36 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void AddHealth(float amount)
+    {
+        health += amount;
+        int intHealth = Mathf.RoundToInt(health);
+        healthUIAmount.text = intHealth.ToString();
+    }
+
     public void AddStamina(float amount)
     {
-        stamina += amount * Time.deltaTime;
-        stamina = Mathf.Min(stamina, initialStamina); 
-
+        if (stamina >= maxstamina) { return; }
+        stamina += amount;
         int intStamina = Mathf.RoundToInt(stamina);
         staminaUIAmount.text = intStamina.ToString();
     }
+
+    public void SubstractHealth(float amount)
+    {
+        health -= amount;
+        int intHealth = Mathf.RoundToInt(health);
+        healthUIAmount.text = intHealth.ToString();
+    }
+
+    public void SubstractStamina(float amount)
+    {
+        stamina -= amount;
+        int intStamina = Mathf.RoundToInt(stamina);
+        staminaUIAmount.text = intStamina.ToString();
+    }
+
+
 
     private void ShowHitCanvas()
     {

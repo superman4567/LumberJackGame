@@ -7,17 +7,26 @@ public class PowerUpManager : MonoBehaviour
 {
     public static PowerUpManager Instance { get; private set; }
 
+    [Header("PowerUps")]
     [SerializeField] private Animator PowerupPanelanimator;
-
     [SerializeField] private GameObject powerUpPanel;
     [SerializeField] private Image powerUpIcon;
     [SerializeField] private TextMeshProUGUI powerUpTitle;
     [SerializeField] private TextMeshProUGUI powerUpDescription;
     [SerializeField] private float showTime = 2.5f;
-
     [SerializeField] private PowerupSO[] powerUps;
-    private float endTime;
 
+    [Header("PowerUp UI update")]
+    [SerializeField] private GameObject[] abilityStack;
+    private int speedBoostsUnlocked = 1;
+    private int healthBoostsUnlocked = 1;
+    private int staminaBoostsUnlocked = 1;
+    private int damageBoostsUnlocked = 1;
+    private int woodBoostsUnlocked = 1;
+    private int coinBoostsUnlocked = 1;
+    private bool rageModesUnlocked = false;
+
+    private float endTime;
     private PlayerMovement playerMovement;
     private PlayerStats playerStats;
     private AxeDetection playerThrowAxe;
@@ -49,11 +58,15 @@ public class PowerUpManager : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerStats = FindObjectOfType<PlayerStats>();
         playerThrowAxe = FindObjectOfType<AxeDetection>();
+        PopulatePowerUpOptions();
     }
 
     private void Start()
     {
-        PopulatePowerUpOptions();
+        foreach (var item in abilityStack)
+        {
+            item.SetActive(false);
+        }
     }
 
     private void Update()
@@ -80,74 +93,76 @@ public class PowerUpManager : MonoBehaviour
         switch (powerUpType)
         {
             case PowerUpType.SpeedBoost:
-                Debug.Log("Sprint boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[0]);
+
+                AddGainedSprite(0);
+                speedBoostsUnlocked++;
 
                 playerMovement.movSpeed += 0.5f;
                 playerMovement.sprintSpeed += 0.5f;
 
-                Debug.Log("players movementspeed is: " + playerMovement.movSpeed);
-                Debug.Log("player sprint speed is: " + playerMovement.sprintSpeed);
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.HealthBoost:
-                Debug.Log("Health boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[1]);
 
-                playerStats.health += 10f;
-                
-                Debug.Log("players health is now: " + playerStats.health);
+                AddGainedSprite(1);
+                healthBoostsUnlocked++;
+
+                playerStats.AddHealth(10f);
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.StaminaBoost:
-                Debug.Log("Stamina boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[2]);
 
-                playerStats.stamina += 8f;
-                Debug.Log("players stamina is now: " + playerStats.stamina);
+                AddGainedSprite(2);
+                staminaBoostsUnlocked++;
+
+                playerStats.AddStamina(8f);
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.DamageBoost:
-                Debug.Log("Damage boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[3]);
 
+                AddGainedSprite(3);
+                damageBoostsUnlocked++;
+
                 playerThrowAxe.axeDamage += 25;
-                Debug.Log("players axe does: " + playerThrowAxe.axeDamage + " damage.");
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.WoodBoost:
-                Debug.Log("Wood boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[4]);
 
-                GameManager.Instance.woodMultiplier += 1;
-                Debug.Log("Wood that you collect are increased: " + GameManager.Instance.woodMultiplier);
+                AddGainedSprite(4);
+                woodBoostsUnlocked++;
+
+                GameManager.Instance.IncreaseWoodMultiplier(2);
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.CoinBoost:
-                Debug.Log("Resource boost");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[5]);
 
-                GameManager.Instance.coinMultiplier += 1;
-                Debug.Log("Resource that you collect are increased: " + GameManager.Instance.coinMultiplier);
+                AddGainedSprite(5);
+                coinBoostsUnlocked++;
+
+                GameManager.Instance.IncreaseCoindMultiplier(2);
                 CloseAbilityPanel(showTime);
                 break;
 
             case PowerUpType.RageMode:
-                Debug.Log("RageMode");
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[6]);
-
                 StartCoroutine(ApplyRageModeEffect(10f)); 
                 break;
         }
@@ -155,32 +170,131 @@ public class PowerUpManager : MonoBehaviour
 
     private IEnumerator ApplyRageModeEffect(float duration)
     {
+        AddGainedSprite(6);
+        rageModesUnlocked = true;
+        playerMovement.movSpeed += 1;
+        playerMovement.sprintSpeed += 0.5f;
+        playerThrowAxe.axeDamage += 9999;
+
         float timeRemaining = duration;
 
         while (timeRemaining > 0f)
         {
-            playerMovement.movSpeed += 0.5f * Time.deltaTime;
-            playerMovement.sprintSpeed += 0.5f * Time.deltaTime;
-            playerThrowAxe.axeDamage += 9999;
-
-            if (playerStats.health != playerStats.maxHealth)
+            if (playerStats.Health != playerStats.maxHealth)
             {
-                playerStats.health += 2f * Time.deltaTime;
+                playerStats.AddHealth(2f);
             }
 
-            if (playerStats.stamina != playerStats.maxstamina)
+            if (playerStats.Stamina != playerStats.maxstamina)
             {
-                playerStats.stamina += 1f * Time.deltaTime;
+                playerStats.AddStamina(1f);
             }
 
             timeRemaining -= Time.deltaTime;
             yield return null; 
         }
-
+        AddGainedSprite(6);
+        rageModesUnlocked = false;
         playerMovement.movSpeed -= 0.5f;
         playerMovement.sprintSpeed -= 0.5f;
         playerThrowAxe.axeDamage -= 9999;
         CloseAbilityPanel(showTime);
+    }
+
+    private void AddGainedSprite(int indexNumber)
+    {
+        Debug.Log(indexNumber);
+        switch (indexNumber)
+        {
+            case 0:
+                if (speedBoostsUnlocked == 1)
+                {
+                    abilityStack[0].SetActive(true);
+                    abilityStack[0].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[0].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[0].GetComponentInChildren<TextMeshProUGUI>().text = speedBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 1:
+                if (healthBoostsUnlocked == 1)
+                {
+                    abilityStack[1].SetActive(true);
+                    abilityStack[1].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[1].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[1].GetComponentInChildren<TextMeshProUGUI>().text = healthBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 2:
+                if (staminaBoostsUnlocked == 1)
+                {
+                    abilityStack[2].SetActive(true);
+                    abilityStack[2].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[2].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[2].GetComponentInChildren<TextMeshProUGUI>().text = staminaBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 3:
+                if (damageBoostsUnlocked == 1)
+                {
+                    abilityStack[3].SetActive(true);
+                    abilityStack[3].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[3].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[3].GetComponentInChildren<TextMeshProUGUI>().text = damageBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 4:
+                if (woodBoostsUnlocked == 1)
+                {
+                    abilityStack[4].SetActive(true);
+                    abilityStack[4].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[4].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[4].GetComponentInChildren<TextMeshProUGUI>().text = woodBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 5:
+                if (coinBoostsUnlocked == 1)
+                {
+                    abilityStack[5].SetActive(true);
+                    abilityStack[5].transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else
+                {
+                    abilityStack[5].transform.GetChild(0).gameObject.SetActive(true);
+                    abilityStack[5].GetComponentInChildren<TextMeshProUGUI>().text = coinBoostsUnlocked.ToString();
+                }
+                break;
+
+            case 6:
+                if (rageModesUnlocked == true)
+                {
+                    abilityStack[6].SetActive(true);
+                }
+                else
+                {
+                    abilityStack[6].SetActive(false);
+                }
+                break;
+        }
     }
 
     private void ApplyImageAndText(PowerupSO abilitySO)

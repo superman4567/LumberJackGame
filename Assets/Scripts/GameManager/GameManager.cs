@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public List<bool> unlockedDifficultyList = new List<bool>();
 
     [Header("Resources")]
-    public int wood = 0;
-    public int coins = 0;
-    public int woodMultiplier = 0;
-    public int coinMultiplier = 0;
+    private int wood = 0;
+    private int coins = 0;
+    private int woodMultiplier = 1;
+    private int coinMultiplier = 1;
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
         {
             unlockedDifficultyList.Add(false); 
         }
+
+        wood = 0;
     }
 
     private void Start()
@@ -96,9 +98,11 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     public void AddResource(ResourceType resourceType, int amount)
     {
+        Debug.Log(resourceType + amount);
         switch (resourceType)
         {
             case ResourceType.Wood:
+                
                 wood += (amount * woodMultiplier);
                 break;
             case ResourceType.Coins:
@@ -109,8 +113,17 @@ public class GameManager : MonoBehaviour, IDataPersistance
                 Debug.LogError("Add resource method in game manager not working properly");
                 break;
         }
-
         UpdateUI();
+    }
+
+    public void IncreaseWoodMultiplier(int amount)
+    {
+        woodMultiplier = amount;
+    }
+
+    public void IncreaseCoindMultiplier(int amount)
+    {
+        coinMultiplier = amount;
     }
 
     public void SubstractResource(ResourceType resourceType, int amount)

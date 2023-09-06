@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && playerStats.stamina >= sprintStaminaDrain;
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && playerStats.Stamina >= sprintStaminaDrain;
 
         float currentSpeed = isSprinting ? sprintSpeed : movSpeed;
 
@@ -78,13 +78,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
         bool isSprinting = Input.GetKey(KeyCode.LeftShift) &&
-                          playerStats.stamina >= sprintStaminaDrain &&
+                          playerStats.Stamina >= sprintStaminaDrain &&
                           movementDirection.magnitude > 0.1f; 
 
         if (isSprinting)
         {
             playerAnimations.IdleAndWalk(2f);
-            playerStats.stamina -= sprintStaminaDrain * Time.deltaTime;
+            playerStats.SubstractStamina(.3f * Time.deltaTime);
         }
     }
 
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DodgeRoll()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerStats.stamina >= 5f)
+        if (Input.GetKeyDown(KeyCode.Space) && playerStats.Stamina >= 5f)
         {
             if (isDodgeRolling) return;
 
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(StartDodgeRoll(dodgeDirection));
 
                     playerAnimations.SetDodgeRollState(true);
-                    playerStats.stamina -= 5f;
+                    playerStats.SubstractStamina(5f);
                 }
             }
         }

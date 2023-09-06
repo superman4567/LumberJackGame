@@ -954,6 +954,11 @@ PrefabInstance:
       propertyPath: radialCanvas
       value: 
       objectReference: {fileID: 4716676164584591353}
+    - target: {fileID: 7117061292194540812, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 4716676164584591353}
     - target: {fileID: 7217426157975694670, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
         type: 3}
       propertyPath: m_Name

@@ -76,20 +76,20 @@ public class RoundManager : MonoBehaviour
         switch (GameManager.Instance.GetDifficulty())
         {
             case 0:
-                orcSpawnIncreasePercentage = 1.5f; //1.5
-                orcsToSpawnInCurrentRound = 10; // 10
+                orcSpawnIncreasePercentage = 0.6f; 
+                orcsToSpawnInCurrentRound = 1; 
                 roundToCompleteLevel = 25;
                 break;
 
             case 1:
-                orcSpawnIncreasePercentage = 3f;
+                orcSpawnIncreasePercentage = 1.2f;
                 orcsToSpawnInCurrentRound = 25;
                 roundToCompleteLevel = 50;
                 break;
 
             case 2:
-                orcSpawnIncreasePercentage = 7.5f;
-                orcsToSpawnInCurrentRound = 40;
+                orcSpawnIncreasePercentage = 2.5f;
+                orcsToSpawnInCurrentRound = 30;
                 roundToCompleteLevel = 100;
                 break;
 
@@ -113,11 +113,12 @@ public class RoundManager : MonoBehaviour
         currentRoundNumber.text = currentRound.ToString();
         nextRoundNumber.text = (currentRound + 1).ToString();
         nextRoundAnimator.SetBool("NextRound", true);
-        Invoke("ResetRoundComplete", 5f);
+        Invoke("ResetRoundComplete", 3f);
     }
 
     private void ResetRoundComplete()
     {
+        currentRoundNumber.text = nextRoundNumber.text;
         nextRoundAnimator.SetBool("NextRound", false);
     }
 

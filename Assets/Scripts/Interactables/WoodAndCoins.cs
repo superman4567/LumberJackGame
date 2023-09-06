@@ -8,17 +8,19 @@ public class WoodAndCoins : MonoBehaviour
     
     private void OnEnable()
     {
-        swapToBroken.dropWoodAndCoins += AddSpikesAndSticks;
+        swapToBroken.dropWoodAndCoins += AddWoodAndCoins;
     }
 
     private void OnDisable()
     {
-        swapToBroken.dropWoodAndCoins -= AddSpikesAndSticks;
+        swapToBroken.dropWoodAndCoins -= AddWoodAndCoins;
     }
 
-    private void AddSpikesAndSticks()
+    private void AddWoodAndCoins()
     {
-        GameManager.Instance.AddResource(GameManager.ResourceType.Wood, 5);
-        GameManager.Instance.AddResource(GameManager.ResourceType.Coins, 2);
+        int a = Random.Range(1, 7);
+        int b = Random.Range(1, 20);
+        GameManager.Instance.AddResource(GameManager.ResourceType.Wood, a) ;
+        GameManager.Instance.AddResource(GameManager.ResourceType.Coins, b);
     }
 }
