@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2050310520132244105}
   m_Layer: 0
   m_Name: RockSpawnerLoc
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3758253169135032602}
   m_Layer: 0
   m_Name: TrailHolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,9 +155,7 @@ MonoBehaviour:
   meleeAttackDuration: 1
   throwCooldown: 5
   throwForce: 25
-  handTriggers:
-  - {fileID: 1846763094078827946}
-  - {fileID: 9139338609082542382}
+  handScripts: []
   baseOrcSpeed: 2
   animator: {fileID: 1237894022645255885}
   orcDealDamage: []
@@ -303,16 +301,176 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7486430210045690014, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -7270565422277788790, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -7235781768784028012, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -5187172369043619949, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -5151492872390713093, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -4963466082386453122, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -4595115013925403845, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -4156510866330967105, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -3457178811637555661, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -3419998439872593906, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -2363644443623817908, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -1226250143213659140, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -1172114327211924765, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -437465357488502333, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 239605998403756391, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 741158358184435717, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67a15b13aed823348b7ade11c6bf2c27,
         type: 3}
       propertyPath: m_Name
       value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083069034080786793, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125041188522232615, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889657945145093097, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250984694140060390, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590759640248199232, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761128832366083805, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879387104158227405, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128450616340734127, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333509881101387921, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483407361057420042, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692363959232306509, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450760120490344343, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336104373345805642, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446955058939035919, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8026910035476465050, guid: 67a15b13aed823348b7ade11c6bf2c27,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 866300e0c55723b4f9efe47f69c4b11c, type: 2}
+    - target: {fileID: 8174140538269110592, guid: 67a15b13aed823348b7ade11c6bf2c27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 67a15b13aed823348b7ade11c6bf2c27, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67a15b13aed823348b7ade11c6bf2c27, type: 3}
@@ -1709,6 +1867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PEMouseMCURP
       objectReference: {fileID: 0}
+    - target: {fileID: 2414912552728455389, guid: 3c9283c4817279347b28b210a539d62e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2414912553143823212, guid: 3c9283c4817279347b28b210a539d62e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1788,6 +1951,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas - MiniMap Enemy icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195289198214477019, guid: dc19a17feb90aef4585090ef12cd46a7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5364522374448838384, guid: dc19a17feb90aef4585090ef12cd46a7,
         type: 3}

@@ -12,7 +12,6 @@ public class Orc_Health : MonoBehaviour
 
     [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
-    [SerializeField] private float knockbackSpeed = 5.0f;
 
     [SerializeField] Animator animator;
     private RoundManager roundManager;
@@ -40,6 +39,14 @@ public class Orc_Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update()
+    {
+        if (isKnockbackActive)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + knockbackDirection, knockbackForce * Time.deltaTime);
+        }
+    }
+
     public void KnockBack(Vector3 direction)
     {
         isKnockbackActive = true;
@@ -56,7 +63,7 @@ public class Orc_Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Axe")) // Use CompareTag for tag comparison
+        if (other.gameObject.CompareTag("Axe") && other.isTrigger) // Use CompareTag for tag comparison
         {
             currentHealth -= axeDetection.axeDamage;
 
