@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,9 +10,11 @@ public class Orc_Health : MonoBehaviour
     [SerializeField] Orc_Animations orc_Animations;
     [SerializeField] Orc_Attack orc_Attack;
     [SerializeField] Collider hitBox; // Change this to a trigger collider
+    [SerializeField] private GameObject floatingTextPrefab;
 
     [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
+
 
     [SerializeField] Animator animator;
     private RoundManager roundManager;
@@ -68,7 +71,12 @@ public class Orc_Health : MonoBehaviour
             currentHealth -= axeDetection.axeDamage;
 
             // Health is 0
-            if (currentHealth <= 0)
+            if (currentHealth > 0)
+            {
+                currentHealth -= axeDetection.axeDamage;
+                ShowFloatingText();
+            }
+            else
             {
                 animator.enabled = false;
                 orc_Animations.enabled = false;
@@ -81,6 +89,12 @@ public class Orc_Health : MonoBehaviour
                 Invoke("Die", 10f);
             }
         }
+    }
+
+    private void ShowFloatingText()
+    {
+        var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMeshPro>().text = axeDetection.axeDamage.ToString();
     }
 
     private void Statemachine()
