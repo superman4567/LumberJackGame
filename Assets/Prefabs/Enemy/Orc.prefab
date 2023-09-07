@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ragdollBodies: []
+  ragdollColliders: []
   child: {fileID: 517761645893039970}
 --- !u!114 &8827841133687426857
 MonoBehaviour:
@@ -199,8 +200,9 @@ MonoBehaviour:
   orc_Animations: {fileID: 5676187844564778095}
   orc_Attack: {fileID: 2915925939460639529}
   hitBox: {fileID: 2264111030142574141}
+  knockbackForce: 3.5
   knockbackDuration: 0.25
-  knockbackSpeed: 5
+  knockbackSpeed: 3
   animator: {fileID: 1237894022645255885}
   maxHealth: 100
   isKnockbackActive: 0
@@ -234,11 +236,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7444096053169084497}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9120066, y: 5.8928185, z: 2.1606421}
-  m_Center: {x: 0, y: 2.9369047, z: 0}
+  m_Size: {x: 2.9120064, y: 4.1260242, z: 2.1606421}
+  m_Center: {x: 0, y: 2.0535066, z: 0}
 --- !u!1001 &859656089468897843
 PrefabInstance:
   m_ObjectHideFlags: 0

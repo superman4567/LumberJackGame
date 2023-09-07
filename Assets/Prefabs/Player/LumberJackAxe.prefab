@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7872477347734461618}
   - component: {fileID: 3403596208368758445}
   - component: {fileID: 6227500898751990787}
-  m_Layer: 6
+  - component: {fileID: 3056269569097682245}
+  m_Layer: 13
   m_Name: LumberJackAxe
   m_TagString: Axe
   m_Icon: {fileID: 0}
@@ -99,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontHitAngleThreshold: 180
+  sphereRadius: 1
+  localYOffset: 1.7
   axeHitSomething: 0
-  axe: {fileID: 8739377448102000304}
   axeDamage: 50
 --- !u!54 &3403596208368758445
 Rigidbody:
@@ -131,3 +133,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2879503, y: 0.6956433, z: 0.6728392}
   m_Center: {x: -0.0000010275396, y: 1.7000577, z: 0.31256923}
+--- !u!135 &3056269569097682245
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215500103253601290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: -0.00000030188355, y: 1.67, z: 0.032085072}

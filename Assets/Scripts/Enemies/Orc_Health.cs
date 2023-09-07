@@ -8,8 +8,9 @@ public class Orc_Health : MonoBehaviour
     [SerializeField] Orc_Ragdoll orc_Ragdoll;
     [SerializeField] Orc_Animations orc_Animations;
     [SerializeField] Orc_Attack orc_Attack;
-    [SerializeField] Collider hitBox;
+    [SerializeField] Collider hitBox; // Change this to a trigger collider
 
+    [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
     [SerializeField] private float knockbackSpeed = 5.0f;
 
@@ -25,8 +26,6 @@ public class Orc_Health : MonoBehaviour
     public bool isKnockbackActive = false;
     private Vector3 knockbackDirection;
 
-
-
     private void Awake()
     {
         roundManager = FindObjectOfType<RoundManager>();
@@ -38,36 +37,15 @@ public class Orc_Health : MonoBehaviour
     private void Start()
     {
         Statemachine();
-
         currentHealth = maxHealth;
-
-        if (roundManager == null)
-        {
-            Debug.LogError("RoundManager not found or not initialized.");
-        }
-    }
-
-    private void Update()
-    {
-        if (isKnockbackActive)
-        {
-            PerformKnockback();
-        }
     }
 
     public void KnockBack(Vector3 direction)
     {
         isKnockbackActive = true;
-        knockbackDirection = direction;
         navMeshAgent.enabled = false;
-
+        knockbackDirection = direction.normalized * knockbackForce;
         Invoke("EndKnockback", knockbackDuration);
-    }
-
-    private void PerformKnockback()
-    {
-        Vector3 newPosition = transform.position + new Vector3(knockbackDirection.x, 0f, knockbackDirection.z) * knockbackSpeed * Time.deltaTime;
-        transform.position = newPosition;
     }
 
     private void EndKnockback()
@@ -76,24 +54,25 @@ public class Orc_Health : MonoBehaviour
         navMeshAgent.enabled = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag != "Axe") { return; }
-
-        currentHealth -= axeDetection.axeDamage;
-
-        //health is 0
-        if (currentHealth <= 0)
+        if (other.gameObject.CompareTag("Axe")) // Use CompareTag for tag comparison
         {
-            animator.enabled = false;
-            orc_Animations.enabled = false;
-            orc_Attack.enabled = false;
-            orc_Attack.navMeshAgent.enabled = false;
-            hitBox.enabled = false;
+            currentHealth -= axeDetection.axeDamage;
 
-            orc_Ragdoll.EnableRagdoll();
-            roundManager.OrcKilled();
-            Invoke("Die", 10f);
+            // Health is 0
+            if (currentHealth <= 0)
+            {
+                animator.enabled = false;
+                orc_Animations.enabled = false;
+                orc_Attack.enabled = false;
+                orc_Attack.navMeshAgent.enabled = false;
+                hitBox.enabled = false;
+
+                orc_Ragdoll.EnableRagdoll();
+                roundManager.OrcKilled();
+                Invoke("Die", 10f);
+            }
         }
     }
 
@@ -120,7 +99,7 @@ public class Orc_Health : MonoBehaviour
 
     private void Die()
     {
-        foreach (var trigger in orc_Attack.handTriggers)
+        foreach (var trigger in orc_Attack.handScripts)
         {
             trigger.enabled = false;
         }

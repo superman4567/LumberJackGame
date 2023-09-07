@@ -12,7 +12,7 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float throwForce = 15f;
-    [SerializeField] public Collider[] handTriggers;
+    [SerializeField] public Orc_DealDamage[] handScripts;
 
     [Header("Orc speed")]
     [SerializeField] private float baseOrcSpeed = 2;
@@ -51,7 +51,7 @@ public class Orc_Attack : MonoBehaviour
 
     private void Start()
     {
-        foreach (var trigger in handTriggers)
+        foreach (var trigger in handScripts)
         {
             trigger.enabled = false;
         }
@@ -123,7 +123,7 @@ public class Orc_Attack : MonoBehaviour
 
     private void MeleeAttack()
     {
-        foreach (var trigger in handTriggers)
+        foreach (var trigger in handScripts)
         {
             trigger.enabled = true;
         }
