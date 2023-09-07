@@ -202,6 +202,8 @@ MonoBehaviour:
   knockbackDuration: 0.25
   knockbackSpeed: 3
   animator: {fileID: 1237894022645255885}
+  floatingTextPrefab: {fileID: 1647710875180282250, guid: 6c2ece796d9e5c040b8e0aa134a19fb8,
+    type: 3}
   maxHealth: 100
   isKnockbackActive: 0
 --- !u!195 &5271779194425280954
