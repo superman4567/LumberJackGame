@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,11 +12,8 @@ public class Orc_Health : MonoBehaviour
 
     [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
-    [SerializeField] private float knockbackSpeed = 5.0f;
 
     [SerializeField] Animator animator;
-    [SerializeField] GameObject floatingTextPrefab;
-
     private RoundManager roundManager;
     private AxeDetection axeDetection;
 
@@ -43,6 +39,14 @@ public class Orc_Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update()
+    {
+        if (isKnockbackActive)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + knockbackDirection, knockbackForce * Time.deltaTime);
+        }
+    }
+
     public void KnockBack(Vector3 direction)
     {
         isKnockbackActive = true;
@@ -59,14 +63,12 @@ public class Orc_Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Axe"))
+        if (other.gameObject.CompareTag("Axe") && other.isTrigger) // Use CompareTag for tag comparison
         {
-            if (currentHealth > 0)
-            {
-                currentHealth -= axeDetection.axeDamage;
-                ShowFloatingText();
-            }
-            else
+            currentHealth -= axeDetection.axeDamage;
+
+            // Health is 0
+            if (currentHealth <= 0)
             {
                 animator.enabled = false;
                 orc_Animations.enabled = false;
@@ -79,12 +81,6 @@ public class Orc_Health : MonoBehaviour
                 Invoke("Die", 10f);
             }
         }
-    }
-
-    private void ShowFloatingText()
-    {
-        var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMeshPro>().text = axeDetection.axeDamage.ToString();
     }
 
     private void Statemachine()
