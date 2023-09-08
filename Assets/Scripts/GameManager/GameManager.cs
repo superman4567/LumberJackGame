@@ -261,4 +261,14 @@ public class GameManager : MonoBehaviour, IDataPersistance
         storePanel.SetActive(false);
         storeCamera.Priority = 0;
     }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
+
+    public void DeductCoins(int amount)
+    {
+        coins -= amount;
+    }
 }
