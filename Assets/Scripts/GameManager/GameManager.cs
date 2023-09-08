@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -27,8 +28,13 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public Button[] difficultyButtons;
     [SerializeField] private Sprite selected;
 
-    [Header("Buttons")]
+    [Header("PausePanel")]
     [SerializeField] private GameObject pausePanel;
+
+    [Header("StorePanel")]
+    [SerializeField] private GameObject storePanel;
+    [SerializeField] private CinemachineVirtualCamera characterCamera;
+    [SerializeField] private CinemachineVirtualCamera storeCamera;
 
     public enum ResourceType
     {
@@ -57,6 +63,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         UpdateUI();
         pausePanel.SetActive(false);
+        storePanel.SetActive(false);
     }
 
     private void Update()
@@ -236,5 +243,22 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void CloseCurrentUI(GameObject ui)
     {
         ui.SetActive(false);    
+    }
+
+    public void OpenStore()
+    {
+        Invoke("OpenStorePanel", 1.2f);
+        storeCamera.Priority = 2;
+    }
+
+    private void OpenStorePanel()
+    {
+        storePanel.SetActive(true);
+    }
+
+    public void CloseStore()
+    {
+        storePanel.SetActive(false);
+        storeCamera.Priority = 0;
     }
 }

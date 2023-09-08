@@ -12,7 +12,6 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float throwForce = 15f;
-    [SerializeField] public Orc_DealDamage[] handScripts;
 
     [Header("Orc speed")]
     [SerializeField] private float baseOrcSpeed = 2;
@@ -44,17 +43,7 @@ public class Orc_Attack : MonoBehaviour
         playerController = player.GetComponent<CharacterController>();
         rockPool = FindObjectOfType<ObjectPool>();
         roundManager = FindObjectOfType<RoundManager>();
-
         navMeshAgent = GetComponent<NavMeshAgent>();
-        orcDealDamage = GetComponentsInChildren<Orc_DealDamage>();
-    }
-
-    private void Start()
-    {
-        foreach (var trigger in handScripts)
-        {
-            trigger.enabled = false;
-        }
     }
 
     private void Update()
@@ -123,17 +112,22 @@ public class Orc_Attack : MonoBehaviour
 
     private void MeleeAttack()
     {
-        foreach (var trigger in handScripts)
-        {
-            trigger.enabled = true;
-        }
         StartCoroutine(MeleeAttackCoroutine());
+        orcDealDamage[0].canDamage = true;
+        orcDealDamage[1].canDamage = true;
     }
 
     private IEnumerator MeleeAttackCoroutine()
     {
         yield return new WaitForSeconds(meleeAttackDuration);
         animator.SetBool("OrcMeleeAttack", false);
+        Disablehands();
+    }
+
+    public void Disablehands()
+    {
+        orcDealDamage[0].canDamage = false;
+        orcDealDamage[1].canDamage = false;
     }
 
     public void ThrowAttack()

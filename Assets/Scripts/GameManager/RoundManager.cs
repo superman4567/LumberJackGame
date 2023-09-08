@@ -85,7 +85,7 @@ public class RoundManager : MonoBehaviour
         {
             case 0:
                 orcSpawnIncreasePercentage = 0.6f; 
-                orcsToSpawnInCurrentRound = 1; 
+                orcsToSpawnInCurrentRound = 10; 
                 roundToCompleteLevel = 25;
                 break;
 

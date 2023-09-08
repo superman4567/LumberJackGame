@@ -12,10 +12,10 @@ public class Orc_Ragdoll : MonoBehaviour
     {
         ragdollBodies = child.GetComponentsInChildren<Rigidbody>();
         ragdollColliders = child.GetComponentsInChildren<Collider>();
-        DisableRagdoll();
+        DisableRagdollOnStart();
     }
 
-    private void DisableRagdoll()
+    private void DisableRagdollOnStart()
     {
         foreach (var rigidbody in ragdollBodies)
         {
@@ -23,9 +23,13 @@ public class Orc_Ragdoll : MonoBehaviour
             foreach (var collider in ragdollColliders)
             {
                 collider.enabled = false;
+
+                if (collider.name == "hand.r" || collider.name == "hand.l")
+                {
+                    collider.enabled = true;
+                }
             }
         }
-
     }
 
     public void EnableRagdoll()
@@ -36,6 +40,11 @@ public class Orc_Ragdoll : MonoBehaviour
             foreach (var collider in ragdollColliders)
             {
                 collider.enabled = true;
+
+                if (collider.name == "hand.r" || collider.name == "hand.l")
+                {
+                    collider.enabled = false;
+                }
             }
         }
     }

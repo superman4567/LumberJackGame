@@ -22,8 +22,6 @@ public class AxeDetection : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Knocked");
-
             if (other.TryGetComponent(out Orc_Health orc))
             {
                 Vector3 axeVelocity = GetComponent<Rigidbody>().velocity.normalized;
