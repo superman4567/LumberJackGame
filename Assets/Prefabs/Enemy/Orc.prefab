@@ -155,6 +155,7 @@ MonoBehaviour:
   meleeAttackDuration: 1
   throwCooldown: 5
   throwForce: 25
+  minDistanceToPlayer: 2.75
   baseOrcSpeed: 2
   animator: {fileID: 1237894022645255885}
   orcDealDamage:

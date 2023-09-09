@@ -14,7 +14,7 @@ public class RoundStatsManager : MonoBehaviour
     void Start()
     {
         roundNumber.text = RoundManager.Instance.currentRound.ToString();
-        orcsPerRound.text = RoundManager.Instance.orcsToSpawnInCurrentRound.ToString();
+        orcsPerRound.text = RoundManager.Instance.OrcsSpawnedThisRound().ToString();
         killsPerRound.text = RoundManager.Instance.orcsKilledInCurrentRound.ToString();
         multiplier.text = RoundManager.Instance.orcSpawnIncreasePercentage.ToString();
     }
@@ -22,7 +22,7 @@ public class RoundStatsManager : MonoBehaviour
     void Update()
     {
         roundNumber.text = RoundManager.Instance.currentRound.ToString();
-        orcsPerRound.text = RoundManager.Instance.orcsToSpawnInCurrentRound.ToString();
+        orcsPerRound.text = RoundManager.Instance.OrcsSpawnedThisRound().ToString();
         killsPerRound.text = RoundManager.Instance.orcsKilledInCurrentRound.ToString();
         multiplier.text = RoundManager.Instance.orcSpawnIncreasePercentage.ToString();
     }

@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistance
 {
     [Header("Playerstats UI")]
     [SerializeField] private TextMeshProUGUI healthUIAmount;
@@ -12,13 +13,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private GameObject deathUI;
 
     [Header("Health ")]
-    [SerializeField] private float initialHealth = 100f;
     [SerializeField] private float health;
     public float Health { get; private set; }
     [SerializeField] public float maxHealth = 100f;
 
     [Header("Stamina ")]
-    [SerializeField] private float initialStamina = 100f;
     [SerializeField] private float stamina;
     public float Stamina { get; private set; }
     [SerializeField] public float maxstamina = 100f;
@@ -31,8 +30,10 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        health = initialHealth;
-        stamina = initialStamina;
+        health = maxHealth;
+        stamina = maxstamina;
+
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         deathUI.SetActive(false);
     }
 
@@ -41,10 +42,20 @@ public class PlayerStats : MonoBehaviour
         Health = health;
         Stamina = stamina;
 
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; } 
         healthUIAmount.text = Mathf.RoundToInt(health).ToString();
         staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
-        HideHitCanvas();
         AddStamina(0.25f * Time.deltaTime);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.maxHealth = data.maxHealth;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.maxHealth = this.maxHealth;
     }
 
     public void TakeDamage(float amount)
@@ -64,13 +75,20 @@ public class PlayerStats : MonoBehaviour
 
     public void AddHealth(float amount)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         health += amount;
         int intHealth = Mathf.RoundToInt(health);
         healthUIAmount.text = intHealth.ToString();
+
+        if (health >= maxHealth)
+        {
+            HideHitCanvas();
+        }
     }
 
     public void AddStamina(float amount)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         if (stamina >= maxstamina) { return; }
         stamina += amount;
         int intStamina = Mathf.RoundToInt(stamina);
@@ -79,6 +97,7 @@ public class PlayerStats : MonoBehaviour
 
     public void SubstractHealth(float amount)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         health -= amount;
         int intHealth = Mathf.RoundToInt(health);
         healthUIAmount.text = intHealth.ToString();
@@ -86,12 +105,11 @@ public class PlayerStats : MonoBehaviour
 
     public void SubstractStamina(float amount)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         stamina -= amount;
         int intStamina = Mathf.RoundToInt(stamina);
         staminaUIAmount.text = intStamina.ToString();
     }
-
-
 
     private void ShowHitCanvas()
     {
@@ -107,7 +125,7 @@ public class PlayerStats : MonoBehaviour
 
     private void HideHitCanvas()
     {
-        if (health != maxHealth) { return; }    
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         getHitpanel.SetBool("GetHit", false);
     }
 

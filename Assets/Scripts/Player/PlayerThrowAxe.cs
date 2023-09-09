@@ -15,7 +15,7 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerModelTransform;
 
-    private bool isAxeThrown = false;
+    public bool isAxeThrown = false;
     public bool isReturning;
     public bool CanThrowAxe { get; set; }
 
@@ -45,6 +45,7 @@ public class PlayerThrowAxe : MonoBehaviour
         if (!isAxeThrown && Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetBool("Throw", true);
+            isAxeThrown = true;
             isReturning = false;
             timeSinceAxeThrown = 0f;
         }

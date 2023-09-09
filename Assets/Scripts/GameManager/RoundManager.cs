@@ -24,9 +24,10 @@ public class RoundManager : MonoBehaviour
 
     [Header("Chest spawner")]
     [SerializeField] private ChestSpawner chestSpawner;
+    [SerializeField] private BreakableObjectSpawner breakableSpawner;
 
     public int currentRound = 0;
-    public int orcsToSpawnInCurrentRound;
+    private int orcsToSpawnInCurrentRound;
     public int roundToCompleteLevel;
     public int orcsSpawnedInCurrentRound = 0;
     public int orcsKilledInCurrentRound = 0;
@@ -41,6 +42,8 @@ public class RoundManager : MonoBehaviour
     private void Start()
     {
         chestSpawner.SpawnChest();
+        breakableSpawner.SpawnBreakables();
+
         Statemachine();
         currentRound++;
 
@@ -74,6 +77,7 @@ public class RoundManager : MonoBehaviour
         orcsKilledInCurrentRound = 0;
 
         chestSpawner.SpawnChest();
+        breakableSpawner.SpawnBreakables();
         currentRound++;
 
         isStartingNewRound = false; 
@@ -104,6 +108,10 @@ public class RoundManager : MonoBehaviour
             default:
                 break;
         }
+    }
+    public int OrcsSpawnedThisRound()
+    {
+        return orcsToSpawnInCurrentRound;
     }
 
     public void OrcSpawned()

@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
 
     [Header("Interactable object detection")]
     [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private PlayerThrowAxe playerThrowAxe;
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private Animator animator;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -19,6 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactZoom = 6f;
     [SerializeField] private GameObject lookAtMe;
     private CinemachineFramingTransposer transposer;
+    
 
     public Action<bool> InteractionHappening;
     public Interactable currentInteractableObject = null;
@@ -80,11 +82,16 @@ public class PlayerInteraction : MonoBehaviour
                 if (currentInteractable.TryGetComponent(out Interactable interactableComponent))
                 {
                     currentInteractableObject = interactableComponent;
+                    if (currentInteractableObject != null)
+                    {
+                        // Set the color to white when looking at the object
+                        currentInteractableObject.GetComponentInParent<InteractPanel>().circle.color = Color.white;
+                    }
+                    else
+                    {
+                        currentInteractableObject.GetComponentInParent<InteractPanel>().circle.color = blockedColor;
+                    }
                 }
-
-                // Set the color to white when looking at the object
-                currentInteractableObject.GetComponentInParent<InteractPanel>().circle.color = Color.white;
-
                 // Update the last interacted object
                 lastInteractedObject = currentInteractable;
             }
@@ -93,9 +100,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable = null;
             currentInteractableObject = null;
-
-            // Set the color to red when not looking at any object
-            // You might need to adjust this line depending on your UI structure.
+            
             if (lastInteractedObject != null)
             {
                 lastInteractedObject.GetComponentInParent<InteractPanel>().circle.color = blockedColor;
@@ -107,7 +112,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentInteractable != null)
         {
-            if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
+            if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith && !playerThrowAxe.isAxeThrown)
             {
                 //Chest stuff
                 if (currentInteractable.tag == "Chest" && !currentInteractable.GetComponentInChildren<Chest>().isOpen)

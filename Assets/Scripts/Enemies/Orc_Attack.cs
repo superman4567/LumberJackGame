@@ -12,6 +12,7 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float throwForce = 15f;
+    [SerializeField] private float minDistanceToPlayer = 0.75f;
 
     [Header("Orc speed")]
     [SerializeField] private float baseOrcSpeed = 2;
@@ -44,6 +45,8 @@ public class Orc_Attack : MonoBehaviour
         rockPool = FindObjectOfType<ObjectPool>();
         roundManager = FindObjectOfType<RoundManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        Disablehands();
     }
 
     private void Update()
@@ -113,15 +116,14 @@ public class Orc_Attack : MonoBehaviour
     private void MeleeAttack()
     {
         StartCoroutine(MeleeAttackCoroutine());
-        orcDealDamage[0].canDamage = true;
-        orcDealDamage[1].canDamage = true;
     }
 
     private IEnumerator MeleeAttackCoroutine()
     {
+        orcDealDamage[0].canDamage = true;
+        orcDealDamage[1].canDamage = true;
         yield return new WaitForSeconds(meleeAttackDuration);
         animator.SetBool("OrcMeleeAttack", false);
-        Disablehands();
     }
 
     public void Disablehands()
@@ -155,23 +157,41 @@ public class Orc_Attack : MonoBehaviour
         navMeshAgent.speed = baseOrcSpeed;
 
         if (!navMeshAgent.isActiveAndEnabled) { return; }
-        navMeshAgent.SetDestination(player.position);
 
-        if (distanceToPlayer <= rangedAttackRange)
+        // Calculate the direction from the orc to the player
+        Vector3 directionToPlayer = player.position - transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
+
+        // Check if the orc is too close to the player
+        if (distanceToPlayer <= minDistanceToPlayer)
         {
-            navMeshAgent.speed = baseOrcSpeed += 1.5f;
+            // The orc is too close, so stop moving
+            navMeshAgent.isStopped = true;
         }
-
-        if (distanceToPlayer <= meleeAttackRange)
+        else
         {
-            navMeshAgent.speed = baseOrcSpeed += 2.5f;
-        }
+            // The orc is not too close, so continue chasing
+            navMeshAgent.isStopped = false;
+            navMeshAgent.SetDestination(player.position);
 
-        if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
-        {
-            navMeshAgent.speed = baseOrcSpeed += (lastOrcSpeed / 2);
+            // Adjust speed based on attack ranges or other conditions
+            if (distanceToPlayer <= rangedAttackRange)
+            {
+                navMeshAgent.speed = baseOrcSpeed + 1.5f;
+            }
+
+            if (distanceToPlayer <= meleeAttackRange)
+            {
+                navMeshAgent.speed = baseOrcSpeed + 2.5f;
+            }
+
+            if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
+            {
+                navMeshAgent.speed = baseOrcSpeed + (lastOrcSpeed / 2);
+            }
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {

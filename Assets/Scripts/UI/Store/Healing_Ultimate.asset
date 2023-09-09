@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Healing_Unlocked
+  m_Name: Healing_Ultimate
   m_EditorClassIdentifier: 
   skillName: IncreaseMaxhealth1
-  skillId: 0
-  skillCost: 10
+  ID: 8
+  skillCost: 20000
+  canBeBought: 0
   isUnlocked: 0
+  prerequisites:
+  - {fileID: 11400000, guid: 0b68ed5af0bcbb549908de6b03b0253a, type: 2}
+  - {fileID: 11400000, guid: 05117860b39776c4c8af8a528f3ce334, type: 2}

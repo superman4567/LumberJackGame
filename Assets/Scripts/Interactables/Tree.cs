@@ -15,7 +15,7 @@ public class Tree : Interactable
         TreeBreakingSound.Play();
        
         Instantiate(fallingTreePrefab, transform.position, transform.rotation, transform.parent);
-        GameManager.Instance.AddResource(GameManager.ResourceType.Wood, 5);
+        GameManager.Instance.AddResource(GameManager.ResourceType.Wood, Random.Range(1,3));
         canvas.SetActive(false);
 
         Destroy(gameObject);

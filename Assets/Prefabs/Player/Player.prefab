@@ -281,7 +281,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027546857630770066}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -293,7 +293,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24148343a63e4a141bbe3776dd1ee3eb, type: 2}
+  - {fileID: 2100000, guid: 0ba42129d81ed6940909de9cb373baa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2009,6 +2009,7 @@ GameObject:
   - component: {fileID: 4226212422562731673}
   - component: {fileID: 1339500863146655895}
   - component: {fileID: 7322189240873099811}
+  - component: {fileID: 837591197269075396}
   - component: {fileID: 7354386558889207771}
   - component: {fileID: 7515178835910444018}
   m_Layer: 6
@@ -2074,10 +2075,10 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 256
-  interactionDistance: 1
+  interactionDistance: 0.5
   animator: {fileID: 8609658880822775392}
   virtualCamera: {fileID: 0}
-  blockedColor: {r: 0, g: 0, b: 0, a: 0}
+  blockedColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   defaultzoom: 15
   interactZoom: 6
   lookAtMe: {fileID: 0}
@@ -2102,7 +2103,7 @@ MonoBehaviour:
   movSpeed: 3.5
   lowerBodyRotationSpeed: 10
   sprintSpeed: 8
-  sprintStaminaDrain: 5
+  sprintStaminaDrain: 1
   dodgeRollDistance: 10
   dodgeRollDuration: 0.5
   dodgeRollCooldown: 1
@@ -2137,10 +2138,8 @@ MonoBehaviour:
   healthUIAmount: {fileID: 0}
   staminaUIAmount: {fileID: 0}
   deathUI: {fileID: 0}
-  initialHealth: 100
   health: 0
   maxHealth: 100
-  initialStamina: 100
   stamina: 0
   maxstamina: 100
   getHitpanel: {fileID: 0}
@@ -2183,6 +2182,20 @@ MonoBehaviour:
   animator: {fileID: 8609658880822775392}
   playerModelTransform: {fileID: 7151995344899385449}
   isReturning: 0
+--- !u!114 &837591197269075396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354386558889207768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff20240ceef4906458a713bc8916bbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  campFirePrefab: {fileID: 0}
+  distanceFromPlayer: 1
 --- !u!143 &7354386558889207771
 CharacterController:
   m_ObjectHideFlags: 0

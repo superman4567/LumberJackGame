@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public List<bool> unlockedDifficultyList = new List<bool>();
 
     [Header("Resources")]
-    private int wood = 0;
-    private int coins = 0;
+    private int wood;
+    private int coins;
     private int woodMultiplier = 1;
     private int coinMultiplier = 1;
 
@@ -31,17 +31,20 @@ public class GameManager : MonoBehaviour, IDataPersistance
     [Header("PausePanel")]
     [SerializeField] private GameObject pausePanel;
 
+    [Header("PowerUp variables")]
+    public float chestHealthGain = 25f;
+
     [Header("StorePanel")]
     [SerializeField] private GameObject storePanel;
     [SerializeField] private CinemachineVirtualCamera characterCamera;
     [SerializeField] private CinemachineVirtualCamera storeCamera;
+    [SerializeField] private TextMeshProUGUI coinAmount;
 
     public enum ResourceType
     {
         Wood,
         Coins,
     }
-
 
     private void Awake()
     {
@@ -55,21 +58,42 @@ public class GameManager : MonoBehaviour, IDataPersistance
         {
             unlockedDifficultyList.Add(false); 
         }
-
-        wood = 0;
     }
 
     private void Start()
     {
+        wood = 0;
         UpdateUI();
         pausePanel.SetActive(false);
+
+        if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(false);
+
     }
 
     private void Update()
     {
         ClickOnUI();
         PauseGame();
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            coinAmount.text = coins.ToString();
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.coins = data.coins;
+        this.selectedDifficulty = data.difficulty;
+        this.chestHealthGain = data.chestHealthGain;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.coins = this.coins;
+        data.difficulty = this.selectedDifficulty;
+        data.chestHealthGain = this.chestHealthGain;
     }
 
     private void ClickOnUI()
@@ -83,20 +107,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
         }
     }
 
-    public void LoadData(GameData data)
-    {
-        this.wood = data.wood;
-        this.coins = data.coins;
-        this.selectedDifficulty = data.difficulty;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.wood = this.wood;
-        data.coins = this.coins;
-        data.difficulty = this.selectedDifficulty;
-    }
-
     private void UpdateUI()
     {
         woodUI.text = wood.ToString();
@@ -105,7 +115,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     public void AddResource(ResourceType resourceType, int amount)
     {
-        Debug.Log(resourceType + amount);
         switch (resourceType)
         {
             case ResourceType.Wood:
@@ -122,6 +131,20 @@ public class GameManager : MonoBehaviour, IDataPersistance
         }
         UpdateUI();
     }
+    public void SubstractResource(ResourceType resourceType, int amount)
+    {
+        switch (resourceType)
+        {
+            case ResourceType.Wood:
+                wood -= amount;
+                break;
+            case ResourceType.Coins:
+                coins -= amount;
+                break;
+        }
+
+        UpdateUI();
+    }
 
     public void IncreaseWoodMultiplier(int amount)
     {
@@ -131,22 +154,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void IncreaseCoindMultiplier(int amount)
     {
         coinMultiplier = amount;
-    }
-
-    public void SubstractResource(ResourceType resourceType, int amount)
-    {
-        switch (resourceType)
-        {
-            case ResourceType.Wood:
-                wood += amount;
-                break;
-            case ResourceType.Coins:
-                coins += amount;
-                break;
-
-        }
-
-        UpdateUI();
     }
 
     private void PauseGame()
@@ -212,11 +219,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
         for (int i = 0; i < difficultyButtons.Length; i++)
         {
             Image currentSprite = difficultyButtons[i].image;
-            Debug.Log(currentSprite.sprite);
 
             if (currentSprite.sprite == selected)
             {
-                Debug.Log("AA");
                 return true;
             }
         }
@@ -247,17 +252,20 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     public void OpenStore()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         Invoke("OpenStorePanel", 1.2f);
         storeCamera.Priority = 2;
     }
 
     private void OpenStorePanel()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(true);
     }
 
     public void CloseStore()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(false);
         storeCamera.Priority = 0;
     }
@@ -265,10 +273,5 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public int GetCoins()
     {
         return coins;
-    }
-
-    public void DeductCoins(int amount)
-    {
-        coins -= amount;
     }
 }

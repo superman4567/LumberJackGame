@@ -6,8 +6,12 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     public string skillName;
+    public StoreItem ID;
     public int skillCost;
+    public bool canBeBought = false;
     public bool isUnlocked = false;
     public List<Skill> prerequisites;
+
+    
 
 }

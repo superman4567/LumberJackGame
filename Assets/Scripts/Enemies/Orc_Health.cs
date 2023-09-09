@@ -116,6 +116,7 @@ public class Orc_Health : MonoBehaviour
 
     private void Die()
     {
+        GameManager.Instance.AddResource(GameManager.ResourceType.Coins, Random.Range(1, 2));
         orc_Attack.Disablehands();
         Destroy(gameObject);
     }

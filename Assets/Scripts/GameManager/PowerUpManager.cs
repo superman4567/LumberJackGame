@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class PowerUpManager : MonoBehaviour
     private int woodBoostsUnlocked = 1;
     private int coinBoostsUnlocked = 1;
     private bool rageModesUnlocked = false;
+
+    
 
     private float endTime;
     private PlayerMovement playerMovement;
@@ -63,6 +66,7 @@ public class PowerUpManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         foreach (var item in abilityStack)
         {
             item.SetActive(false);
@@ -203,6 +207,7 @@ public class PowerUpManager : MonoBehaviour
 
     private void AddGainedSprite(int indexNumber)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         Debug.Log(indexNumber);
         switch (indexNumber)
         {
