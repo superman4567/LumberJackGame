@@ -6,16 +6,21 @@ public class Orc_DealDamage : MonoBehaviour
 {
     [SerializeField] public float damageAmount = 10f;
     [SerializeField] private LayerMask playerLayer; // Assign the "Player" layer in the Inspector
+    public bool canDamage = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (IsPlayerInLayer(other))
+        if (IsPlayerInLayer(other) && canDamage)
         {
             PlayerStats playerStats = other.GetComponentInChildren<PlayerStats>();
             if (playerStats != null)
             {
                 playerStats.TakeDamage(damageAmount);
             }
+        }
+        else
+        {
+            return;
         }
     }
 

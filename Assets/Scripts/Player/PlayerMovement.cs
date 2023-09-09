@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float dodgeRollStartTime = 0f;
     private float verticalVelocity = 0.0f;
     private float gravity = -9.81f;
+    private float staminaCap = 5;
 
 
     void Update()
@@ -78,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
         bool isSprinting = Input.GetKey(KeyCode.LeftShift) &&
-                          playerStats.Stamina >= sprintStaminaDrain &&
+                          playerStats.Stamina >= staminaCap &&
                           movementDirection.magnitude > 0.1f; 
 
         if (isSprinting)
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DodgeRoll()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerStats.Stamina >= 5f)
+        if (Input.GetKeyDown(KeyCode.Space) && playerStats.Stamina >= staminaCap)
         {
             if (isDodgeRolling) return;
 

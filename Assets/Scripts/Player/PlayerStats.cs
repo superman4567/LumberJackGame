@@ -33,15 +33,14 @@ public class PlayerStats : MonoBehaviour
     {
         health = initialHealth;
         stamina = initialStamina;
-
-        Health = health;
-        Stamina = stamina;
-
         deathUI.SetActive(false);
     }
 
     void Update()
     {
+        Health = health;
+        Stamina = stamina;
+
         healthUIAmount.text = Mathf.RoundToInt(health).ToString();
         staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
         HideHitCanvas();

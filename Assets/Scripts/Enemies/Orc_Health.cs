@@ -10,13 +10,12 @@ public class Orc_Health : MonoBehaviour
     [SerializeField] Orc_Animations orc_Animations;
     [SerializeField] Orc_Attack orc_Attack;
     [SerializeField] Collider hitBox; // Change this to a trigger collider
-    [SerializeField] private GameObject floatingTextPrefab;
 
     [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
 
-
-    [SerializeField] Animator animator;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject floatingTextPrefab;
     private RoundManager roundManager;
     private AxeDetection axeDetection;
 
@@ -66,11 +65,8 @@ public class Orc_Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Axe") && other.isTrigger) // Use CompareTag for tag comparison
+        if (other.gameObject.CompareTag("Axe") && other.isTrigger)
         {
-            currentHealth -= axeDetection.axeDamage;
-
-            // Health is 0
             if (currentHealth > 0)
             {
                 currentHealth -= axeDetection.axeDamage;
@@ -120,10 +116,7 @@ public class Orc_Health : MonoBehaviour
 
     private void Die()
     {
-        foreach (var trigger in orc_Attack.handScripts)
-        {
-            trigger.enabled = false;
-        }
+        orc_Attack.Disablehands();
         Destroy(gameObject);
     }
 }

@@ -15,6 +15,7 @@ TagManager:
   - Board
   - GameStarter
   - TreeFalling
+  - OrcHands
   layers:
   - Default
   - TransparentFX

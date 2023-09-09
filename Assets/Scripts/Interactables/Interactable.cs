@@ -15,6 +15,10 @@ public abstract class Interactable : MonoBehaviour
         playerInteraction = FindObjectOfType<PlayerInteraction>();
         treeChopProgress = GetComponent<TreeChopProgress>();
         interactInSeconds = Random.Range(2f, 4f);
+        if (gameObject.tag == "Chest")
+        {
+            interactInSeconds = 0.01f;
+        }
     }
 
     public virtual void AddProgress(float progressInSeconds)
