@@ -1534,7 +1534,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_BlendMode": 8
+    "m_BlendMode": 3
 }
 
 {
@@ -1829,7 +1829,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Opacity",
     "m_StageCapability": 3,
-    "m_Value": 1.0,
+    "m_Value": 67.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }

@@ -58,6 +58,5 @@ public class ChestSpawner : MonoBehaviour
     public void DestroyChest()
     {
         currentTotalChests--;
-        Debug.Log(currentTotalChests);
     }
 }

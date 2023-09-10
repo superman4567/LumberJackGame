@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour
 {
-    // Static instance of the StoreManager
     public static StoreManager Instance;
 
     [Header("References")]

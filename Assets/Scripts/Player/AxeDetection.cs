@@ -40,7 +40,7 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
         this.axeLifestealAmount = data.axeLifestealAmount;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.lifesteal = this.lifesteal;
         data.axeLifestealAmount = this.axeLifestealAmount;

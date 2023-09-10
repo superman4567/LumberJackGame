@@ -208,7 +208,6 @@ public class PowerUpManager : MonoBehaviour
     private void AddGainedSprite(int indexNumber)
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
-        Debug.Log(indexNumber);
         switch (indexNumber)
         {
             case 0:

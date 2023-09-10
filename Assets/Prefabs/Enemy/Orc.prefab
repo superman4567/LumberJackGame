@@ -1962,6 +1962,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4874655419740185515, guid: dc19a17feb90aef4585090ef12cd46a7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5364522374448838384, guid: dc19a17feb90aef4585090ef12cd46a7,
         type: 3}
       propertyPath: m_Pivot.x

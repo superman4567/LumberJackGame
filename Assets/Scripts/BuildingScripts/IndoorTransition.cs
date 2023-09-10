@@ -11,6 +11,7 @@ public class IndoorTransition : MonoBehaviour
     {
         if (other.CompareTag("Player") && cabinetDoor.canInteract)
         {
+            DataPersistenceManager.instance.SaveGame();
             SceneManager.LoadScene(sceneIndexToLoad);
         }
     }

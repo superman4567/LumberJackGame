@@ -59,6 +59,5 @@ public class BreakableObjectSpawner : MonoBehaviour
     public void MinusBreakable()
     {
         currentTotalBreakables--;
-        Debug.Log(currentTotalBreakables);
     }
 }

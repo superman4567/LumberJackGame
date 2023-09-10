@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     private void Start()
     {
-        wood = 0;
+        wood = 1000;
         UpdateUI();
         pausePanel.SetActive(false);
 
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
         this.chestHealthGain = data.chestHealthGain;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.coins = this.coins;
         data.difficulty = this.selectedDifficulty;
@@ -181,11 +181,13 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void GoToCabin()
     {
         Time.timeScale = 1f;
+        DataPersistenceManager.instance.SaveGame();
         SceneManager.LoadScene(1);
     }
     
     public void QuitGame()
     {
+        DataPersistenceManager.instance.SaveGame();
         Application.Quit();
     }
 
@@ -273,5 +275,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public int GetCoins()
     {
         return coins;
+    }
+
+    public int GetWood()
+    {
+        return wood;
     }
 }
