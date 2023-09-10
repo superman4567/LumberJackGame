@@ -23,7 +23,7 @@ public class OrcSpawner : MonoBehaviour
         }
 
         // Calculate the time interval between orc spawns
-        timeBetweenSpawns = spawnDuration / RoundManager.Instance.orcsToSpawnInCurrentRound;
+        timeBetweenSpawns = spawnDuration / RoundManager.Instance.OrcsSpawnedThisRound();
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class OrcSpawner : MonoBehaviour
         if (!startToSpawnOrcs) { return; }
 
         // Only start spawning orcs if not all orcs are spawned yet
-        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.orcsToSpawnInCurrentRound)
+        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.OrcsSpawnedThisRound())
         {
             spawnTimer += Time.deltaTime;
 
@@ -45,7 +45,7 @@ public class OrcSpawner : MonoBehaviour
 
     private void SpawnOrc()
     {
-        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.orcsToSpawnInCurrentRound)
+        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.OrcsSpawnedThisRound())
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Healing_HealthBoostFromChest1
   m_EditorClassIdentifier: 
   skillName: IncreaseMaxhealth1
-  skillCost: 10
+  ID: 0
+  skillCost: 50
+  canBeBought: 1
   isUnlocked: 0
   prerequisites:
   - {fileID: 11400000, guid: a692328225a642a4183e30fb9cce4728, type: 2}

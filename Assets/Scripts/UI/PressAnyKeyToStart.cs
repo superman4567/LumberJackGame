@@ -21,6 +21,7 @@ public class PressAnyKeyToStart : MonoBehaviour
     {
         if (Input.anyKey && isLoadingNextLevel == false)
         {
+            DataPersistenceManager.instance.SaveGame();
             isLoadingNextLevel = true;
             StartCoroutine(StartLoading());
         }

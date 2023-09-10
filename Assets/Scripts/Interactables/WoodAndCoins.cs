@@ -18,8 +18,8 @@ public class WoodAndCoins : MonoBehaviour
 
     private void AddWoodAndCoins()
     {
-        int a = Random.Range(1, 7);
-        int b = Random.Range(1, 20);
+        int a = Random.Range(1, 2);
+        int b = Random.Range(1, 3);
         GameManager.Instance.AddResource(GameManager.ResourceType.Wood, a) ;
         GameManager.Instance.AddResource(GameManager.ResourceType.Coins, b);
     }

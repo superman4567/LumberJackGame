@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Healing_IncreaseMaxHealth2
   m_EditorClassIdentifier: 
   skillName: IncreaseMaxhealth2
-  skillCost: 100
+  ID: 4
+  skillCost: 750
+  canBeBought: 1
   isUnlocked: 0
   prerequisites:
   - {fileID: 11400000, guid: a5faf86720c62c54699266e9ac7e81cb, type: 2}

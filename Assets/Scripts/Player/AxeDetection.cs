@@ -1,21 +1,49 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class AxeDetection : MonoBehaviour
+public class AxeDetection : MonoBehaviour, IDataPersistance
 {
-    public bool axeHitSomething = false; // Initialize as false
+    public static AxeDetection Instance;
 
+    [Header("Axe data")]
+    public bool axeHitSomething = false;
     public int axeDamage = 20;
 
-    public bool HasAxeHitSomething()
+    [Header("Lifesteal")]
+    public bool lifesteal = false;
+    public float axeLifestealAmount;
+
+    private PlayerStats playerStats;
+
+    private void Awake()
     {
-        return axeHitSomething;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        playerStats = FindObjectOfType<PlayerStats>(); 
     }
 
     private void Start()
     {
         // Assign the "Axe" layer to the axe GameObject in the Inspector
         gameObject.layer = LayerMask.NameToLayer("Axe");
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.lifesteal = data.lifesteal;
+        this.axeLifestealAmount = data.axeLifestealAmount;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.lifesteal = this.lifesteal;
+        data.axeLifestealAmount = this.axeLifestealAmount;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,11 +58,21 @@ public class AxeDetection : MonoBehaviour
 
                 orc.KnockBack(direction);
             }
+
+            if (lifesteal && playerStats.Health < (playerStats.maxHealth - axeLifestealAmount))
+            {
+                playerStats.AddHealth(axeLifestealAmount);
+            }
         }
     }
 
     public int GetAxeDamage()
     {
         return axeDamage;
+    }
+
+    public bool HasAxeHitSomething()
+    {
+        return axeHitSomething;
     }
 }
