@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     [Header("Difficulty")]
     public int selectedDifficulty;
-    public List<bool> unlockedDifficultyList = new List<bool>();
+    public bool diffiuclty0Unlocked;
+    public bool diffiuclty1Unlocked;
+    public bool diffiuclty2Unlocked;
 
     [Header("Resources")]
     private int wood;
@@ -52,12 +54,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-
-        unlockedDifficultyList.Add(true); 
-        for (int i = 1; i < 3; i++) 
-        {
-            unlockedDifficultyList.Add(false); 
-        }
     }
 
     private void Start()
@@ -68,7 +64,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
         if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(false);
-
     }
 
     private void Update()
@@ -87,6 +82,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
         this.coins = data.coins;
         this.selectedDifficulty = data.difficulty;
         this.chestHealthGain = data.chestHealthGain;
+
+        this.diffiuclty0Unlocked = data.diffiuclty0Unlocked;
+        this.diffiuclty1Unlocked = data.diffiuclty1Unlocked;
+        this.diffiuclty2Unlocked = data.diffiuclty2Unlocked;
     }
 
     public void SaveData(GameData data)
@@ -94,6 +93,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
         data.coins = this.coins;
         data.difficulty = this.selectedDifficulty;
         data.chestHealthGain = this.chestHealthGain;
+
+        data.diffiuclty0Unlocked = this.diffiuclty0Unlocked;
+        data.diffiuclty1Unlocked = this.diffiuclty1Unlocked;
+        data.diffiuclty2Unlocked = this.diffiuclty2Unlocked;
     }
 
     private void ClickOnUI()
@@ -195,7 +198,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         difficultyButtons[0].interactable = true;
 
-        if (unlockedDifficultyList[1] == true)
+        if (diffiuclty1Unlocked == true)
         {
             difficultyButtons[1].interactable = true;
         }
@@ -204,7 +207,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
             difficultyButtons[1].interactable = false;
         }
 
-        if (unlockedDifficultyList[2] == true)
+        if (diffiuclty2Unlocked == true)
         {
             difficultyButtons[2].interactable = true;
         }

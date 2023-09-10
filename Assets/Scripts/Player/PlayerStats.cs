@@ -60,7 +60,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     public void TakeDamage(float amount)
     {
-        ShowHitCanvas();
+        UpdateHitCanvasHIT();
         health -= amount;
         health = Mathf.Max(health, 0f);
 
@@ -77,13 +77,11 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         health += amount;
+
+        UpdateHitCanvasHEALED();
+
         int intHealth = Mathf.RoundToInt(health);
         healthUIAmount.text = intHealth.ToString();
-
-        if (health >= maxHealth)
-        {
-            HideHitCanvas();
-        }
     }
 
     public void AddStamina(float amount)
@@ -111,22 +109,21 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
         staminaUIAmount.text = intStamina.ToString();
     }
 
-    private void ShowHitCanvas()
-    {
-        if (health == maxHealth)
-        {
-            getHitpanel.SetBool("GetHit", true);
-        }
-        else
-        {
-            getHitpanel.SetTrigger("GetHitTrigger");
-        }
-    }
-
-    private void HideHitCanvas()
+    private void UpdateHitCanvasHIT()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
-        getHitpanel.SetBool("GetHit", false);
+        getHitpanel.SetTrigger("GetHitTrigger");
+    }
+
+    private void UpdateHitCanvasHEALED()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
+
+        if (health == maxHealth)
+        {
+            getHitpanel.SetTrigger("GetHealedTrigger");
+        }
+        else { return; }
     }
 
     private void PlayerDeath()

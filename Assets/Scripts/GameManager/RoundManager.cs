@@ -55,13 +55,18 @@ public class RoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isStartingNewRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
+        if (Input.GetKeyDown(KeyCode.O)) 
         {
-            StartCoroutine(StartNewRoundCoroutine());
+            currentRound = 24;
         }
+
         if (currentRound == roundToCompleteLevel)
         {
             IsDifficultyComplete();
+        }
+        else if (!isStartingNewRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
+        {
+            StartCoroutine(StartNewRoundCoroutine());
         }
     }
 
@@ -72,7 +77,7 @@ public class RoundManager : MonoBehaviour
 
         yield return new WaitForSeconds(5.0f);
 
-        orcsToSpawnInCurrentRound = Mathf.CeilToInt(orcsToSpawnInCurrentRound * orcSpawnIncreasePercentage);
+        orcsToSpawnInCurrentRound = Mathf.CeilToInt(orcsToSpawnInCurrentRound + orcSpawnIncreasePercentage);
         orcsSpawnedInCurrentRound = 0;
         orcsKilledInCurrentRound = 0;
 
@@ -88,13 +93,13 @@ public class RoundManager : MonoBehaviour
         switch (GameManager.Instance.GetDifficulty())
         {
             case 0:
-                orcSpawnIncreasePercentage = 0.6f; 
+                orcSpawnIncreasePercentage = 2f; 
                 orcsToSpawnInCurrentRound = 10; 
                 roundToCompleteLevel = 25;
                 break;
 
             case 1:
-                orcSpawnIncreasePercentage = 1.2f;
+                orcSpawnIncreasePercentage = 2.25f;
                 orcsToSpawnInCurrentRound = 25;
                 roundToCompleteLevel = 50;
                 break;
@@ -145,7 +150,7 @@ public class RoundManager : MonoBehaviour
             difficultyCompletePanel.SetActive(true);
             diffAnimPanel0.SetActive(true);
                 
-            GameManager.Instance.unlockedDifficultyList[1] = true;
+            GameManager.Instance.diffiuclty1Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
 
             if (Input.anyKeyDown)
@@ -158,7 +163,7 @@ public class RoundManager : MonoBehaviour
             difficultyCompletePanel.SetActive(true);
             diffAnimPanel1.SetActive(true);
 
-            GameManager.Instance.unlockedDifficultyList[2] = true;
+            GameManager.Instance.diffiuclty2Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
 
             if (Input.anyKeyDown)

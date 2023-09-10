@@ -46,6 +46,7 @@ public class SwapToBroken : MonoBehaviour
         yield return new WaitForSeconds(fadeInstantiationTime);
         foreach (Transform obj in objectsToChangeAlpha)
         {
+            obj.GetComponent<Collider>().enabled = false;
             obj.GetComponent<MeshRenderer>().material = materials[1];
 
             Animator animator = obj.GetComponent<Animator>();
