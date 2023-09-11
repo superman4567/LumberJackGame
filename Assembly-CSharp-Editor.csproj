@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2D9527E5-F721-C07A-1B91-08DBF3A1CECE}</ProjectGuid>
+    <ProjectGuid>{BFCCBF59-930E-3259-682C-8F2C1771B552}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -874,39 +874,39 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{84EFCD49-58D9-5D0F-C8AB-10303578A14F}</Project>
+      <Project>{AFFC6770-B730-ACF6-9482-514C28261DD5}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.API.WwiseTypes.csproj">
-      <Project>{0411B8EC-44D1-8974-75FF-0100F82C956B}</Project>
+      <Project>{0E12FE85-F54B-0737-FF65-8316275C7816}</Project>
       <Name>AK.Wwise.Unity.API.WwiseTypes</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.MonoBehaviour.Editor.csproj">
-      <Project>{AF4DA1C6-7DD5-F056-E2DF-63B220F8DFC7}</Project>
+      <Project>{ABBE2930-BC7F-FBC0-CDE3-A04D35688007}</Project>
       <Name>AK.Wwise.Unity.MonoBehaviour.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Ak.Wwise.Api.WAAPI.csproj">
-      <Project>{0DF2D078-42ED-4068-11E8-5C163BF9D64F}</Project>
+      <Project>{C0B0E866-B13B-06DB-B581-5D57E5144005}</Project>
       <Name>Ak.Wwise.Api.WAAPI</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.Timeline.csproj">
-      <Project>{7B42F9BE-CBB6-DF02-59CD-F0B572805623}</Project>
+      <Project>{39189B16-9003-BDCD-81CD-C42D9F1966C6}</Project>
       <Name>AK.Wwise.Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.MonoBehaviour.csproj">
-      <Project>{4A081308-43AF-7A0A-27CB-084A48E8DEE6}</Project>
+      <Project>{62015F01-2148-4404-6E6F-705BC9CF0F24}</Project>
       <Name>AK.Wwise.Unity.MonoBehaviour</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.Timeline.Editor.csproj">
-      <Project>{F4BA59E1-58B0-DC9E-D131-D8E81E8162B7}</Project>
+      <Project>{BA580BC9-5A36-4AF2-0C00-ACFB5FF8CC34}</Project>
       <Name>AK.Wwise.Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.API.Editor.csproj">
-      <Project>{53755AC0-B19D-984A-0C51-54C85049E98F}</Project>
+      <Project>{5596F04F-07AD-5406-B9F1-1DF85047371F}</Project>
       <Name>AK.Wwise.Unity.API.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="AK.Wwise.Unity.API.csproj">
-      <Project>{75EFFFCF-000F-3390-053A-5E75D9956442}</Project>
+      <Project>{887FC0F5-DE70-8540-658D-FE7272A8AE5A}</Project>
       <Name>AK.Wwise.Unity.API</Name>
     </ProjectReference>
   </ItemGroup>
