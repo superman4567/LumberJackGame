@@ -30,8 +30,6 @@ public class ShowDialogue : MonoBehaviour
         // Replace with input system
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log($"{name} has it's current index as {currentDialogueIndex}");
-
             if (!TryUpdateNextDialogue())
             {
                 CompleteDialogue();

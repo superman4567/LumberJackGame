@@ -27,8 +27,6 @@ public class PowerUpManager : MonoBehaviour
     private int coinBoostsUnlocked = 1;
     private bool rageModesUnlocked = false;
 
-    
-
     private float endTime;
     private PlayerMovement playerMovement;
     private PlayerStats playerStats;
@@ -184,12 +182,12 @@ public class PowerUpManager : MonoBehaviour
 
         while (timeRemaining > 0f)
         {
-            if (playerStats.Health >= playerStats.maxHealth)
+            if (playerStats.Health < playerStats.maxHealth)
             {
                 playerStats.AddHealth(2f);
             }
 
-            if (playerStats.Stamina >= playerStats.maxstamina)
+            if (playerStats.Stamina < playerStats.maxstamina)
             {
                 playerStats.AddStamina(1f);
             }
