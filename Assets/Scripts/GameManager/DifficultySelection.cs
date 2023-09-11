@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,23 +6,26 @@ using UnityEngine;
 public class DifficultySelection : MonoBehaviour
 {
     [SerializeField] GameObject difficultyPanel;
-    public bool hasPlayerInteractedWithBoard = false;
+
+    private bool hasInteractedWithBoard = false;
 
     private void Start()
     {
         difficultyPanel.SetActive(false);
+
+        ShowDialogue.OnFinishedDialogue += ShowDialogue_OnFinishedDialogue;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!hasPlayerInteractedWithBoard) { return; }
+        if (!hasInteractedWithBoard) { return; }
 
         difficultyPanel.SetActive(true);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!hasPlayerInteractedWithBoard) { return; }
+        if (!hasInteractedWithBoard) { return; }
 
         difficultyPanel.SetActive(true);
     }
@@ -29,5 +33,15 @@ public class DifficultySelection : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         difficultyPanel.SetActive(false);
+    }
+
+    private void ShowDialogue_OnFinishedDialogue(object sender, string e)
+    {
+        if (e == "Board")
+        {
+            hasInteractedWithBoard = true;
+
+            ShowDialogue.OnFinishedDialogue -= ShowDialogue_OnFinishedDialogue;
+        }
     }
 }

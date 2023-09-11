@@ -10,6 +10,11 @@ public class PlayerLook : MonoBehaviour
 
     private RaycastHit hit;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     private void Update()
     {
         RotateUpperBodyToMouse();
