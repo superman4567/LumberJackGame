@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
-        // this.maxHealth = data.maxHealth;
+        this.maxHealth = data.maxHealth;
     }
 
     public void SaveData(GameData data)

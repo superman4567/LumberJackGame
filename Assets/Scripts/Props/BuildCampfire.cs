@@ -6,12 +6,13 @@ using UnityEngine;
 public class BuildCampfire : MonoBehaviour
 {
     [SerializeField] private GameObject campFirePrefab;
+    [SerializeField] private PlayerThrowAxe playerThrowAxe;
     [SerializeField] private float distanceFromPlayer = 1.0f;
     [SerializeField] private int campfireCost = 10;
     private PlayerMovement playerMovement;
     private Animator animator;
+    private bool canBuildCampfire = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -21,8 +22,10 @@ public class BuildCampfire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && GameManager.Instance.GetWood() >= campfireCost)
+        if (Input.GetKeyDown(KeyCode.C) && GameManager.Instance.GetWood() >= campfireCost && canBuildCampfire)
         {
+            canBuildCampfire = false;
+            playerThrowAxe.enabled= false;
             GameManager.Instance.SubstractResource(GameManager.ResourceType.Wood, campfireCost);
             animator.SetBool("Pickups", true);
             playerMovement.enabled = false;
@@ -32,6 +35,9 @@ public class BuildCampfire : MonoBehaviour
 
     private void BuildDone()
     {
+        playerThrowAxe.enabled = true;
+        canBuildCampfire = true;
+
         // Get the player's position and rotation
         Vector3 playerPosition = transform.position;
         Quaternion playerRotation = transform.rotation;

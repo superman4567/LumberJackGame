@@ -2075,6 +2075,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerThrowAxe: {fileID: 7322189240873099811}
   interactionDistance: 0.5
   animator: {fileID: 8609658880822775392}
   virtualCamera: {fileID: 0}
@@ -2181,6 +2182,7 @@ MonoBehaviour:
   spinForce: 1500
   animator: {fileID: 8609658880822775392}
   playerModelTransform: {fileID: 7151995344899385449}
+  isAxeThrown: 0
   isReturning: 0
 --- !u!114 &837591197269075396
 MonoBehaviour:
@@ -2194,8 +2196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff20240ceef4906458a713bc8916bbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campFirePrefab: {fileID: 0}
+  campFirePrefab: {fileID: 8291160811498627013, guid: f12ab4faf74e9a246be4de7bb5a2bc13,
+    type: 3}
+  playerThrowAxe: {fileID: 7322189240873099811}
   distanceFromPlayer: 1
+  campfireCost: 10
 --- !u!143 &7354386558889207771
 CharacterController:
   m_ObjectHideFlags: 0
