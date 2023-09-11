@@ -127,7 +127,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_Rotator.cs" />
     <Compile Include="Assets\BruteForce\Extra\BloomKino\BloomKino.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
-    <Compile Include="Assets\Scripts\Enemies\StartSpawing.cs" />
+    <Compile Include="Assets\Scripts\Enemies\startSpawing.cs" />
     <Compile Include="Assets\Scripts\Steam\SteamIntegration.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
