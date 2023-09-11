@@ -10,8 +10,11 @@ public class GameData
     //Currency
     public int coins;
 
-    //Difficulty
+    //Selected Difficulty
     public int difficulty;
+    public bool diffiuclty0Unlocked;
+    public bool diffiuclty1Unlocked;
+    public bool diffiuclty2Unlocked;
 
     //UpgradeVaraibles - Health
     public float maxHealth;
@@ -24,11 +27,14 @@ public class GameData
         //Currency
         this.coins= 0;
 
-        //Difficulty
+        //Selected Difficulty
         this.difficulty = 0;
+        this.diffiuclty0Unlocked = true;
+        this.diffiuclty1Unlocked = false;
+        this.diffiuclty2Unlocked = false;
 
         //UpgradeVaraibles - Health
-        this.maxHealth = 0;
+        this.maxHealth = 100;
         this.chestHealthGain = 0;
         this.axeLifestealAmount = 0;
         this.lifesteal = false;

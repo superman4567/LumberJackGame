@@ -167,14 +167,14 @@ public class PowerUpManager : MonoBehaviour
             case PowerUpType.RageMode:
                 OpenAbilityPanel();
                 ApplyImageAndText(powerUps[6]);
-                StartCoroutine(ApplyRageModeEffect(10f)); 
+                StartCoroutine(ApplyRageModeEffect(15f));
+                AddGainedSprite(6);
                 break;
         }
     }
 
     private IEnumerator ApplyRageModeEffect(float duration)
     {
-        AddGainedSprite(6);
         rageModesUnlocked = true;
         playerMovement.movSpeed += 1;
         playerMovement.sprintSpeed += 0.5f;
@@ -184,12 +184,12 @@ public class PowerUpManager : MonoBehaviour
 
         while (timeRemaining > 0f)
         {
-            if (playerStats.Health != playerStats.maxHealth)
+            if (playerStats.Health >= playerStats.maxHealth)
             {
                 playerStats.AddHealth(2f);
             }
 
-            if (playerStats.Stamina != playerStats.maxstamina)
+            if (playerStats.Stamina >= playerStats.maxstamina)
             {
                 playerStats.AddStamina(1f);
             }
@@ -199,7 +199,7 @@ public class PowerUpManager : MonoBehaviour
         }
         AddGainedSprite(6);
         rageModesUnlocked = false;
-        playerMovement.movSpeed -= 0.5f;
+        playerMovement.movSpeed -= 1f;
         playerMovement.sprintSpeed -= 0.5f;
         playerThrowAxe.axeDamage -= 9999;
         CloseAbilityPanel(showTime);

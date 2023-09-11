@@ -112,27 +112,32 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentInteractable != null)
         {
-            if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith && !playerThrowAxe.isAxeThrown)
+            if (Input.GetKeyDown(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
             {
                 //Chest stuff
                 if (currentInteractable.tag == "Chest" && !currentInteractable.GetComponentInChildren<Chest>().isOpen)
                 {
-                    InteractionHappening?.Invoke(true);
+                    //InteractionHappening?.Invoke(true);
+                    animator.SetBool("Chest", true);
                     transposer.m_CameraDistance = interactZoom;
                     lookAtMe.SetActive(false);
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
                     currentInteractableObject.AddProgress(Time.deltaTime);
-                }
 
+                    Invoke("ResetChestValues", 1.6f);
+                }
+            }
+
+            if (Input.GetKey(KeyCode.E) && currentInteractableObject.canBeInteractedWith)
+            {
                 //Tree stuff
-                else if(currentInteractable.tag == "Tree" && currentInteractable.GetComponentInChildren<Tree>().canBeInteractedWith)
+                if (currentInteractable.tag == "Tree" && currentInteractable.GetComponentInChildren<Tree>().canBeInteractedWith && !playerThrowAxe.isAxeThrown)
                 {
                     InteractionHappening?.Invoke(true);
                     currentInteractableObject.AddProgress(Time.deltaTime);
                 }
-
                 //Done interacting
-                if (currentInteractableObject.CheckProgressComplete())
+                if (currentInteractableObject.CheckProgressComplete() && (currentInteractable.tag != "Chest"))
                 {
                     currentInteractableObject?.InteractComplete();
                     InteractionHappening?.Invoke(false);
@@ -140,20 +145,25 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                ResetValues();
+                ResetTreeValues();
             }
         }
+
         else
         {
-            ResetValues();
+            ResetTreeValues();
         }
     }
 
-    private void ResetValues()
+    private void ResetTreeValues()
     {
         lookAtMe.SetActive(true);
-        transposer.m_CameraDistance = defaultzoom;
         animator.SetBool("Tree", false);
+    }
+
+    private void ResetChestValues()
+    {
+        transposer.m_CameraDistance = defaultzoom;
         animator.SetBool("Chest", false);
     }
 }

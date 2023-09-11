@@ -17,7 +17,7 @@ public abstract class Interactable : MonoBehaviour
         interactInSeconds = Random.Range(2f, 4f);
         if (gameObject.tag == "Chest")
         {
-            interactInSeconds = 0.01f;
+            interactInSeconds = 0.001f;
         }
     }
 
