@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
   m_Name: Healing_LifeSteal1
   m_EditorClassIdentifier: 
-  skillName: IncreaseMaxhealth1
+  skillName: Life steal T1
+  skillDescription: Allows you to consume a small amount of healing by hitting enemies.
   ID: 5
   skillCost: 250
   canBeBought: 1

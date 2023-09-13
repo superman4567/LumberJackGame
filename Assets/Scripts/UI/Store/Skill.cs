@@ -6,6 +6,8 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     public string skillName;
+    [TextArea(1, 3)]
+    public string skillDescription;
     public StoreItem ID;
     public int skillCost;
     public bool canBeBought = false;

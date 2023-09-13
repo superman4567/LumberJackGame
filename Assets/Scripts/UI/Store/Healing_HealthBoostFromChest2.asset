@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
   m_Name: Healing_HealthBoostFromChest2
   m_EditorClassIdentifier: 
-  skillName: IncreaseMaxhealth1
+  skillName: Healing from chest T2
+  skillDescription: Chests give a medium amount of healing when the health power
+    up is given.
   ID: 1
   skillCost: 200
   canBeBought: 1
