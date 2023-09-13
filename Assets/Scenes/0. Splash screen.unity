@@ -1109,7 +1109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 1126602043}
-  loadingBarFill: {fileID: 1651189218}
   loadingPercentText: {fileID: 1085983698}
 --- !u!114 &330585551
 MonoBehaviour:
@@ -3665,18 +3664,6 @@ Transform:
   m_Father: {fileID: 963999787}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1651189218 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5668148941357433944, guid: 5c7c9b72a5d2a544aa95211f200b4ec2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5668148940792848826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1679939579
 GameObject:
   m_ObjectHideFlags: 0
@@ -9251,6 +9238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.021484375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668148941880849537, guid: 5c7c9b72a5d2a544aa95211f200b4ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c7c9b72a5d2a544aa95211f200b4ec2, type: 3}

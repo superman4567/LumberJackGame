@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChestSpawner : MonoBehaviour
 {
@@ -23,13 +24,20 @@ public class ChestSpawner : MonoBehaviour
 
     private void Start()
     {
-        // Shuffle the spawnPoints list using Fisher-Yates shuffle algorithm
-        for (int i = spawnPoints.Count - 1; i > 0; i--)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            int randomIndex = Random.Range(0, i + 1);
-            Transform temp = spawnPoints[i];
-            spawnPoints[i] = spawnPoints[randomIndex];
-            spawnPoints[randomIndex] = temp;
+            SpawnChest();
+        }
+        else
+        {
+            // Shuffle the spawnPoints list using Fisher-Yates shuffle algorithm
+            for (int i = spawnPoints.Count - 1; i > 0; i--)
+            {
+                int randomIndex = Random.Range(0, i + 1);
+                Transform temp = spawnPoints[i];
+                spawnPoints[i] = spawnPoints[randomIndex];
+                spawnPoints[randomIndex] = temp;
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OrcSpawner : MonoBehaviour
 {
@@ -22,12 +23,24 @@ public class OrcSpawner : MonoBehaviour
             spawnPoints.Add(spawnPoint);
         }
 
-        // Calculate the time interval between orc spawns
-        timeBetweenSpawns = spawnDuration / RoundManager.Instance.OrcsSpawnedThisRound();
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            // Calculate the time interval between orc spawns
+            timeBetweenSpawns = spawnDuration / RoundManager.Instance.OrcsSpawnedThisRound();
+        }
+            
     }
 
     private void Update()
     {
+
+        if (SceneManager.GetActiveScene().buildIndex == 3 && startToSpawnOrcs == true)
+        {
+            SpawnOrcOnce(1);
+        }    
+
+        if (SceneManager.GetActiveScene().buildIndex == 3) { return; }
+
         if (!startToSpawnOrcs) { return; }
 
         // Only start spawning orcs if not all orcs are spawned yet
@@ -45,7 +58,33 @@ public class OrcSpawner : MonoBehaviour
 
     private void SpawnOrc()
     {
-        if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.OrcsSpawnedThisRound())
+        if (SceneManager.GetActiveScene().buildIndex == 3) { return; }
+
+            if (RoundManager.Instance.orcsSpawnedInCurrentRound < RoundManager.Instance.OrcsSpawnedThisRound())
+            {
+                int randomIndex = Random.Range(0, spawnPoints.Count);
+                Transform spawnPoint = spawnPoints[randomIndex];
+
+                // Instantiate the orc prefab
+                GameObject newOrc = Instantiate(orcPrefab, spawnPoint.position, spawnPoint.rotation);
+
+                // Set the parent transform to the assigned parent
+                newOrc.transform.SetParent(parentTransform);
+
+                // Generate a random scale factor within the range [0.75, 1.25]
+                float randomScale = Random.Range(0.85f, 1.15f);
+
+                // Apply the random scale uniformly to all axes
+                Vector3 newScale = new Vector3(randomScale, randomScale, randomScale);
+                newOrc.transform.localScale = newScale;
+
+                RoundManager.Instance.OrcSpawned(); // Inform the RoundManager that an orc is spawned
+            }
+    }
+
+    private void SpawnOrcOnce(int amount)
+    {
+        while (amount < 4)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];
@@ -56,7 +95,17 @@ public class OrcSpawner : MonoBehaviour
             // Set the parent transform to the assigned parent
             newOrc.transform.SetParent(parentTransform);
 
+            // Generate a random scale factor within the range [0.75, 1.25]
+            float randomScale = Random.Range(0.85f, 1.15f);
+
+            // Apply the random scale uniformly to all axes
+            Vector3 newScale = new Vector3(randomScale, randomScale, randomScale);
+            newOrc.transform.localScale = newScale;
+
+            if (SceneManager.GetActiveScene().buildIndex == 3) { return; }
             RoundManager.Instance.OrcSpawned(); // Inform the RoundManager that an orc is spawned
+
+            amount++;
         }
     }
 }

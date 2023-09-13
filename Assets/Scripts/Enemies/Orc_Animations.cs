@@ -5,24 +5,20 @@ using UnityEngine.AI;
 
 public class Orc_Animations : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    [SerializeField] NavMeshAgent orcNavMeshAgent;
+    [SerializeField] private Animator animator;
+    [SerializeField] private NavMeshAgent orcNavMeshAgent;
 
     private int OrcVelocityHash;
     private float OrcIdleAnimationsHash;
 
-    private List<string> idleAnimationStates = new List<string>();
+    private Orc_Health orcHealth;
     private float timeSinceLastIdleChange = 0f;
 
     private void Start()
     {
+        orcHealth = GetComponent<Orc_Health>();
         OrcIdleAnimationsHash = Animator.StringToHash("OrcIdleAnimations");
         OrcVelocityHash = Animator.StringToHash("OrcVelocity");
-
-        // Add your idle animation state strings here
-        idleAnimationStates.Add("Idle1");
-        idleAnimationStates.Add("Idle2");
-        idleAnimationStates.Add("Idle3");
     }
 
     private void Update()
@@ -36,13 +32,9 @@ public class Orc_Animations : MonoBehaviour
 
         if (timeSinceLastIdleChange >= Random.Range(3f, 6f))
         {
-            string newIdleState = GetRandomIdleState();
+            float newIdleState = Random.Range(0f, 1f);
 
-            // Only update the idle animation if the state has changed
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName(newIdleState))
-            {
-                UpdateMovementAnimationState(idleAnimationStates.IndexOf(newIdleState) * 0.5f);
-            }
+            animator.SetFloat("OrcIdleAnimations", newIdleState);
 
             timeSinceLastIdleChange = 0f;
         }
@@ -55,7 +47,7 @@ public class Orc_Animations : MonoBehaviour
             IdleChange();
             UpdateMovementAnimationState(0f);
         }
-        else if (orcNavMeshAgent.speed >= 0.1f )
+        else if (orcNavMeshAgent.speed >= 1f )
         {
             UpdateMovementAnimationState(1f);
         }
@@ -64,11 +56,5 @@ public class Orc_Animations : MonoBehaviour
     private void UpdateMovementAnimationState(float value)
     {
         animator.SetFloat(OrcVelocityHash, value);
-    }
-
-    private string GetRandomIdleState()
-    {
-        int randomIndex = Random.Range(0, idleAnimationStates.Count);
-        return idleAnimationStates[randomIndex];
     }
 }

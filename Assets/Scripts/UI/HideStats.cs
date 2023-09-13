@@ -11,9 +11,9 @@ public class HideStats : MonoBehaviour
 
     private void Start()
     {
-        animator.SetBool("IsShowing", true);
+        animator.SetBool("IsShowing", false);
         buttonText.text = "Show stats";
-        isShowing = true;
+        isShowing = false;
     }
 
     public void ShowOrHiding()

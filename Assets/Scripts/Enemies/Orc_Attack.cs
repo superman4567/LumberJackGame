@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Orc_Attack : MonoBehaviour
@@ -15,7 +16,8 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private float minDistanceToPlayer = 0.75f;
 
     [Header("Orc speed")]
-    [SerializeField] private float baseOrcSpeed = 2;
+    [SerializeField] private float baseOrcSpeed = 1;
+    [SerializeField] private float chaseSpeed = 5;
     [SerializeField] private const float lastOrcSpeed = 6;
 
     [Header("References")]
@@ -25,6 +27,7 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private GameObject rockPrefab; 
     [SerializeField] private Transform throwSpawnPoint; 
     [SerializeField] private LayerMask attackLayer;
+    
     
     private RoundManager roundManager;
     private ObjectPool rockPool;
@@ -51,8 +54,6 @@ public class Orc_Attack : MonoBehaviour
 
     private void Update()
     {
-        Statemachine();
-        ChasePlayer();
         MeleeOrRangedAttack();
     }
 
@@ -65,7 +66,6 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 25;
                 }
-                baseOrcSpeed = Random.Range(2.5f, 3f);
                 break;
 
             case 1:
@@ -73,7 +73,6 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 34;
                 }
-                baseOrcSpeed = Random.Range(3f, 3.5f);
                 break;
 
             case 2:
@@ -81,7 +80,6 @@ public class Orc_Attack : MonoBehaviour
                 {
                     orcDealDamage[i].damageAmount = 50;
                 }
-                baseOrcSpeed = Random.Range(3.5f, 4f);
                 break;
 
             default:
@@ -91,23 +89,30 @@ public class Orc_Attack : MonoBehaviour
 
     private void MeleeOrRangedAttack()
     {
+        if (orcHealth.orcIsDeath == true || orcHealth.isKnockbackActive) { return; }
+
+        navMeshAgent.SetDestination(player.position); 
+        
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         startThrowing = (distanceToPlayer < rangedAttackRange) ? true : false;
 
         if (distanceToPlayer < meleeAttackRange)
         {
             MeleeAttack();
+            navMeshAgent.speed = baseOrcSpeed + 5 + GameManager.Instance.GetDifficulty();
             animator.SetBool("OrcMeleeAttack", true);
         }
         else if (distanceToPlayer > meleeAttackRange && startThrowing == true)
         {
+            navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
+
             throwCooldownTimer += Time.deltaTime;
             if (throwCooldownTimer >= throwCooldown)
             {
                 animator.SetBool("OrcRangedAttack", true);
             }
         }
-        else
+        else 
         {
             ChasePlayer();
         }
@@ -126,18 +131,13 @@ public class Orc_Attack : MonoBehaviour
         animator.SetBool("OrcMeleeAttack", false);
     }
 
-    public void Disablehands()
-    {
-        orcDealDamage[0].canDamage = false;
-        orcDealDamage[1].canDamage = false;
-    }
-
     public void ThrowAttack()
     {
         GameObject rock = rockPool.GetObject();
 
         if (rock != null)
         {
+            navMeshAgent.SetDestination(player.position);
             rock.transform.position = throwSpawnPoint.position;
 
             Vector3 playerVelocity = playerController.velocity;
@@ -152,46 +152,49 @@ public class Orc_Attack : MonoBehaviour
         }
     }
 
+    public void Disablehands()
+    {
+        orcDealDamage[0].canDamage = false;
+        orcDealDamage[1].canDamage = false;
+    }
+
     private void ChasePlayer()
     {
-        navMeshAgent.speed = baseOrcSpeed;
-
         if (!navMeshAgent.isActiveAndEnabled) { return; }
 
-        // Calculate the direction from the orc to the player
         Vector3 directionToPlayer = player.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
 
-        // Check if the orc is too close to the player
+        if (distanceToPlayer > 100)
+        {
+            navMeshAgent.speed = chaseSpeed + GameManager.Instance.GetDifficulty() + 5;
+        }
+        else
+        {
+            navMeshAgent.speed = chaseSpeed + GameManager.Instance.GetDifficulty();
+        }
+
         if (distanceToPlayer <= minDistanceToPlayer)
         {
-            // The orc is too close, so stop moving
             navMeshAgent.isStopped = true;
         }
         else
         {
-            // The orc is not too close, so continue chasing
             navMeshAgent.isStopped = false;
             navMeshAgent.SetDestination(player.position);
 
-            // Adjust speed based on attack ranges or other conditions
-            if (distanceToPlayer <= rangedAttackRange)
+            if (SceneManager.GetActiveScene().buildIndex == 3) 
             {
-                navMeshAgent.speed = baseOrcSpeed + 1.5f;
-            }
-
-            if (distanceToPlayer <= meleeAttackRange)
-            {
-                navMeshAgent.speed = baseOrcSpeed + 2.5f;
+                navMeshAgent.speed = 3;
+                return; 
             }
 
             if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
             {
-                navMeshAgent.speed = baseOrcSpeed + (lastOrcSpeed / 2);
+                navMeshAgent.speed = lastOrcSpeed;
             }
         }
     }
-
 
     private void OnDrawGizmosSelected()
     {
