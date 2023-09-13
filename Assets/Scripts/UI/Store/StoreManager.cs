@@ -10,6 +10,9 @@ public class StoreManager : MonoBehaviour
 
     [Header("Button")]
     [SerializeField] private Button[] buttons;
+    [SerializeField] private Color CantBeBoughtColor;
+    [SerializeField] private Color CanBeBoughtColor;
+    [SerializeField] private Color BoughtColor;
     public Skill selectedAbility;
 
     private void Awake()
@@ -41,22 +44,22 @@ public class StoreManager : MonoBehaviour
             {
                 buttons[i].GetComponent<UpdatePrice>().holdingSkill.canBeBought = true;
 
-                buttonColors.normalColor = Color.green;
-                buttonColors.highlightedColor = Color.green;
+                buttonColors.normalColor = BoughtColor;
+                buttonColors.highlightedColor = BoughtColor;
             }
             else if(buttons[i].GetComponent<UpdatePrice>().holdingSkill.skillCost < GameManager.Instance.GetCoins())
             {
                 buttons[i].GetComponent<UpdatePrice>().holdingSkill.canBeBought = true;
 
-                buttonColors.normalColor = Color.blue;
-                buttonColors.highlightedColor = Color.blue;
+                buttonColors.normalColor = CanBeBoughtColor;
+                buttonColors.highlightedColor = CanBeBoughtColor;
             }
             else
             {
                 buttons[i].GetComponent<UpdatePrice>().holdingSkill.canBeBought = false;
 
-                buttonColors.normalColor = Color.red;
-                buttonColors.highlightedColor = Color.red;
+                buttonColors.normalColor = CantBeBoughtColor;
+                buttonColors.highlightedColor = CantBeBoughtColor;
             }
 
             // Assign the modified ColorBlock back to the button

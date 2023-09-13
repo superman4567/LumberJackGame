@@ -185,7 +185,7 @@ public class Orc_Attack : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex == 3) 
             {
-                navMeshAgent.speed = 3;
+                navMeshAgent.speed = 2;
                 return; 
             }
 

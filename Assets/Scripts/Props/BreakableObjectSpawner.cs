@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BreakableObjectSpawner : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class BreakableObjectSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex== 3)
+        {
+            SpawnBreakables();
+        }
+
         // Shuffle the spawnPoints list using Fisher-Yates shuffle algorithm
         for (int i = spawnPoints.Count - 1; i > 0; i--)
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   skillName: IncreaseMaxhealth2
   ID: 4
   skillCost: 750
-  canBeBought: 1
+  canBeBought: 0
   isUnlocked: 0
   prerequisites:
   - {fileID: 11400000, guid: a5faf86720c62c54699266e9ac7e81cb, type: 2}

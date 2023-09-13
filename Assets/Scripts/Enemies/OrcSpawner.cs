@@ -14,6 +14,8 @@ public class OrcSpawner : MonoBehaviour
     private List<Transform> spawnPoints = new List<Transform>();
     private float timeBetweenSpawns;
     private float spawnTimer = 0.0f;
+    private bool limitReached = false;
+    private int spawnedorc = 0;
 
     private void Start()
     {
@@ -34,7 +36,7 @@ public class OrcSpawner : MonoBehaviour
     private void Update()
     {
 
-        if (SceneManager.GetActiveScene().buildIndex == 3 && startToSpawnOrcs == true)
+        if (SceneManager.GetActiveScene().buildIndex == 3 && startToSpawnOrcs && !limitReached)
         {
             SpawnOrcOnce(1);
         }    
@@ -84,7 +86,9 @@ public class OrcSpawner : MonoBehaviour
 
     private void SpawnOrcOnce(int amount)
     {
-        while (amount < 4)
+        if (spawnedorc >= 2) { return; }
+
+        for (int i = 0; i < amount; i++)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];
@@ -102,10 +106,7 @@ public class OrcSpawner : MonoBehaviour
             Vector3 newScale = new Vector3(randomScale, randomScale, randomScale);
             newOrc.transform.localScale = newScale;
 
-            if (SceneManager.GetActiveScene().buildIndex == 3) { return; }
-            RoundManager.Instance.OrcSpawned(); // Inform the RoundManager that an orc is spawned
-
-            amount++;
+            spawnedorc++;
         }
     }
 }
