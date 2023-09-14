@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Interactables\WoodAndCoins.cs" />
     <Compile Include="Assets\Scripts\Steam\SteamAchievementManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\OrcSpawner.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\EnemyTutorial.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
     <Compile Include="Assets\Scripts\GameManager\RoundManager.cs" />
     <Compile Include="Assets\Scripts\Calculator.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\TreeTutorial.cs" />
     <Compile Include="Assets\Scripts\Props\CameraBlockDetection.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
     <Compile Include="Assets\Scripts\Enemies\ThrowableRock.cs" />
@@ -136,14 +138,16 @@
     <Compile Include="Assets\Scripts\UI\DialogueContainer.cs" />
     <Compile Include="Assets\Scripts\UI\Store\Enums.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\BarrelTutorial.cs" />
     <Compile Include="Assets\Scripts\Props\SwapToBroken.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_LightSwitch.cs" />
     <Compile Include="Assets\Scripts\UI\NoFog.cs" />
     <Compile Include="Assets\Scripts\UI\Store\UpdatePrice.cs" />
+    <Compile Include="Assets\Scripts\UI\Store\ButtonInfoDisplay.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Store\ButtonInfoDisplay.cs" />
+    <Compile Include="Assets\Scripts\Dummy\Dummy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />

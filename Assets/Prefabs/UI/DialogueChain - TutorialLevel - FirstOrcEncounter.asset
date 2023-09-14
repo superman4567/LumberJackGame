@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogueChain - TutorialLevel - FirstOrcEncounter
   m_EditorClassIdentifier: 
   description:
-  - I sense that orcs are coming, by using my left mouse button I can throw and recall
-    my axe!
-  - Keep in mind that I can dodge roll by pressing the spacebar! During this roll
-    I can not be hit.
+  - This is the training area I build. Lets do a nice warming up and hit these dummies
+    I have made.
+  - Use left mouse to throw and recall the axe. When you  are done training, just
+    hit escape and go back to the cabin.
