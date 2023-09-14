@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShowDialogue : MonoBehaviour
 {
     public static EventHandler<string> OnFinishedDialogue;
+    public EventHandler<int> OnNextDialogue;
 
     [SerializeField] private DialogueContainer dialogue;
 
@@ -66,6 +67,7 @@ public class ShowDialogue : MonoBehaviour
         {
             currentDialogueIndex++;
             dialogueManager.UpdateDialogueText(dialogue.description[currentDialogueIndex]);
+            OnNextDialogue?.Invoke(this, currentDialogueIndex);
             return true;
         }
 
