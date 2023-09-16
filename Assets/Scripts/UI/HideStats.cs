@@ -18,8 +18,6 @@ public class HideStats : MonoBehaviour
 
     public void ShowOrHiding()
     {
-        Debug.Log(isShowing);
-
         if (isShowing)
         {
             animator.SetBool("IsShowing", false);

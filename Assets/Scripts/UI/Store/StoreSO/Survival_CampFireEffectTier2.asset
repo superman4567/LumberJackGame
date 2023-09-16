@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Survival_LessStaminaReducation
+  m_Name: Survival_CampFireEffectTier2
   m_EditorClassIdentifier: 
-  skillName: Cold proof
-  skillDescription: The amount of stamina that is being drained by sprinting and
-    dodge rolling is much less.
-  ID: 0
-  skillCost: 1250
+  skillName: Campfire effect T2
+  skillDescription: The amount of health and stamina from a campfire is drasticly
+    increased.
+  ID: 19
+  skillCost: 50
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

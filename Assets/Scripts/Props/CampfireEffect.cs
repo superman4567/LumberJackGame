@@ -6,11 +6,17 @@ public class CampfireEffect : MonoBehaviour
 {
     private static CampfireEffect currentCampFire;
     private PlayerStats player;
+    private BuildCampfire buildCampfire;
+
+    private void Awake()
+    {
+        buildCampfire = FindObjectOfType<BuildCampfire>();
+    }
 
     private void Start()
     {
         player = FindObjectOfType<PlayerStats>();
-        Destroy(gameObject, 7f);
+        Destroy(gameObject, buildCampfire.campfireDuration);
     }
 
     private void OnTriggerStay(Collider other)

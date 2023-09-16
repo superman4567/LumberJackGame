@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimations : MonoBehaviour
+public class PlayerAnimations : MonoBehaviour, IDataPersistance
 {
     [SerializeField] PlayerInteraction playerInteraction;
     [SerializeField] PlayerMovement playerMovement;
@@ -11,6 +11,9 @@ public class PlayerAnimations : MonoBehaviour
     private int IsDodgingHash;
     private float idleAnimation1Frequency = 85f;
     private float timeSinceLastIdleChange = 0f;
+
+    public bool tier1Unlocked = false;
+    public bool tier2Unlocked = false;
 
     private string interactableTag;
 
@@ -27,8 +30,28 @@ public class PlayerAnimations : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-
         IsDodgingHash = Animator.StringToHash("DodgeRoll");
+
+        if (tier1Unlocked)
+        {
+            ThrowTier1Unlocked();
+        }
+        if (tier2Unlocked)
+        {
+            ThrowTier2Unlocked();
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.tier1Unlocked = data.throwspeedTier1Unlocked;
+        this.tier2Unlocked = data.throwspeedTier2Unlocked;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.throwspeedTier1Unlocked = this.tier1Unlocked;
+        data.throwspeedTier2Unlocked = this.tier2Unlocked;
     }
 
     private void Update()
@@ -75,5 +98,15 @@ public class PlayerAnimations : MonoBehaviour
     public void SetDodgeRollState(bool isDodging)
     {
         animator.SetBool(IsDodgingHash, isDodging);
+    }
+
+    public void ThrowTier1Unlocked()
+    {
+        animator.SetBool("ThrowTier1Unlocked", true);
+    }
+
+    public void ThrowTier2Unlocked()
+    {
+        animator.SetBool("ThrowTier2Unlocked", true);
     }
 }

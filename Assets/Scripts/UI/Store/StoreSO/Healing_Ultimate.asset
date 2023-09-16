@@ -16,7 +16,7 @@ MonoBehaviour:
   skillDescription: <To be determined>
   ID: 8
   skillCost: 5000
-  canBeBought: 0
+  canBeBought: 1
   isUnlocked: 0
   prerequisites:
   - {fileID: 11400000, guid: 0b68ed5af0bcbb549908de6b03b0253a, type: 2}

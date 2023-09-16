@@ -187,7 +187,7 @@ public class PowerUpManager : MonoBehaviour
                 playerStats.AddHealth(2f);
             }
 
-            if (playerStats.Stamina < playerStats.maxstamina)
+            if (playerStats.Stamina < playerStats.maxStamina)
             {
                 playerStats.AddStamina(1f);
             }

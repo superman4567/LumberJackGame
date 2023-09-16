@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Healing_LifeSteal3
+  m_Name: Damage_ThrowSpeedTier2
   m_EditorClassIdentifier: 
-  skillName: Life steal T1
-  skillDescription: Allows you to consume a sizable amount of healing by hitting
-    enemies.
-  ID: 7
-  skillCost: 1250
-  canBeBought: 0
+  skillName: IncreaseMaxhealth1
+  skillDescription: Increase your throwing speed with a significant amount.
+  ID: 12
+  skillCost: 150
+  canBeBought: 1
   isUnlocked: 0
   prerequisites:
-  - {fileID: 11400000, guid: 886345ad9e827d8459e733cf5c2799d5, type: 2}
+  - {fileID: 11400000, guid: a692328225a642a4183e30fb9cce4728, type: 2}

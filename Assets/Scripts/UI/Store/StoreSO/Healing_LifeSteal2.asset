@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Damage_DoubleDamageTier2
+  m_Name: Healing_LifeSteal2
   m_EditorClassIdentifier: 
-  skillName: Damage boost T1
-  skillDescription: Increases your damage by a reasonable amount.
-  ID: 0
-  skillCost: 250
+  skillName: Life steal T1
+  skillDescription: Allows you to consume a slightly bigger amount of healing by
+    hitting enemies.
+  ID: 6
+  skillCost: 800
   canBeBought: 1
   isUnlocked: 0
   prerequisites:
-  - {fileID: 11400000, guid: a692328225a642a4183e30fb9cce4728, type: 2}
+  - {fileID: 11400000, guid: 34d485c3d8d8dbc4eae1adf3b41c3c77, type: 2}

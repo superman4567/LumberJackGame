@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerThrowAxe : MonoBehaviour
+public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
 {
     [SerializeField] private GameObject axeModel;
     [SerializeField] private GameObject throwPoint;
@@ -10,6 +10,7 @@ public class PlayerThrowAxe : MonoBehaviour
     [SerializeField] private Transform throwSpawnPoint; 
     [SerializeField] private Rigidbody axeRb;
     [SerializeField] private float throwForce = 10f;
+    public float throwforceMultiplier = 1f;
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float spinForce;
     [SerializeField] private Animator animator;
@@ -26,6 +27,16 @@ public class PlayerThrowAxe : MonoBehaviour
     {
         axeRb.useGravity = false;
         axeRb.isKinematic = true;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.throwforceMultiplier = data.throwforceMultiplier;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.throwforceMultiplier = this.throwforceMultiplier;
     }
 
     private void Update()
@@ -65,13 +76,11 @@ public class PlayerThrowAxe : MonoBehaviour
         axeRb.useGravity = true;
         axeRb.constraints =  RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
-        // Apply angular velocity for initial spin
         Vector3 spinAxis = transform.up;
         axeRb.angularVelocity = spinAxis * spinForce;
 
-        // Apply forward force for throwing
         Vector3 throwDirection = (throwPoint.transform.position - throwSpawnPoint.position).normalized;
-        axeRb.velocity = throwDirection * throwForce;
+        axeRb.velocity = throwDirection * (throwForce * throwforceMultiplier);
     }
 
     private void ReturnAxe()

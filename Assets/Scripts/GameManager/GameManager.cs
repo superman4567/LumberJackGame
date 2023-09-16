@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     private void Start()
     {
-        wood = 1000;
         UpdateUI();
         pausePanel.SetActive(false);
 
@@ -74,6 +73,16 @@ public class GameManager : MonoBehaviour, IDataPersistance
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             coinAmount.text = coins.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            AddResource(GameManager.ResourceType.Coins, 9999);
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            AddResource(GameManager.ResourceType.Wood, 9999);
         }
     }
 

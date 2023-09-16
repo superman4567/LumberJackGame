@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Healing_IncreaseMaxHealth1
+  m_Name: Survival_ExtraFocusTier1
   m_EditorClassIdentifier: 
-  skillName: Increase maxhealth T1
-  skillDescription: Increase your maximum health by a small amount.
-  ID: 3
-  skillCost: 200
+  skillName: Increase focus T1
+  skillDescription: 
+  ID: 16
+  skillCost: 50
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

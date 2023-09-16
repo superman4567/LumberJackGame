@@ -19,8 +19,10 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     [Header("Stamina ")]
     [SerializeField] private float stamina;
+    public float reducer = 0f;
+
     public float Stamina { get; private set; }
-    [SerializeField] public float maxstamina = 100f;
+    [SerializeField] public float maxStamina = 100f;
 
     [Header("Stamina ")]
     [SerializeField] Animator getHitpanel;
@@ -31,7 +33,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     void Start()
     {
         health = maxHealth;
-        stamina = maxstamina;
+        stamina = maxStamina;
 
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         deathUI.SetActive(false);
@@ -51,11 +53,15 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         this.maxHealth = data.maxHealth;
+        this.maxStamina = data.maxStamina;
+        this.reducer = data.reducer;
     }
 
     public void SaveData(GameData data)
     {
         data.maxHealth = this.maxHealth;
+        data.maxStamina = this.maxStamina;
+        data.reducer = this.reducer;
     }
 
     public void TakeDamage(float amount)
@@ -87,7 +93,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     public void AddStamina(float amount)
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
-        if (stamina >= maxstamina) { return; }
+        if (stamina >= maxStamina) { return; }
         stamina += amount;
         int intStamina = Mathf.RoundToInt(stamina);
         staminaUIAmount.text = intStamina.ToString();
@@ -96,7 +102,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     public void SubstractHealth(float amount)
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
-        health -= amount;
+        health -= (amount / reducer);
         int intHealth = Mathf.RoundToInt(health);
         healthUIAmount.text = intHealth.ToString();
     }

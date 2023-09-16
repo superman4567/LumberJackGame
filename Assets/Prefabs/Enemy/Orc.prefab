@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8827841133687426857}
   - component: {fileID: 5271779194425280954}
   - component: {fileID: 2264111030142574141}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Orc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -201,8 +201,8 @@ MonoBehaviour:
   orc_Animations: {fileID: 5676187844564778095}
   orc_Attack: {fileID: 2915925939460639529}
   hitBox: {fileID: 2264111030142574141}
-  knockbackForce: 2
-  knockbackDuration: 0.02
+  knockbackForce: 3
+  knockbackDuration: 0.5
   animator: {fileID: 1237894022645255885}
   floatingTextPrefab: {fileID: 1647710875180282250, guid: 6c2ece796d9e5c040b8e0aa134a19fb8,
     type: 3}
@@ -211,7 +211,6 @@ MonoBehaviour:
   orcIsDeath: 0
   hitMaterial: {fileID: 2100000, guid: e7ec0e5ac08b2f041816bce7e025fad1, type: 2}
   skinnedMeshRenderer: {fileID: 7244968601501585321}
-  meshObstacle: {fileID: 0}
 --- !u!195 &5271779194425280954
 NavMeshAgent:
   m_ObjectHideFlags: 0

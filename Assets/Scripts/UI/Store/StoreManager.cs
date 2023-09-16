@@ -7,6 +7,11 @@ public class StoreManager : MonoBehaviour
 
     [Header("References")]
     private PlayerStats playerStats;
+    private PlayerThrowAxe playerThrowAxe;
+    private AxeDetection axeDetection;
+    private PlayerAnimations playerAnimations;
+    private BuildCampfire playerCampfire;
+    private PlayerEmmissionChange playerEmmissionChange;
 
     [Header("Button")]
     [SerializeField] private Button[] healingButtons;
@@ -39,6 +44,11 @@ public class StoreManager : MonoBehaviour
         }
 
         playerStats = FindObjectOfType<PlayerStats>();
+        playerThrowAxe = FindObjectOfType<PlayerThrowAxe>();
+        axeDetection = FindObjectOfType<AxeDetection>();
+        playerAnimations = FindObjectOfType<PlayerAnimations>();
+        playerCampfire = FindObjectOfType<BuildCampfire>();
+        playerEmmissionChange = FindObjectOfType<PlayerEmmissionChange>();
     }
 
     private void Start()
@@ -197,7 +207,7 @@ public class StoreManager : MonoBehaviour
 
     public void CanSkillBeUnlocked()
     {
-        if (selectedAbility.canBeBought && !selectedAbility.isUnlocked)
+        if (selectedAbility.canBeBought && !selectedAbility.isUnlocked && selectedAbility != null)
         {
             if (GameManager.Instance.GetCoins() >= selectedAbility.skillCost)
             {
@@ -217,6 +227,10 @@ public class StoreManager : MonoBehaviour
     {
         switch (ID)
         {
+            //////////////////////////////////////
+            //Healing
+            //////////////////////////////////////
+            
             case StoreItem.Healing_IncreaseMaxHealth1:
                 playerStats.maxHealth = 150;
                 break;
@@ -251,7 +265,69 @@ public class StoreManager : MonoBehaviour
                 break;
 
             case StoreItem.Healing_Ultimate:
-                // Apply ability for ID 1
+                playerEmmissionChange.healingActive = true;
+                break;
+
+            //////////////////////////////////////
+            //DAMAGE
+            //////////////////////////////////////
+
+            case StoreItem.Damage_DoubleDamage1:
+                axeDetection.axeDamage *= 2;
+                break;
+
+            case StoreItem.Damage_DoubleDamage2:
+                axeDetection.axeDamage *= 2;
+                break;
+
+            case StoreItem.Damage_ExplosiveHits1:
+                axeDetection.explosiveRadiusT1 = true;
+                break;
+
+            case StoreItem.Damage_ExplosiveHits2:
+                axeDetection.explosiveRadiusT2 = true;
+                break;
+
+            case StoreItem.Damage_ThrowSpeed1:
+                playerAnimations.tier1Unlocked = true;
+                playerThrowAxe.throwforceMultiplier = 1.5f;
+                break;
+
+            case StoreItem.Damage_ThrowSpeed2:
+                playerAnimations.tier2Unlocked = true;
+                playerThrowAxe.throwforceMultiplier = 2f;
+                break;
+
+            case StoreItem.Damage_Ultimate:
+                playerEmmissionChange.damageActive = true;
+                break;
+
+            //////////////////////////////////////
+            //Survival
+            //////////////////////////////////////
+            
+            case StoreItem.Survival_ExtraFocus1:
+                playerStats.maxStamina = 125;
+                break;
+
+            case StoreItem.Survival_ExtraFocus2:
+                playerStats.maxStamina = 150;
+                break;
+
+            case StoreItem.Survival_CampfireEffect1:
+                playerCampfire.campfireDuration = 12f;
+                break;
+
+            case StoreItem.Survival_CampfireEffect2:
+                playerCampfire.campfireDuration = 18f;
+                break;
+
+            case StoreItem.Survival_LessStaminaReducation:
+                playerStats.reducer = 1.5f;
+                break;
+
+            case StoreItem.Survival_Ultimate:
+                playerEmmissionChange.surviveActive = true;
                 break;
 
             default:

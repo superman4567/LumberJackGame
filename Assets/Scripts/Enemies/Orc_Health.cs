@@ -48,44 +48,19 @@ public class Orc_Health : MonoBehaviour
 
     private void Update()
     {
-        SetNavMeshPriorityBasedOnDistance();
         if (isKnockbackActive)
         {
             transform.position = Vector3.Lerp(transform.position, transform.position + knockbackDirection, knockbackForce * Time.deltaTime);
         }
     }
 
-    private void SetNavMeshPriorityBasedOnDistance()
-    {
-        if (navMeshAgent == null || player == null)
-        {
-            // Ensure the NavMeshAgent and player references are valid
-            return;
-        }
-
-        // Calculate the distance between the orc and the player
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        // Adjust the NavMeshAgent's priority based on distance
-        // You can adjust these values as needed for your specific behavior
-        if (distanceToPlayer < 10f)
-        {
-            navMeshAgent.avoidancePriority = 50;
-        }
-        else if (distanceToPlayer < 50f)
-        {
-            navMeshAgent.avoidancePriority = 20;
-        }
-    }
-
-
-    public void KnockBack(Vector3 direction)
+    public void KnockBack(Vector3 direction, float externalMultiplier)
     {
         StartCoroutine(HitEffect(skinnedMeshRenderer, hitMaterial, 0.1f));
         isKnockbackActive = true;
         navMeshAgent.enabled = false;
+        knockbackDirection = direction.normalized * knockbackForce * externalMultiplier;
         animator.SetFloat("OrcVelocity", 0f);
-        knockbackDirection = direction.normalized * knockbackForce;
         Invoke("EndKnockback", knockbackDuration);
     }
 

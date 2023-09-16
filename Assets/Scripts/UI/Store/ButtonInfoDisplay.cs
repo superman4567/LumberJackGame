@@ -26,7 +26,6 @@ public class ButtonInfoDisplay : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             GameObject hitObject = hit.collider.gameObject; // Get the GameObject that was hit
-            Debug.Log("Mouse is over GameObject: " + hitObject.name); // Log the name of the GameObject
 
             Button button = hitObject.GetComponent<Button>();
             if (button != null)
@@ -39,7 +38,6 @@ public class ButtonInfoDisplay : MonoBehaviour
                     infoMouseCanvas.SetActive(true);
                     skillNameText.text = currentButtonPrice.holdingSkill.skillName;
                     skillDescriptionText.text = currentButtonPrice.holdingSkill.skillDescription;
-                    Debug.Log("Mouse is over button: " + button.name);
 
                     return; // Exit the loop once a button is found under the mouse
                 }

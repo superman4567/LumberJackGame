@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Damage_ExplosiveHitsTier2
+  m_Name: Healing_IncreaseMaxHealth2
   m_EditorClassIdentifier: 
-  skillName: Explosive  hits T2
-  skillDescription: When your axe hits a foo, it will do a reasonable amount of areal
-    damage.
-  ID: 0
-  skillCost: 50
+  skillName: Increase maxhealth T2
+  skillDescription: Increase your maximum health by a great amount.
+  ID: 4
+  skillCost: 750
   canBeBought: 1
-  isUnlocked: 0
+  isUnlocked: 1
   prerequisites:
-  - {fileID: 11400000, guid: a692328225a642a4183e30fb9cce4728, type: 2}
+  - {fileID: 11400000, guid: a5faf86720c62c54699266e9ac7e81cb, type: 2}

@@ -22,6 +22,24 @@ public class GameData
     public float axeLifestealAmount;
     public bool lifesteal;
 
+    //UpgradeVaraibles - Damage
+    public int axeDamage;
+    public bool explosiveRadiusT1;
+    public bool explosiveRadiusT2;
+    public bool throwspeedTier1Unlocked;
+    public bool throwspeedTier2Unlocked;
+    public float throwforceMultiplier;
+
+    //UpgradeVariables - Survival
+    public float maxStamina;
+    public float campfireDuration;
+    public float reducer;
+
+    //Ultimates Unlocked
+    public bool healingActive;
+    public bool damageActive;
+    public bool surviveActive;
+
     public GameData()
     {
         //Currency
@@ -38,5 +56,23 @@ public class GameData
         this.chestHealthGain = 0;
         this.axeLifestealAmount = 0;
         this.lifesteal = false;
-    }
+
+        //UpgradeVaraibles - Damage
+        this.axeDamage = 20;
+        this.explosiveRadiusT1 = false;
+        this.explosiveRadiusT2 = false;
+        this.throwspeedTier1Unlocked = false;
+        this.throwspeedTier2Unlocked = false;
+        this.throwforceMultiplier = 1f;
+
+        //UpgradeVariables - Survival
+        this.maxStamina = 100f;
+        this.campfireDuration = 6f;
+        this.reducer = 0f;
+
+        //Ultimates Unlocked
+        this.healingActive = false;
+        this.damageActive = false;
+        this.surviveActive = false;
+}
 }

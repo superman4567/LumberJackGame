@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
-  m_Name: Survival_Ultimate
+  m_Name: Survival_LessStaminaReducation
   m_EditorClassIdentifier: 
-  skillName: Survive Ability
-  skillDescription: <To be determined>
-  ID: 0
-  skillCost: 50
+  skillName: Cold proof
+  skillDescription: The amount of stamina that is being drained by sprinting and
+    dodge rolling is much less.
+  ID: 20
+  skillCost: 1250
   canBeBought: 1
   isUnlocked: 0
   prerequisites:
