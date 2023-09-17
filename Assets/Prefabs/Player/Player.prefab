@@ -1217,7 +1217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4258928988948723734
 Transform:
   m_ObjectHideFlags: 0
@@ -2254,9 +2254,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRenderer: {fileID: 2495040041150857149}
+  trailRenderer: {fileID: 0}
   lerpSpeed: 2
   emissionColorDefault: {r: 0, g: 1, b: 0.9419038, a: 0}
   emissionColorRage: {r: 1, g: 0.028217364, b: 0, a: 0}
+  emissionColorHealing: {r: 0, g: 0, b: 0, a: 0}
+  emissionColorDamage: {r: 0, g: 0, b: 0, a: 0}
+  emissionColorSurvive: {r: 0, g: 0, b: 0, a: 0}
+  healingActive: 0
+  damageActive: 0
+  surviveActive: 0
 --- !u!1 &7354386559922823948
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ Material:
   m_ValidKeywords:
   - IS_T
   - USE_FOG
+  - USE_LOW
   - USE_LS
   - USE_RT
   - USE_WC
@@ -265,14 +266,14 @@ Material:
     - _DisplacementColorMult: 0.9
     - _DisplacementOffset: 0.93
     - _DisplacementShadowMult: 1.6
-    - _DisplacementStrength: 0.25
+    - _DisplacementStrength: 0.175
     - _DstBlend: 0
     - _EffectDisplacementStrength: 0.5
     - _Emission: 0.25
     - _FishAngle: 0
     - _FishIntensity: 6.32
-    - _FishMaskIntensity: 0.25
-    - _FishScale: 0.05
+    - _FishMaskIntensity: 0
+    - _FishScale: 0.005
     - _FishSpeed: 1
     - _FlowMultiplier: 0.3
     - _FogIntensity: 0.3
@@ -306,9 +307,9 @@ Material:
     - _Metallic7: 0
     - _Mode: 0
     - _NormalMultiplier: 0.47
-    - _NormalRTDepth: 0.18
+    - _NormalRTDepth: 0.4
     - _NormalRTStrength: 4
-    - _NormalScale: 0.792
+    - _NormalScale: 0.59
     - _NormalScale0: 1
     - _NormalScale1: 1
     - _NormalScale2: 1
@@ -324,8 +325,8 @@ Material:
     - _ParalaxColorScale: -1.12
     - _Parallax: 0.02
     - _ParallaxStrength: 0
-    - _ProceduralDistance: 5.5
-    - _ProceduralStrength: 1.5
+    - _ProceduralDistance: 8
+    - _ProceduralStrength: 12
     - _ReflectionOpacity: 0.25
     - _ReflectionStrength: 0.07
     - _RemoveSnowStrength: 0
@@ -343,7 +344,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tess: 6.7
-    - _TessellationEdgeLength: 50
+    - _TessellationEdgeLength: 3
     - _TessellationUniform: 1
     - _TransitionPower: 0.3
     - _TransitionScale: -2.8
@@ -351,7 +352,7 @@ Material:
     - _USEDECAL: 0
     - _USEFOG: 1
     - _USEINTER: 0
-    - _USELOW: 0
+    - _USELOW: 1
     - _USERT: 1
     - _USEWC: 1
     - _USEWT: 0

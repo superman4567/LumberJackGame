@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\Steam\SteamIntegration.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
+    <Compile Include="Assets\PlayerEmmissionChange.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
     <Compile Include="Assets\Scripts\PowerUpSpriteAssigner.cs" />
     <Compile Include="Assets\Scripts\Dummy\Dummy.cs" />
@@ -148,7 +149,6 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
-    <Compile Include="Assets\PlayerEmmissionChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />

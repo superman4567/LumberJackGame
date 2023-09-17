@@ -12,6 +12,7 @@ public class IndoorTransition : MonoBehaviour
 
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private TextMeshProUGUI loadingPercentText;
+    private bool isLoadingNextLevel = false;
 
     private void Start()
     {
@@ -43,12 +44,20 @@ public class IndoorTransition : MonoBehaviour
 
     public void GoToTutorial()
     {
-        StartCoroutine(StartLoading(3));
+        if (isLoadingNextLevel == false)
+        {
+            StartCoroutine(StartLoading(3));
+            isLoadingNextLevel = true;
+        }
     }
 
     public void GoToWilderniss()
     {
-        StartCoroutine(StartLoading(2));
+        if (isLoadingNextLevel == false)
+        {
+            StartCoroutine(StartLoading(2));
+            isLoadingNextLevel = true;
+        }
     }
 
     IEnumerator StartLoading(int index)
@@ -57,13 +66,22 @@ public class IndoorTransition : MonoBehaviour
         loadingScreen.SetActive(true);
 
         float startTime = Time.time;
-        float loadingDuration = 3.5f; // Duration in seconds
 
-        while (Time.time - startTime < loadingDuration)
+        // We don't need a fixed duration here; it depends on the loading progress
+        while (true)
         {
             // Calculate progress based on time elapsed
-            float progressValue = Mathf.Clamp01((Time.time - startTime) / loadingDuration);
+            float progressValue = Mathf.Clamp01((Time.time - startTime) / 3.5f); // Assuming 3.5 seconds max
+
+            // Set the loading text to the progress percentage
             loadingPercentText.text = (progressValue * 100f).ToString("F0") + "%";
+
+            // Check if the loading operation has completed
+            if (progressValue >= 1f)
+            {
+                break;
+            }
+
             yield return null;
         }
 
@@ -77,10 +95,12 @@ public class IndoorTransition : MonoBehaviour
 
         while (!operation.isDone)
         {
-            // You can still update the loading bar based on operation.progress here
-            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+            float progressValue = Mathf.Clamp01(operation.progress / 0.9f); // Divide by 0.9f for normalization
             loadingPercentText.text = (progressValue * 100f).ToString("F1") + "%";
             yield return null;
         }
+
+        // Ensure that the loading text shows 100% when the scene is fully loaded
+        loadingPercentText.text = "100%";
     }
 }
