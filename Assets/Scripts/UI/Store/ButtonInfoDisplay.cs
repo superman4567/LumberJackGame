@@ -1,52 +1,62 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ButtonInfoDisplay : MonoBehaviour
 {
-    [SerializeField] private GameObject infoMouseCanvas; 
-    [SerializeField] private UpdatePrice currentButtonPrice; 
-
+    [SerializeField] private GameObject infoMouseCanvas;
+    [SerializeField] private RectTransform infoMouseRect;
     [SerializeField] private TextMeshProUGUI skillNameText;
     [SerializeField] private TextMeshProUGUI skillDescriptionText;
 
-    void Start()
+    private bool isMouseOver = false; // Flag to track if the mouse is over the UI element
+
+    private void Start()
     {
+        // Hide the info panel initially
         infoMouseCanvas.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        // Only update the position if the info panel is active and the mouse is over the UI element
+        if (infoMouseCanvas.activeSelf && isMouseOver)
         {
-            GameObject hitObject = hit.collider.gameObject; // Get the GameObject that was hit
+            // Get the mouse position in screen space
+            Vector3 mousePosition = Input.mousePosition;
 
-            Button button = hitObject.GetComponent<Button>();
-            if (button != null)
-            {
-                // Get the UpdatePrice script from the button
-                currentButtonPrice = button.GetComponent<UpdatePrice>();
+            // Convert the screen space mouse position to canvas space
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                infoMouseRect.parent as RectTransform,
+                mousePosition,
+                null,
+                out Vector2 localMousePosition
+            );
 
-                if (currentButtonPrice != null)
-                {
-                    infoMouseCanvas.SetActive(true);
-                    skillNameText.text = currentButtonPrice.holdingSkill.skillName;
-                    skillDescriptionText.text = currentButtonPrice.holdingSkill.skillDescription;
-
-                    return; // Exit the loop once a button is found under the mouse
-                }
-            }
+            // Set the position of the panel so that its top-left corner is at the mouse position
+            infoMouseRect.localPosition = localMousePosition;
         }
+    }
 
-        // No button is under the mouse, hide the infoCanvas
+    public void OnPointerEnter(UpdatePrice so)
+    {
+        skillNameText.text = so.holdingSkill.skillName;
+        skillDescriptionText.text = so.holdingSkill.skillDescription;
+
+        // Show the info panel
+        infoMouseCanvas.SetActive(true);
+
+        // Set the flag to true when the mouse enters the UI element
+        isMouseOver = true;
+    }
+
+    public void OnPointerExit()
+    {
+        // Hide the info panel
         infoMouseCanvas.SetActive(false);
+
+        // Set the flag to false when the mouse exits the UI element
+        isMouseOver = false;
     }
 }
-
-

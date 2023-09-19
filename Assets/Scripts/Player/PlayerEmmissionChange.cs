@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEmmissionChange : MonoBehaviour, IDataPersistance
+public class PlayerEmmissionChange : MonoBehaviour
 {
     public SkinnedMeshRenderer playerRenderer;
     public TrailRenderer trailRenderer;
@@ -32,22 +32,6 @@ public class PlayerEmmissionChange : MonoBehaviour, IDataPersistance
         currentEmissionIntensity = emissionIntensityDefault;
         currentEmissionColor = emissionColorDefault;
         playerRenderer.material.SetColor("_EmissionColor", currentEmissionColor * currentEmissionIntensity);
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.healingActive = data.healingActive;
-        this.damageActive = data.damageActive;
-        this.surviveActive = data.surviveActive;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.healingActive = this.healingActive;
-        data.damageActive = this.damageActive;
-        data.surviveActive = this.surviveActive;
-
-
     }
 
     public IEnumerator ActivateUltimateprites(float delay, Color selectedColor, float targetIntensity)

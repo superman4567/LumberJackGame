@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class StoreManager : MonoBehaviour, IDataPersistance
     public static StoreManager Instance;
 
     [Header("References")]
+    [SerializeField] private List<Skill> skillList;
     private PlayerStats playerStats;
     private PlayerThrowAxe playerThrowAxe;
     private AxeDetection axeDetection;
@@ -33,30 +35,7 @@ public class StoreManager : MonoBehaviour, IDataPersistance
 
     public Skill selectedAbility;
 
-    private bool healing_IncreaseMaxHealth1 = false;
-    private bool healing_IncreaseMaxHealth2 = false;
-    private bool healing_HealthBoostFromChest1 = false;
-    private bool healing_HealthBoostFromChest2 = false;
-    private bool healing_HealthBoostFromChest3 = false;
-    private bool healing_LifeSteal1 = false;
-    private bool healing_LifeSteal2 = false;
-    private bool healing_LifeSteal3 = false;
-    private bool healing_Ultimate = false;
-
-    private bool damage_DoubleDamage1 = false;
-    private bool damage_DoubleDamage2 = false;
-    private bool damage_ExplosiveHits1 = false;
-    private bool damage_ExplosiveHits2 = false;
-    private bool damage_ThrowSpeed1 = false;
-    private bool damage_ThrowSpeed2 = false;
-    private bool damage_Ultimate = false;
-
-    private bool survival_ExtraFocus1 = false;
-    private bool survival_ExtraFocus2 = false;
-    private bool survival_CampfireEffect1 = false;
-    private bool survival_CampfireEffect2 = false;
-    private bool survival_LessStaminaReducation = false;
-    private bool survival_Ultimate = false;
+    private Dictionary<StoreItem, bool> abilityStatusMap = new();
 
     private void Awake()
     {
@@ -87,58 +66,34 @@ public class StoreManager : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
-        this.healing_IncreaseMaxHealth1 = data.healing_IncreaseMaxHealth1;
-        this.healing_IncreaseMaxHealth2 = data.healing_IncreaseMaxHealth2;
-        this.healing_HealthBoostFromChest1 = data.healing_HealthBoostFromChest1;
-        this.healing_HealthBoostFromChest2 = data.healing_HealthBoostFromChest2;
-        this.healing_HealthBoostFromChest3 = data.healing_HealthBoostFromChest3;
-        this.healing_LifeSteal1 = data.healing_LifeSteal1;
-        this.healing_LifeSteal2 = data.healing_LifeSteal2;
-        this.healing_LifeSteal3 = data.healing_LifeSteal3;
-        this.healing_Ultimate = data.healing_Ultimate;
+        // Check if savedata matches what we need in the game (old save data etc), can be improved
+        if (data.abilityStatusMap.Count == skillList.Count)
+        {
+            // If we have save data, load it
+            abilityStatusMap = data.abilityStatusMap;
 
-        this.damage_DoubleDamage1 = data.damage_DoubleDamage1;
-        this.damage_DoubleDamage2 = data.damage_DoubleDamage2;
-        this.damage_ExplosiveHits1 = data.damage_ExplosiveHits1;
-        this.damage_ExplosiveHits2 = data.damage_ExplosiveHits2;
-        this.damage_ThrowSpeed1 = data.damage_ThrowSpeed1;
-        this.damage_ThrowSpeed2 = data.damage_ThrowSpeed2;
-        this.damage_Ultimate = data.damage_Ultimate;
+            // Update the scriptable object to have the loaded save data
+            skillList.ForEach(skill =>
+            {
+                skill.isUnlocked = abilityStatusMap[skill.ID];
 
-        this.survival_ExtraFocus1 = data.survival_ExtraFocus1;
-        this.survival_ExtraFocus2 = data.survival_ExtraFocus2;
-        this.survival_CampfireEffect1 = data.survival_CampfireEffect1;
-        this.survival_CampfireEffect2 = data.survival_CampfireEffect2;
-        this.survival_LessStaminaReducation = data.survival_LessStaminaReducation;
-        this.survival_Ultimate = data.survival_Ultimate;
+            });
+        }
+
+        if (abilityStatusMap.Count == 0)
+        {
+            // First time playing or no save data present
+            skillList.ForEach(skill =>
+            {
+                abilityStatusMap.Add(skill.ID, skill.isUnlocked);
+            });
+        }
+
     }
 
     public void SaveData(GameData data)
     {
-        data.healing_IncreaseMaxHealth1 = this.healing_IncreaseMaxHealth1;
-        data.healing_IncreaseMaxHealth2 = this.healing_IncreaseMaxHealth2;
-        data.healing_HealthBoostFromChest1 = this.healing_HealthBoostFromChest1;
-        data.healing_HealthBoostFromChest2 = this.healing_HealthBoostFromChest2;
-        data.healing_HealthBoostFromChest3 = this.healing_HealthBoostFromChest3;
-        data.healing_LifeSteal1 = this.healing_LifeSteal1;
-        data.healing_LifeSteal2 = this.healing_LifeSteal2;
-        data.healing_LifeSteal3 = this.healing_LifeSteal3;
-        data.healing_Ultimate = this.healing_Ultimate;
-
-        data.damage_DoubleDamage1 = this.damage_DoubleDamage1;
-        data.damage_DoubleDamage2 = this.damage_DoubleDamage2;
-        data.damage_ExplosiveHits1 = this.damage_ExplosiveHits1;
-        data.damage_ExplosiveHits2 = this.damage_ExplosiveHits2;
-        data.damage_ThrowSpeed1 = this.damage_ThrowSpeed1;
-        data.damage_ThrowSpeed2 = this.damage_ThrowSpeed2;
-        data.damage_Ultimate = this.damage_Ultimate;
-
-        data.survival_ExtraFocus1 = this.survival_ExtraFocus1;
-        data.survival_ExtraFocus2 = this.survival_ExtraFocus2;
-        data.survival_CampfireEffect1 = this.survival_CampfireEffect1;
-        data.survival_CampfireEffect2 = this.survival_CampfireEffect2;
-        data.survival_LessStaminaReducation = this.survival_LessStaminaReducation;
-        data.survival_Ultimate = this.survival_Ultimate;
+        data.abilityStatusMap = this.abilityStatusMap;
     }
 
     private void Update()
@@ -302,7 +257,7 @@ public class StoreManager : MonoBehaviour, IDataPersistance
             if (GameManager.Instance.GetCoins() >= selectedAbility.skillCost)
             {
                 selectedAbility.isUnlocked = true;
-                //match the selected ability with the local bool
+                abilityStatusMap[selectedAbility.ID] = true;
 
                 GameManager.Instance.SubstractResource(GameManager.ResourceType.Coins, selectedAbility.skillCost);
                 ApplyPermaAbilities(selectedAbility.ID);
@@ -325,48 +280,39 @@ public class StoreManager : MonoBehaviour, IDataPersistance
             //////////////////////////////////////
             
             case StoreItem.Healing_IncreaseMaxHealth1:
-                healing_IncreaseMaxHealth1 = true;
                 playerStats.maxHealth = 150;
                 break;
 
             case StoreItem.Healing_IncreaseMaxHealth2:
-                healing_IncreaseMaxHealth2 = true;
                 playerStats.maxHealth = 300;
                 break;
 
             case StoreItem.Healing_HealthBoostFromChest1:
-                healing_HealthBoostFromChest1 = true;
                 GameManager.Instance.chestHealthGain = 50;
                 break;
 
             case StoreItem.Healing_HealthBoostFromChest2:
-                healing_HealthBoostFromChest2 = true;
                 GameManager.Instance.chestHealthGain = playerStats.maxHealth /2;
                 break;
 
             case StoreItem.Healing_HealthBoostFromChest3:
-                healing_HealthBoostFromChest3 = true;
                 GameManager.Instance.chestHealthGain = playerStats.maxHealth;
                 break;
 
             case StoreItem.Healing_LifeSteal1:
-                healing_LifeSteal1 = true;
                 AxeDetection.Instance.lifesteal = true;
                 AxeDetection.Instance.axeLifestealAmount = .25f;
                 break;
 
             case StoreItem.Healing_LifeSteal2:
-                healing_LifeSteal2 = true;
                 AxeDetection.Instance.axeLifestealAmount = 1f;
                 break;
 
             case StoreItem.Healing_LifeSteal3:
-                healing_LifeSteal3 = true;
                 AxeDetection.Instance.axeLifestealAmount = 3f;
                 break;
 
             case StoreItem.Healing_Ultimate:
-                healing_Ultimate = true;
                 playerEmmissionChange.healingActive = true;
                 break;
 
@@ -375,39 +321,32 @@ public class StoreManager : MonoBehaviour, IDataPersistance
             //////////////////////////////////////
 
             case StoreItem.Damage_DoubleDamage1:
-                damage_DoubleDamage1= true;
                 axeDetection.axeDamage *= 2;
                 break;
 
             case StoreItem.Damage_DoubleDamage2:
-                damage_DoubleDamage2= true;
                 axeDetection.axeDamage *= 2;
                 break;
 
             case StoreItem.Damage_ExplosiveHits1:
-                damage_ExplosiveHits1 = true;
                 axeDetection.explosiveRadiusT1 = true;
                 break;
 
             case StoreItem.Damage_ExplosiveHits2:
-                damage_ExplosiveHits2 = true;
                 axeDetection.explosiveRadiusT2 = true;
                 break;
 
             case StoreItem.Damage_ThrowSpeed1:
-                damage_ThrowSpeed1= true;
                 playerAnimations.tier1Unlocked = true;
                 playerThrowAxe.throwforceMultiplier = 1.5f;
                 break;
 
             case StoreItem.Damage_ThrowSpeed2:
-                damage_ThrowSpeed2= true;
                 playerAnimations.tier2Unlocked = true;
                 playerThrowAxe.throwforceMultiplier = 2f;
                 break;
 
             case StoreItem.Damage_Ultimate:
-                damage_Ultimate = true;
                 playerEmmissionChange.damageActive = true;
                 break;
 
@@ -416,32 +355,26 @@ public class StoreManager : MonoBehaviour, IDataPersistance
             //////////////////////////////////////
             
             case StoreItem.Survival_ExtraFocus1:
-                survival_ExtraFocus1= true;
                 playerStats.maxStamina = 125;
                 break;
 
             case StoreItem.Survival_ExtraFocus2:
-                survival_ExtraFocus2= true;
                 playerStats.maxStamina = 150;
                 break;
 
             case StoreItem.Survival_CampfireEffect1:
-                survival_CampfireEffect1 = true;
                 playerCampfire.campfireDuration = 12f;
                 break;
 
             case StoreItem.Survival_CampfireEffect2:
-                survival_CampfireEffect2 = true;
                 playerCampfire.campfireDuration = 18f;
                 break;
 
             case StoreItem.Survival_LessStaminaReducation:
-                survival_LessStaminaReducation = true;
                 playerStats.reducer = 1.5f;
                 break;
 
             case StoreItem.Survival_Ultimate:
-                survival_Ultimate= true;
                 playerEmmissionChange.surviveActive = true;
                 break;
 

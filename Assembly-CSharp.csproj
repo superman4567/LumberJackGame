@@ -152,6 +152,7 @@
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
     <Compile Include="Assets\PlayerCameraShake.cs" />
     <Compile Include="Assets\ShieldRotation.cs" />
+    <Compile Include="Assets\HoverPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />
