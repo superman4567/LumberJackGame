@@ -19,6 +19,7 @@ TagManager:
   - CostAmount
   - StoreManager
   - Dummy
+  - Totem
   layers:
   - Default
   - TransparentFX

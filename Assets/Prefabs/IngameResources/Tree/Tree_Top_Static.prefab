@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4401991830178605210
 Transform:
   m_ObjectHideFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   TreeBreakingSound: {fileID: 834441125565043186}
   fallingTreePrefab: {fileID: 4401991830178605210, guid: b10b5cfbb7f64374d9ab8f3f1cc99961,
     type: 3}
+  canvas: {fileID: 0}
 --- !u!114 &4529164242427808170
 MonoBehaviour:
   m_ObjectHideFlags: 0

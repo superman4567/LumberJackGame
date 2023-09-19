@@ -11,10 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 06aa19b87b8aa174485b5a0ed989e1cb, type: 3}
   m_ValidKeywords:
   - IS_T
-  - USE_FOG
+  - IS_UNLIT
   - USE_LOW
-  - USE_LS
-  - USE_RT
   - USE_WC
   - _TESSELLATION_EDGE
   m_InvalidKeywords: []
@@ -287,13 +285,13 @@ Material:
     - _ISICE: 0
     - _ISSNOW: 0
     - _IST: 1
-    - _ISUNLIT: 0
+    - _ISUNLIT: 1
     - _IceScale: 1
     - _IndentDepth: 0.25
     - _IndentStrength: 1.5
-    - _LightHardness: 0.733
-    - _LightIntensity: 1
-    - _LightOffset: 0.245
+    - _LightHardness: 0.66
+    - _LightIntensity: 0
+    - _LightOffset: 0.197
     - _LittleSpecForce: 0.5
     - _MainTexMult: 0.11
     - _Metallic: 0
@@ -308,7 +306,7 @@ Material:
     - _Mode: 0
     - _NormalMultiplier: 0.47
     - _NormalRTDepth: 0.4
-    - _NormalRTStrength: 4
+    - _NormalRTStrength: 2
     - _NormalScale: 0.59
     - _NormalScale0: 1
     - _NormalScale1: 1
@@ -327,12 +325,12 @@ Material:
     - _ParallaxStrength: 0
     - _ProceduralDistance: 8
     - _ProceduralStrength: 12
-    - _ReflectionOpacity: 0.25
+    - _ReflectionOpacity: 0
     - _ReflectionStrength: 0.07
     - _RemoveSnowStrength: 0
-    - _RoughnessStrength: 2.26
+    - _RoughnessStrength: 1
     - _Shininess: 17.3
-    - _ShininessIce: 10
+    - _ShininessIce: 1
     - _ShininessSnow: 25
     - _Smoothness: 0.817
     - _SmoothnessTextureChannel: 0
@@ -346,21 +344,21 @@ Material:
     - _Tess: 6.7
     - _TessellationEdgeLength: 3
     - _TessellationUniform: 1
-    - _TransitionPower: 0.3
-    - _TransitionScale: -2.8
+    - _TransitionPower: 1
+    - _TransitionScale: 4
     - _TransparencyValue: 1
     - _USEDECAL: 0
-    - _USEFOG: 1
+    - _USEFOG: 0
     - _USEINTER: 0
     - _USELOW: 1
-    - _USERT: 1
+    - _USERT: 0
     - _USEWC: 1
     - _USEWT: 0
     - _UVSec: 0
     - _UpVector: 1
     - _UseAmbientLight: 0
     - _UsePR: 0
-    - _UseSunReflection: 1
+    - _UseSunReflection: 0
     - _UseVR: 0
     - _WireframeSmoothing: 1
     - _WireframeThickness: 1
@@ -378,9 +376,9 @@ Material:
     - _MountColor: {r: 0.6693218, g: 0.80406153, b: 0.8396226, a: 1}
     - _ParalaxColor: {r: 0, g: 0, b: 0, a: 1}
     - _ParallaxStrength: {r: 0, g: 0.5, b: 0.25, a: 0.15}
-    - _ProjectedShadowColor: {r: 0.68369526, g: 0.79544085, b: 0.8679245, a: 1}
+    - _ProjectedShadowColor: {r: 0.2507565, g: 0.29976785, b: 0.3301887, a: 1}
     - _ReflectionColor: {r: 0, g: 0.099333376, b: 0.14899999, a: 0.8}
-    - _RimColor: {r: 0.03, g: 0.03, b: 0.03, a: 0}
+    - _RimColor: {r: 0.0062299734, g: 0.23071721, b: 0.26415092, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Specular0: {r: 1, g: 1, b: 1, a: 1}
     - _Specular1: {r: 1, g: 1, b: 1, a: 1}

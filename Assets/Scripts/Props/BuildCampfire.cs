@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BuildCampfire : MonoBehaviour, IDataPersistance
+public class BuildCampfire : MonoBehaviour
 {
+    [SerializeField] private Image campfireCooldown;
     [SerializeField] private GameObject campFirePrefab;
     [SerializeField] private PlayerThrowAxe playerThrowAxe;
     [SerializeField] private float distanceFromPlayer = 1.0f;
@@ -13,38 +14,57 @@ public class BuildCampfire : MonoBehaviour, IDataPersistance
     private PlayerMovement playerMovement;
     private Animator animator;
     private bool canBuildCampfire = true;
+    private float cooldownTimer = 0f;
+    private Image childImage;
 
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        animator = GetComponent<Animator>();    
-    }
-
-    public void LoadData(GameData data)
-    {
-        this.campfireDuration = data.campfireDuration;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.campfireDuration = this.campfireDuration;
+        animator = GetComponent<Animator>();
+        childImage = campfireCooldown.transform.GetChild(0).GetComponent<Image>();
     }
 
     void Update()
     {
+        if (cooldownTimer > 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+            UpdateCooldownUI();
+        }
+
         if (Input.GetKeyDown(KeyCode.C) && GameManager.Instance.GetWood() >= campfireCost && canBuildCampfire)
         {
             animator.SetBool("Pickups", true);
             canBuildCampfire = false;
-            playerThrowAxe.enabled= false;
+            playerThrowAxe.enabled = false;
             playerMovement.enabled = false;
             GameManager.Instance.SubstractResource(GameManager.ResourceType.Wood, campfireCost);
-            Invoke("BuildDone", 1.6f);
+            cooldownTimer = 1.6f;
+            UpdateCooldownUI(); 
+
+            if (childImage != null)
+            {
+                childImage.color = Color.gray;
+            }
+
+            StartCoroutine(BuildCampfireAfterCooldown());
         }
     }
 
-    private void BuildDone()
+    private void UpdateCooldownUI()
     {
+        if (campfireCooldown != null)
+        {
+            // Calculate the fill amount based on the remaining cooldown time
+            float fillAmount = 1f - Mathf.Clamp01(cooldownTimer / 1.6f); // Inverted fill calculation
+            campfireCooldown.fillAmount = fillAmount;
+        }
+    }
+
+    private IEnumerator BuildCampfireAfterCooldown()
+    {
+        yield return new WaitForSeconds(1.6f);
+
         playerThrowAxe.enabled = true;
         canBuildCampfire = true;
 
@@ -59,5 +79,15 @@ public class BuildCampfire : MonoBehaviour, IDataPersistance
         Instantiate(campFirePrefab, spawnPosition, playerRotation);
         animator.SetBool("Pickups", false);
         playerMovement.enabled = true;
+
+        // Reset the cooldown timer
+        cooldownTimer = 0f;
+        UpdateCooldownUI(); // Update the UI to reset the fill
+
+        // Reset the color of the child image
+        if (childImage != null)
+        {
+            childImage.color = Color.white;
+        }
     }
 }

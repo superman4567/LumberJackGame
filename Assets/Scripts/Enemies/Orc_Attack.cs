@@ -26,18 +26,20 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private Orc_Health orcHealth;
     [SerializeField] private GameObject rockPrefab; 
     [SerializeField] private Transform throwSpawnPoint; 
-    [SerializeField] private LayerMask attackLayer;
-    
-    
+
+    public static bool IsChasingTotem = false;
     private RoundManager roundManager;
     private ObjectPool rockPool;
     private CharacterController playerController;
-    private Transform player;
+    private bool startThrowing = false;
     public NavMeshAgent navMeshAgent;
     private float throwCooldownTimer = 0.0f;
-    private float distanceToPlayer;
-    private bool startThrowing = false;
 
+    public static bool attackingTotem = false;
+    private Transform player;
+    private Transform totem;
+    private float distanceToTotem;
+    private float distanceToPlayer;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class Orc_Attack : MonoBehaviour
         roundManager = FindObjectOfType<RoundManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        navMeshAgent.SetDestination(player.position);
         Disablehands();
     }
 
@@ -90,20 +93,20 @@ public class Orc_Attack : MonoBehaviour
     private void MeleeOrRangedAttack()
     {
         if (orcHealth.orcIsDeath == true || orcHealth.isKnockbackActive) { return; }
-
-        navMeshAgent.SetDestination(player.position); 
         
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         startThrowing = (distanceToPlayer < rangedAttackRange) ? true : false;
 
-        if (distanceToPlayer < meleeAttackRange)
+        if (distanceToPlayer < meleeAttackRange || attackingTotem)
         {
             MeleeAttack();
             navMeshAgent.speed = baseOrcSpeed + 5 + GameManager.Instance.GetDifficulty();
             animator.SetBool("OrcMeleeAttack", true);
         }
+
         else if (distanceToPlayer > meleeAttackRange && startThrowing == true)
         {
+            navMeshAgent.SetDestination(player.position);
             navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
 
             throwCooldownTimer += Time.deltaTime;
@@ -112,8 +115,10 @@ public class Orc_Attack : MonoBehaviour
                 animator.SetBool("OrcRangedAttack", true);
             }
         }
+
         else 
         {
+            if (IsChasingTotem) { return; }
             ChasePlayer();
         }
     }
@@ -137,7 +142,6 @@ public class Orc_Attack : MonoBehaviour
 
         if (rock != null)
         {
-            navMeshAgent.SetDestination(player.position);
             rock.transform.position = throwSpawnPoint.position;
 
             Vector3 playerVelocity = playerController.velocity;
@@ -162,6 +166,7 @@ public class Orc_Attack : MonoBehaviour
     {
         if (!navMeshAgent.isActiveAndEnabled) { return; }
 
+        navMeshAgent.SetDestination(player.position);
         Vector3 directionToPlayer = player.position - transform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
 
@@ -169,31 +174,17 @@ public class Orc_Attack : MonoBehaviour
         {
             navMeshAgent.speed = chaseSpeed + GameManager.Instance.GetDifficulty() + 5;
         }
+
         else
         {
             navMeshAgent.speed = chaseSpeed + GameManager.Instance.GetDifficulty();
         }
 
-        if (distanceToPlayer <= minDistanceToPlayer)
+        if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
         {
-            navMeshAgent.isStopped = true;
+            navMeshAgent.speed = lastOrcSpeed;
         }
-        else
-        {
-            navMeshAgent.isStopped = false;
-            navMeshAgent.SetDestination(player.position);
-
-            if (SceneManager.GetActiveScene().buildIndex == 3) 
-            {
-                navMeshAgent.speed = 2;
-                return; 
-            }
-
-            if (roundManager.orcsSpawnedInCurrentRound - roundManager.orcsKilledInCurrentRound == 1)
-            {
-                navMeshAgent.speed = lastOrcSpeed;
-            }
-        }
+        
     }
 
     private void OnDrawGizmosSelected()

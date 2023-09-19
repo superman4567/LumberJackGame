@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc692609b76c4046ad8bfdb2256bd74, type: 3}
   m_Name: Healing_Ultimate
   m_EditorClassIdentifier: 
-  skillName: Healing Ability
+  skillName: Healing Ultimate
   skillDescription: <To be determined>
   ID: 8
   skillCost: 5000

@@ -68,7 +68,7 @@ public class OrcSpawner : MonoBehaviour
                 Transform spawnPoint = spawnPoints[randomIndex];
 
                 // Instantiate the orc prefab
-                GameObject newOrc = Instantiate(orcPrefab, spawnPoint.position, spawnPoint.rotation);
+                GameObject newOrc = Instantiate(orcPrefab, spawnPoint.position, spawnPoint.rotation);   
 
                 // Set the parent transform to the assigned parent
                 newOrc.transform.SetParent(parentTransform);

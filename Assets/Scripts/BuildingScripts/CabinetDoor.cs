@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CabinetDoor : MonoBehaviour
 {
+    [SerializeField] private Transform doorToOpen;
     [SerializeField] private Transform doorRotationOpen;
     [SerializeField] private Transform doorRotationClosed;
     [SerializeField] private float timeToArrive;
@@ -38,11 +39,11 @@ public class CabinetDoor : MonoBehaviour
 
         while (elapsedTime < timeToArrive)
         {
-            transform.rotation = Quaternion.Slerp(fromRotation, toRotation, elapsedTime / timeToArrive);
+            doorToOpen.rotation = Quaternion.Slerp(fromRotation, toRotation, elapsedTime / timeToArrive);
             yield return null;
             elapsedTime += Time.deltaTime;
         }
-        transform.rotation = toRotation;
+        doorToOpen.rotation = toRotation;
         isMoving = false;
     }
 }

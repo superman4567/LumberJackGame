@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 3097140120464613072}
   - component: {fileID: 1421976408568321078}
   - component: {fileID: 4512949255420778521}
-  - component: {fileID: 8351128218538895548}
   m_Layer: 8
   m_Name: Tree
   m_TagString: Tree
@@ -301,30 +300,6 @@ MonoBehaviour:
   circle: {fileID: 4971774058583907788}
   positionOffset: {x: 0, y: -0.6, z: -3.5}
   globalScale: {x: 3, y: 3, z: 3}
---- !u!205 &8351128218538895548
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277245467032941950}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.6
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.3
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.1
-    fadeTransitionWidth: 0
-    renderers: []
-  m_Enabled: 1
 --- !u!1 &4603362094092442394
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +624,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.024
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -988,11 +963,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Top_Static
-      objectReference: {fileID: 0}
-    - target: {fileID: 7217426157975694670, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed88e3201c3e8442a8dc1c6e6bf7097, type: 3}

@@ -26,6 +26,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     [Header("Stamina ")]
     [SerializeField] Animator getHitpanel;
+    [SerializeField] private PlayerCameraShake playerCameraShake;
 
     [Header("Collider ")]
     [SerializeField] private CharacterController hitbox;
@@ -66,6 +67,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     public void TakeDamage(float amount)
     {
+        playerCameraShake.ShakeCamera();
         UpdateHitCanvasHIT();
         health -= amount;
         health = Mathf.Max(health, 0f);
@@ -81,6 +83,8 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     public void AddHealth(float amount)
     {
+        if (health >= maxHealth) { return; }
+
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         health += amount;
 

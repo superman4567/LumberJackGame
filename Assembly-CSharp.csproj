@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\UI\ShowDialogue.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
     <Compile Include="Assets\Scripts\GameManager\RoundManager.cs" />
-    <Compile Include="Assets\Scripts\Calculator.cs" />
     <Compile Include="Assets\Scripts\Tutorial\TreeTutorial.cs" />
     <Compile Include="Assets\Scripts\Props\CameraBlockDetection.cs" />
     <Compile Include="Assets\Scripts\Player\AxeDetection.cs" />
@@ -95,6 +94,8 @@
     <Compile Include="Assets\Scripts\GameManager\UIManager.cs" />
     <Compile Include="Assets\Scripts\Props\BreakableObjectSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\Store\StoreManager.cs" />
+    <Compile Include="Assets\Scripts\Player\HealingTotem.cs" />
+    <Compile Include="Assets\Scripts\NoCopyRotation.cs" />
     <Compile Include="Assets\Scripts\Audio\0_SplashscreenAudioScripts\AxeSounds.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractionPosition.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\Scripts\Props\ObjectFader.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Chest.cs" />
     <Compile Include="Assets\Scripts\Player\HandSocket.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerUltimates.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerSnow.cs" />
     <Compile Include="Assets\Scripts\UI\PressAnyKeyToStart.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_FxMouse.cs" />
@@ -133,9 +135,8 @@
     <Compile Include="Assets\Scripts\Steam\SteamIntegration.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
-    <Compile Include="Assets\PlayerEmmissionChange.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerEmmissionChange.cs" />
     <Compile Include="Assets\Scripts\Player\StorePlayerLocations.cs" />
-    <Compile Include="Assets\Scripts\PowerUpSpriteAssigner.cs" />
     <Compile Include="Assets\Scripts\Dummy\Dummy.cs" />
     <Compile Include="Assets\Scripts\UI\DialogueContainer.cs" />
     <Compile Include="Assets\Scripts\UI\Store\Enums.cs" />
@@ -149,6 +150,8 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
+    <Compile Include="Assets\PlayerCameraShake.cs" />
+    <Compile Include="Assets\ShieldRotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />

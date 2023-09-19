@@ -35,7 +35,7 @@ public class ObjectFader : MonoBehaviour
 
     private void FadeNow()
     {
-        for (int i = 1; i < materials.Length; i++)
+        for (int i = 0; i < materials.Length; i++)
         {
             Color currentColor = materials[i].color;
             Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b,
@@ -46,7 +46,7 @@ public class ObjectFader : MonoBehaviour
 
     private void ResetFade()
     {
-        for (int i = 1; i < materials.Length; i++)
+        for (int i = 0; i < materials.Length; i++)
         {
             Color currentColor = materials[i].color;
             Color smoothColor = new Color(currentColor.r, currentColor.g, currentColor.b,

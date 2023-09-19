@@ -10,7 +10,7 @@ public class Orc_Health : MonoBehaviour
     [SerializeField] Orc_Ragdoll orc_Ragdoll;
     [SerializeField] Orc_Animations orc_Animations;
     [SerializeField] Orc_Attack orc_Attack;
-    [SerializeField] Collider hitBox; // Change this to a trigger collider
+    [SerializeField] Collider hitBox;
 
     [SerializeField] private float knockbackForce = 10.0f;
     [SerializeField] private float knockbackDuration = 0.5f;
@@ -78,12 +78,18 @@ public class Orc_Health : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Axe") && other.isTrigger)
         {
-            if (currentHealth > 0)
-            {
-                currentHealth -= axeDetection.axeDamage;
-                ShowFloatingText();
-            }
-            else
+            TakeDamage(axeDetection.axeDamage);
+        }
+    }
+
+    public void TakeDamage( float damageAmount)
+    {
+        if (currentHealth > 0)
+        {
+            currentHealth -= damageAmount;
+            ShowFloatingText(damageAmount);
+
+            if (currentHealth <= 0)
             {
                 animator.enabled = false;
                 orc_Animations.enabled = false;
@@ -96,6 +102,19 @@ public class Orc_Health : MonoBehaviour
                 roundManager.OrcKilled();
                 Die();
             }
+        }
+        else
+        {
+            animator.enabled = false;
+            orc_Animations.enabled = false;
+            orc_Attack.enabled = false;
+            navMeshAgent.enabled = false;
+            orc_Attack.navMeshAgent.enabled = false;
+            hitBox.enabled = false;
+
+            orc_Ragdoll.EnableRagdoll();
+            roundManager.OrcKilled();
+            Die();
         }
     }
 
@@ -111,10 +130,10 @@ public class Orc_Health : MonoBehaviour
         meshRenderer.material = originalMat;
     }
 
-    private void ShowFloatingText()
+    private void ShowFloatingText(float damageAmount)
     {
         var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMeshPro>().text = axeDetection.axeDamage.ToString();
+        go.GetComponent<TextMeshPro>().text = damageAmount.ToString();
     }
 
     private void OrcHealthStatemachine()
@@ -139,7 +158,7 @@ public class Orc_Health : MonoBehaviour
 
             case 2:
                 if (roundManager.currentRound == 1) { return; }
-                maxHealth = (maxHealth + (roundManager.currentRound * 2f));
+                maxHealth = (maxHealth + (roundManager.currentRound * 2.5f));
                 break;
 
             default:

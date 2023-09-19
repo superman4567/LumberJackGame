@@ -3,7 +3,22 @@ guid: d40d07dce5870714a89bffe5cb4e8771
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FloorWood
+    second: {fileID: 2100000, guid: 2c8519bde27b96d48b3cd37eed8eefca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Stone
+    second: {fileID: 2100000, guid: c2fe701363f978047851a25f00c47c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wallwood
+    second: {fileID: 2100000, guid: 49362ca5c84fa0e45a623c26709fa639, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

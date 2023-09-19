@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class IndoorTransition : MonoBehaviour
 {
-    [SerializeField] private int sceneIndexToLoad;
-    [SerializeField] private CabinetDoor cabinetDoor;
     [SerializeField] private GameObject tutorialPanel;
 
     [SerializeField] private GameObject loadingScreen;
@@ -22,7 +20,7 @@ public class IndoorTransition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && cabinetDoor.canInteract)
+        if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerMovement>().enabled = false;
             other.GetComponent<PlayerAnimations>().enabled = false;

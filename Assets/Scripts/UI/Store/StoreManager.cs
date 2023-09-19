@@ -12,6 +12,7 @@ public class StoreManager : MonoBehaviour
     private PlayerAnimations playerAnimations;
     private BuildCampfire playerCampfire;
     private PlayerEmmissionChange playerEmmissionChange;
+    private PlayerUltimates playerUltimates;
 
     [Header("Button")]
     [SerializeField] private Button[] healingButtons;
@@ -49,6 +50,7 @@ public class StoreManager : MonoBehaviour
         playerAnimations = FindObjectOfType<PlayerAnimations>();
         playerCampfire = FindObjectOfType<BuildCampfire>();
         playerEmmissionChange = FindObjectOfType<PlayerEmmissionChange>();
+        playerUltimates = FindObjectOfType<PlayerUltimates>();
     }
 
     private void Start()
@@ -215,6 +217,7 @@ public class StoreManager : MonoBehaviour
                 GameManager.Instance.SubstractResource(GameManager.ResourceType.Coins, selectedAbility.skillCost);
                 ApplyPermaAbilities(selectedAbility.ID);
                 AbilityCanBePurchased();
+                playerUltimates.UltimateSpriteUnlockCheck();
             }
         }
         else

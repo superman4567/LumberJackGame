@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dodgeRollDuration = 0.5f;
     [SerializeField] private float dodgeRollCooldown = 2f;
 
+    [SerializeField] private Image dodgeRollCooldownImage;
+    private float dodgeRollCooldownTimer = 0f;
+    private Image childImage;
+
     private Vector3 dodgeRollStartPosition;
     private bool isDodgeRolling = false;
     private float dodgeRollStartTime = 0f;
@@ -29,10 +34,21 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = -9.81f;
     private float staminaCap = 5;
 
+    void Start()
+    {
+        childImage = dodgeRollCooldownImage.transform.GetChild(0).GetComponent<Image>();
+    }
 
     void Update()
     {
         SprintingCost();
+
+        if (dodgeRollCooldownTimer > 0f)
+        {
+            dodgeRollCooldownTimer -= Time.deltaTime;
+            UpdateDodgeRollCooldownUI();
+        }
+
         DodgeRoll();
     }
 
@@ -110,7 +126,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isDodgeRolling) return;
 
-            if (Time.time - dodgeRollStartTime >= dodgeRollCooldown)
+            
+
+            if (Time.time - dodgeRollStartTime >= dodgeRollCooldown && dodgeRollCooldownTimer <= 0f)
             {
                 float horizontal = Input.GetAxisRaw("Horizontal");
                 float vertical = Input.GetAxisRaw("Vertical");
@@ -124,8 +142,22 @@ public class PlayerMovement : MonoBehaviour
 
                     playerAnimations.SetDodgeRollState(true);
                     playerStats.SubstractStamina(5f);
+
+                    // Start the dodge roll cooldown
+                    dodgeRollCooldownTimer = dodgeRollCooldown;
+                    UpdateDodgeRollCooldownUI();
                 }
             }
+        }
+    }
+
+    private void UpdateDodgeRollCooldownUI()
+    {
+        if (dodgeRollCooldownImage != null)
+        {
+            // Calculate the fill amount based on the remaining cooldown time
+            float fillAmount = 1f - Mathf.Clamp01(dodgeRollCooldownTimer / dodgeRollCooldown); // Inverted fill calculation
+            dodgeRollCooldownImage.fillAmount = fillAmount;
         }
     }
 
@@ -138,6 +170,11 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsedTime < dodgeRollDuration)
         {
+            if (childImage != null)
+            {
+                childImage.color = Color.gray;
+            }
+
             float t = elapsedTime / dodgeRollDuration;
             Vector3 newPosition = Vector3.Lerp(
                 dodgeRollStartPosition, dodgeRollStartPosition + dodgeDirection * dodgeRollDistance, t
@@ -149,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isDodgeRolling = false;
-
+        childImage.color = Color.white; 
         playerAnimations.SetDodgeRollState(false);
     }
 }

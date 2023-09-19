@@ -42,10 +42,6 @@ public class ButtonInfoDisplay : MonoBehaviour
                     return; // Exit the loop once a button is found under the mouse
                 }
             }
-            else
-            {
-                Debug.Log("button is null");
-            }
         }
 
         // No button is under the mouse, hide the infoCanvas
