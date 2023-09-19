@@ -35,10 +35,31 @@ public class GameData
     public float campfireDuration;
     public float reducer;
 
-    //Ultimates Unlocked
-    public bool healingActive;
-    public bool damageActive;
-    public bool surviveActive;
+    //Abilities Unlocked
+    public bool healing_IncreaseMaxHealth1;
+    public bool healing_IncreaseMaxHealth2;
+    public bool healing_HealthBoostFromChest1;
+    public bool healing_HealthBoostFromChest2;
+    public bool healing_HealthBoostFromChest3;
+    public bool healing_LifeSteal1;
+    public bool healing_LifeSteal2;
+    public bool healing_LifeSteal3;
+    public bool healing_Ultimate;
+
+    public bool damage_DoubleDamage1;
+    public bool damage_DoubleDamage2;
+    public bool damage_ExplosiveHits1;
+    public bool damage_ExplosiveHits2;
+    public bool damage_ThrowSpeed1;
+    public bool damage_ThrowSpeed2;
+    public bool damage_Ultimate;
+
+    public bool survival_ExtraFocus1;
+    public bool survival_ExtraFocus2;
+    public bool survival_CampfireEffect1;
+    public bool survival_CampfireEffect2;
+    public bool survival_LessStaminaReducation;
+    public bool survival_Ultimate;
 
     public GameData()
     {
@@ -71,8 +92,29 @@ public class GameData
         this.reducer = 0f;
 
         //Ultimates Unlocked
-        this.healingActive = false;
-        this.damageActive = false;
-        this.surviveActive = false;
+        this.healing_IncreaseMaxHealth1 = false;
+        this.healing_IncreaseMaxHealth2 =false;
+        this.healing_HealthBoostFromChest1 = false;
+        this.healing_HealthBoostFromChest2 = false;
+        this.healing_HealthBoostFromChest3 = false;
+        this.healing_LifeSteal1 = false;
+        this.healing_LifeSteal2 = false;
+        this.healing_LifeSteal3 = false;
+        this.healing_Ultimate = false;
+
+        this.damage_DoubleDamage1 = false;
+        this.damage_DoubleDamage2 = false;
+        this.damage_ExplosiveHits1 = false;
+        this.damage_ExplosiveHits2 = false;
+        this.damage_ThrowSpeed1 = false;
+        this.damage_ThrowSpeed2 = false;
+        this.damage_Ultimate = false;
+
+        this.survival_ExtraFocus1 = false;
+        this.survival_ExtraFocus2 = false;
+        this.survival_CampfireEffect1 = false;
+        this.survival_CampfireEffect2 = false;
+        this.survival_LessStaminaReducation = false;
+        this.survival_Ultimate = false;
 }
 }

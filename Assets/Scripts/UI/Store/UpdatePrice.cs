@@ -21,6 +21,6 @@ public class UpdatePrice : MonoBehaviour
         //Set the price amount UI
         textMeshProText.text = holdingSkill.skillCost.ToString();
         storeManager.selectedAbility = holdingSkill;
-        storeManager.AbilityCanBePurchased();
+        storeManager.UpdatePurchaseStateSprite();
     }
 }
