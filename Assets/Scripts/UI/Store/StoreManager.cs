@@ -51,6 +51,8 @@ public class StoreManager : MonoBehaviour
         playerCampfire = FindObjectOfType<BuildCampfire>();
         playerEmmissionChange = FindObjectOfType<PlayerEmmissionChange>();
         playerUltimates = FindObjectOfType<PlayerUltimates>();
+
+        playerUltimates.UltimateSpriteUnlockCheck();
     }
 
     private void Start()

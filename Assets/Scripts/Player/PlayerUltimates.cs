@@ -41,7 +41,6 @@ public class PlayerUltimates : MonoBehaviour
     [SerializeField] private float survivalUltShieldRadius = 3f;
 
     private Coroutine ultimateCooldownCoroutine;
-    private float cooldownTimer = 0f;
     private Image survivalchildImage;
 
     [SerializeField] private PlayerEmmissionChange playerEmmissionChange;

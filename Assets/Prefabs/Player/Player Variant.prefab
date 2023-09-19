@@ -1,36 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6177599742663108759
+--- !u!1001 &3567646590285785802
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3406821433680268147, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349285708817845307, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322189240873099811, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354386558332657304, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7354386558889207768, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
       propertyPath: m_Name
-      value: Player Indoor Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7354386558889207769, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
@@ -40,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 7354386558889207769, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354386558889207769, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
@@ -50,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 7354386558889207769, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7354386558889207769, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
         type: 3}
@@ -87,22 +67,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7354386559922823948, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8292287817264998663, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809116590867494186, guid: 3a7f07a0cf2777c4392a3192c97b2df7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4226212422562731673, guid: 3a7f07a0cf2777c4392a3192c97b2df7, type: 3}
-    - {fileID: 7322189240873099811, guid: 3a7f07a0cf2777c4392a3192c97b2df7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a7f07a0cf2777c4392a3192c97b2df7, type: 3}
