@@ -68,6 +68,10 @@ public class PlayerEmmissionChange : MonoBehaviour
         currentEmissionColor = Color.Lerp(currentEmissionColor, emissionColorDefault, lerpSpeed * Time.deltaTime);
         currentEmissionIntensity = Mathf.Lerp(currentEmissionIntensity, emissionIntensityDefault, lerpSpeed * Time.deltaTime);
         playerRenderer.material.SetColor("_EmissionColor", emissionColorDefault);
+
+        Material trailMaterial = trailRenderer.material;
+        trailMaterial.SetColor("_Color", emissionColorDefault);
+        trailMaterial.SetColor("_EmissionColor", emissionColorDefault);
     }
 
     private void OnDrawGizmos()

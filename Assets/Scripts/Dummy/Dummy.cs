@@ -23,7 +23,7 @@ public class Dummy : MonoBehaviour
 
             animator.SetTrigger("DummyHit");
             var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-            go.GetComponent<TextMeshPro>().text = axeDetection.axeDamage.ToString();
+            go.GetComponent<TextMeshPro>().text = axeDetection.additionalAxeDamage.ToString();
         }
     }
 

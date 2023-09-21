@@ -10,7 +10,6 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     [Header("Playerstats UI")]
     [SerializeField] private TextMeshProUGUI healthUIAmount;
     [SerializeField] private TextMeshProUGUI staminaUIAmount;
-    [SerializeField] private GameObject deathUI;
 
     [Header("Health ")]
     [SerializeField] private float health;
@@ -19,7 +18,8 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     [Header("Stamina ")]
     [SerializeField] private float stamina;
-    public float reducer = 0f;
+    public float reducer = 1f;
+    public bool ult3 = false;
 
     public float Stamina { get; private set; }
     [SerializeField] public float maxStamina = 100f;
@@ -35,9 +35,6 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     {
         health = maxHealth;
         stamina = maxStamina;
-
-        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
-        deathUI.SetActive(false);
     }
 
     void Update()
@@ -48,7 +45,6 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; } 
         healthUIAmount.text = Mathf.RoundToInt(health).ToString();
         staminaUIAmount.text = Mathf.RoundToInt(stamina).ToString();
-        AddStamina(0.25f * Time.deltaTime);
     }
 
     public void LoadData(GameData data)
@@ -67,6 +63,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     public void TakeDamage(float amount)
     {
+        if (ult3) { return; }
         playerCameraShake.ShakeCamera();
         UpdateHitCanvasHIT();
         health -= amount;
@@ -98,7 +95,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         if (stamina >= maxStamina) { return; }
-        stamina += amount;
+        stamina += amount/reducer;
         int intStamina = Mathf.RoundToInt(stamina);
         staminaUIAmount.text = intStamina.ToString();
     }
@@ -106,6 +103,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     public void SubstractHealth(float amount)
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
+       
         health -= (amount / reducer);
         int intHealth = Mathf.RoundToInt(health);
         healthUIAmount.text = intHealth.ToString();
@@ -129,7 +127,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
     {
         if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
 
-        if (health == maxHealth)
+        if (health >= maxHealth)
         {
             getHitpanel.SetTrigger("GetHealedTrigger");
         }
@@ -138,8 +136,8 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     private void PlayerDeath()
     {
-        deathUI.SetActive(true);
-        Invoke("FreezeTime", 1f);
+        RoundManager.Instance.ChnageDiffCompleteText(false);
+        Invoke("FreezeTime", 10f);
     }
 
     public void FreezeTime()

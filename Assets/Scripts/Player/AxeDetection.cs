@@ -9,9 +9,14 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
 
     [Header("Axe data")]
     public bool axeHitSomething = false;
-    public int axeDamage = 20;
+    public int defaultDamage = 20;
+    public int additionalAxeDamage = 20;
     public bool explosiveRadiusT1 = false;
     public bool explosiveRadiusT2 = false;
+
+    [SerializeField] private PlayerThrowAxe playerThrowAxe;
+    private SphereCollider sphereCollider;
+    private BoxCollider boxCollider;
 
     [Header("Lifesteal")]
     public bool lifesteal = false;
@@ -35,13 +40,15 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
     {
         // Assign the "Axe" layer to the axe GameObject in the Inspector
         gameObject.layer = LayerMask.NameToLayer("Axe");
+        sphereCollider = GetComponent<SphereCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     public void LoadData(GameData data)
     {
         this.lifesteal = data.lifesteal;
         this.axeLifestealAmount = data.axeLifestealAmount;
-        this.axeDamage = data.axeDamage;
+        this.defaultDamage = data.defaultDamage;
         this.explosiveRadiusT1 = data.explosiveRadiusT1;
         this.explosiveRadiusT2 = data.explosiveRadiusT2;
     }
@@ -50,9 +57,23 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
     {
         data.lifesteal = this.lifesteal;
         data.axeLifestealAmount = this.axeLifestealAmount;
-        data.axeDamage = this.axeDamage;
+        data.defaultDamage = this.defaultDamage;
         data.explosiveRadiusT1 = this.explosiveRadiusT1;
         data.explosiveRadiusT2 = this.explosiveRadiusT2;
+    }
+
+    private void Update()
+    {
+        if(playerThrowAxe.isAxeThrown == false)
+        {
+            sphereCollider.enabled = false;
+            boxCollider.enabled = false;
+        }
+        else
+        {
+            sphereCollider.enabled = true;
+            boxCollider.enabled = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -114,7 +135,7 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
 
     public int GetAxeDamage()
     {
-        return axeDamage;
+        return defaultDamage + additionalAxeDamage;
     }
 
     public bool HasAxeHitSomething()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
@@ -16,11 +17,15 @@ public class RoundManager : MonoBehaviour
 
     [Header("Difficulty Complete panel")]
     [SerializeField] private GameObject difficultyCompletePanel;
+    [SerializeField] private Animator difficultyCompleteAnimator;
+    [SerializeField] private TextMeshProUGUI completedDifficultyText;
+    [SerializeField] private Image victoryImage;
+    [SerializeField] private Image defeatImage;
 
-    [Header("Difficulty anim panels")]
-    [SerializeField] private GameObject diffAnimPanel0;
-    [SerializeField] private GameObject diffAnimPanel1;
-    [SerializeField] private GameObject diffAnimPanel2;
+    [SerializeField] private TextMeshProUGUI time;
+    [SerializeField] private TextMeshProUGUI kills;
+    [SerializeField] private TextMeshProUGUI chestsOpenend;
+    [SerializeField] private TextMeshProUGUI treesChopped;
 
     [Header("Chest spawner")]
     [SerializeField] private ChestSpawner chestSpawner;
@@ -32,7 +37,8 @@ public class RoundManager : MonoBehaviour
     public int orcsSpawnedInCurrentRound = 0;
     public int orcsKilledInCurrentRound = 0;
     public float orcSpawnIncreasePercentage;
-    private bool isStartingNewRound = false; 
+    private bool isStartingNewRound = false;
+    bool backHome = false;
 
     private void Awake()
     {
@@ -43,22 +49,17 @@ public class RoundManager : MonoBehaviour
     {
         chestSpawner.SpawnChest();
         breakableSpawner.SpawnBreakables();
-
         Statemachine();
         currentRound++;
 
         difficultyCompletePanel.SetActive(false);
-        diffAnimPanel0.SetActive(false); 
-        diffAnimPanel1.SetActive(false);
-        diffAnimPanel2.SetActive(false);
+        victoryImage.enabled= false;
+        defeatImage.enabled= false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O)) 
-        {
-            currentRound = 24;
-        }
+        Cheatcodes();
 
         if (currentRound == roundToCompleteLevel)
         {
@@ -67,6 +68,28 @@ public class RoundManager : MonoBehaviour
         else if (!isStartingNewRound && orcsKilledInCurrentRound == orcsToSpawnInCurrentRound)
         {
             StartCoroutine(StartNewRoundCoroutine());
+        }
+        if (Input.anyKeyDown && backHome)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    private void Cheatcodes()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            currentRound = 25;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            currentRound = 50;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            currentRound = 100;
         }
     }
 
@@ -114,6 +137,7 @@ public class RoundManager : MonoBehaviour
                 break;
         }
     }
+
     public int OrcsSpawnedThisRound()
     {
         return orcsToSpawnInCurrentRound;
@@ -147,41 +171,65 @@ public class RoundManager : MonoBehaviour
     {
         if (GameManager.Instance.GetDifficulty() == 0)
         {
-            difficultyCompletePanel.SetActive(true);
-            diffAnimPanel0.SetActive(true);
-                
-            GameManager.Instance.diffiuclty1Unlocked = true;
+            ChnageDiffCompleteText(true);
+            GameManager.Instance.diffiuclty2Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
-
-            if (Input.anyKeyDown)
-            {
-                SceneManager.LoadScene(1);
-            }
+            Invoke("BackToMainMenu", 2f);
         }
         else if (GameManager.Instance.GetDifficulty() == 1)
         {
-            difficultyCompletePanel.SetActive(true);
-            diffAnimPanel1.SetActive(true);
-
-            GameManager.Instance.diffiuclty2Unlocked = true;
+            ChnageDiffCompleteText(true);
+            GameManager.Instance.diffiuclty3Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
-
-            if (Input.anyKeyDown)
-            {
-                SceneManager.LoadScene(1);
-            }
+            Invoke("BackToMainMenu", 2f);
         }
         else if (GameManager.Instance.GetDifficulty() == 2)
         {
-            difficultyCompletePanel.SetActive(true);
-            diffAnimPanel2.SetActive(true);
-
+            ChnageDiffCompleteText(true);
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
-
-            if (Input.anyKeyDown)
-            {
-                SceneManager.LoadScene(1);
-            }
+            Invoke("BackToMainMenu", 2f);
         }
+    }
+
+    public void ChnageDiffCompleteText(bool victory)
+    {
+        difficultyCompletePanel.SetActive(true);
+        switch (GameManager.Instance.GetDifficulty())
+        {
+            case 0:
+                completedDifficultyText.text = "EASY DIFFICULTY";
+                break;
+
+            case 1:
+                completedDifficultyText.text = "MEDIUM DIFFICULTY";
+                break;
+
+            case 2:
+                completedDifficultyText.text = "HARD DIFFICULTY";
+                break;
+
+            default:
+                completedDifficultyText.text = "I don't know";
+                break;
+        }
+
+        if (victory)
+        {
+            victoryImage.enabled = true;
+        }
+        else
+        {
+            defeatImage.enabled = true;
+        }
+
+        time.text = "00:00";
+        kills.text = "1337";
+        chestsOpenend.text = "14";
+        treesChopped.text = "18";
+    }
+
+    private void BackToMainMenu()
+    {
+        backHome = true;
     }
 }

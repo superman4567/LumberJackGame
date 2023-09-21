@@ -78,7 +78,7 @@ public class Orc_Health : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Axe") && other.isTrigger)
         {
-            TakeDamage(axeDetection.axeDamage);
+            TakeDamage(axeDetection.additionalAxeDamage);
         }
     }
 

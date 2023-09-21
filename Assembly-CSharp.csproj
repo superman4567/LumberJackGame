@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Player\LookAtMe.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Attack.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowTerrain.cs" />
+    <Compile Include="Assets\PlayerCameraShake.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Interactables\TreeChopProgress.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Scripts\NoCopyRotation.cs" />
     <Compile Include="Assets\Scripts\Audio\0_SplashscreenAudioScripts\AxeSounds.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractionPosition.cs" />
+    <Compile Include="Assets\HoverPanel.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffects.cs" />
     <Compile Include="Assets\Scripts\UI\MiniMapCameraFollow.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_FPS.cs" />
     <Compile Include="Assets\Scripts\Enemies\OrcTextHealth.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Animations.cs" />
+    <Compile Include="Assets\ShieldRotation.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ChestSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\Store\Skill.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractPanel.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_SnowSubShowcase.cs" />
     <Compile Include="Assets\Scripts\GameManager\DifficultySelection.cs" />
     <Compile Include="Assets\Scripts\Props\ObjectFader.cs" />
+    <Compile Include="Assets\Scripts\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Chest.cs" />
     <Compile Include="Assets\Scripts\Player\HandSocket.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerUltimates.cs" />
@@ -150,9 +154,6 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
-    <Compile Include="Assets\PlayerCameraShake.cs" />
-    <Compile Include="Assets\ShieldRotation.cs" />
-    <Compile Include="Assets\HoverPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />
@@ -190,6 +191,7 @@
     <None Include="Assets\StreamingAssets\desc.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\VFX\EmmisiveByPass.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

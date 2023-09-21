@@ -10,6 +10,9 @@ public class ButtonInfoDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI skillNameText;
     [SerializeField] private TextMeshProUGUI skillDescriptionText;
 
+    [SerializeField] private float xOffset = 10f; // Adjust this value to set the desired X-axis offset
+    [SerializeField] private float yOffset = 10f; // Adjust this value to set the desired Y-axis offset
+
     private bool isMouseOver = false; // Flag to track if the mouse is over the UI element
 
     private void Start()
@@ -34,7 +37,15 @@ public class ButtonInfoDisplay : MonoBehaviour
                 out Vector2 localMousePosition
             );
 
-            // Set the position of the panel so that its top-left corner is at the mouse position
+            // Calculate the half-width and half-height of the panel
+            float halfWidth = infoMouseRect.rect.width * 0.5f;
+            float halfHeight = infoMouseRect.rect.height * 0.5f;
+
+            // Adjust the localMousePosition by adding X and Y-axis offsets
+            localMousePosition.x += xOffset;
+            localMousePosition.y += yOffset;
+
+            // Set the position of the panel
             infoMouseRect.localPosition = localMousePosition;
         }
     }

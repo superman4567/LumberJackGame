@@ -11,8 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 06aa19b87b8aa174485b5a0ed989e1cb, type: 3}
   m_ValidKeywords:
   - IS_T
-  - IS_UNLIT
   - USE_LOW
+  - USE_RT
   - USE_WC
   - _TESSELLATION_EDGE
   m_InvalidKeywords: []
@@ -260,7 +260,7 @@ Material:
     - _Cutoff: 0.361
     - _DetailBumpScale: 3.07
     - _DetailNormalMapScale: 1
-    - _DisplacementColorMult: 0.9
+    - _DisplacementColorMult: 0.92
     - _DisplacementOffset: 0.93
     - _DisplacementShadowMult: 1.6
     - _DisplacementStrength: 0.175
@@ -284,7 +284,7 @@ Material:
     - _ISICE: 0
     - _ISSNOW: 0
     - _IST: 1
-    - _ISUNLIT: 1
+    - _ISUNLIT: 0
     - _IceScale: 1
     - _IndentDepth: 0.25
     - _IndentStrength: 1.5
@@ -341,16 +341,16 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tess: 6.7
-    - _TessellationEdgeLength: 3
+    - _TessellationEdgeLength: 20
     - _TessellationUniform: 1
-    - _TransitionPower: 1
+    - _TransitionPower: 0.32
     - _TransitionScale: 4
     - _TransparencyValue: 1
     - _USEDECAL: 0
     - _USEFOG: 0
     - _USEINTER: 0
     - _USELOW: 1
-    - _USERT: 0
+    - _USERT: 1
     - _USEWC: 1
     - _USEWT: 0
     - _UVSec: 0

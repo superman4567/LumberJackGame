@@ -35,7 +35,7 @@ public class StoreManager : MonoBehaviour, IDataPersistance
 
     public Skill selectedAbility;
 
-    private Dictionary<StoreItem, bool> abilityStatusMap = new();
+    private SerializableDictionary<StoreItem, bool> abilityStatusMap = new();
 
     private void Awake()
     {
@@ -57,11 +57,6 @@ public class StoreManager : MonoBehaviour, IDataPersistance
         playerUltimates = FindObjectOfType<PlayerUltimates>();
 
         playerUltimates.UltimateSpriteUnlockCheck();
-    }
-
-    private void Start()
-    {
-        UpdatePurchaseStateSprite();
     }
 
     public void LoadData(GameData data)
@@ -88,17 +83,18 @@ public class StoreManager : MonoBehaviour, IDataPersistance
                 abilityStatusMap.Add(skill.ID, skill.isUnlocked);
             });
         }
-
     }
 
     public void SaveData(GameData data)
     {
+        //this is a ref available, game data. ability status map now refers to abilty status map in store manager, it is not a copy of the data.
         data.abilityStatusMap = this.abilityStatusMap;
     }
 
     private void Update()
     {
         UpdateSelectedSprite();
+        UpdatePurchaseStateSprite();
     }
 
     private void UpdateSelectedSprite()
@@ -321,11 +317,11 @@ public class StoreManager : MonoBehaviour, IDataPersistance
             //////////////////////////////////////
 
             case StoreItem.Damage_DoubleDamage1:
-                axeDetection.axeDamage *= 2;
+                axeDetection.defaultDamage *= 2;
                 break;
 
             case StoreItem.Damage_DoubleDamage2:
-                axeDetection.axeDamage *= 2;
+                axeDetection.defaultDamage *= 2;
                 break;
 
             case StoreItem.Damage_ExplosiveHits1:
@@ -371,7 +367,7 @@ public class StoreManager : MonoBehaviour, IDataPersistance
                 break;
 
             case StoreItem.Survival_LessStaminaReducation:
-                playerStats.reducer = 1.5f;
+                playerStats.reducer = 2f;
                 break;
 
             case StoreItem.Survival_Ultimate:

@@ -17,7 +17,7 @@ MonoBehaviour:
   ID: 8
   skillCost: 5000
   canBeBought: 1
-  isUnlocked: 0
+  isUnlocked: 1
   prerequisites:
   - {fileID: 11400000, guid: 0b68ed5af0bcbb549908de6b03b0253a, type: 2}
   - {fileID: 11400000, guid: 05117860b39776c4c8af8a528f3ce334, type: 2}

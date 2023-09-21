@@ -23,7 +23,7 @@ public class GameData
     public bool lifesteal;
 
     //UpgradeVaraibles - Damage
-    public int axeDamage;
+    public int defaultDamage;
     public bool explosiveRadiusT1;
     public bool explosiveRadiusT2;
     public bool throwspeedTier1Unlocked;
@@ -36,7 +36,7 @@ public class GameData
     public float reducer;
 
     //Abilities Unlocked
-    public Dictionary<StoreItem, bool> abilityStatusMap = new();
+    public SerializableDictionary<StoreItem, bool> abilityStatusMap = new();
 
     public GameData()
     {
@@ -56,7 +56,7 @@ public class GameData
         this.lifesteal = false;
 
         //UpgradeVaraibles - Damage
-        this.axeDamage = 20;
+        this.defaultDamage = 20;
         this.explosiveRadiusT1 = false;
         this.explosiveRadiusT2 = false;
         this.throwspeedTier1Unlocked = false;
@@ -69,6 +69,6 @@ public class GameData
         this.reducer = 0f;
 
         //Ultimates Unlocked
-        this.abilityStatusMap = new();
+        this.abilityStatusMap = new SerializableDictionary<StoreItem, bool>();
     }
 }

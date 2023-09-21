@@ -44,10 +44,12 @@ public class PlayerUltimates : MonoBehaviour
     private Image survivalchildImage;
 
     [SerializeField] private PlayerEmmissionChange playerEmmissionChange;
+    [SerializeField] private PlayerStats playerStats;
 
     private void Awake()
     {
         playerEmmissionChange = GetComponent<PlayerEmmissionChange>();
+        playerStats = GetComponent<PlayerStats>();
 
         healingchildImage = healingImage.transform.GetChild(0).GetComponent<Image>();
         damagechildImage = damageImage.transform.GetChild(0).GetComponent<Image>();
@@ -186,9 +188,15 @@ public class PlayerUltimates : MonoBehaviour
 
     private IEnumerator SurvivalUltimate()
     {
-        survivalShields.SetActive(true); 
+        survivalShields.SetActive(true);
+        playerStats.ult3 = true;
+        playerStats.reducer = 10;
+        
         yield return new WaitForSeconds(survivalUltDuration);
+        
         survivalShields.SetActive(false);
+        playerStats.ult3 = false;
+        playerStats.reducer = 1;
     }
 
     private void StartUltimateCooldown(float ultDuration, Image fillImage, Image abilityIcon)

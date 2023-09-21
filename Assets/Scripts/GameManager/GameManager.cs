@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     [Header("Difficulty")]
     public int selectedDifficulty;
-    public bool diffiuclty0Unlocked;
     public bool diffiuclty1Unlocked;
     public bool diffiuclty2Unlocked;
+    public bool diffiuclty3Unlocked;
 
     [Header("Resources")]
     private int wood;
@@ -92,9 +92,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
         this.selectedDifficulty = data.difficulty;
         this.chestHealthGain = data.chestHealthGain;
 
-        this.diffiuclty0Unlocked = data.diffiuclty0Unlocked;
-        this.diffiuclty1Unlocked = data.diffiuclty1Unlocked;
-        this.diffiuclty2Unlocked = data.diffiuclty2Unlocked;
+        this.diffiuclty1Unlocked = data.diffiuclty0Unlocked;
+        this.diffiuclty2Unlocked = data.diffiuclty1Unlocked;
+        this.diffiuclty3Unlocked = data.diffiuclty2Unlocked;
     }
 
     public void SaveData(GameData data)
@@ -103,9 +103,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
         data.difficulty = this.selectedDifficulty;
         data.chestHealthGain = this.chestHealthGain;
 
-        data.diffiuclty0Unlocked = this.diffiuclty0Unlocked;
-        data.diffiuclty1Unlocked = this.diffiuclty1Unlocked;
-        data.diffiuclty2Unlocked = this.diffiuclty2Unlocked;
+        data.diffiuclty0Unlocked = this.diffiuclty1Unlocked;
+        data.diffiuclty1Unlocked = this.diffiuclty2Unlocked;
+        data.diffiuclty2Unlocked = this.diffiuclty3Unlocked;
     }
 
     private void ClickOnUI()

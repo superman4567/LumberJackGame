@@ -114,7 +114,7 @@ public class PowerUpManager : MonoBehaviour
                 AddGainedSprite(1);
                 healthBoostsUnlocked++;
 
-                playerStats.AddHealth(10f);
+                playerStats.AddHealth(GameManager.Instance.chestHealthGain);
                 CloseAbilityPanel(showTime);
                 break;
 
@@ -125,7 +125,7 @@ public class PowerUpManager : MonoBehaviour
                 AddGainedSprite(2);
                 staminaBoostsUnlocked++;
 
-                playerStats.AddStamina(8f);
+                playerStats.AddStamina(playerStats.maxStamina);
                 CloseAbilityPanel(showTime);
                 break;
 
@@ -136,7 +136,7 @@ public class PowerUpManager : MonoBehaviour
                 AddGainedSprite(3);
                 damageBoostsUnlocked++;
 
-                playerThrowAxe.axeDamage += 25;
+                playerThrowAxe.additionalAxeDamage += 25;
                 CloseAbilityPanel(showTime);
                 break;
 
@@ -176,7 +176,7 @@ public class PowerUpManager : MonoBehaviour
         rageModesUnlocked = true;
         playerMovement.movSpeed += 1;
         playerMovement.sprintSpeed += 0.5f;
-        playerThrowAxe.axeDamage += 9999;
+        playerThrowAxe.additionalAxeDamage += 9999;
 
         float timeRemaining = duration;
 
@@ -199,7 +199,7 @@ public class PowerUpManager : MonoBehaviour
         rageModesUnlocked = false;
         playerMovement.movSpeed -= 1f;
         playerMovement.sprintSpeed -= 0.5f;
-        playerThrowAxe.axeDamage -= 9999;
+        playerThrowAxe.additionalAxeDamage -= 9999;
         CloseAbilityPanel(showTime);
     }
 

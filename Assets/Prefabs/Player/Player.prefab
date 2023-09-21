@@ -2275,8 +2275,10 @@ MonoBehaviour:
   survivalUltCoolDown: 10
   survivalUltDuration: 6
   survivalShields: {fileID: 444109451938748913}
+  survivalShieldsCollider: {fileID: 0}
   survivalUltShieldRadius: 4
   playerEmmissionChange: {fileID: 4560090560776148411}
+  playerStats: {fileID: 0}
 --- !u!114 &1737272843
 MonoBehaviour:
   m_ObjectHideFlags: 0
