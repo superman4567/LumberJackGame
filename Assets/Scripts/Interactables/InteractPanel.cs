@@ -14,10 +14,7 @@ public class InteractPanel : MonoBehaviour
     void Start()
     {
         radialCanvas.SetActive(false);
-    }
 
-    private void Update()
-    {
         Vector3 newPosition = transform.position + positionOffset;
         radialCanvas.transform.position = newPosition;
 

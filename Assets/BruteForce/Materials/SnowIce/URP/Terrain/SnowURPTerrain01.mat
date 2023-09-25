@@ -11,6 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 06aa19b87b8aa174485b5a0ed989e1cb, type: 3}
   m_ValidKeywords:
   - IS_T
+  - IS_UNLIT
   - USE_LOW
   - USE_RT
   - USE_WC
@@ -18,7 +19,7 @@ Material:
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -284,7 +285,7 @@ Material:
     - _ISICE: 0
     - _ISSNOW: 0
     - _IST: 1
-    - _ISUNLIT: 0
+    - _ISUNLIT: 1
     - _IceScale: 1
     - _IndentDepth: 0.25
     - _IndentStrength: 1.5
@@ -322,7 +323,7 @@ Material:
     - _ParalaxColorScale: -1.12
     - _Parallax: 0.02
     - _ParallaxStrength: 0
-    - _ProceduralDistance: 8
+    - _ProceduralDistance: 1
     - _ProceduralStrength: 12
     - _ReflectionOpacity: 0
     - _ReflectionStrength: 0.07
@@ -341,7 +342,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tess: 6.7
-    - _TessellationEdgeLength: 20
+    - _TessellationEdgeLength: 4
     - _TessellationUniform: 1
     - _TransitionPower: 0.32
     - _TransitionScale: 4
