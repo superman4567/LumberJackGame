@@ -222,10 +222,11 @@ public class RoundManager : MonoBehaviour
             defeatImage.enabled = true;
         }
 
-        time.text = "00:00";
-        kills.text = "1337";
-        chestsOpenend.text = "14";
-        treesChopped.text = "18";
+        GameManager.Instance.roundTimer = false;
+        time.text = Mathf.Round(GameManager.Instance.thisRunTimer).ToString();
+        kills.text = GameManager.Instance.thisRunOrcsSlayed.ToString();
+        chestsOpenend.text = GameManager.Instance.thisRunChestsOpened.ToString();
+        treesChopped.text = GameManager.Instance.thisRunChoppedTrees.ToString();
     }
 
     private void BackToMainMenu()

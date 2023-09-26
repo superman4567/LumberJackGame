@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour, IDataPersistance
     private int orcsSlayed;
     private int chestsOpened;
 
+    public float thisRunTimer = 0;
+    public int thisRunChoppedTrees = 0;
+    public int thisRunOrcsSlayed = 0;
+    public int thisRunChestsOpened = 0;
+    public bool roundTimer = true;
+
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
     public TextMeshProUGUI coinsUI;
@@ -68,7 +74,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
         UpdateUI();
         pausePanel.SetActive(false);
         creditsPanel.SetActive(false);
-
         if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(false);
     }
@@ -91,6 +96,11 @@ public class GameManager : MonoBehaviour, IDataPersistance
         if (Input.GetKeyDown(KeyCode.N))
         {
             AddResource(GameManager.ResourceType.Wood, 9999);
+        }
+
+        if (roundTimer)
+        {
+            RoundTimer();
         }
     }
 
@@ -366,6 +376,14 @@ public class GameManager : MonoBehaviour, IDataPersistance
         if (chestsOpened == 100)
         {
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_TreasureMaster");
+        }
+    }
+
+    public void RoundTimer()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            thisRunTimer += Time.deltaTime;
         }
     }
 }
