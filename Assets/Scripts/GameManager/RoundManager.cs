@@ -171,27 +171,27 @@ public class RoundManager : MonoBehaviour
     {
         if (GameManager.Instance.GetDifficulty() == 0)
         {
-            ChnageDiffCompleteText(true);
+            ChangeDiffCompleteText(true);
             GameManager.Instance.diffiuclty1Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
             Invoke("BackToMainMenu", 2f);
         }
         else if (GameManager.Instance.GetDifficulty() == 1)
         {
-            ChnageDiffCompleteText(true);
+            ChangeDiffCompleteText(true);
             GameManager.Instance.diffiuclty2Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
             Invoke("BackToMainMenu", 2f);
         }
         else if (GameManager.Instance.GetDifficulty() == 2)
         {
-            ChnageDiffCompleteText(true);
+            ChangeDiffCompleteText(true);
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF2");
             Invoke("BackToMainMenu", 2f);
         }
     }
 
-    public void ChnageDiffCompleteText(bool victory)
+    public void ChangeDiffCompleteText(bool victory)
     {
         difficultyCompletePanel.SetActive(true);
         switch (GameManager.Instance.GetDifficulty())

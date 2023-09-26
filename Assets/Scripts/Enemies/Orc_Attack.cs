@@ -9,7 +9,6 @@ public class Orc_Attack : MonoBehaviour
 {
     [Header("Combat")]
     [SerializeField] private float meleeAttackRange = 3.0f;
-    [SerializeField] private float rangedAttackRange = 10.0f;
     [SerializeField] private float meleeAttackDuration = 1.0f; 
     [SerializeField] private float throwCooldown = 4.0f;
     [SerializeField] private float throwForce = 15f;
@@ -34,6 +33,7 @@ public class Orc_Attack : MonoBehaviour
     private bool startThrowing = false;
     public NavMeshAgent navMeshAgent;
     private float throwCooldownTimer = 0.0f;
+    private float timeBeforeThrowing = 0.0f;
 
     public static bool attackingTotem = false;
     private Transform player;
@@ -41,9 +41,18 @@ public class Orc_Attack : MonoBehaviour
     private float distanceToTotem;
     private float distanceToPlayer;
 
+    private enum OrcState
+    {
+        MeleeAttack,
+        ThrowRock
+    }
+
+    private OrcState currentState = OrcState.MeleeAttack;
+    private float meleeAttackTimer = 0f;
+
     private void Awake()
     {
-        Statemachine();
+        StatemachineOrcDamage();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<CharacterController>();
@@ -58,9 +67,11 @@ public class Orc_Attack : MonoBehaviour
     private void Update()
     {
         MeleeOrRangedAttack();
+        if (IsChasingTotem) { return; }
+        ChasePlayer();
     }
 
-    private void Statemachine()
+    private void StatemachineOrcDamage()
     {
         switch (GameManager.Instance.GetDifficulty())
         {
@@ -93,33 +104,36 @@ public class Orc_Attack : MonoBehaviour
     private void MeleeOrRangedAttack()
     {
         if (orcHealth.orcIsDeath == true || orcHealth.isKnockbackActive) { return; }
-        
+
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        startThrowing = (distanceToPlayer < rangedAttackRange) ? true : false;
 
-        if (distanceToPlayer < meleeAttackRange || attackingTotem)
+        switch (currentState)
         {
-            MeleeAttack();
-            navMeshAgent.speed = baseOrcSpeed + 5 + GameManager.Instance.GetDifficulty();
-            animator.SetBool("OrcMeleeAttack", true);
-        }
+            case OrcState.MeleeAttack:
+                if (distanceToPlayer < meleeAttackRange || attackingTotem)
+                {
+                    MeleeAttack();
+                    navMeshAgent.speed = baseOrcSpeed + 5 + GameManager.Instance.GetDifficulty();
+                    animator.SetBool("OrcMeleeAttack", true);
+                    meleeAttackTimer += Time.deltaTime;
 
-        else if (distanceToPlayer > meleeAttackRange && startThrowing == true)
-        {
-            navMeshAgent.SetDestination(player.position);
-            navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
+                    if (meleeAttackTimer >= 5f) // Change to the desired duration
+                    {
+                        currentState = OrcState.ThrowRock;
+                        meleeAttackTimer = 0f; // Reset the timer
+                    }
+                }
+                break;
 
-            throwCooldownTimer += Time.deltaTime;
-            if (throwCooldownTimer >= throwCooldown)
-            {
-                animator.SetBool("OrcRangedAttack", true);
-            }
-        }
+            case OrcState.ThrowRock:
+                navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
 
-        else 
-        {
-            if (IsChasingTotem) { return; }
-            ChasePlayer();
+                throwCooldownTimer += Time.deltaTime;
+                if (throwCooldownTimer >= throwCooldown)
+                {
+                    animator.SetBool("OrcRangedAttack", true);
+                }
+                break;
         }
     }
 
@@ -191,8 +205,5 @@ public class Orc_Attack : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, rangedAttackRange);
     }
 }

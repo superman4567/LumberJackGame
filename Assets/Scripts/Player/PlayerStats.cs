@@ -136,9 +136,9 @@ public class PlayerStats : MonoBehaviour, IDataPersistance
 
     private void PlayerDeath()
     {
-        RoundManager.Instance.ChnageDiffCompleteText(false);
+        RoundManager.Instance.ChangeDiffCompleteText(false);
         SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_Death");
-        Invoke("FreezeTime", 10f);
+        Invoke("FreezeTime", 1f);
     }
 
     public void FreezeTime()
