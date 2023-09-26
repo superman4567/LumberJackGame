@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Ambient Game Objects" ID="{D0061FEE-4AA8-45F9-ABC3-3D25D3E2496D}" ShortID="363265739">
+					<ChildrenList>
+						<Event Name="Play_Fireplace_1_SFX__cabin_" ID="{824CB941-A13F-4F75-9C6E-956F7B0B777C}">
+							<ChildrenList>
+								<Action Name="" ID="{36F463BA-4794-4C46-9A91-BEED94AB1033}" ShortID="498550335">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fireplace 1 SFX (cabin)" ID="{FAD3B94D-7D30-4567-A8C6-F54E4EE0FEDD}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Fireplace_2_SFX__wilderness_campfire_" ID="{B57FDFD3-342C-488E-8257-69A1052C3F15}">
+							<ChildrenList>
+								<Action Name="" ID="{ED694D51-47E8-485D-8FD4-9D2FCA682DC1}" ShortID="514756858">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fireplace 2 SFX (wilderness campfire)" ID="{8945B216-2447-4BFC-A784-FEF6E5E5E35F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="BGM" ID="{F3556EC1-2F91-4C89-BCD0-6ABD02046066}" ShortID="65893821">
+					<ChildrenList>
+						<Event Name="Play_The_White_Wilderness_BGM" ID="{850C6B4A-CB1A-443F-8715-A1CECED220E7}">
+							<ChildrenList>
+								<Action Name="" ID="{E661D40C-3F67-4382-9244-A6D6586FEF36}" ShortID="99811541">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="The White Wilderness BGM" ID="{E0AD7378-0D7C-4E13-BD8F-737CEFDE365E}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Snowstorm_SFX__cabin_" ID="{660226DB-FF5C-4BC5-A6D5-67DED790D416}">
+							<ChildrenList>
+								<Action Name="" ID="{4E204FFA-DA8E-4B02-8E6D-9C067C46A371}" ShortID="557526288">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Snowstorm SFX (cabin)" ID="{D93752B0-05B6-46C5-8690-6A4A3BF861EE}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Snowstorm_SFX__wilderness_" ID="{7AF99C42-87BA-4AE0-AC19-45249F9F2FBF}">
+							<ChildrenList>
+								<Action Name="" ID="{19E7293D-D734-4231-BA69-FE6E091F282F}" ShortID="107966717">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Snowstorm SFX (wilderness)" ID="{767E9292-CE2C-45F1-B475-313DC61332C0}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Trigger Actions" ID="{B0AB9DB4-04B3-4F55-880E-2B990ACFF2B5}" ShortID="52929396"/>
+				<Folder Name="Footsteps" ID="{3A492C1E-CB7E-45CC-84E3-1E1508BFE25C}" ShortID="483711899"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

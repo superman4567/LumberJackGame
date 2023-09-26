@@ -11,10 +11,31 @@
 
 namespace AK
 {
+    namespace EVENTS
+    {
+        static const AkUniqueID PLAY_FIREPLACE_1_SFX__CABIN_ = 580796139U;
+        static const AkUniqueID PLAY_FIREPLACE_2_SFX__WILDERNESS_CAMPFIRE_ = 519370205U;
+        static const AkUniqueID PLAY_THE_WHITE_WILDERNESS_BGM = 1461983755U;
+    } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace BGM
+        {
+            static const AkUniqueID GROUP = 412724365U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace BGM
+
+    } // namespace STATES
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID MASTER = 4056684167U;
+        static const AkUniqueID MAIN = 3161908922U;
     } // namespace BANKS
 
     namespace BUSSES
