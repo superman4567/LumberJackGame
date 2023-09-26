@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{986487A9-2683-E47A-8688-3D0FE6FDB954}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{7BC44E2A-C2DB-26BB-B383-2CCF0422E680}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,11 +21,49 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="412724365" Name="BGM">
+					<States>
+						<State Id="748895195" Name="None"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{73D2F82E-3C9A-353F-4F7A-B26E8573544B}">
-			<ShortName>master</ShortName>
-			<Path>master.bnk</Path>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B4F4DAE1-0EBD-B68A-199F-A9982FDFF4C6}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="366189814" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fireplace 1 SFX (cabin).wav</ShortName>
+					<CachePath>SFX/Fireplace 1 SFX (cabin)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="661576098" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>The White Wilderness BGM.wav</ShortName>
+					<CachePath>SFX/The White Wilderness BGM_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="944032091" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fireplace 2 SFX (wilderness campfire).wav</ShortName>
+					<CachePath>SFX/Fireplace 2 SFX (wilderness campfire)_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="10" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="366189814"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="519370205" Name="Play_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="10" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="944032091"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1461983755" Name="Play_The_White_Wilderness_BGM" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="661576098"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8571CE44-A7B6-5E80-D4D1-6E00CCA2F8C6}</FileHash>
+	<FileHash>{0E106933-6E1C-DB0D-3FC7-0CEC794A67B8}</FileHash>
 </SoundBanksInfo>

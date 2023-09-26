@@ -1,0 +1,16 @@
+Event	ID	Name			Wwise Object Path	Notes
+	519370205	Play_Fireplace_2_SFX__wilderness_campfire_			\Default Work Unit\Ambient Game Objects\Play_Fireplace_2_SFX__wilderness_campfire_	
+	580796139	Play_Fireplace_1_SFX__cabin_			\Default Work Unit\Ambient Game Objects\Play_Fireplace_1_SFX__cabin_	
+	1461983755	Play_The_White_Wilderness_BGM			\Default Work Unit\BGM\Play_The_White_Wilderness_BGM	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	412724365	BGM			\Default Work Unit\BGM	
+
+State	ID	Name	State Group			Notes
+	748895195	None	BGM			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	366189814	Fireplace 1 SFX (cabin)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Windows\SFX\Fireplace 1 SFX (cabin)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient Game Objects\Fireplace 1 SFX (cabin)		1372144
+	661576098	The White Wilderness BGM	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Windows\SFX\The White Wilderness BGM_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\The White Wilderness BGM		58368096
+	944032091	Fireplace 2 SFX (wilderness campfire)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Windows\SFX\Fireplace 2 SFX (wilderness campfire)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambient Game Objects\Fireplace 2 SFX (wilderness campfire)		1498728
+

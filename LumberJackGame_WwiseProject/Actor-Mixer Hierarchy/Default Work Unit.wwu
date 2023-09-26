@@ -1,6 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" SchemaVersion="110">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Ambient Game Objects" ID="{BC8F70BD-CB7A-4E52-BECE-DA3FE4F895F0}" ShortID="861840519">
+					<ChildrenList>
+						<Sound Name="Fireplace 1 SFX (cabin)" ID="{FAD3B94D-7D30-4567-A8C6-F54E4EE0FEDD}" ShortID="427782246">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Fireplace or Campfire Distance" ID="{1C46BA96-FA38-479F-83DB-E16FEAB2FC21}" WorkUnitID="{337CB99C-F419-4949-870A-8EFA0D5CBF90}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Fireplace 1 SFX (cabin)" ID="{55ADF402-40CD-44FF-987D-A51121F1BEE7}">
+									<Language>SFX</Language>
+									<AudioFile>Fireplace 1 SFX (cabin).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366189814"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Fireplace 1 SFX (cabin)" ID="{55ADF402-40CD-44FF-987D-A51121F1BEE7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Fireplace 2 SFX (wilderness campfire)" ID="{8945B216-2447-4BFC-A784-FEF6E5E5E35F}" ShortID="96239501">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Fireplace or Campfire Distance" ID="{1C46BA96-FA38-479F-83DB-E16FEAB2FC21}" WorkUnitID="{337CB99C-F419-4949-870A-8EFA0D5CBF90}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Fireplace 2 SFX (wilderness campfire)" ID="{FDAAB03A-FB33-48C9-A474-3EB5FF766B98}">
+									<Language>SFX</Language>
+									<AudioFile>Fireplace 2 SFX (wilderness campfire).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="944032091"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Fireplace 2 SFX (wilderness campfire)" ID="{FDAAB03A-FB33-48C9-A474-3EB5FF766B98}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="BGM" ID="{6554D325-FB32-46C9-8B91-62238DD48A80}" ShortID="520646293">
+					<ChildrenList>
+						<Sound Name="The White Wilderness BGM" ID="{E0AD7378-0D7C-4E13-BD8F-737CEFDE365E}" ShortID="159806238">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="The White Wilderness BGM" ID="{63B4352B-BBEA-44CC-BC45-ECC14DC1EA3E}">
+									<Language>SFX</Language>
+									<AudioFile>The White Wilderness BGM.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="661576098"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="BGM" ID="{A119F7BD-57F6-406F-B477-5045D9A0F469}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="The White Wilderness BGM" ID="{63B4352B-BBEA-44CC-BC45-ECC14DC1EA3E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Snowstorm SFX (cabin)" ID="{D93752B0-05B6-46C5-8690-6A4A3BF861EE}" ShortID="28989047">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Snowstorm SFX (cabin)" ID="{E3830A58-44F6-4188-B7A0-DDB1318FF826}">
+									<Language>SFX</Language>
+									<AudioFile>Snowstorm SFX (cabin).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="322157384"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="BGM" ID="{A119F7BD-57F6-406F-B477-5045D9A0F469}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="Snowstorm SFX (cabin)" ID="{E3830A58-44F6-4188-B7A0-DDB1318FF826}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Snowstorm SFX (wilderness)" ID="{767E9292-CE2C-45F1-B475-313DC61332C0}" ShortID="324115341">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Snowstorm SFX (wilderness, splash etc)" ID="{65461350-BCB6-403B-8B06-9D48DCF651AD}">
+									<Language>SFX</Language>
+									<AudioFile>Snowstorm SFX (wilderness, splash etc).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="688684146"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="BGM" ID="{A119F7BD-57F6-406F-B477-5045D9A0F469}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="Snowstorm SFX (wilderness, splash etc)" ID="{65461350-BCB6-403B-8B06-9D48DCF651AD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Trigger Action" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" ShortID="421079139"/>
+				<Folder Name="Footsteps" ID="{8430767A-A551-47EE-8EC9-E0188D982430}" ShortID="118376233"/>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
