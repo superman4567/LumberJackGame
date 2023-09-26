@@ -32,6 +32,7 @@ public class Chest : Interactable
             isOpen = true;
 
             GameManager.Instance.ChestsOpenedAdd();
+            GameManager.Instance.thisRunChestsOpened++;
             Invoke("UnlockPlayer", 1.8f);
         }
     }
