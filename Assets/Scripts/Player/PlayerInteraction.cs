@@ -57,7 +57,7 @@ public class PlayerInteraction : MonoBehaviour
     private void ClosestInteractableCheck()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, interactionDistance, interactableLayer);
-        float closestDot = .7f;
+        float closestDot = .5f;
         GameObject closestInteractable = null;
 
         foreach (Collider collider in colliders)

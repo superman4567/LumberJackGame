@@ -16,7 +16,7 @@ MonoBehaviour:
   skillDescription: The amount of health and stamina from a campfire is drasticly
     increased.
   ID: 19
-  skillCost: 50
+  skillCost: 150
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

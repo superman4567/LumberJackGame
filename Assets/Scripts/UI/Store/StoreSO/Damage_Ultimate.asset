@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Damage_Ultimate
   m_EditorClassIdentifier: 
   skillName: Damage Ultimate
-  skillDescription: <To be determined>
+  skillDescription: Spawn a fire circle damaging all enemies inside it.
   ID: 15
-  skillCost: 5000
+  skillCost: 1500
   canBeBought: 1
-  isUnlocked: 1
+  isUnlocked: 0
   prerequisites:
   - {fileID: 11400000, guid: a692328225a642a4183e30fb9cce4728, type: 2}

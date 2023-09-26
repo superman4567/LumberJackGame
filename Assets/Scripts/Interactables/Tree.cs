@@ -16,6 +16,7 @@ public class Tree : Interactable
        
         Instantiate(fallingTreePrefab, transform.position, transform.rotation, transform.parent);
         GameManager.Instance.AddResource(GameManager.ResourceType.Wood, Random.Range(1,3));
+        GameManager.Instance.TreeChopppedAdd();
         canvas.SetActive(false);
 
         Destroy(gameObject);

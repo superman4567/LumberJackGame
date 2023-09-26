@@ -16,7 +16,7 @@ MonoBehaviour:
   skillDescription: Allows you to consume a slightly bigger amount of healing by
     hitting enemies.
   ID: 6
-  skillCost: 800
+  skillCost: 500
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

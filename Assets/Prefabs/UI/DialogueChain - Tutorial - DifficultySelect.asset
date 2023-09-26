@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DialogueChain - Tutorial - DifficultySelect
   m_EditorClassIdentifier: 
   description:
-  - This is the difficulty seclect board, if you feel like you are up for the challange
+  - This is the difficulty select board, if you feel like you are up for the challange
     you can increase.
   - Let's go!

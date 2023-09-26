@@ -12,15 +12,19 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     [Header("Difficulty")]
     public int selectedDifficulty;
+    public bool diffiuclty0Unlocked;
     public bool diffiuclty1Unlocked;
     public bool diffiuclty2Unlocked;
-    public bool diffiuclty3Unlocked;
 
     [Header("Resources")]
     private int wood;
     private int coins;
     private int woodMultiplier = 1;
     private int coinMultiplier = 1;
+
+    private int choppedTrees;
+    private int orcsSlayed;
+    private int chestsOpened;
 
     [Header("Resources UI Elements")]
     public TextMeshProUGUI woodUI;
@@ -32,6 +36,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
 
     [Header("PausePanel")]
     [SerializeField] private GameObject pausePanel;
+
+    [Header("Credits panel")]
+    [SerializeField] private GameObject creditsPanel;
 
     [Header("PowerUp variables")]
     public float chestHealthGain = 25f;
@@ -60,6 +67,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         UpdateUI();
         pausePanel.SetActive(false);
+        creditsPanel.SetActive(false);
 
         if (SceneManager.GetActiveScene().buildIndex != 1) { return; }
         storePanel.SetActive(false);
@@ -92,9 +100,13 @@ public class GameManager : MonoBehaviour, IDataPersistance
         this.selectedDifficulty = data.difficulty;
         this.chestHealthGain = data.chestHealthGain;
 
-        this.diffiuclty1Unlocked = data.diffiuclty0Unlocked;
-        this.diffiuclty2Unlocked = data.diffiuclty1Unlocked;
-        this.diffiuclty3Unlocked = data.diffiuclty2Unlocked;
+        this.diffiuclty0Unlocked = data.diffiuclty0Unlocked;
+        this.diffiuclty1Unlocked = data.diffiuclty1Unlocked;
+        this.diffiuclty2Unlocked = data.diffiuclty2Unlocked;
+
+        this.choppedTrees = data.choppedTrees;
+        this.orcsSlayed = data.orcsSlayed;
+        this.chestsOpened = data.chestsOpened;
     }
 
     public void SaveData(GameData data)
@@ -103,9 +115,9 @@ public class GameManager : MonoBehaviour, IDataPersistance
         data.difficulty = this.selectedDifficulty;
         data.chestHealthGain = this.chestHealthGain;
 
-        data.diffiuclty0Unlocked = this.diffiuclty1Unlocked;
-        data.diffiuclty1Unlocked = this.diffiuclty2Unlocked;
-        data.diffiuclty2Unlocked = this.diffiuclty3Unlocked;
+        data.diffiuclty0Unlocked = this.diffiuclty0Unlocked;
+        data.diffiuclty1Unlocked = this.diffiuclty1Unlocked;
+        data.diffiuclty2Unlocked = this.diffiuclty2Unlocked;
     }
 
     private void ClickOnUI()
@@ -207,7 +219,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
     {
         difficultyButtons[0].interactable = true;
 
-        if (diffiuclty1Unlocked == true)
+        if (diffiuclty0Unlocked == true)
         {
             difficultyButtons[1].interactable = true;
         }
@@ -216,7 +228,7 @@ public class GameManager : MonoBehaviour, IDataPersistance
             difficultyButtons[1].interactable = false;
         }
 
-        if (diffiuclty2Unlocked == true)
+        if (diffiuclty1Unlocked == true)
         {
             difficultyButtons[2].interactable = true;
         }
@@ -292,5 +304,68 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public int GetWood()
     {
         return wood;
+    }
+
+    public void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
+
+    public void TreeChopppedAdd()
+    {
+        choppedTrees++;
+        Debug.Log(choppedTrees);
+
+        if (choppedTrees == 1)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_WOOD1");
+        }
+
+        if (choppedTrees == 100)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_WOOD100");
+        }
+    }
+
+    public void OrcSlayedAdd()
+    {
+        orcsSlayed++;
+        Debug.Log(orcsSlayed);
+
+        if (orcsSlayed == 1)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_OrcSlayerrookie");
+        }
+
+        if (orcsSlayed == 100)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_OrcSlayer");
+        }
+
+        if (orcsSlayed == 1000)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_OrcDominator");
+        }
+    }
+
+    public void ChestsOpenedAdd()
+    {
+        chestsOpened++;
+        Debug.Log(chestsOpened);
+
+        if (chestsOpened == 1)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_FirstTreasure");
+        }
+
+        if (chestsOpened == 100)
+        {
+            SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_TreasureMaster");
+        }
     }
 }

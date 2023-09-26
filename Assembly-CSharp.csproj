@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Tutorial\EnemyTutorial.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerReset.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\IDataPersistance.cs" />
+    <Compile Include="Assets\ChangeQuality.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerThrowAxe.cs" />
     <Compile Include="Assets\Scripts\UI\ShowDialogue.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InteractiveEffectsAdditional.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerLook.cs" />
     <Compile Include="Assets\Scripts\Enemies\StartSpawing.cs" />
     <Compile Include="Assets\Scripts\Steam\SteamIntegration.cs" />
+    <Compile Include="Assets\Scripts\EnableSnowFalling.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_InputSystemSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemies\Orc_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerEmmissionChange.cs" />
@@ -154,7 +156,6 @@
     <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
     <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\EnableSnowFalling.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Wwise\NewVersion.txt" />

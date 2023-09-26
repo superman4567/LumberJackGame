@@ -171,6 +171,7 @@ public class Orc_Health : MonoBehaviour
         orcIsDeath = true;
         GameManager.Instance.AddResource(GameManager.ResourceType.Coins, Random.Range(1, 2));
         orc_Attack.Disablehands();
+        GameManager.Instance.OrcSlayedAdd();
         Invoke("RemoveOrc", 10f);
     }
 

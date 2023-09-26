@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Survival_ExtraFocusTier1
   m_EditorClassIdentifier: 
   skillName: Increase focus T1
-  skillDescription: 
+  skillDescription: Maximum stamina is increased
   ID: 16
-  skillCost: 50
+  skillCost: 100
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

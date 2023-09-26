@@ -172,14 +172,14 @@ public class RoundManager : MonoBehaviour
         if (GameManager.Instance.GetDifficulty() == 0)
         {
             ChnageDiffCompleteText(true);
-            GameManager.Instance.diffiuclty2Unlocked = true;
+            GameManager.Instance.diffiuclty1Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF0");
             Invoke("BackToMainMenu", 2f);
         }
         else if (GameManager.Instance.GetDifficulty() == 1)
         {
             ChnageDiffCompleteText(true);
-            GameManager.Instance.diffiuclty3Unlocked = true;
+            GameManager.Instance.diffiuclty2Unlocked = true;
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_DIFF1");
             Invoke("BackToMainMenu", 2f);
         }

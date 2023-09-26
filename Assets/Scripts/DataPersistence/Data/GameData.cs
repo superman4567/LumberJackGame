@@ -35,6 +35,11 @@ public class GameData
     public float campfireDuration;
     public float reducer;
 
+    //Achievements
+    public int choppedTrees;
+    public int orcsSlayed;
+    public int chestsOpened;
+
     //Abilities Unlocked
     public SerializableDictionary<StoreItem, bool> abilityStatusMap = new();
 
@@ -70,5 +75,10 @@ public class GameData
 
         //Ultimates Unlocked
         this.abilityStatusMap = new SerializableDictionary<StoreItem, bool>();
+
+        //Achievements
+        this.choppedTrees = 0;
+        this.orcsSlayed = 0;
+        this.chestsOpened = 0;
     }
 }

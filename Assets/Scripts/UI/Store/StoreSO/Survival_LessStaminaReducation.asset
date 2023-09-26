@@ -16,7 +16,7 @@ MonoBehaviour:
   skillDescription: The amount of stamina that is being drained by sprinting and
     dodge rolling is much less.
   ID: 20
-  skillCost: 1250
+  skillCost: 750
   canBeBought: 1
   isUnlocked: 0
   prerequisites:

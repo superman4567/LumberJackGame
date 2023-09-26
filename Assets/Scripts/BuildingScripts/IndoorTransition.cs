@@ -72,7 +72,7 @@ public class IndoorTransition : MonoBehaviour
             float progressValue = Mathf.Clamp01((Time.time - startTime) / 3.5f); // Assuming 3.5 seconds max
 
             // Set the loading text to the progress percentage
-            loadingPercentText.text = (progressValue * 100f).ToString("F0") + "%";
+            loadingPercentText.text = Mathf.Round(progressValue * 100f).ToString("F0") + "%";
 
             // Check if the loading operation has completed
             if (progressValue >= 1f)
@@ -94,7 +94,7 @@ public class IndoorTransition : MonoBehaviour
         while (!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f); // Divide by 0.9f for normalization
-            loadingPercentText.text = (progressValue * 100f).ToString("F1") + "%";
+            loadingPercentText.text = Mathf.Round(progressValue * 100f).ToString("F0") + "%";
             yield return null;
         }
 

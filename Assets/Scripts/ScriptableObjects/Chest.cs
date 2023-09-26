@@ -31,6 +31,7 @@ public class Chest : Interactable
             playerMovement.enabled = false;
             isOpen = true;
 
+            GameManager.Instance.ChestsOpenedAdd();
             Invoke("UnlockPlayer", 1.8f);
         }
     }
