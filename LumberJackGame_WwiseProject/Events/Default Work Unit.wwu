@@ -66,8 +66,348 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Trigger Actions" ID="{B0AB9DB4-04B3-4F55-880E-2B990ACFF2B5}" ShortID="52929396"/>
-				<Folder Name="Footsteps" ID="{3A492C1E-CB7E-45CC-84E3-1E1508BFE25C}" ShortID="483711899"/>
+				<Folder Name="Trigger Action" ID="{46D29CDF-659D-451C-8E7C-78AF9F988A70}" ShortID="893219826">
+					<ChildrenList>
+						<Event Name="Play_Axe_Hitting_Something_Soft__Moist_" ID="{E483522B-BC37-4C65-8241-7405D699F244}">
+							<ChildrenList>
+								<Action Name="" ID="{EFE2B40B-65F6-494C-AC32-568B07E609F7}" ShortID="16017536">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Axe Hitting Something Soft (Moist)" ID="{31D46887-28F4-4D89-BE34-2BFDA73E2A98}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Chopping_Wood_SFX__single_chop_" ID="{6755A743-E437-4E03-BD8E-6D182CFAB50B}">
+							<ChildrenList>
+								<Action Name="" ID="{7D9A55CA-732A-4DC6-8447-C749907E6EFF}" ShortID="145472154">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chopping Wood SFX (single chop)" ID="{FBEE89FB-CD77-4927-B58E-7FCFBA3902BB}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Orc_Throwing_Rock_SFX" ID="{6154BC68-33F3-469D-9191-67E0022C3F4A}">
+							<ChildrenList>
+								<Action Name="" ID="{BED20854-84C3-4E74-9EBF-A429291359BB}" ShortID="71386456">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Orc Throwing Rock SFX" ID="{A9DF3983-AEEB-4EB1-B418-A7E8DCCE943E}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Cabin_Door_Opening_SFX" ID="{777EE599-76EA-429A-A849-A3F0CC0F4BAD}">
+							<ChildrenList>
+								<Action Name="" ID="{ADFEC67A-780D-47B8-A63C-C473C591429E}" ShortID="756161357">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cabin Door Opening SFX" ID="{05787254-E34D-469E-A58E-9008401A72FD}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Retrieve_Axe_SFX" ID="{43ACE642-6F83-4002-898C-845733567045}">
+							<ChildrenList>
+								<Action Name="" ID="{3A5EAB78-3213-4A0A-8C31-5B04D548D36C}" ShortID="561876657">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Retrieve Axe SFX" ID="{5D57B2E0-780B-4568-938D-1552FE9BF43C}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Throw_Axe_1_SFX" ID="{48897D92-EDEA-480A-8B30-90F2733D649E}">
+							<ChildrenList>
+								<Action Name="" ID="{D3B461B6-F822-4041-A8CB-DD80D3489596}" ShortID="149551318">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Throw Axe 1 SFX" ID="{74260696-D05B-45D8-8DA8-3418D638776C}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Tree_Landing_SLOW_SFX" ID="{FA496605-6FE7-476C-89ED-D617EF2B4FB2}">
+							<ChildrenList>
+								<Action Name="" ID="{97CB6169-6D6C-4AE0-9C3C-961B2746F915}" ShortID="716970195">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tree Landing SLOW SFX" ID="{B5405541-DE4B-4BE9-B95D-656DD55795CE}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Tree_Falling_SLOW_SFX" ID="{9A7C2891-5320-446E-A9B1-6D7755F07D6D}">
+							<ChildrenList>
+								<Action Name="" ID="{ACD12863-855E-4485-B43D-F4B7764BFF9D}" ShortID="655047206">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tree Falling SLOW SFX" ID="{BF1F123F-3C2D-4D10-BC59-C5341D14D3C0}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Axe_Hitting_and_Breaking_Barrel_SFX" ID="{7FE084E4-31BE-473E-93BC-F04E2FAC9374}">
+							<ChildrenList>
+								<Action Name="" ID="{EAF912C3-F2D3-46C7-86BC-7BCF13990B83}" ShortID="145044729">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Axe Hitting and Breaking Barrel SFX" ID="{FDFAA7B8-C377-4833-AA72-C37D70827D56}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Axe_Hitting_and_Breaking_Crate_SFX" ID="{FBE98112-3C0E-4EF8-9E5D-4A9D4A2412A3}">
+							<ChildrenList>
+								<Action Name="" ID="{8B95DD31-69CC-4E7B-BC53-FC7317A8809F}" ShortID="139301317">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Axe Hitting and Breaking Crate SFX" ID="{0346665D-7D16-4098-A512-A1A6289585EA}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Axe_Hitting_Something_Hard__Wood_" ID="{1F518FD7-75ED-42D7-AAE9-65B1E34072FA}">
+							<ChildrenList>
+								<Action Name="" ID="{14E1D345-884D-456F-8F57-02D97A02382F}" ShortID="626090172">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Axe Hitting Something Hard (Wood)" ID="{81D4D37C-B10D-441C-B437-62D39AEF098B}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Orc_Idle" ID="{53832477-6CC0-444D-A3F0-55FE788EBC32}">
+							<ChildrenList>
+								<Action Name="" ID="{32F103E1-9844-4CF2-B5BF-BEEC3F90CF24}" ShortID="533316151">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Orc Idle" ID="{A65E1CBF-17D8-42CA-A8A0-0B325086EB64}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Orc_Getting_Hit" ID="{C00DFBCA-A89F-4BFB-A0A0-0238EBB6D5EC}">
+							<ChildrenList>
+								<Action Name="" ID="{D4173E4A-7579-40DA-B6F9-000026139B0D}" ShortID="475203511">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Orc Getting Hit" ID="{A0583C0C-F409-46B3-8382-758E08E605A9}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_Getting_Hit" ID="{8AC1E10E-A5F0-44E5-B56B-FF9A5784A6C0}">
+							<ChildrenList>
+								<Action Name="" ID="{A210AA61-92FC-4029-8BE8-CC741A22DA1D}" ShortID="538612141">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player Getting Hit" ID="{41EDC585-D8A6-4DE4-9BC8-B8E87B77AB13}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Orc_Slash" ID="{83F69842-D498-4086-BBD0-6FA3B0E25145}">
+							<ChildrenList>
+								<Action Name="" ID="{AB9FF1BC-D635-41CE-944F-4F1CAECE34A9}" ShortID="298587042">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Orc Slash" ID="{07C40501-4B6D-43F8-9C1D-84CD84DF8928}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Orc_Dying" ID="{519D9362-F49E-42C3-B5AB-B383AD3F0B2A}">
+							<ChildrenList>
+								<Action Name="" ID="{BB2C897F-E560-451A-B0C6-B75EDC25BBA0}" ShortID="9424535">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Orc Dying" ID="{6FD3B053-C89F-49DE-ABDC-7DF68F8A3688}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{6F1B482A-2E3C-495A-A82D-8FCC024FA0EA}" ShortID="955581715">
+					<ChildrenList>
+						<Event Name="Play_Collecting_Coins_Wood_SFX" ID="{12F6EADB-8E06-43BF-9A3F-0432253BE591}">
+							<ChildrenList>
+								<Action Name="" ID="{1133E5E6-C733-4155-B7D6-1C632E38E5F8}" ShortID="613150402">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Collecting Coins-Wood SFX" ID="{011EB0B2-7EFE-4CE4-91AC-6A358D28A809}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Menu_Toggle_SFX" ID="{C5728ACA-4F64-492D-92F0-E2E2BD0909EC}">
+							<ChildrenList>
+								<Action Name="" ID="{1FDF780D-45B8-4F98-A897-6DF924D143AC}" ShortID="240800755">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Toggle SFX" ID="{BE97F4AB-9F4E-445A-A52A-453199E1E6A1}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Power_Up_2_SFX" ID="{DBEAD22F-194A-431A-BED7-5619A90B732B}">
+							<ChildrenList>
+								<Action Name="" ID="{97D64749-1428-4ADF-B191-F4C3B85D738B}" ShortID="495052656">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Power Up 2 SFX" ID="{45F5D7C9-1616-4728-A372-A386BA7CE137}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Menu_Negative_SFX" ID="{ECBD68F3-436B-4AEE-ADA5-D9D0D350A90B}">
+							<ChildrenList>
+								<Action Name="" ID="{3FB51860-3180-48AC-84BD-7EAD879CD8C7}" ShortID="279859662">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Negative SFX" ID="{36AF3903-C21C-4EDC-86DB-BED844605AC7}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Difficulty_Hard_SFX" ID="{7EB01C2A-E6CC-41E7-839C-95B87DA05383}">
+							<ChildrenList>
+								<Action Name="" ID="{C3BA0E9C-F07A-4989-8983-E7869A8A3C4C}" ShortID="980266560">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Difficulty Hard SFX" ID="{EACB3577-3A2E-485C-AC57-B346C017C521}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Menu_Select_SFX" ID="{384D9EFF-955E-46B1-A186-D83EA5DF5160}">
+							<ChildrenList>
+								<Action Name="" ID="{30C13580-A210-49A8-BA42-3F620860514C}" ShortID="902380765">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu Select SFX" ID="{645DDA78-9AC6-463D-AE1F-757107649D45}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Power_Up_SFX" ID="{A4D9B24F-CB94-4AED-BEEF-5FA46C13327C}">
+							<ChildrenList>
+								<Action Name="" ID="{7BD363E6-0C8F-4033-9993-C222901859A6}" ShortID="418459520">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Power Up SFX" ID="{BA8BAD9C-88E8-4898-8FE1-C75C00B52E5F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Dialogue_SFX" ID="{EC41AABC-D603-464D-962C-81950FAD2EB4}">
+							<ChildrenList>
+								<Action Name="" ID="{19A58A1D-01C7-4460-9D0B-EF3C9641B855}" ShortID="769993504">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dialogue SFX" ID="{C7A104ED-E30B-4C89-A4D2-6D781EE84FCE}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Difficulty_Medium_SFX" ID="{9DA5093C-21C8-449F-820F-FD8B24AC2DD3}">
+							<ChildrenList>
+								<Action Name="" ID="{7F02F7AF-2D46-4E62-AC2F-9424BFAB332E}" ShortID="133680878">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Difficulty Medium SFX" ID="{84619C73-984A-4943-B4E4-9631170F9F02}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Difficulty_Easy_SFX" ID="{C5A3A9BC-92CA-42CD-98D5-68414E2013CB}">
+							<ChildrenList>
+								<Action Name="" ID="{CAD63B75-7C23-4205-A2D6-067A3D748036}" ShortID="417243514">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Difficulty Easy SFX" ID="{07805265-846A-46EE-8DA9-96C1B2255F73}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Game_Over_SFX" ID="{3C0209B7-FF47-4BFD-B5CA-5AF01C597113}">
+							<ChildrenList>
+								<Action Name="" ID="{9754B364-45EE-4626-85AD-B44D0188E761}" ShortID="11892188">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Game Over SFX" ID="{F30F56C2-8208-4F65-A488-04170F6ABE8A}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Footsteps" ID="{16A4D3C6-F2AE-4F19-BB75-A722A446F548}" ShortID="65314279">
+					<ChildrenList>
+						<Event Name="Play_Foosteps_Orc_Snow" ID="{85E464BF-9BB6-4724-92DE-A8765C17570F}">
+							<ChildrenList>
+								<Action Name="" ID="{A4E94A1D-376C-45D7-B874-BA3D1E879D1C}" ShortID="233129035">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Foosteps Orc Snow" ID="{B6CACF1C-21BB-45AA-BD37-478935E15CB2}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Orc" ID="{3488AC68-7BAC-49EB-9578-81EEF1953C05}">
+							<ChildrenList>
+								<Action Name="" ID="{5A21176F-EE2A-48C4-913C-B0505DA2B1DA}" ShortID="603928651">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Player" ID="{416E9E82-332B-4C95-A737-F9E204D56678}">
+							<ChildrenList>
+								<Action Name="" ID="{63D01EDD-E587-499F-9E6C-CB077BC963C2}" ShortID="60722187">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
