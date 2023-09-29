@@ -66,8 +66,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 37993ae945940946a6a21f79f9317f3a
     GuidInternal: 
-    m_lastTime: -8585071542198574266
-    List: []
+    m_lastTime: -8585058462305108259
+    List:
+    - name: Main
+      guid: d2bf3f59fdbcb24493e9389d3b10ff36
+      id: 3161908922
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 37993ae945940946a6a21f79f9317f3a
+      - ElementName: Main
+        ObjectType: 7
+        guid: d2bf3f59fdbcb24493e9389d3b10ff36
+      Path: SoundBanks\Default Work Unit\Main
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -80,8 +94,176 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 050ab2db6fdd9745bbdfae6411a8e247
     GuidInternal: 
-    m_lastTime: -8585060144492772883
-    List: []
+    m_lastTime: -8585058462316204537
+    List:
+    - name: Ambient Game Objects
+      guid: ee1f06d0a84af945abc33d25d3e2496d
+      id: 2965711491
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Ambient Game Objects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      Path: Events\Default Work Unit\Ambient Game Objects
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: BGM
+      guid: c16e55f3912f894cbcd06abd02046066
+      id: 412724365
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: BGM
+        ObjectType: 4
+        guid: c16e55f3912f894cbcd06abd02046066
+      Path: Events\Default Work Unit\BGM
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Footsteps
+      guid: 1e2c493a7ecbcc4584e31e1508bfe25c
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Footsteps
+        ObjectType: 4
+        guid: 1e2c493a7ecbcc4584e31e1508bfe25c
+      Path: Events\Default Work Unit\Footsteps
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Fireplace_1_SFX__cabin_
+      guid: 41b94c823fa1754f9c6e956f7b0b777c
+      id: 580796139
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Ambient Game Objects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Play_Fireplace_1_SFX__cabin_
+        ObjectType: 3
+        guid: 41b94c823fa1754f9c6e956f7b0b777c
+      Path: Events\Default Work Unit\Ambient Game Objects\Play_Fireplace_1_SFX__cabin_
+      maxAttenuation: 10
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Fireplace_2_SFX__wilderness_campfire_
+      guid: d3df7fb52c348e48825769a1052c3f15
+      id: 519370205
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Ambient Game Objects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Play_Fireplace_2_SFX__wilderness_campfire_
+        ObjectType: 3
+        guid: d3df7fb52c348e48825769a1052c3f15
+      Path: Events\Default Work Unit\Ambient Game Objects\Play_Fireplace_2_SFX__wilderness_campfire_
+      maxAttenuation: 10
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Snowstorm_SFX__cabin_
+      guid: db2602665cffc54ba6d567ded790d416
+      id: 3381120702
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: BGM
+        ObjectType: 4
+        guid: c16e55f3912f894cbcd06abd02046066
+      - ElementName: Play_Snowstorm_SFX__cabin_
+        ObjectType: 3
+        guid: db2602665cffc54ba6d567ded790d416
+      Path: Events\Default Work Unit\BGM\Play_Snowstorm_SFX__cabin_
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Snowstorm_SFX__wilderness_
+      guid: 429cf97aba87e04aac1945249f9f2fbf
+      id: 3619198635
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: BGM
+        ObjectType: 4
+        guid: c16e55f3912f894cbcd06abd02046066
+      - ElementName: Play_Snowstorm_SFX__wilderness_
+        ObjectType: 3
+        guid: 429cf97aba87e04aac1945249f9f2fbf
+      Path: Events\Default Work Unit\BGM\Play_Snowstorm_SFX__wilderness_
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_The_White_Wilderness_BGM
+      guid: 4a6b0c851acb3f448715a1ceced220e7
+      id: 1461983755
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: BGM
+        ObjectType: 4
+        guid: c16e55f3912f894cbcd06abd02046066
+      - ElementName: Play_The_White_Wilderness_BGM
+        ObjectType: 3
+        guid: 4a6b0c851acb3f448715a1ceced220e7
+      Path: Events\Default Work Unit\BGM\Play_The_White_Wilderness_BGM
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Trigger Actions
+      guid: b49dabb0b304554f880e2b990acff2b5
+      id: 1515518162
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Trigger Actions
+        ObjectType: 4
+        guid: b49dabb0b304554f880e2b990acff2b5
+      Path: Events\Default Work Unit\Trigger Actions
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -108,8 +290,42 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: b7b56eb89518b04da73b9e423ae0d1c1
     GuidInternal: 
-    m_lastTime: -8585071542198564350
-    List: []
+    m_lastTime: -8585058462305073544
+    List:
+    - name: BGM
+      guid: bdf719a1f6576f40b4775045d9a0f469
+      id: 412724365
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b7b56eb89518b04da73b9e423ae0d1c1
+      - ElementName: BGM
+        ObjectType: 9
+        guid: bdf719a1f6576f40b4775045d9a0f469
+      Path: States\Default Work Unit\BGM
+      values:
+      - name: None
+        guid: fd0bb837f23c2349bc387d770d031cb5
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b7b56eb89518b04da73b9e423ae0d1c1
+        - ElementName: BGM
+          ObjectType: 9
+          guid: bdf719a1f6576f40b4775045d9a0f469
+        - ElementName: None
+          ObjectType: 8
+          guid: fd0bb837f23c2349bc387d770d031cb5
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:

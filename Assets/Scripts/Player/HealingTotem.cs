@@ -10,8 +10,8 @@ public class HealingTotem : MonoBehaviour
     private PlayerUltimates playerUltimates;
     private PlayerStats playerStats;
     private NavMeshAgent[] enemyAgents;
-    private Orc_Attack[] orc_Attacks;
     private Transform totum;
+    public float totemHealth = 500f;
 
     void Start()
     {
@@ -44,6 +44,18 @@ public class HealingTotem : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         ChasePlayer();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        totemHealth =- damage;
+        Debug.Log(totemHealth);
+
+        if (totemHealth <=0f )
+        {
+            Destroy(gameObject);
+            ChasePlayer();
+        }
     }
 
     private void ChasePlayer()

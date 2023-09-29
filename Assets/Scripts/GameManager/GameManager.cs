@@ -345,8 +345,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
     public void OrcSlayedAdd()
     {
         orcsSlayed++;
-        Debug.Log(orcsSlayed);
-
         if (orcsSlayed == 1)
         {
             SteamAchievementManager.instance.UnlockAchievement("ACHIEVEMENT_OrcSlayerrookie");

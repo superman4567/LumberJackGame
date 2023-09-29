@@ -18,6 +18,15 @@ public class Orc_DealDamage : MonoBehaviour
                 playerStats.TakeDamage(damageAmount);
             }
         }
+        else if (other.tag == "Totem")
+        {
+            Debug.Log("Hitting the totem");
+            HealingTotem healingTotem = other.GetComponent<HealingTotem>();
+            if (healingTotem != null)
+            {
+                healingTotem.TakeDamage(damageAmount);
+            }
+        }
         else
         {
             return;

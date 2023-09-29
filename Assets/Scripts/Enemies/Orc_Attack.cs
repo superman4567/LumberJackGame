@@ -24,21 +24,17 @@ public class Orc_Attack : MonoBehaviour
     [SerializeField] private Orc_DealDamage[] orcDealDamage;
     [SerializeField] private Orc_Health orcHealth;
     [SerializeField] private GameObject rockPrefab; 
-    [SerializeField] private Transform throwSpawnPoint; 
+    [SerializeField] private Transform throwSpawnPoint;
 
+    public NavMeshAgent navMeshAgent;
     public static bool IsChasingTotem = false;
+    public static bool attackingTotem = false;
+    
     private RoundManager roundManager;
     private ObjectPool rockPool;
     private CharacterController playerController;
-    private bool startThrowing = false;
-    public NavMeshAgent navMeshAgent;
     private float throwCooldownTimer = 0.0f;
-    private float timeBeforeThrowing = 0.0f;
-
-    public static bool attackingTotem = false;
     private Transform player;
-    private Transform totem;
-    private float distanceToTotem;
     private float distanceToPlayer;
 
     private enum OrcState
@@ -126,12 +122,15 @@ public class Orc_Attack : MonoBehaviour
                 break;
 
             case OrcState.ThrowRock:
-                navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
-
-                throwCooldownTimer += Time.deltaTime;
-                if (throwCooldownTimer >= throwCooldown)
+                if (distanceToPlayer < (meleeAttackRange + 7) || attackingTotem)
                 {
-                    animator.SetBool("OrcRangedAttack", true);
+                    navMeshAgent.speed = baseOrcSpeed + 3 + GameManager.Instance.GetDifficulty();
+
+                    throwCooldownTimer += Time.deltaTime;
+                    if (throwCooldownTimer >= throwCooldown)
+                    {
+                        animator.SetBool("OrcRangedAttack", true);
+                    }
                 }
                 break;
         }
