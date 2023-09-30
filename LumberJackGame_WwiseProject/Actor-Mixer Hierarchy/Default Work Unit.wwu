@@ -11,7 +11,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>12</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -45,7 +45,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>12</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -80,10 +80,25 @@
 						<Sound Name="The White Wilderness BGM" ID="{E0AD7378-0D7C-4E13-BD8F-737CEFDE365E}" ShortID="159806238">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{291F96AD-3B56-4F82-9262-1DE9BD5DBE49}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Brick_Wall_Minus_6dB_Peak_Fast_Release" ID="{3FF9AD86-E377-40F8-970F-3D4EE73288B5}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
@@ -112,9 +127,16 @@
 						<Sound Name="Snowstorm SFX (cabin)" ID="{D93752B0-05B6-46C5-8690-6A4A3BF861EE}" ShortID="28989047">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AC1334E4-30D2-4FD6-BF95-D6340211C273}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>15</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -149,9 +171,16 @@
 						<Sound Name="Snowstorm SFX (wilderness)" ID="{767E9292-CE2C-45F1-B475-313DC61332C0}" ShortID="324115341">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{664D3EE0-6B3B-4F1F-9B4C-FDC5718C74AB}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>15</Value>
+										<Value>-1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -185,8 +214,2048 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Trigger Action" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" ShortID="421079139"/>
-				<Folder Name="Footsteps" ID="{8430767A-A551-47EE-8EC9-E0188D982430}" ShortID="118376233"/>
+				<Folder Name="Trigger Action" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" ShortID="421079139">
+					<ChildrenList>
+						<Sound Name="Orc Throwing Rock SFX" ID="{A9DF3983-AEEB-4EB1-B418-A7E8DCCE943E}" ShortID="1027621514">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{EE9A24A2-5C47-4D7A-AA79-835D78C0EE6F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Throwing Rock SFX" ID="{7CBFA510-B6B9-47D7-B4BE-DF2C36C5BBF1}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Throwing Rock SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="898367430"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Throwing Rock SFX" ID="{7CBFA510-B6B9-47D7-B4BE-DF2C36C5BBF1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Retrieve Axe SFX" ID="{5D57B2E0-780B-4568-938D-1552FE9BF43C}" ShortID="43736374">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{69679ECA-E4EF-4E95-AC0F-49701D61AD76}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-50"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Retrieve Axe SFX" ID="{CADD7C01-555B-4E5A-AD3C-66C5C8929B6C}">
+									<Language>SFX</Language>
+									<AudioFile>Retrieve Axe SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="199818555"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Retrieve Axe SFX" ID="{CADD7C01-555B-4E5A-AD3C-66C5C8929B6C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Throw Axe 1 SFX" ID="{74260696-D05B-45D8-8DA8-3418D638776C}" ShortID="998827538">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AC44D960-320A-4148-8F43-0C451824338E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Throw Axe 1 SFX" ID="{8B4166AB-6319-4CD8-8F28-FDE02DEB4688}">
+									<Language>SFX</Language>
+									<AudioFile>Throw Axe 1 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="823740429"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Throw Axe 1 SFX" ID="{8B4166AB-6319-4CD8-8F28-FDE02DEB4688}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Tree Falling SLOW SFX" ID="{BF1F123F-3C2D-4D10-BC59-C5341D14D3C0}" ShortID="76047048">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E45E36F0-150A-4BF7-A772-430EF2424F8A}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Tree Falling SLOW SFX" ID="{6341411C-B4C1-4AC3-AAF2-A2321EC9840A}">
+									<Language>SFX</Language>
+									<AudioFile>Tree Falling SLOW SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="368034604"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Tree Falling SLOW SFX" ID="{6341411C-B4C1-4AC3-AAF2-A2321EC9840A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Tree Landing SLOW SFX" ID="{B5405541-DE4B-4BE9-B95D-656DD55795CE}" ShortID="270000174">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AFB27683-3F45-43CD-BF4B-21E03F7CF3D4}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Tree Landing SLOW SFX" ID="{6087BF97-BEFE-4F5F-B392-7908B0DC0DCC}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.0546621187262"/>
+										<Property Name="FadeOutShape" Type="int16" Value="0"/>
+										<Property Name="LoopEnd" Type="Real64" Value="1.2380855153533"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Tree Landing SLOW SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="775287976"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Tree Landing SLOW SFX" ID="{6087BF97-BEFE-4F5F-B392-7908B0DC0DCC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Axe Hitting and Breaking Barrel SFX" ID="{FDFAA7B8-C377-4833-AA72-C37D70827D56}" ShortID="84657780">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{70837810-2A39-41F3-960B-BE483E59F8ED}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}">
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting and Breaking Barrel SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="851825797"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Axe Hitting and Breaking Crate SFX" ID="{0346665D-7D16-4098-A512-A1A6289585EA}" ShortID="719644732">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{43F5ABDB-809E-41CE-B9DB-2EE1A4D60EAD}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.271640872616089"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.08395155899689"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting and Breaking Crate SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="515236359"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Axe Hitting Something Hard (Wood)" ID="{81D4D37C-B10D-441C-B437-62D39AEF098B}" ShortID="119288486">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7E470EB2-74EE-4D40-AB1E-5BEA4BF12D17}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-326"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting Something Hard (Wood)" ID="{2A7D7017-90FD-4B93-B774-CC6B33FEFB4E}">
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting Something Hard (Wood).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="993692913"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting Something Hard (Wood)" ID="{2A7D7017-90FD-4B93-B774-CC6B33FEFB4E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Axe Hitting Something Soft (Moist)" ID="{31D46887-28F4-4D89-BE34-2BFDA73E2A98}" ShortID="668905168">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7EBFA994-54CB-4D3B-8F3E-9D4AF9FB78FD}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+													<Property Name="Min" Type="Real64" Value="-200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting Something Soft (Moist)" ID="{A5735869-FAD6-4878-833B-64355D15F776}">
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting Something Soft (Moist).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="335517631"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting Something Soft (Moist)" ID="{A5735869-FAD6-4878-833B-64355D15F776}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Cabin Door Opening SFX" ID="{05787254-E34D-469E-A58E-9008401A72FD}" ShortID="560153889">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>31</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{949DA4CA-BBA3-4DBB-917D-C8D001C48ABE}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cabin Door Opening SFX" ID="{B5F76F60-1BD2-437C-BF0B-1F3C0813B060}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.40481790647618"/>
+										<Property Name="FadeInShape" Type="int16" Value="4"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.676093920407843"/>
+										<Property Name="LoopEnd" Type="Real64" Value="2.87034013605442"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Cabin Door Opening SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="814368198"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Cabin Door Opening SFX" ID="{B5F76F60-1BD2-437C-BF0B-1F3C0813B060}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Chopping Wood SFX (single chop)" ID="{FBEE89FB-CD77-4927-B58E-7FCFBA3902BB}" ShortID="544778032">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{D07EB8CD-645A-4339-BC06-05BEFB550920}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-427"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Chopping Wood SFX (single chop)" ID="{72DD2E97-2398-4579-8A3F-7826BF3239E8}">
+									<Language>SFX</Language>
+									<AudioFile>Chopping Wood SFX (single chop).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="217756732"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Chopping Wood SFX (single chop)" ID="{72DD2E97-2398-4579-8A3F-7826BF3239E8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{1C796104-49CD-4834-ABE7-B8DB10E0C28E}" ShortID="42116051">
+					<ChildrenList>
+						<Sound Name="Collecting Coins-Wood SFX" ID="{011EB0B2-7EFE-4CE4-91AC-6A358D28A809}" ShortID="99476707">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C28CEBF2-32C6-4743-B70D-492357E50C0B}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Collecting Coins-Wood SFX" ID="{5CF3C33F-EA95-4EDD-81E3-9457699BBBF4}">
+									<Language>SFX</Language>
+									<AudioFile>Collecting Coins-Wood SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1057322198"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Collecting Coins-Wood SFX" ID="{5CF3C33F-EA95-4EDD-81E3-9457699BBBF4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Dialogue SFX" ID="{C7A104ED-E30B-4C89-A4D2-6D781EE84FCE}" ShortID="599284996">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A8A27E4E-7287-4504-9759-6744FE865699}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="25"/>
+													<Property Name="Min" Type="Real64" Value="-35"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Dialogue SFX" ID="{EF4AE977-F3BF-4286-A8E5-B69FFD504DAB}">
+									<Language>SFX</Language>
+									<AudioFile>Dialogue SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="253139911"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Dialogue SFX" ID="{EF4AE977-F3BF-4286-A8E5-B69FFD504DAB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Difficulty Easy SFX" ID="{07805265-846A-46EE-8DA9-96C1B2255F73}" ShortID="219981443">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F623A985-72FD-452C-B96E-7C87E554A3C3}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Difficulty Easy SFX" ID="{75CD8691-0D4F-42DF-B36A-854B29D76BF4}">
+									<Language>SFX</Language>
+									<AudioFile>Difficulty Easy SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="240401339"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Difficulty Easy SFX" ID="{75CD8691-0D4F-42DF-B36A-854B29D76BF4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Difficulty Hard SFX" ID="{EACB3577-3A2E-485C-AC57-B346C017C521}" ShortID="555266731">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{53BE0B59-F710-4A9F-9E86-EA728DB3755C}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Difficulty Hard SFX" ID="{4EC0BD70-C320-49B2-8BED-448956C9D096}">
+									<Language>SFX</Language>
+									<AudioFile>Difficulty Hard SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="793184826"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Difficulty Hard SFX" ID="{4EC0BD70-C320-49B2-8BED-448956C9D096}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Difficulty Medium SFX" ID="{84619C73-984A-4943-B4E4-9631170F9F02}" ShortID="224668442">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{641C94E5-4A45-4351-B4DC-B109F1104C9C}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Difficulty Medium SFX" ID="{7CDEECEC-37BE-4296-806A-2095F7D152B0}">
+									<Language>SFX</Language>
+									<AudioFile>Difficulty Medium SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="500097620"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Difficulty Medium SFX" ID="{7CDEECEC-37BE-4296-806A-2095F7D152B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Game Over SFX" ID="{F30F56C2-8208-4F65-A488-04170F6ABE8A}" ShortID="571857323">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Game Over SFX" ID="{BDB65362-4FB8-4469-B49B-7D91B046C3E6}">
+									<Language>SFX</Language>
+									<AudioFile>Game Over SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1034345504"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Game Over SFX" ID="{BDB65362-4FB8-4469-B49B-7D91B046C3E6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Menu Toggle SFX" ID="{BE97F4AB-9F4E-445A-A52A-453199E1E6A1}" ShortID="308525000">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{78F38FA2-EA81-43F0-B8BB-D977A39DBD73}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="225"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Menu Select SFX" ID="{DD78B261-F28A-4188-89C2-7258CD275FBA}">
+									<Language>SFX</Language>
+									<AudioFile>Menu Select SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="159723246"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Menu Select SFX" ID="{DD78B261-F28A-4188-89C2-7258CD275FBA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Menu Select SFX" ID="{645DDA78-9AC6-463D-AE1F-757107649D45}" ShortID="536739278">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Menu Toggle SFX" ID="{714763D6-53BA-45C2-AE20-FFF20738F26F}">
+									<Language>SFX</Language>
+									<AudioFile>Menu Toggle SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="761892851"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Menu Toggle SFX" ID="{714763D6-53BA-45C2-AE20-FFF20738F26F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Power Up SFX" ID="{BA8BAD9C-88E8-4898-8FE1-C75C00B52E5F}" ShortID="234822037">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Power Up SFX" ID="{D96D3688-3037-481E-B1E9-00C3F479E032}">
+									<Language>SFX</Language>
+									<AudioFile>Power Up SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="664136056"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Power Up SFX" ID="{D96D3688-3037-481E-B1E9-00C3F479E032}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Menu Negative SFX" ID="{36AF3903-C21C-4EDC-86DB-BED844605AC7}" ShortID="580106756">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{78843057-823C-4FC7-9602-04004C4D1E55}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Menu Negative SFX" ID="{F6C72AC9-43C7-4BC5-8BE7-D1F5E03B18ED}">
+									<Language>SFX</Language>
+									<AudioFile>Menu Negative SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="826548943"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Menu Negative SFX" ID="{F6C72AC9-43C7-4BC5-8BE7-D1F5E03B18ED}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Power Up 2 SFX" ID="{45F5D7C9-1616-4728-A372-A386BA7CE137}" ShortID="422563069">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Power Up 2 SFX" ID="{A94694E7-2D05-430E-B71E-4F2577F7F551}">
+									<Language>SFX</Language>
+									<AudioFile>Power Up 2 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="931365193"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Power Up 2 SFX" ID="{A94694E7-2D05-430E-B71E-4F2577F7F551}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<RandomSequenceContainer Name="Player Getting Hit" ID="{41EDC585-D8A6-4DE4-9BC8-B8E87B77AB13}" ShortID="764084109">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4F01BFD8-82FB-4D17-98E0-F138523944C0}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="503"/>
+											<Property Name="Min" Type="Real64" Value="-300"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Player Getting Hit 1 with voice SFX" ID="{518A5436-A8A5-4F7F-8547-7306964C85C4}" ShortID="50008713">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FB8BB146-AC15-4080-B711-107E8FA29D94}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Player Getting Hit 1 with voice SFX" ID="{AEF393E6-1600-49C6-8B9D-709E9A04173B}">
+									<Language>SFX</Language>
+									<AudioFile>Player Getting Hit 1 with voice SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="444037353"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Player Getting Hit 1 with voice SFX" ID="{AEF393E6-1600-49C6-8B9D-709E9A04173B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Player Getting Hit 2 with voice SFX" ID="{3E9F9EC0-4D67-4EDE-8006-E99B45C3C928}" ShortID="216641500">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{46C0A021-CE86-4C2C-8FDC-7CFDB419CBAD}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Player Getting Hit 2 with voice SFX" ID="{48F32241-F462-44E4-9243-358480746BCC}">
+									<Language>SFX</Language>
+									<AudioFile>Player Getting Hit 2 with voice SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="927461091"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Player Getting Hit 2 with voice SFX" ID="{48F32241-F462-44E4-9243-358480746BCC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Player Getting Hit 3 SFX" ID="{7BEF835E-3AC9-487A-95D2-8E074BED2CE8}" ShortID="308069061">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E54EDE7C-74B6-49BE-BAA5-8922D4794DE6}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Player Getting Hit 3 SFX" ID="{04C40559-5E9E-43BC-BBAF-66A7335691E7}">
+									<Language>SFX</Language>
+									<AudioFile>Player Getting Hit 3 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="336302509"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Player Getting Hit 3 SFX" ID="{04C40559-5E9E-43BC-BBAF-66A7335691E7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Orc Getting Hit" ID="{A0583C0C-F409-46B3-8382-758E08E605A9}" ShortID="770665068">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4ADD9928-A82C-4F7A-9F66-DC6C8351BE1D}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="250"/>
+											<Property Name="Min" Type="Real64" Value="-255"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Orc Getting Hit 1 SFX" ID="{88FF0B0A-D2A5-4B54-8583-1420A1D4E85C}" ShortID="94366636">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{870200D6-B1CC-4432-8C24-697E7069840F}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Getting Hit 1 SFX" ID="{A7C03813-6340-44CA-863C-6466A9458DC8}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Getting Hit 1 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="250706640"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Getting Hit 1 SFX" ID="{A7C03813-6340-44CA-863C-6466A9458DC8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Orc Getting Hit 2 SFX" ID="{B191F9E6-E6C1-4657-838C-99452D204D88}" ShortID="39694798">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{3A7A90B4-D7E0-40BC-9921-8DEA6572DDE0}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Getting Hit 2 SFX" ID="{77E8E211-2988-42DC-B922-5078E6FB509B}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Getting Hit 2 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1037076663"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Getting Hit 2 SFX" ID="{77E8E211-2988-42DC-B922-5078E6FB509B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Orc Dying" ID="{6FD3B053-C89F-49DE-ABDC-7DF68F8A3688}" ShortID="147923309">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4C3BDC09-CE1F-4A14-9FD6-6F0B8F042E6D}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="150"/>
+											<Property Name="Min" Type="Real64" Value="-150"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Orc Dying 1 SFX" ID="{42FCD178-B2E4-493D-AC59-A90C9C2C03B0}" ShortID="799163424">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{844661D5-AE72-4993-A456-98ABDC2BDCB8}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Dying 1 SFX" ID="{C35232BE-B451-4F15-9A56-C4B8DDC822D7}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Dying 1 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="293943816"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Dying 1 SFX" ID="{C35232BE-B451-4F15-9A56-C4B8DDC822D7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Orc Dying 2 SFX" ID="{D84AE505-1BAE-41CC-AFEC-74A938107357}" ShortID="750106872">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Dying 2 SFX" ID="{F87E9EEB-71AF-47AD-8237-13F314AB6F03}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Dying 2 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="55070645"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Dying 2 SFX" ID="{F87E9EEB-71AF-47AD-8237-13F314AB6F03}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Orc Slash" ID="{07C40501-4B6D-43F8-9C1D-84CD84DF8928}" ShortID="119175322">
+					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{7A9932AE-BD44-40E9-B7B0-8C01B2F790A4}">
+										<PropertyList>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D515FE09-01D5-4066-84E6-C4799BA5A483}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="400"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+							<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Orc Slash 1 SFX" ID="{5C0D5234-CCFF-4102-B52D-3C7B2E0DE549}" ShortID="534411511">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{6B37B79E-89A3-462B-9D14-E0C04C9BC733}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Slash 1 SFX" ID="{E4C0D5B4-4977-44D4-BEB6-D6C1927FC761}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.181095023811123"/>
+										<Property Name="FadeInShape" Type="int16" Value="4"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.117015246154879"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Orc Slash 1 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="480965462"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Slash 1 SFX" ID="{E4C0D5B4-4977-44D4-BEB6-D6C1927FC761}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Orc Slash 2 SFX" ID="{2E915A5E-6EA4-46C2-A5A6-1DCB3EA2258D}" ShortID="539202925">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{75C5F330-A731-4449-9C52-E57A01A21776}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Slash 2 SFX" ID="{8B867016-112B-41FE-8FCB-CA74C5296E92}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.149055134983001"/>
+										<Property Name="FadeInShape" Type="int16" Value="4"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.110050052931375"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.987641723356009"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Orc Slash 2 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="586770180"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Slash 2 SFX" ID="{8B867016-112B-41FE-8FCB-CA74C5296E92}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Orc Slash 3 SFX" ID="{F2098E4B-1A66-4DA7-81BE-5D6BE9F1A9D3}" ShortID="884484598">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A794FA21-0DE7-4813-AFEA-54A5F0CAAC08}">
+												<PropertyList>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{2468F7A8-82AC-44FA-8751-7C6D95AEC3E2}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Slash 3 SFX" ID="{D47E8C59-C67C-4A26-82FB-17531BEC655A}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.20616971941574"/>
+										<Property Name="FadeInShape" Type="int16" Value="4"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.136517787180693"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.987641723356009"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Orc Slash 3 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="68233573"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Slash 3 SFX" ID="{D47E8C59-C67C-4A26-82FB-17531BEC655A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Orc Idle" ID="{A65E1CBF-17D8-42CA-A8A0-0B325086EB64}" ShortID="555856557">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{6E65D0E6-B2D2-40F0-84A4-72CFE4B67AE3}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+							<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Orc Idle 2 SFX" ID="{C070CF19-4A69-446C-827A-E7D996FDEF04}" ShortID="786709435">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{23C928E5-74A2-4236-B604-BC6B234E4588}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Idle 2 SFX" ID="{411288E8-F039-41E5-895C-5E5DCE210776}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Idle 2 SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="840608591"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Idle 2 SFX" ID="{411288E8-F039-41E5-895C-5E5DCE210776}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Orc Idle SFX" ID="{79F682F4-1839-46E0-81F8-E1026EB99F32}" ShortID="956803675">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{338B4B0E-592D-493C-8163-6F1FC603D060}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Orc Idle SFX" ID="{55B9F739-4022-48C9-A0C4-226BF14D19B1}">
+									<Language>SFX</Language>
+									<AudioFile>Orc Idle SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1039315249"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Orc Idle SFX" ID="{55B9F739-4022-48C9-A0C4-226BF14D19B1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<SwitchContainer Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" ShortID="799264741">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="Player_Wood" ID="{33ED3952-AB4D-4405-BE7F-8E1A92ED7C5E}" WorkUnitID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="Player_Footsteps" ID="{099C73E8-B1C5-4C08-A054-E2F50D53319E}" WorkUnitID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Footsteps Player Wood" ID="{E6071D22-F21C-4895-A3B8-A3DBC441C2EB}" ShortID="611931046">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B8718EA7-FC67-4B8B-8D70-8FD7528198A1}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Walking On Wood 1 SFX (single)" ID="{13067022-CFCA-46C5-91EF-983B4E15B935}" ShortID="695443635">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F6F07A8C-5D70-4393-BC45-31B8F74F02C8}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Wood 1 SFX (single)" ID="{CBB25592-C095-47C2-8BEB-9C2866F2524C}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Wood 1 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="158499397"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Wood 1 SFX (single)" ID="{CBB25592-C095-47C2-8BEB-9C2866F2524C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Wood 2 SFX (single)" ID="{9C0076A3-F74D-4A1B-B92E-ACA84EDA568F}" ShortID="49585253">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Wood 2 SFX (single)" ID="{A29482DA-6B4E-4D72-BD02-E2C2C4D55DA4}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Wood 2 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="172737269"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Wood 2 SFX (single)" ID="{A29482DA-6B4E-4D72-BD02-E2C2C4D55DA4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Wood 3 SFX (single)" ID="{9D174378-154A-4392-94FE-699045E0737D}" ShortID="846685694">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Wood 3 SFX (single)" ID="{1E379F10-9D62-4970-A204-DF30BAF1B039}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Wood 3 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="428261734"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Wood 3 SFX (single)" ID="{1E379F10-9D62-4970-A204-DF30BAF1B039}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Wood 4 SFX (single)" ID="{1112234E-2D70-48C4-AB6F-EE8A4F9F81B0}" ShortID="250684408">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Wood 4 SFX (single)" ID="{7A02762B-041C-4A73-B7D2-B9438FB1F278}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Wood 4 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="186554060"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Wood 4 SFX (single)" ID="{7A02762B-041C-4A73-B7D2-B9438FB1F278}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Footsteps Player Snow" ID="{A8F1C551-1F58-48BC-9B00-E6213D683903}" ShortID="294752590">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8AB316A4-7B4F-4C8E-A436-6C6A02C3F900}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{EE077C1E-8FE9-43B4-8AB5-999EDA834251}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="5"/>
+													<Property Name="Min" Type="Real64" Value="-5"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Walking On Snow 1 SFX (single)" ID="{C0EDF2CC-AD2A-417F-86DF-16034C861668}" ShortID="949986610">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8CC00D01-F9FF-4545-B8BC-BB9494E1F5A3}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{78BB51A0-44B7-4858-BDA2-FE319211D125}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Snow 1 SFX (single)" ID="{0FE09236-A97A-46A6-BB08-85C49DA504B0}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Snow 1 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1054724551"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Snow 1 SFX (single)" ID="{0FE09236-A97A-46A6-BB08-85C49DA504B0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Snow 2 SFX (single)" ID="{38C6A719-A18B-4462-B9D3-66B7C5737A71}" ShortID="528529367">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{944DADE0-E9DD-44B0-B2F0-D73162DA7EB0}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6E4EDB9E-AB05-4303-B07C-B15E14548665}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Snow 2 SFX (single)" ID="{BB2E3B80-D752-4260-BE51-31B1FEDD1A89}">
+											<Language>SFX</Language>
+											<AudioFile>Walking On Snow 2 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="404634412"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Snow 2 SFX (single)" ID="{BB2E3B80-D752-4260-BE51-31B1FEDD1A89}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Snow 3 SFX (single)" ID="{74045568-AA8E-4754-BDE6-91E18CEA984F}" ShortID="636013349">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4479CF65-5CAA-4472-A041-9FF0A352B2FD}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CBFF1975-8DAF-4301-8E5A-51463E40084C}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Snow 3 SFX (single)" ID="{43751207-553E-4798-B9D4-B44B7C2D03AD}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.350258580159849"/>
+												<Property Name="FadeOutShape" Type="int16" Value="4"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Walking On Snow 3 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="677260103"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Snow 3 SFX (single)" ID="{43751207-553E-4798-B9D4-B44B7C2D03AD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Walking On Snow 4 SFX (single)" ID="{37ECFC0D-BEEC-4CB3-A9C4-5C0E46B901A6}" ShortID="47222842">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4896ACF2-241B-473A-9CD0-82277F7965E7}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CF02FAA6-EF43-46B0-923D-446EDBF95E6A}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Walking On Snow 4 SFX (single)" ID="{53CD75A2-89E4-48A0-B1DF-DA245B42371F}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.340208239384141"/>
+												<Property Name="FadeOutShape" Type="int16" Value="4"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.422485088064375"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Walking On Snow 4 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="672807113"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Walking On Snow 4 SFX (single)" ID="{53CD75A2-89E4-48A0-B1DF-DA245B42371F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Footsteps Player Wood" ID="{E6071D22-F21C-4895-A3B8-A3DBC441C2EB}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Footsteps Player Snow" ID="{A8F1C551-1F58-48BC-9B00-E6213D683903}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" ShortID="513382718">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Foosteps Orc Snow" ID="{B6CACF1C-21BB-45AA-BD37-478935E15CB2}" ShortID="874631223">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{610B3566-3E80-4549-93DE-11E1885BA044}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-250"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Orc Walk On Snow 1 SFX (single)" ID="{45FED415-3E08-4E85-A563-DFA937C6E842}" ShortID="63680637">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{1CA2BF69-1580-400B-A903-E399C12773BC}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Orc Walk On Snow 1 SFX (single)" ID="{97F8F238-FDB9-4BB8-AE39-930A186EE7CE}">
+											<Language>SFX</Language>
+											<AudioFile>Orc Walk On Snow 1 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="22351157"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Orc Walk On Snow 1 SFX (single)" ID="{97F8F238-FDB9-4BB8-AE39-930A186EE7CE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Orc Walk On Snow 2 SFX (single)" ID="{DAC0688F-0981-4686-A0A3-42D8DA070005}" ShortID="730130867">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{364A3606-0515-443D-BCD0-74571E9B1E36}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Orc Walk On Snow 2 SFX (single)" ID="{FE44947D-D658-45F5-ADDD-E79E8E62C731}">
+											<Language>SFX</Language>
+											<AudioFile>Orc Walk On Snow 2 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="990644253"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Orc Walk On Snow 2 SFX (single)" ID="{FE44947D-D658-45F5-ADDD-E79E8E62C731}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Orc Walk On Snow 3 SFX (single)" ID="{BCE0D304-42F5-4CE9-B419-A7B7EABA86BA}" ShortID="426962347">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{971D6681-5C00-4B19-9430-98C8093341F8}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Orc Walk On Snow 3 SFX (single)" ID="{D7415512-057E-4130-A67E-D7943684654D}">
+											<Language>SFX</Language>
+											<AudioFile>Orc Walk On Snow 3 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="992903504"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Orc Walk On Snow 3 SFX (single)" ID="{D7415512-057E-4130-A67E-D7943684654D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Orc Walk On Snow 4 SFX (single)" ID="{32143AB3-DDA7-4C11-815A-48618FA4DD6C}" ShortID="731599974">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A0931A03-BC1F-4421-80BA-0690343E9C60}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Orc Walk On Snow 4 SFX (single)" ID="{152CAEC8-BFDF-4093-9E0E-78ED067843C1}">
+											<Language>SFX</Language>
+											<AudioFile>Orc Walk On Snow 4 SFX (single).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="453673277"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Orc Walk On Snow 4 SFX (single)" ID="{152CAEC8-BFDF-4093-9E0E-78ED067843C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Foosteps Orc Snow" ID="{B6CACF1C-21BB-45AA-BD37-478935E15CB2}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+					</GroupingInfo>
+				</SwitchContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

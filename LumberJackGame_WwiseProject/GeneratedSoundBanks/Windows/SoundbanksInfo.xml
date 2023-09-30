@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{7BC44E2A-C2DB-26BB-B383-2CCF0422E680}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2E4D5CEF-3304-338F-E518-AFD4A2A5CC63}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -28,25 +28,248 @@
 					</States>
 				</StateGroup>
 			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="1730208058" Name="Player_Footsteps">
+					<Switches>
+						<Switch Id="2095551046" Name="Player_Wood"/>
+						<Switch Id="2823404168" Name="Player_Snow"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="2154374565" Name="Orc_Footsteps">
+					<Switches>
+						<Switch Id="2154374565" Name="Orc_Footsteps"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B4F4DAE1-0EBD-B68A-199F-A9982FDFF4C6}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A83D49E4-1514-16D9-4D4E-C32D87DBE691}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="55070645" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Dying 2 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Dying 2 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="68233573" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Slash 3 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Slash 3 SFX_9A08E8D1.wem</CachePath>
+				</File>
+				<File Id="159723246" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu Select SFX.wav</ShortName>
+					<CachePath>SFX/Menu Select SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="199818555" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Retrieve Axe SFX.wav</ShortName>
+					<CachePath>SFX/Retrieve Axe SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="217756732" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Chopping Wood SFX (single chop).wav</ShortName>
+					<CachePath>SFX/Chopping Wood SFX (single chop)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="240401339" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Difficulty Easy SFX.wav</ShortName>
+					<CachePath>SFX/Difficulty Easy SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="250706640" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Getting Hit 1 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Getting Hit 1 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="253139911" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dialogue SFX.wav</ShortName>
+					<CachePath>SFX/Dialogue SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="293943816" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Dying 1 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Dying 1 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="322157384" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Snowstorm SFX (cabin).wav</ShortName>
+					<CachePath>SFX/Snowstorm SFX (cabin)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="335517631" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Axe Hitting Something Soft (Moist).wav</ShortName>
+					<CachePath>SFX/Axe Hitting Something Soft (Moist)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="336302509" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player Getting Hit 3 SFX.wav</ShortName>
+					<CachePath>SFX/Player Getting Hit 3 SFX_10C4C929.wem</CachePath>
+				</File>
 				<File Id="366189814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Fireplace 1 SFX (cabin).wav</ShortName>
 					<CachePath>SFX/Fireplace 1 SFX (cabin)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="368034604" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree Falling SLOW SFX.wav</ShortName>
+					<CachePath>SFX/Tree Falling SLOW SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="444037353" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player Getting Hit 1 with voice SFX.wav</ShortName>
+					<CachePath>SFX/Player Getting Hit 1 with voice SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="480965462" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Slash 1 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Slash 1 SFX_2F4C83CD.wem</CachePath>
+				</File>
+				<File Id="500097620" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Difficulty Medium SFX.wav</ShortName>
+					<CachePath>SFX/Difficulty Medium SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="515236359" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Axe Hitting and Breaking Crate SFX.wav</ShortName>
+					<CachePath>SFX/Axe Hitting and Breaking Crate SFX_51EE6EFD.wem</CachePath>
+				</File>
+				<File Id="586770180" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Slash 2 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Slash 2 SFX_5DA2FFA9.wem</CachePath>
 				</File>
 				<File Id="661576098" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>The White Wilderness BGM.wav</ShortName>
 					<CachePath>SFX/The White Wilderness BGM_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="664136056" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Power Up SFX.wav</ShortName>
+					<CachePath>SFX/Power Up SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="688684146" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Snowstorm SFX (wilderness, splash etc).wav</ShortName>
+					<CachePath>SFX/Snowstorm SFX (wilderness, splash etc)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="761892851" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu Toggle SFX.wav</ShortName>
+					<CachePath>SFX/Menu Toggle SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="775287976" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tree Landing SLOW SFX.wav</ShortName>
+					<CachePath>SFX/Tree Landing SLOW SFX_B5B2E27B.wem</CachePath>
+				</File>
+				<File Id="793184826" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Difficulty Hard SFX.wav</ShortName>
+					<CachePath>SFX/Difficulty Hard SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="814368198" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cabin Door Opening SFX.wav</ShortName>
+					<CachePath>SFX/Cabin Door Opening SFX_BF9C341E.wem</CachePath>
+				</File>
+				<File Id="823740429" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Throw Axe 1 SFX.wav</ShortName>
+					<CachePath>SFX/Throw Axe 1 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="826548943" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu Negative SFX.wav</ShortName>
+					<CachePath>SFX/Menu Negative SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="840608591" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Idle 2 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Idle 2 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="851825797" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Axe Hitting and Breaking Barrel SFX.wav</ShortName>
+					<CachePath>SFX/Axe Hitting and Breaking Barrel SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="898367430" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Throwing Rock SFX.wav</ShortName>
+					<CachePath>SFX/Orc Throwing Rock SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="927461091" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player Getting Hit 2 with voice SFX.wav</ShortName>
+					<CachePath>SFX/Player Getting Hit 2 with voice SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="931365193" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Power Up 2 SFX.wav</ShortName>
+					<CachePath>SFX/Power Up 2 SFX_10C4C929.wem</CachePath>
+				</File>
 				<File Id="944032091" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Fireplace 2 SFX (wilderness campfire).wav</ShortName>
 					<CachePath>SFX/Fireplace 2 SFX (wilderness campfire)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="993692913" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Axe Hitting Something Hard (Wood).wav</ShortName>
+					<CachePath>SFX/Axe Hitting Something Hard (Wood)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1034345504" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Over SFX.wav</ShortName>
+					<CachePath>SFX/Game Over SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1037076663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Getting Hit 2 SFX.wav</ShortName>
+					<CachePath>SFX/Orc Getting Hit 2 SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1039315249" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Idle SFX.wav</ShortName>
+					<CachePath>SFX/Orc Idle SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1057322198" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Collecting Coins-Wood SFX.wav</ShortName>
+					<CachePath>SFX/Collecting Coins-Wood SFX_10C4C929.wem</CachePath>
+				</File>
 			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2080872166" Name="Brick_Wall_Minus_6dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="3657550167" Name="New_Parametric_EQ" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
 			<Events>
+				<Event Id="473332933" Name="Play_Axe_Hitting_and_Breaking_Barrel_SFX" DurationType="OneShot" DurationMin="1.7091156" DurationMax="1.7091156">
+					<MediaRefs>
+						<MediaRef Id="851825797"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2336821186" Name="Play_Axe_Hitting_and_Breaking_Crate_SFX" DurationType="OneShot" DurationMin="1.0839516" DurationMax="1.0839516">
+					<MediaRefs>
+						<MediaRef Id="515236359"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2142273433" Name="Play_Axe_Hitting_Something_Hard__Wood_" DurationType="OneShot" DurationMin="0.53973997" DurationMax="0.6706676">
+					<MediaRefs>
+						<MediaRef Id="993692913"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1146263293" Name="Play_Axe_Hitting_Something_Soft__Moist_" DurationType="OneShot" DurationMin="0.41245985" DurationMax="0.51966685">
+					<MediaRefs>
+						<MediaRef Id="335517631"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1871801053" Name="Play_Cabin_Door_Opening_SFX" DurationType="OneShot" DurationMin="2.8703628" DurationMax="2.8703628">
+					<MediaRefs>
+						<MediaRef Id="814368198"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3792559462" Name="Play_Chopping_Wood_SFX__single_chop_" DurationType="OneShot" DurationMin="0.8076871" DurationMax="1.033617">
+					<MediaRefs>
+						<MediaRef Id="217756732"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1414374781" Name="Play_Collecting_Coins_Wood_SFX" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<MediaRefs>
+						<MediaRef Id="1057322198"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2575316952" Name="Play_Dialogue_SFX" DurationType="OneShot" DurationMin="1.0951815" DurationMax="1.1338029">
+					<MediaRefs>
+						<MediaRef Id="253139911"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1368835454" Name="Play_Difficulty_Easy_SFX" DurationType="OneShot" DurationMin="3.3333333" DurationMax="3.3333333">
+					<MediaRefs>
+						<MediaRef Id="240401339"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4160769087" Name="Play_Difficulty_Hard_SFX" DurationType="OneShot" DurationMin="4.1666665" DurationMax="4.1666665">
+					<MediaRefs>
+						<MediaRef Id="793184826"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1474577265" Name="Play_Difficulty_Medium_SFX" DurationType="OneShot" DurationMin="4.1666665" DurationMax="4.1666665">
+					<MediaRefs>
+						<MediaRef Id="500097620"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="10" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="366189814"/>
@@ -57,13 +280,150 @@
 						<MediaRef Id="944032091"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2967686496" Name="Play_Footsteps_Orc" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3044539581" Name="Play_Footsteps_Player" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2268832505" Name="Play_Game_Over_SFX" DurationType="OneShot" DurationMin="6" DurationMax="6">
+					<MediaRefs>
+						<MediaRef Id="1034345504"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1710556555" Name="Play_Menu_Negative_SFX" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<MediaRefs>
+						<MediaRef Id="826548943"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="832600286" Name="Play_Menu_Select_SFX" DurationType="OneShot" DurationMin="1.3333334" DurationMax="1.3333334">
+					<MediaRefs>
+						<MediaRef Id="761892851"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="826527198" Name="Play_Menu_Toggle_SFX" DurationType="OneShot" DurationMin="0.87812614" DurationMax="1.1553527">
+					<MediaRefs>
+						<MediaRef Id="159723246"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1758999942" Name="Play_Orc_Dying" DurationType="OneShot" DurationMin="2.2076092" DurationMax="2.6253047">
+					<MediaRefs>
+						<MediaRef Id="55070645"/>
+						<MediaRef Id="293943816"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1328389055" Name="Play_Orc_Getting_Hit" DurationType="OneShot" DurationMin="1.2088072" DurationMax="1.8417459">
+					<MediaRefs>
+						<MediaRef Id="250706640"/>
+						<MediaRef Id="1037076663"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3639110177" Name="Play_Orc_Idle" DurationType="OneShot" DurationMin="3.1346502" DurationMax="8.496078">
+					<MediaRefs>
+						<MediaRef Id="840608591"/>
+						<MediaRef Id="1039315249"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1187811918" Name="Play_Orc_Slash" DurationType="OneShot" DurationMin="0.78390974" DurationMax="1.1086158">
+					<MediaRefs>
+						<MediaRef Id="68233573"/>
+						<MediaRef Id="480965462"/>
+						<MediaRef Id="586770180"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="996221745" Name="Play_Orc_Throwing_Rock_SFX" DurationType="OneShot" DurationMin="0.43698594" DurationMax="0.4905002">
+					<MediaRefs>
+						<MediaRef Id="898367430"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1417014214" Name="Play_Player_Getting_Hit" DurationType="OneShot" DurationMin="0.6232137" DurationMax="2.6426826">
+					<MediaRefs>
+						<MediaRef Id="336302509"/>
+						<MediaRef Id="444037353"/>
+						<MediaRef Id="927461091"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2788721000" Name="Play_Power_Up_2_SFX" DurationType="OneShot" DurationMin="4.6666665" DurationMax="4.6666665">
+					<MediaRefs>
+						<MediaRef Id="931365193"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3600376955" Name="Play_Power_Up_SFX" DurationType="OneShot" DurationMin="4.6666665" DurationMax="4.6666665">
+					<MediaRefs>
+						<MediaRef Id="664136056"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3576852971" Name="Play_Retrieve_Axe_SFX" DurationType="OneShot" DurationMin="1.1210068" DurationMax="1.1876653">
+					<MediaRefs>
+						<MediaRef Id="199818555"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="3381120702" Name="Play_Snowstorm_SFX__cabin_" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="322157384"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3619198635" Name="Play_Snowstorm_SFX__wilderness_" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="688684146"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1461983755" Name="Play_The_White_Wilderness_BGM" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="661576098"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2080872166"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2260999859" Name="Play_Throw_Axe_1_SFX" DurationType="OneShot" DurationMin="0.69908273" DurationMax="0.93316346">
+					<MediaRefs>
+						<MediaRef Id="823740429"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3581783562" Name="Play_Tree_Falling_SLOW_SFX" DurationType="OneShot" DurationMin="3.256168" DurationMax="3.256168">
+					<MediaRefs>
+						<MediaRef Id="368034604"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1609421430" Name="Play_Tree_Landing_SLOW_SFX" DurationType="OneShot" DurationMin="2.3534014" DurationMax="2.3534014">
+					<MediaRefs>
+						<MediaRef Id="775287976"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="1730208058" Name="Player_Footsteps">
+					<Switches>
+						<Switch Id="2095551046" Name="Player_Wood"/>
+						<Switch Id="2823404168" Name="Player_Snow"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0E106933-6E1C-DB0D-3FC7-0CEC794A67B8}</FileHash>
+	<FileHash>{F8998D11-D761-EBF3-F193-879715B71008}</FileHash>
 </SoundBanksInfo>

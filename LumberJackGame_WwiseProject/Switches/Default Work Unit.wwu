@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}" SchemaVersion="110">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Player_Footsteps" ID="{099C73E8-B1C5-4C08-A054-E2F50D53319E}">
+					<ChildrenList>
+						<Switch Name="Player_Snow" ID="{66CCE421-198E-4BF4-9B73-10E3E0BD5B4C}"/>
+						<Switch Name="Player_Wood" ID="{33ED3952-AB4D-4405-BE7F-8E1A92ED7C5E}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="Orc_Footsteps" ID="{5300E6BE-7ED9-47B5-B910-7A8AA5D59370}">
+					<ChildrenList>
+						<Switch Name="Orc_Footsteps" ID="{50635A20-D3AC-4AD8-B00A-74496AEECD4F}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
