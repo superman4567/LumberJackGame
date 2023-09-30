@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35900dc4728b1c54e896ddfd7946ffa8, type: 3}
+  m_Name: 660226DB-FF5C-4BC5-A6D5-67DED790D416
+  m_EditorClassIdentifier: 
+  objectName: Play_Snowstorm_SFX__cabin_
+  id: 3381120702
+  guid: 660226DB-FF5C-4BC5-A6D5-67DED790D416
