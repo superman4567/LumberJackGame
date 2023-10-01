@@ -59,6 +59,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
             isAxeThrown = true;
             isReturning = false;
             timeSinceAxeThrown = 0f;
+            // Throw Axe SFX
+            AkSoundEngine.PostEvent("Play_Throw_Axe_1_SFX", gameObject);
         }
 
         if (axe.axeHitSomething && Input.GetKeyDown(KeyCode.Mouse0) || timeSinceAxeThrown >= 0.4f && Input.GetKeyDown(KeyCode.Mouse0))
@@ -119,6 +121,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
                 isAxeThrown = false;
                 isReturning = false;
                 axe.axeHitSomething = false;
+                // Retrieve Axe SFX; NOTE: SEEMS TO WORK, BUT WATCH OUT FOR DELAY OR STRETCHING OF THE AUDIO DEPENDING ON THE ANIMATION.
+                AkSoundEngine.PostEvent("Play_Retrieve_Axe_SFX", gameObject);
                 break;
             }
         }

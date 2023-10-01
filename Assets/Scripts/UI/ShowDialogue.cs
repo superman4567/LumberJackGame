@@ -42,7 +42,8 @@ public class ShowDialogue : MonoBehaviour
         if (completedDialogue) return;
         if (other.tag != player.tag) return;
         isInteractingWithPlayer = true;
-
+        // Start Dialogue SFX
+        AkSoundEngine.PostEvent("Play_Dialogue_SFX", gameObject);
         dialogueManager.UpdateDialogueText(dialogue.description[currentDialogueIndex]);
         dialogueManager.ShowUI();
     }
@@ -51,6 +52,9 @@ public class ShowDialogue : MonoBehaviour
     {
         if (other.tag != player.tag) return;
         isInteractingWithPlayer = false;
+
+        // ADD TOGGLE AUDIO. WHERE IN THE SCRIPT TO CALL THE "Toggle Dialogue" AUDIO?
+        //EVENT: AkSoundEngine.PostEvent("Play_Menu_Toggle_SFX", gameObject);
 
         dialogueManager.HideUI();
 
@@ -80,6 +84,10 @@ public class ShowDialogue : MonoBehaviour
             OnFinishedDialogue?.Invoke(this, tag);
             completedDialogue = true;
             dialogueManager.HideUI();
+            // Hide Dialogue SFX
+            AkSoundEngine.PostEvent("Play_Menu_Toggle_SFX", gameObject);
+            // BUG: You'll hear this audio any time you press 'F' on the keyboard, AFTER the dialogue is closed.
+            // This audio and the dialogue toggle audio is possibly going to be a random container or a different sound.
         }
     }
 }
