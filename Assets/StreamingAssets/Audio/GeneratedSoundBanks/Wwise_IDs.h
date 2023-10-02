@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID PLAY_AXE_HITTING_SOMETHING_HARD__WOOD_ = 2142273433U;
         static const AkUniqueID PLAY_AXE_HITTING_SOMETHING_SOFT__MOIST_ = 1146263293U;
         static const AkUniqueID PLAY_CABIN_DOOR_OPENING_SFX = 1871801053U;
+        static const AkUniqueID PLAY_CHEST_OPENING_SFX = 3010613748U;
         static const AkUniqueID PLAY_CHOPPING_WOOD_SFX__SINGLE_CHOP_ = 3792559462U;
         static const AkUniqueID PLAY_COLLECTING_COINS_WOOD_SFX = 1414374781U;
         static const AkUniqueID PLAY_DIALOGUE_SFX = 2575316952U;

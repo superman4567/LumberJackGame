@@ -24,6 +24,7 @@ public class Dummy : MonoBehaviour
             animator.SetTrigger("DummyHit");
             var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
             go.GetComponent<TextMeshPro>().text = axeDetection.additionalAxeDamage.ToString();
+            AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Hard__Wood_", gameObject);
         }
     }
 

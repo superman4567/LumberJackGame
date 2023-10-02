@@ -30,7 +30,7 @@ public class AkMultiPosEvent
 
 	public void FinishedPlaying(object in_cookie, AkCallbackType in_type, object in_info)
 	{
-		eventIsPlaying = false;
+		eventIsPlaying = true;
 	}
 }
 

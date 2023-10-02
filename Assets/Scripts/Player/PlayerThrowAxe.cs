@@ -59,6 +59,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
             isAxeThrown = true;
             isReturning = false;
             timeSinceAxeThrown = 0f;
+            // Throw Axe SFX
+            AkSoundEngine.PostEvent("Play_Throw_Axe_1_SFX", gameObject);
         }
 
         if (axe.axeHitSomething && Input.GetKeyDown(KeyCode.Mouse0) || timeSinceAxeThrown >= 0.4f && Input.GetKeyDown(KeyCode.Mouse0))
@@ -81,6 +83,7 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
 
         Vector3 throwDirection = (throwPoint.transform.position - throwSpawnPoint.position).normalized;
         axeRb.velocity = throwDirection * (throwForce * throwforceMultiplier);
+
     }
 
     private void ReturnAxe()
@@ -94,6 +97,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
             axeRb.useGravity = true;
             axeRb.velocity = Vector3.zero;
             axeRb.angularVelocity = Vector3.zero;
+            // TO BE ADDED SOMEWHERE HERE: Axe Hits Something Generic (Soft) SFX (HERE IT'S NOISE, REPEATED SOUND)
+            // AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Soft__Moist_", gameObject);
         }
         StartCoroutine(AxeReturnLerp());
     }
@@ -119,6 +124,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
                 isAxeThrown = false;
                 isReturning = false;
                 axe.axeHitSomething = false;
+                // Retrieve Axe SFX; NOTE: SEEMS TO WORK, BUT WATCH OUT FOR DELAY OR STRETCHING OF THE AUDIO DEPENDING ON THE ANIMATION.
+                AkSoundEngine.PostEvent("Play_Retrieve_Axe_SFX", gameObject);
                 break;
             }
         }

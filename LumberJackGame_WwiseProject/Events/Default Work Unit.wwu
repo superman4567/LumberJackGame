@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Ambient Game Objects" ID="{D0061FEE-4AA8-45F9-ABC3-3D25D3E2496D}" ShortID="363265739">
+				<Folder Name="AmbientGameObjects" ID="{D0061FEE-4AA8-45F9-ABC3-3D25D3E2496D}" ShortID="363265739">
 					<ChildrenList>
 						<Event Name="Play_Fireplace_1_SFX__cabin_" ID="{824CB941-A13F-4F75-9C6E-956F7B0B777C}">
 							<ChildrenList>
@@ -66,7 +66,7 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Trigger Action" ID="{46D29CDF-659D-451C-8E7C-78AF9F988A70}" ShortID="893219826">
+				<Folder Name="TriggerAction" ID="{46D29CDF-659D-451C-8E7C-78AF9F988A70}" ShortID="893219826">
 					<ChildrenList>
 						<Event Name="Play_Axe_Hitting_Something_Soft__Moist_" ID="{E483522B-BC37-4C65-8241-7405D699F244}">
 							<ChildrenList>
@@ -369,6 +369,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Chest_Opening_SFX" ID="{83B1392E-CD6F-4E3C-B599-315DA900E290}">
+							<ChildrenList>
+								<Action Name="" ID="{CB0D8E12-DFBF-4495-ABB4-2F12546546B0}" ShortID="790971630">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chest Opening SFX" ID="{A4BD7451-537C-4B76-8332-8E1A314A3348}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Footsteps" ID="{16A4D3C6-F2AE-4F19-BB75-A722A446F548}" ShortID="65314279">
@@ -401,6 +412,76 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Player_Snow" ID="{C49A24F3-24F6-4573-B2DA-DAAD09AD431E}">
+							<ChildrenList>
+								<Action Name="" ID="{57150CD2-0E09-4515-9AEF-255A295663E7}" ShortID="486294418">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Player Snow" ID="{A8F1C551-1F58-48BC-9B00-E6213D683903}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Player_Wood" ID="{5D5CD6BB-388F-45CA-8F51-0454A21EAD9C}">
+							<ChildrenList>
+								<Action Name="" ID="{E29C133F-B372-4D37-93D1-0F072719C33A}" ShortID="58361769">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Player Wood" ID="{E6071D22-F21C-4895-A3B8-A3DBC441C2EB}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="DodgeRoll" ID="{8775F1A6-FB3A-4361-9461-C9F85546B4FD}" ShortID="1013978630">
+					<ChildrenList>
+						<Event Name="Play_DodgeRoll_Jump__snow_" ID="{C1E98534-772F-48B4-B832-0CBC1D9DA6AD}">
+							<ChildrenList>
+								<Action Name="" ID="{B4BE5680-3754-4C15-AB78-75C6C5E8FC8E}" ShortID="1069398869">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DodgeRoll Jump (snow)" ID="{79395178-9816-4C63-87DC-4437AB7CED22}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DodgeRoll_Jump__wood_" ID="{6B324BEC-DC27-43D1-9F41-E1E9EDB63160}">
+							<ChildrenList>
+								<Action Name="" ID="{AED77D9A-D9B9-4618-9249-92A97291E4A1}" ShortID="528491990">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DodgeRoll Jump (wood)" ID="{13B72251-E7D3-4537-83EF-18175F659DDB}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DodgeRoll_Land__snow_" ID="{518CC3E8-E2A4-49C0-86F0-25C5532E1347}">
+							<ChildrenList>
+								<Action Name="" ID="{670CD051-EB5E-4456-BC89-44FDA5BE2DE1}" ShortID="811402974">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DodgeRoll Land (snow)" ID="{216E293B-F515-472B-A4B1-4118A883E1C6}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DodgeRoll_Land__wood_" ID="{9427D64C-902A-43EF-BB18-92F368CA3079}">
+							<ChildrenList>
+								<Action Name="" ID="{83DA212E-2B77-431C-BEDE-811FD192B1CB}" ShortID="279447800">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DodgeRoll Land (wood)" ID="{A667C179-2965-4BF5-BCB8-4FBAA45F7372}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

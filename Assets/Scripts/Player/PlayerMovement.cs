@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
         playerGravity();
     }
 
+    // WHERE TO ADD FOOTSTEPS? NOTE: "Play_Footsteps_Player_Snow" IS A RANDOM CONTAINER CHILD, NOT SWITCH GROUP PARENT ("Play_Footsteps_Player"), BECAUSE THE PARENT SWITCH GROUP IS SET TO DEFAULT TO THE 'CABIN FOOTSTEPS' RANDOM CONTAINER.
+    //public void Footsteps()
+       // AkSoundEngine.PostEvent("Play_Footsteps_Player_Snow", gameObject);
+
     public void Movement()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
