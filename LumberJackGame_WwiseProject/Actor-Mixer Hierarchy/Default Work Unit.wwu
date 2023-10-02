@@ -3,7 +3,7 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Ambient Game Objects" ID="{BC8F70BD-CB7A-4E52-BECE-DA3FE4F895F0}" ShortID="861840519">
+				<Folder Name="AmbientGameObjects" ID="{BC8F70BD-CB7A-4E52-BECE-DA3FE4F895F0}" ShortID="861840519">
 					<ChildrenList>
 						<Sound Name="Fireplace 1 SFX (cabin)" ID="{FAD3B94D-7D30-4567-A8C6-F54E4EE0FEDD}" ShortID="427782246">
 							<PropertyList>
@@ -13,6 +13,11 @@
 									<ValueList>
 										<Value>3</Value>
 									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7B9C4DAC-6007-45BD-BE41-E70F97E1F1A2}"/>
+										</ModifierInfo>
+									</ModifierList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -35,6 +40,13 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{77EFD0E4-0D23-432D-B076-0B390B5733DB}">
+									<PropertyList>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+									</PropertyList>
+								</Position>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Fireplace 1 SFX (cabin)" ID="{55ADF402-40CD-44FF-987D-A51121F1BEE7}" Platform="Linked"/>
 							</ActiveSourceList>
@@ -89,16 +101,13 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-2</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
-								</Reference>
-								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-									<ObjectRef Name="Brick_Wall_Minus_6dB_Peak_Fast_Release" ID="{3FF9AD86-E377-40F8-970F-3D4EE73288B5}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
@@ -214,7 +223,7 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Trigger Action" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" ShortID="421079139">
+				<Folder Name="TriggerAction" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" ShortID="421079139">
 					<ChildrenList>
 						<Sound Name="Orc Throwing Rock SFX" ID="{A9DF3983-AEEB-4EB1-B418-A7E8DCCE943E}" ShortID="1027621514">
 							<PropertyList>
@@ -278,7 +287,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>1</Value>
+										<Value>-1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -752,11 +761,6 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1084,6 +1088,43 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Power Up 2 SFX" ID="{A94694E7-2D05-430E-B71E-4F2577F7F551}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Chest Opening SFX" ID="{A4BD7451-537C-4B76-8332-8E1A314A3348}" ShortID="557245483">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Parametric_EQ" ID="{C4FA1CA7-D6D6-4C71-BF83-3C98D042115D}" WorkUnitID="{AF6E01ED-6887-4EC6-81BF-AB569E714DD8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Chest Opening SFX" ID="{5FDEE0E2-0F3B-4A8B-8764-BD37F708119E}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.6238113556922"/>
+										<Property Name="FadeOutShape" Type="int16" Value="4"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Chest Opening SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="15871651"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Chest Opening SFX" ID="{5FDEE0E2-0F3B-4A8B-8764-BD37F708119E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -2256,6 +2297,126 @@
 						</GroupingBehaviorList>
 					</GroupingInfo>
 				</SwitchContainer>
+				<Folder Name="DodgeRoll" ID="{6C4E1780-7D76-4F5B-ACE2-8B35FF372C22}" ShortID="85235988">
+					<ChildrenList>
+						<Sound Name="DodgeRoll Jump (snow)" ID="{79395178-9816-4C63-87DC-4437AB7CED22}" ShortID="885847473">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DodgeRoll Jump (snow)" ID="{6C45327E-F8BD-4063-9BD1-42616F6EAF4A}">
+									<Language>SFX</Language>
+									<AudioFile>DodgeRoll Jump (snow).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="432591626"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DodgeRoll Jump (snow)" ID="{6C45327E-F8BD-4063-9BD1-42616F6EAF4A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DodgeRoll Jump (wood)" ID="{13B72251-E7D3-4537-83EF-18175F659DDB}" ShortID="666417900">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DodgeRoll Jump (wood)" ID="{6A9EEE78-3872-4C09-AE83-6DB17C784452}">
+									<Language>SFX</Language>
+									<AudioFile>DodgeRoll Jump (wood).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="215169672"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DodgeRoll Jump (wood)" ID="{6A9EEE78-3872-4C09-AE83-6DB17C784452}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DodgeRoll Land (snow)" ID="{216E293B-F515-472B-A4B1-4118A883E1C6}" ShortID="887198457">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DodgeRoll Land (snow)" ID="{075C7A9E-EFF9-47A6-BF0D-2C4F638EDC3F}">
+									<Language>SFX</Language>
+									<AudioFile>DodgeRoll Land (snow).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="153558916"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DodgeRoll Land (snow)" ID="{075C7A9E-EFF9-47A6-BF0D-2C4F638EDC3F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DodgeRoll Land (wood)" ID="{A667C179-2965-4BF5-BCB8-4FBAA45F7372}" ShortID="40980264">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DodgeRoll Land (wood)" ID="{D03A3911-A547-43C1-B76E-714B175B5CFB}">
+									<Language>SFX</Language>
+									<AudioFile>DodgeRoll Land (wood).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="453013572"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DodgeRoll Land (wood)" ID="{D03A3911-A547-43C1-B76E-714B175B5CFB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -83,6 +83,7 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
 
         Vector3 throwDirection = (throwPoint.transform.position - throwSpawnPoint.position).normalized;
         axeRb.velocity = throwDirection * (throwForce * throwforceMultiplier);
+
     }
 
     private void ReturnAxe()
@@ -96,6 +97,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
             axeRb.useGravity = true;
             axeRb.velocity = Vector3.zero;
             axeRb.angularVelocity = Vector3.zero;
+            // TO BE ADDED SOMEWHERE HERE: Axe Hits Something Generic (Soft) SFX (HERE IT'S NOISE, REPEATED SOUND)
+            // AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Soft__Moist_", gameObject);
         }
         StartCoroutine(AxeReturnLerp());
     }

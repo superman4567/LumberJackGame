@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2E4D5CEF-3304-338F-E518-AFD4A2A5CC63}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{3D53DF03-9EDD-A489-A91F-2D91D30BFD31}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -42,10 +42,14 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A83D49E4-1514-16D9-4D4E-C32D87DBE691}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA0ABBAF-0661-0A76-2C96-D05B44532E8E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="15871651" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Chest Opening SFX.wav</ShortName>
+					<CachePath>SFX/Chest Opening SFX_A928E36F.wem</CachePath>
+				</File>
 				<File Id="55070645" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Orc Dying 2 SFX.wav</ShortName>
 					<CachePath>SFX/Orc Dying 2 SFX_10C4C929.wem</CachePath>
@@ -205,7 +209,6 @@
 			</Media>
 			<Plugins>
 				<ShareSets>
-					<Plugin Id="2080872166" Name="Brick_Wall_Minus_6dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="3657550167" Name="New_Parametric_EQ" LibName="Wwise Parametric EQ" LibId="6881283"/>
 				</ShareSets>
 			</Plugins>
@@ -234,6 +237,16 @@
 					<MediaRefs>
 						<MediaRef Id="814368198"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="3010613748" Name="Play_Chest_Opening_SFX" DurationType="OneShot" DurationMin="2.9629705" DurationMax="2.9629705">
+					<MediaRefs>
+						<MediaRef Id="15871651"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3657550167"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="3792559462" Name="Play_Chopping_Wood_SFX__single_chop_" DurationType="OneShot" DurationMin="0.8076871" DurationMax="1.033617">
 					<MediaRefs>
@@ -388,11 +401,6 @@
 					<MediaRefs>
 						<MediaRef Id="661576098"/>
 					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="2080872166"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
 				<Event Id="2260999859" Name="Play_Throw_Axe_1_SFX" DurationType="OneShot" DurationMin="0.69908273" DurationMax="0.93316346">
 					<MediaRefs>
@@ -425,5 +433,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F8998D11-D761-EBF3-F193-879715B71008}</FileHash>
+	<FileHash>{43FDE7A3-84B0-7FCD-ED8A-284E49638E29}</FileHash>
 </SoundBanksInfo>
