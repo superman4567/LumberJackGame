@@ -198,5 +198,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //TO DO: Do a material check first and then create a witch state to chose which variant needs to be played
         //play sound
+        AkSoundEngine.PostEvent("Play_Footsteps_Player_Snow", gameObject);
     }
 }

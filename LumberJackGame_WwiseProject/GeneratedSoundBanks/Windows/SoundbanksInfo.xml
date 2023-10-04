@@ -42,7 +42,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D5A902CD-3E0D-EA65-D53B-CE546AE67E65}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A12BC892-F79D-AD83-6ECA-A468155BB7A3}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -368,12 +368,12 @@
 						<MediaRef Id="453013572"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="25" DurationType="Infinite">
+				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="45" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="366189814"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="519370205" Name="Play_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="25" DurationType="Infinite">
+				<Event Id="519370205" Name="Play_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="45" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="944032091"/>
 					</MediaRefs>
@@ -557,5 +557,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C077E71C-754A-2044-E6E8-28768EEFB0E9}</FileHash>
+	<FileHash>{69F48601-3EC8-02E1-B152-D3920673A8E2}</FileHash>
 </SoundBanksInfo>
