@@ -193,4 +193,10 @@ public class PlayerMovement : MonoBehaviour
         childImage.color = Color.white; 
         playerAnimations.SetDodgeRollState(false);
     }
+
+    public void FootStepSound()
+    {
+        //TO DO: Do a material check first and then create a witch state to chose which variant needs to be played
+        //play sound
+    }
 }
