@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Attenuation Name="Fireplace or Campfire Distance" ID="{1C46BA96-FA38-479F-83DB-E16FEAB2FC21}" ShortID="547875064">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="10"/>
+						<Property Name="RadiusMax" Type="Real64" Value="25"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -21,7 +21,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>10</XPos>
+											<XPos>25</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>

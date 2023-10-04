@@ -83,6 +83,8 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
 
         Vector3 throwDirection = (throwPoint.transform.position - throwSpawnPoint.position).normalized;
         axeRb.velocity = throwDirection * (throwForce * throwforceMultiplier);
+        // Add Axe Hits Something Generic (Soft) Sound, could not make it work as the sound plays before hitting snow / generic
+        // AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Soft__Moist_", gameObject);
 
     }
 
@@ -97,8 +99,7 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
             axeRb.useGravity = true;
             axeRb.velocity = Vector3.zero;
             axeRb.angularVelocity = Vector3.zero;
-            // TO BE ADDED SOMEWHERE HERE: Axe Hits Something Generic (Soft) SFX (HERE IT'S NOISE, REPEATED SOUND)
-            // AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Soft__Moist_", gameObject);
+
         }
         StartCoroutine(AxeReturnLerp());
     }
@@ -124,7 +125,7 @@ public class PlayerThrowAxe : MonoBehaviour, IDataPersistance
                 isAxeThrown = false;
                 isReturning = false;
                 axe.axeHitSomething = false;
-                // Retrieve Axe SFX; NOTE: SEEMS TO WORK, BUT WATCH OUT FOR DELAY OR STRETCHING OF THE AUDIO DEPENDING ON THE ANIMATION.
+                // Retrieve Axe SFX; NOTE: WORKS, BUT WATCH OUT FOR ANY DELAY OR STRETCHING OF THE AUDIO.
                 AkSoundEngine.PostEvent("Play_Retrieve_Axe_SFX", gameObject);
                 break;
             }

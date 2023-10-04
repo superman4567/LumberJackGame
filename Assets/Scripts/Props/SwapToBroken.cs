@@ -34,6 +34,8 @@ public class SwapToBroken : MonoBehaviour
             ParentCollider.enabled = false;
             defaultVersion.gameObject.SetActive(false);
             brokenVersion.SetActive(true);
+            // Add Barrel and Crate Breaking Sound RANDOM CONTAINER
+            AkSoundEngine.PostEvent("Play_Axe_Hitting_and_Breaking_Barrel_RC", gameObject);
 
             StartCoroutine(StartFade());
             dropWoodAndCoins?.Invoke();

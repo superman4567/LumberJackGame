@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 050ab2db6fdd9745bbdfae6411a8e247
     GuidInternal: 
-    m_lastTime: -8585053282846027470
+    m_lastTime: -8585051690214844899
     List:
     - name: AmbientGameObjects
       guid: ee1f06d0a84af945abc33d25d3e2496d
@@ -164,9 +164,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_Axe_Hitting_and_Breaking_Barrel_SFX
-      guid: e484e07fbe313e4793bcf04e2fac9374
-      id: 473332933
+    - name: Play_Axe_Hitting_and_Breaking_Barrel_RC
+      guid: f333f531021cf14b9157b91dd229fe2f
+      id: 2974529557
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -174,16 +174,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 050ab2db6fdd9745bbdfae6411a8e247
-      - ElementName: TriggerAction
-        ObjectType: 4
-        guid: df9cd2469d651c458e7c78af9f988a70
-      - ElementName: Play_Axe_Hitting_and_Breaking_Barrel_SFX
+      - ElementName: Play_Axe_Hitting_and_Breaking_Barrel_RC
         ObjectType: 3
-        guid: e484e07fbe313e4793bcf04e2fac9374
-      Path: Events\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Barrel_SFX
+        guid: f333f531021cf14b9157b91dd229fe2f
+      Path: Events\Default Work Unit\Play_Axe_Hitting_and_Breaking_Barrel_RC
       maxAttenuation: 0
-      maxDuration: 1.7091156
-      minDuration: 1.7091156
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Axe_Hitting_and_Breaking_Crate_SFX
       guid: 1281e9fb0e3cf84e9e5d4a9d4a2412a3
       id: 2336821186
@@ -202,8 +199,8 @@ MonoBehaviour:
         guid: 1281e9fb0e3cf84e9e5d4a9d4a2412a3
       Path: Events\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Crate_SFX
       maxAttenuation: 0
-      maxDuration: 1.0839516
-      minDuration: 1.0839516
+      maxDuration: 1.1820576
+      minDuration: 0.993988
     - name: Play_Axe_Hitting_Something_Hard__Wood_
       guid: d78f511fed75d742aae965b1e34072fa
       id: 2142273433
@@ -262,8 +259,8 @@ MonoBehaviour:
         guid: 99e57e77ea769a42a849a3f0cc0f4bad
       Path: Events\Default Work Unit\TriggerAction\Play_Cabin_Door_Opening_SFX
       maxAttenuation: 0
-      maxDuration: 2.8703628
-      minDuration: 2.8703628
+      maxDuration: 2.2049153
+      minDuration: 2.2049153
     - name: Play_Chest_Opening_SFX
       guid: 2e39b1836fcd3c4eb599315da900e290
       id: 3010613748
@@ -501,7 +498,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 41b94c823fa1754f9c6e956f7b0b777c
       Path: Events\Default Work Unit\AmbientGameObjects\Play_Fireplace_1_SFX__cabin_
-      maxAttenuation: 10
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Play_Fireplace_2_SFX__wilderness_campfire_
@@ -1004,6 +1001,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.3534014
       minDuration: 2.3534014
+    - name: Stop_Fireplace_1_SFX__cabin_
+      guid: 3ca83f8e0092d74f84a98e242f9f4eed
+      id: 2375413833
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: AmbientGameObjects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Stop_Fireplace_1_SFX__cabin_
+        ObjectType: 3
+        guid: 3ca83f8e0092d74f84a98e242f9f4eed
+      Path: Events\Default Work Unit\AmbientGameObjects\Stop_Fireplace_1_SFX__cabin_
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Fireplace_2_SFX__wilderness_campfire_
+      guid: 2f1372f1ef2ace4cbfae1136761fb7d0
+      id: 1631508791
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: AmbientGameObjects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Stop_Fireplace_2_SFX__wilderness_campfire_
+        ObjectType: 3
+        guid: 2f1372f1ef2ace4cbfae1136761fb7d0
+      Path: Events\Default Work Unit\AmbientGameObjects\Stop_Fireplace_2_SFX__wilderness_campfire_
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: TriggerAction
       guid: df9cd2469d651c458e7c78af9f988a70
       id: 568542337

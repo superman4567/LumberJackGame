@@ -42,13 +42,17 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA0ABBAF-0661-0A76-2C96-D05B44532E8E}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D5A902CD-3E0D-EA65-D53B-CE546AE67E65}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="15871651" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Chest Opening SFX.wav</ShortName>
 					<CachePath>SFX/Chest Opening SFX_A928E36F.wem</CachePath>
+				</File>
+				<File Id="22351157" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Walk On Snow 1 SFX (single).wav</ShortName>
+					<CachePath>SFX/Orc Walk On Snow 1 SFX (single)_10C4C929.wem</CachePath>
 				</File>
 				<File Id="55070645" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Orc Dying 2 SFX.wav</ShortName>
@@ -58,13 +62,33 @@
 					<ShortName>Orc Slash 3 SFX.wav</ShortName>
 					<CachePath>SFX/Orc Slash 3 SFX_9A08E8D1.wem</CachePath>
 				</File>
+				<File Id="153558916" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DodgeRoll Land (snow).wav</ShortName>
+					<CachePath>SFX/DodgeRoll Land (snow)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="158499397" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Wood 1 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Wood 1 SFX (single)_10C4C929.wem</CachePath>
+				</File>
 				<File Id="159723246" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Select SFX.wav</ShortName>
 					<CachePath>SFX/Menu Select SFX_10C4C929.wem</CachePath>
 				</File>
+				<File Id="172737269" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Wood 2 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Wood 2 SFX (single)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="186554060" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Wood 4 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Wood 4 SFX (single)_10C4C929.wem</CachePath>
+				</File>
 				<File Id="199818555" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Retrieve Axe SFX.wav</ShortName>
 					<CachePath>SFX/Retrieve Axe SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="215169672" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DodgeRoll Jump (wood).wav</ShortName>
+					<CachePath>SFX/DodgeRoll Jump (wood)_10C4C929.wem</CachePath>
 				</File>
 				<File Id="217756732" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Chopping Wood SFX (single chop).wav</ShortName>
@@ -106,9 +130,29 @@
 					<ShortName>Tree Falling SLOW SFX.wav</ShortName>
 					<CachePath>SFX/Tree Falling SLOW SFX_10C4C929.wem</CachePath>
 				</File>
+				<File Id="404634412" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Snow 2 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Snow 2 SFX (single)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="428261734" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Wood 3 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Wood 3 SFX (single)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="432591626" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DodgeRoll Jump (snow).wav</ShortName>
+					<CachePath>SFX/DodgeRoll Jump (snow)_10C4C929.wem</CachePath>
+				</File>
 				<File Id="444037353" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Player Getting Hit 1 with voice SFX.wav</ShortName>
 					<CachePath>SFX/Player Getting Hit 1 with voice SFX_10C4C929.wem</CachePath>
+				</File>
+				<File Id="453013572" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DodgeRoll Land (wood).wav</ShortName>
+					<CachePath>SFX/DodgeRoll Land (wood)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="453673277" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Walk On Snow 4 SFX (single).wav</ShortName>
+					<CachePath>SFX/Orc Walk On Snow 4 SFX (single)_10C4C929.wem</CachePath>
 				</File>
 				<File Id="480965462" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Orc Slash 1 SFX.wav</ShortName>
@@ -134,6 +178,14 @@
 					<ShortName>Power Up SFX.wav</ShortName>
 					<CachePath>SFX/Power Up SFX_10C4C929.wem</CachePath>
 				</File>
+				<File Id="672807113" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Snow 4 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Snow 4 SFX (single)_B437406F.wem</CachePath>
+				</File>
+				<File Id="677260103" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Snow 3 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Snow 3 SFX (single)_DB010C8B.wem</CachePath>
+				</File>
 				<File Id="688684146" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Snowstorm SFX (wilderness, splash etc).wav</ShortName>
 					<CachePath>SFX/Snowstorm SFX (wilderness, splash etc)_D79FB2B7.wem</CachePath>
@@ -152,7 +204,7 @@
 				</File>
 				<File Id="814368198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cabin Door Opening SFX.wav</ShortName>
-					<CachePath>SFX/Cabin Door Opening SFX_BF9C341E.wem</CachePath>
+					<CachePath>SFX/Cabin Door Opening SFX_C3157DDD.wem</CachePath>
 				</File>
 				<File Id="823740429" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Throw Axe 1 SFX.wav</ShortName>
@@ -186,6 +238,14 @@
 					<ShortName>Fireplace 2 SFX (wilderness campfire).wav</ShortName>
 					<CachePath>SFX/Fireplace 2 SFX (wilderness campfire)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="990644253" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Walk On Snow 2 SFX (single).wav</ShortName>
+					<CachePath>SFX/Orc Walk On Snow 2 SFX (single)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="992903504" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Orc Walk On Snow 3 SFX (single).wav</ShortName>
+					<CachePath>SFX/Orc Walk On Snow 3 SFX (single)_10C4C929.wem</CachePath>
+				</File>
 				<File Id="993692913" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Axe Hitting Something Hard (Wood).wav</ShortName>
 					<CachePath>SFX/Axe Hitting Something Hard (Wood)_10C4C929.wem</CachePath>
@@ -202,6 +262,10 @@
 					<ShortName>Orc Idle SFX.wav</ShortName>
 					<CachePath>SFX/Orc Idle SFX_10C4C929.wem</CachePath>
 				</File>
+				<File Id="1054724551" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Walking On Snow 1 SFX (single).wav</ShortName>
+					<CachePath>SFX/Walking On Snow 1 SFX (single)_10C4C929.wem</CachePath>
+				</File>
 				<File Id="1057322198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Collecting Coins-Wood SFX.wav</ShortName>
 					<CachePath>SFX/Collecting Coins-Wood SFX_10C4C929.wem</CachePath>
@@ -213,12 +277,13 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
-				<Event Id="473332933" Name="Play_Axe_Hitting_and_Breaking_Barrel_SFX" DurationType="OneShot" DurationMin="1.7091156" DurationMax="1.7091156">
+				<Event Id="2974529557" Name="Play_Axe_Hitting_and_Breaking_Barrel_RC" DurationType="OneShot" DurationMin="0.993988" DurationMax="1.8638039">
 					<MediaRefs>
+						<MediaRef Id="515236359"/>
 						<MediaRef Id="851825797"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2336821186" Name="Play_Axe_Hitting_and_Breaking_Crate_SFX" DurationType="OneShot" DurationMin="1.0839516" DurationMax="1.0839516">
+				<Event Id="2336821186" Name="Play_Axe_Hitting_and_Breaking_Crate_SFX" DurationType="OneShot" DurationMin="0.993988" DurationMax="1.1820576">
 					<MediaRefs>
 						<MediaRef Id="515236359"/>
 					</MediaRefs>
@@ -233,7 +298,7 @@
 						<MediaRef Id="335517631"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1871801053" Name="Play_Cabin_Door_Opening_SFX" DurationType="OneShot" DurationMin="2.8703628" DurationMax="2.8703628">
+				<Event Id="1871801053" Name="Play_Cabin_Door_Opening_SFX" DurationType="OneShot" DurationMin="2.2049153" DurationMax="2.2049153">
 					<MediaRefs>
 						<MediaRef Id="814368198"/>
 					</MediaRefs>
@@ -283,18 +348,62 @@
 						<MediaRef Id="500097620"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="10" DurationType="Infinite">
+				<Event Id="4083898089" Name="Play_DodgeRoll_Jump__snow_" DurationType="OneShot" DurationMin="0.7407483" DurationMax="0.7407483">
+					<MediaRefs>
+						<MediaRef Id="432591626"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3874169819" Name="Play_DodgeRoll_Jump__wood_" DurationType="OneShot" DurationMin="0.2777778" DurationMax="0.2777778">
+					<MediaRefs>
+						<MediaRef Id="215169672"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="385386580" Name="Play_DodgeRoll_Land__snow_" DurationType="OneShot" DurationMin="1.0185261" DurationMax="1.0185261">
+					<MediaRefs>
+						<MediaRef Id="153558916"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1871119050" Name="Play_DodgeRoll_Land__wood_" DurationType="OneShot" DurationMin="0.37036282" DurationMax="0.37036282">
+					<MediaRefs>
+						<MediaRef Id="453013572"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="580796139" Name="Play_Fireplace_1_SFX__cabin_" MaxAttenuation="25" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="366189814"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="519370205" Name="Play_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="10" DurationType="Infinite">
+				<Event Id="519370205" Name="Play_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="25" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="944032091"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2967686496" Name="Play_Footsteps_Orc" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3044539581" Name="Play_Footsteps_Player" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="734054766" Name="Play_Foosteps_Orc_Snow" DurationType="OneShot" DurationMin="0.12021342" DurationMax="0.26743403">
+					<MediaRefs>
+						<MediaRef Id="22351157"/>
+						<MediaRef Id="453673277"/>
+						<MediaRef Id="990644253"/>
+						<MediaRef Id="992903504"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1373420509" Name="Play_Footsteps_Orc_SG" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1635164870" Name="Play_Footsteps_Player_SG" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1474111809" Name="Play_Footsteps_Player_Snow" DurationType="OneShot" DurationMin="0.36567628" DurationMax="0.74883103">
+					<MediaRefs>
+						<MediaRef Id="404634412"/>
+						<MediaRef Id="672807113"/>
+						<MediaRef Id="677260103"/>
+						<MediaRef Id="1054724551"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3925690383" Name="Play_Footsteps_Player_Wood" DurationType="OneShot" DurationMin="0.16029109" DurationMax="0.21396294">
+					<MediaRefs>
+						<MediaRef Id="158499397"/>
+						<MediaRef Id="172737269"/>
+						<MediaRef Id="186554060"/>
+						<MediaRef Id="428261734"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2268832505" Name="Play_Game_Over_SFX" DurationType="OneShot" DurationMin="6" DurationMax="6">
 					<MediaRefs>
 						<MediaRef Id="1034345504"/>
@@ -422,6 +531,16 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="2375413833" Name="Stop_Fireplace_1_SFX__cabin_" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="366189814"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1631508791" Name="Stop_Fireplace_2_SFX__wilderness_campfire_" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="944032091"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<SwitchGroups>
 				<SwitchGroup Id="1730208058" Name="Player_Footsteps">
@@ -430,8 +549,13 @@
 						<Switch Id="2823404168" Name="Player_Snow"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="2154374565" Name="Orc_Footsteps">
+					<Switches>
+						<Switch Id="2154374565" Name="Orc_Footsteps"/>
+					</Switches>
+				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{43FDE7A3-84B0-7FCD-ED8A-284E49638E29}</FileHash>
+	<FileHash>{C077E71C-754A-2044-E6E8-28768EEFB0E9}</FileHash>
 </SoundBanksInfo>

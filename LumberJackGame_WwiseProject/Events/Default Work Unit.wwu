@@ -27,6 +27,34 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Stop_Fireplace_1_SFX__cabin_" ID="{8E3FA83C-9200-4FD7-84A9-8E242F9F4EED}">
+							<ChildrenList>
+								<Action Name="" ID="{BB538B2B-5C6A-4427-8B10-10FCF059E1DB}" ShortID="57189222">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fireplace 1 SFX (cabin)" ID="{FAD3B94D-7D30-4567-A8C6-F54E4EE0FEDD}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Fireplace_2_SFX__wilderness_campfire_" ID="{F172132F-2AEF-4CCE-BFAE-1136761FB7D0}">
+							<ChildrenList>
+								<Action Name="" ID="{A6F61344-D502-4765-88B8-4BC33E0E5BF8}" ShortID="612848654">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fireplace 2 SFX (wilderness campfire)" ID="{8945B216-2447-4BFC-A784-FEF6E5E5E35F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="BGM" ID="{F3556EC1-2F91-4C89-BCD0-6ABD02046066}" ShortID="65893821">
@@ -151,17 +179,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Tree Falling SLOW SFX" ID="{BF1F123F-3C2D-4D10-BC59-C5341D14D3C0}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Axe_Hitting_and_Breaking_Barrel_SFX" ID="{7FE084E4-31BE-473E-93BC-F04E2FAC9374}">
-							<ChildrenList>
-								<Action Name="" ID="{EAF912C3-F2D3-46C7-86BC-7BCF13990B83}" ShortID="145044729">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Axe Hitting and Breaking Barrel SFX" ID="{FDFAA7B8-C377-4833-AA72-C37D70827D56}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -395,28 +412,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Footsteps_Orc" ID="{3488AC68-7BAC-49EB-9578-81EEF1953C05}">
-							<ChildrenList>
-								<Action Name="" ID="{5A21176F-EE2A-48C4-913C-B0505DA2B1DA}" ShortID="603928651">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Footsteps_Player" ID="{416E9E82-332B-4C95-A737-F9E204D56678}">
-							<ChildrenList>
-								<Action Name="" ID="{63D01EDD-E587-499F-9E6C-CB077BC963C2}" ShortID="60722187">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Footsteps_Player_Snow" ID="{C49A24F3-24F6-4573-B2DA-DAAD09AD431E}">
 							<ChildrenList>
 								<Action Name="" ID="{57150CD2-0E09-4515-9AEF-255A295663E7}" ShortID="486294418">
@@ -434,6 +429,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Footsteps Player Wood" ID="{E6071D22-F21C-4895-A3B8-A3DBC441C2EB}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Orc_SG" ID="{94918FDA-6D3D-45D0-976E-51E932BE0328}">
+							<ChildrenList>
+								<Action Name="" ID="{0435945C-D03F-457D-BA90-C25DCEDCDA6B}" ShortID="438961461">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Player_SG" ID="{9902F6ED-5248-414E-BA43-81ED2A56E048}">
+							<ChildrenList>
+								<Action Name="" ID="{D13B184D-57F7-404C-9F57-B5D564A5E8D2}" ShortID="747433660">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -489,6 +506,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Axe_Hitting_and_Breaking_Barrel_RC" ID="{9B35DC74-E469-4A6B-BBFC-B479A13F71F0}">
+					<ChildrenList>
+						<Action Name="" ID="{C20FE778-970D-4985-8329-B4045C6176A6}" ShortID="806361176">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Axe Hitting and Breaking Barrel RC" ID="{0B7E3238-8456-48D4-8010-03D359A1C68F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

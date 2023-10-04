@@ -15,12 +15,19 @@ public class TreeChopProgress : MonoBehaviour
         radialCanvas.SetActive(false);
     }
 
+    //private void Start()
+    //{
+    //    StartCoroutine(PlayChopTreeSound());
+    //}
+
     public void AddRadialAmount(bool interacting)
     {
         if (interacting)
         {
             radialCanvas.SetActive(true);
             radialFill.fillAmount = tree.savedProgressInSeconds  / tree.interactInSeconds;
+            // Add Axe Chopping Wood Sound DOESN'T WORK HERE
+            // AkSoundEngine.PostEvent("Play_Chopping_Wood_SFX__single_chop_", gameObject);
         }
         else
         {
@@ -35,6 +42,12 @@ public class TreeChopProgress : MonoBehaviour
             radialCanvas.SetActive(true);
         }
     }
+
+    //private IEnumerator PlayChopTreeSound()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //    AkSoundEngine.PostEvent("Play_Chopping_Wood_SFX__single_chop_", gameObject);
+    //}
 
     private void OnTriggerExit(Collider other)
     {

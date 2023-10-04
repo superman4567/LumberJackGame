@@ -124,8 +124,6 @@ public class PlayerInteraction : MonoBehaviour
                     currentInteractableObject.GetComponentInChildren<Chest>().ChestInteract();
                     currentInteractableObject.AddProgress(Time.deltaTime);
                     Invoke("ResetChestValues", 1.6f);
-                    // APPARENTLY THE CHEST OPEN AUDIO SFX DOESN'T WORK HERE :)
-                    // AkSoundEngine.PostEvent("Play_Chest_Opening_SFX", gameObject);
                 }
             }
 
@@ -136,21 +134,12 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     InteractionHappening?.Invoke(true);
                     currentInteractableObject.AddProgress(Time.deltaTime);
-                    // CALLING THE AUDIO EVENT HERE DOESN'T WORK BECAUSE IT PLAYS REPEATEDLY, E.G. IF YOU PRESS 'E' AND HOLD, THE SOUNDS WILL ADD UP TO NOISE
-                    // AkSoundEngine.PostEvent("Play_Chopping_Wood_SFX__single_chop_", gameObject);
-
                 }
                 //Done interacting
                 if (currentInteractableObject.CheckProgressComplete() && (currentInteractable.tag != "Chest"))
                 {
                     currentInteractableObject?.InteractComplete();
                     InteractionHappening?.Invoke(false);
-                    // Tree Falling SFX
-                    AkSoundEngine.PostEvent("Play_Tree_Falling_SLOW_SFX", gameObject);
-                    {
-                    // MUST ADD DELAY OR SCRIPT EVENT FOR LANDING SOUND:
-                    // AkSoundEngine.PostEvent("Play_Tree_Landing_SLOW_SFX", gameObject);
-                    }
                 }
             }
             else

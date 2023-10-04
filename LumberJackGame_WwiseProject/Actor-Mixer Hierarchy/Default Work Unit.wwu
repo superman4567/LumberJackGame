@@ -9,6 +9,13 @@
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{1E6167FA-2663-412C-97C7-F2783A3F2829}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>3</Value>
@@ -101,7 +108,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -145,7 +152,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -189,7 +196,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -419,7 +426,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1</Value>
+										<Value>4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -451,83 +458,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Tree Landing SLOW SFX" ID="{6087BF97-BEFE-4F5F-B392-7908B0DC0DCC}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Axe Hitting and Breaking Barrel SFX" ID="{FDFAA7B8-C377-4833-AA72-C37D70827D56}" ShortID="84657780">
-							<PropertyList>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{70837810-2A39-41F3-960B-BE483E59F8ED}"/>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-9</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}">
-									<Language>SFX</Language>
-									<AudioFile>Axe Hitting and Breaking Barrel SFX.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="851825797"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Axe Hitting and Breaking Crate SFX" ID="{0346665D-7D16-4098-A512-A1A6289585EA}" ShortID="719644732">
-							<PropertyList>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{43F5ABDB-809E-41CE-B9DB-2EE1A4D60EAD}"/>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-9</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}">
-									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.271640872616089"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimEnd" Type="Real64" Value="1.08395155899689"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>Axe Hitting and Breaking Crate SFX.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="515236359"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Axe Hitting Something Hard (Wood)" ID="{81D4D37C-B10D-441C-B437-62D39AEF098B}" ShortID="119288486">
@@ -645,17 +575,28 @@
 							<ChildrenList>
 								<AudioFileSource Name="Cabin Door Opening SFX" ID="{B5F76F60-1BD2-437C-BF0B-1F3C0813B060}">
 									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="1.40481790647618"/>
-										<Property Name="FadeInShape" Type="int16" Value="4"/>
-										<Property Name="LoopBegin" Type="Real64" Value="0.676093920407843"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.31542944520932"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.665447433875511"/>
 										<Property Name="LoopEnd" Type="Real64" Value="2.87034013605442"/>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.66544743387551"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Cabin Door Opening SFX.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="814368198"/>
 									</MediaIDList>
+									<PluginInnerObjectList>
+										<List Name="Markers">
+											<PluginInnerObject Name="" ID="{3141A35E-9FCD-4A84-A728-829C2F54A74A}" PluginName="Marker" CompanyID="0" PluginID="993">
+												<PropertyList>
+													<Property Name="Label" Type="string" Value="START"/>
+													<Property Name="Time" Type="Real64" Value="0.665447433875511"/>
+												</PropertyList>
+											</PluginInnerObject>
+										</List>
+									</PluginInnerObjectList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
@@ -760,6 +701,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -1094,7 +1040,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>30</Value>
+										<Value>34</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2117,8 +2063,14 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
 						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="Orc_Footsteps" ID="{50635A20-D3AC-4AD8-B00A-74496AEECD4F}" WorkUnitID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}"/>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="Orc_Footsteps" ID="{5300E6BE-7ED9-47B5-B910-7A8AA5D59370}" WorkUnitID="{D098C2EA-91AD-4B14-9C0E-134293F3F1A9}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -2417,6 +2369,116 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<RandomSequenceContainer Name="Axe Hitting and Breaking Barrel RC" ID="{0B7E3238-8456-48D4-8010-03D359A1C68F}" ShortID="1049708313">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{A299F480-238A-4169-BBF5-906978E34993}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Axe Hitting and Breaking Barrel SFX" ID="{FDFAA7B8-C377-4833-AA72-C37D70827D56}" ShortID="84657780">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{70837810-2A39-41F3-960B-BE483E59F8ED}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}">
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting and Breaking Barrel SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="851825797"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting and Breaking Barrel SFX" ID="{A7A60D58-1E51-47FA-844B-80FECF0BF2D3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Axe Hitting and Breaking Crate SFX" ID="{0346665D-7D16-4098-A512-A1A6289585EA}" ShortID="719644732">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{43F5ABDB-809E-41CE-B9DB-2EE1A4D60EAD}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{194D6895-C16E-49FB-8744-83F844C9F0A6}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1B0E4AC1-BD9A-47EF-A406-77EB1A28ED6A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.271640872616089"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.08395155899689"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Axe Hitting and Breaking Crate SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="515236359"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Axe Hitting and Breaking Crate SFX" ID="{C11A4FE0-7A38-4DA8-AED3-D0A40460E349}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

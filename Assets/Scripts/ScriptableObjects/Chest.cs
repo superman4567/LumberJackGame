@@ -24,7 +24,8 @@ public class Chest : Interactable
         if (!isOpen)
         {
             animator.SetTrigger("OpenChestTrigger");
-
+            // Add Chest Opening Sound
+            AkSoundEngine.PostEvent("Play_Chest_Opening_SFX", gameObject);
             player.transform.SetParent(playerSocket);
             player.transform.position = playerSocket.transform.position;
             player.transform.rotation = playerSocket.transform.rotation;

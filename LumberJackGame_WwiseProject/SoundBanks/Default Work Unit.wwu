@@ -6,17 +6,22 @@
 				<SoundBank Name="Main" ID="{593FBFD2-BCFD-44B2-93E9-389D3B10FF36}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Orc Idle" ID="{A65E1CBF-17D8-42CA-A8A0-0B325086EB64}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DodgeRoll" ID="{8775F1A6-FB3A-4361-9461-C9F85546B4FD}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Orc Slash" ID="{07C40501-4B6D-43F8-9C1D-84CD84DF8928}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="TriggerAction" ID="{46D29CDF-659D-451C-8E7C-78AF9F988A70}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="AmbientGameObjects" ID="{D0061FEE-4AA8-45F9-ABC3-3D25D3E2496D}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Orc Getting Hit" ID="{A0583C0C-F409-46B3-8382-758E08E605A9}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BGM" ID="{6554D325-FB32-46C9-8B91-62238DD48A80}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI" ID="{1C796104-49CD-4834-ABE7-B8DB10E0C28E}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{6F1B482A-2E3C-495A-A82D-8FCC024FA0EA}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Orc Dying" ID="{6FD3B053-C89F-49DE-ABDC-7DF68F8A3688}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Axe_Hitting_and_Breaking_Barrel_RC" ID="{9B35DC74-E469-4A6B-BBFC-B479A13F71F0}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="BGM" ID="{F3556EC1-2F91-4C89-BCD0-6ABD02046066}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Player Getting Hit" ID="{41EDC585-D8A6-4DE4-9BC8-B8E87B77AB13}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="AmbientGameObjects" ID="{BC8F70BD-CB7A-4E52-BECE-DA3FE4F895F0}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Footsteps" ID="{16A4D3C6-F2AE-4F19-BB75-A722A446F548}" WorkUnitID="{DBB20A05-DD6F-4597-BBDF-AE6411A8E247}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TriggerAction" ID="{428B8A23-2AF1-4FA8-B3F9-5736A9734A7F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

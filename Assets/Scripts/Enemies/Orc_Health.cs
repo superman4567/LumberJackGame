@@ -79,6 +79,8 @@ public class Orc_Health : MonoBehaviour
         if (other.gameObject.CompareTag("Axe") && other.isTrigger)
         {
             TakeDamage(axeDetection.additionalAxeDamage);
+            // Add Orc Getting Hit Sound
+            AkSoundEngine.PostEvent("Play_Orc_Getting_Hit", gameObject);
         }
     }
 
@@ -115,6 +117,8 @@ public class Orc_Health : MonoBehaviour
             orc_Ragdoll.EnableRagdoll();
             roundManager.OrcKilled();
             Die();
+            // Add Orc Dying Sound
+            AkSoundEngine.PostEvent("Play_Orc_Dying", gameObject);
         }
     }
 
