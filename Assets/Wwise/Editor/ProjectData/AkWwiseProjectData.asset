@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 37993ae945940946a6a21f79f9317f3a
     GuidInternal: 
-    m_lastTime: -8585054954956734269
+    m_lastTime: -8585048919754109375
     List:
     - name: Main
       guid: d2bf3f59fdbcb24493e9389d3b10ff36
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 050ab2db6fdd9745bbdfae6411a8e247
     GuidInternal: 
-    m_lastTime: -8585053282846027470
+    m_lastTime: -8585049741558257286
     List:
     - name: AmbientGameObjects
       guid: ee1f06d0a84af945abc33d25d3e2496d
@@ -164,9 +164,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_Axe_Hitting_and_Breaking_Barrel_SFX
-      guid: e484e07fbe313e4793bcf04e2fac9374
-      id: 473332933
+    - name: Play_Axe_Hitting_and_Breaking_Barrel_RC
+      guid: 74dc359b69e46b4abbfcb479a13f71f0
+      id: 2974529557
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -174,16 +174,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 050ab2db6fdd9745bbdfae6411a8e247
-      - ElementName: TriggerAction
-        ObjectType: 4
-        guid: df9cd2469d651c458e7c78af9f988a70
-      - ElementName: Play_Axe_Hitting_and_Breaking_Barrel_SFX
+      - ElementName: Play_Axe_Hitting_and_Breaking_Barrel_RC
         ObjectType: 3
-        guid: e484e07fbe313e4793bcf04e2fac9374
-      Path: Events\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Barrel_SFX
+        guid: 74dc359b69e46b4abbfcb479a13f71f0
+      Path: Events\Default Work Unit\Play_Axe_Hitting_and_Breaking_Barrel_RC
       maxAttenuation: 0
-      maxDuration: 1.7091156
-      minDuration: 1.7091156
+      maxDuration: 1.8638039
+      minDuration: 0.993988
     - name: Play_Axe_Hitting_and_Breaking_Crate_SFX
       guid: 1281e9fb0e3cf84e9e5d4a9d4a2412a3
       id: 2336821186
@@ -202,8 +199,8 @@ MonoBehaviour:
         guid: 1281e9fb0e3cf84e9e5d4a9d4a2412a3
       Path: Events\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Crate_SFX
       maxAttenuation: 0
-      maxDuration: 1.0839516
-      minDuration: 1.0839516
+      maxDuration: 1.1820576
+      minDuration: 0.993988
     - name: Play_Axe_Hitting_Something_Hard__Wood_
       guid: d78f511fed75d742aae965b1e34072fa
       id: 2142273433
@@ -244,6 +241,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.51966685
       minDuration: 0.41245985
+    - name: Play_Cabin_Door_Closing_SFX
+      guid: 63fb2fa87b5426499ae8b5bc90abf092
+      id: 3667625176
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: TriggerAction
+        ObjectType: 4
+        guid: df9cd2469d651c458e7c78af9f988a70
+      - ElementName: Play_Cabin_Door_Closing_SFX
+        ObjectType: 3
+        guid: 63fb2fa87b5426499ae8b5bc90abf092
+      Path: Events\Default Work Unit\TriggerAction\Play_Cabin_Door_Closing_SFX
+      maxAttenuation: 0
+      maxDuration: 1.4091069
+      minDuration: 1.4091069
     - name: Play_Cabin_Door_Opening_SFX
       guid: 99e57e77ea769a42a849a3f0cc0f4bad
       id: 1871801053
@@ -262,8 +279,8 @@ MonoBehaviour:
         guid: 99e57e77ea769a42a849a3f0cc0f4bad
       Path: Events\Default Work Unit\TriggerAction\Play_Cabin_Door_Opening_SFX
       maxAttenuation: 0
-      maxDuration: 2.8703628
-      minDuration: 2.8703628
+      maxDuration: 1.4600744
+      minDuration: 1.4600744
     - name: Play_Chest_Opening_SFX
       guid: 2e39b1836fcd3c4eb599315da900e290
       id: 3010613748
@@ -284,9 +301,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.9629705
       minDuration: 2.9629705
-    - name: Play_Chopping_Wood_SFX__single_chop_
-      guid: 43a7556737e4034ebd8e6d182cfab50b
-      id: 3792559462
+    - name: Play_Chopping_Wood_RC
+      guid: 6b736be826d7eb41a1964757ff86e9ec
+      id: 342309480
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -294,16 +311,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 050ab2db6fdd9745bbdfae6411a8e247
-      - ElementName: TriggerAction
-        ObjectType: 4
-        guid: df9cd2469d651c458e7c78af9f988a70
-      - ElementName: Play_Chopping_Wood_SFX__single_chop_
+      - ElementName: Play_Chopping_Wood_RC
         ObjectType: 3
-        guid: 43a7556737e4034ebd8e6d182cfab50b
-      Path: Events\Default Work Unit\TriggerAction\Play_Chopping_Wood_SFX__single_chop_
+        guid: 6b736be826d7eb41a1964757ff86e9ec
+      Path: Events\Default Work Unit\Play_Chopping_Wood_RC
       maxAttenuation: 0
-      maxDuration: 1.033617
-      minDuration: 0.8076871
+      maxDuration: 0.9605072
+      minDuration: 0.05996621
     - name: Play_Collecting_Coins_Wood_SFX
       guid: dbeaf612068ebf439a3f0432253be591
       id: 1414374781
@@ -325,7 +339,7 @@ MonoBehaviour:
       maxDuration: 1
       minDuration: 1
     - name: Play_Dialogue_SFX
-      guid: bcaa41ec03d64d46962c81950fad2eb4
+      guid: 04d0bd7f4b16614d9dc6319a7dab1e1f
       id: 2575316952
       PathAndIcons:
       - ElementName: Events
@@ -334,16 +348,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 050ab2db6fdd9745bbdfae6411a8e247
-      - ElementName: UI
-        ObjectType: 4
-        guid: 2a481b6f3c2e5a49a82d8fcc024fa0ea
       - ElementName: Play_Dialogue_SFX
         ObjectType: 3
-        guid: bcaa41ec03d64d46962c81950fad2eb4
-      Path: Events\Default Work Unit\UI\Play_Dialogue_SFX
+        guid: 04d0bd7f4b16614d9dc6319a7dab1e1f
+      Path: Events\Default Work Unit\Play_Dialogue_SFX
       maxAttenuation: 0
       maxDuration: 1.1338029
-      minDuration: 1.0951815
+      minDuration: 0.61727893
     - name: Play_Difficulty_Easy_SFX
       guid: bca9a3c5ca92cd4298d568414e2013cb
       id: 1368835454
@@ -422,8 +433,8 @@ MonoBehaviour:
         guid: 3485e9c12f77b448b8320cbc1d9da6ad
       Path: Events\Default Work Unit\DodgeRoll\Play_DodgeRoll_Jump__snow_
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.7407483
+      minDuration: 0.7407483
     - name: Play_DodgeRoll_Jump__wood_
       guid: ec4b326b27dcd1439f41e1e9edb63160
       id: 3874169819
@@ -442,8 +453,8 @@ MonoBehaviour:
         guid: ec4b326b27dcd1439f41e1e9edb63160
       Path: Events\Default Work Unit\DodgeRoll\Play_DodgeRoll_Jump__wood_
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.2777778
+      minDuration: 0.2777778
     - name: Play_DodgeRoll_Land__snow_
       guid: e8c38c51a4e2c04986f025c5532e1347
       id: 385386580
@@ -462,8 +473,8 @@ MonoBehaviour:
         guid: e8c38c51a4e2c04986f025c5532e1347
       Path: Events\Default Work Unit\DodgeRoll\Play_DodgeRoll_Land__snow_
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.0185261
+      minDuration: 1.0185261
     - name: Play_DodgeRoll_Land__wood_
       guid: 4cd627942a90ef43bb1892f368ca3079
       id: 1871119050
@@ -482,8 +493,8 @@ MonoBehaviour:
         guid: 4cd627942a90ef43bb1892f368ca3079
       Path: Events\Default Work Unit\DodgeRoll\Play_DodgeRoll_Land__wood_
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.37036282
+      minDuration: 0.37036282
     - name: Play_Fireplace_1_SFX__cabin_
       guid: 41b94c823fa1754f9c6e956f7b0b777c
       id: 580796139
@@ -501,7 +512,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 41b94c823fa1754f9c6e956f7b0b777c
       Path: Events\Default Work Unit\AmbientGameObjects\Play_Fireplace_1_SFX__cabin_
-      maxAttenuation: 10
+      maxAttenuation: 30
       maxDuration: -1
       minDuration: -1
     - name: Play_Fireplace_2_SFX__wilderness_campfire_
@@ -521,7 +532,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: d3df7fb52c348e48825769a1052c3f15
       Path: Events\Default Work Unit\AmbientGameObjects\Play_Fireplace_2_SFX__wilderness_campfire_
-      maxAttenuation: 10
+      maxAttenuation: 30
       maxDuration: -1
       minDuration: -1
     - name: Play_Foosteps_Orc_Snow
@@ -541,12 +552,12 @@ MonoBehaviour:
         ObjectType: 3
         guid: bf64e485b69b244792dea8765c17570f
       Path: Events\Default Work Unit\Footsteps\Play_Foosteps_Orc_Snow
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Play_Footsteps_Orc
-      guid: 68ac8834ac7beb49957881eef1953c05
-      id: 2967686496
+      maxAttenuation: 100
+      maxDuration: 0.26743403
+      minDuration: 0.12021342
+    - name: Play_Footsteps_Player_SG
+      guid: edf6029948524e41ba4381ed2a56e048
+      id: 1635164870
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -557,30 +568,10 @@ MonoBehaviour:
       - ElementName: Footsteps
         ObjectType: 4
         guid: c6d3a416aef2194fbb75a722a446f548
-      - ElementName: Play_Footsteps_Orc
+      - ElementName: Play_Footsteps_Player_SG
         ObjectType: 3
-        guid: 68ac8834ac7beb49957881eef1953c05
-      Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Orc
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Play_Footsteps_Player
-      guid: 829e6e412b33954ca737f9e204d56678
-      id: 3044539581
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 050ab2db6fdd9745bbdfae6411a8e247
-      - ElementName: Footsteps
-        ObjectType: 4
-        guid: c6d3a416aef2194fbb75a722a446f548
-      - ElementName: Play_Footsteps_Player
-        ObjectType: 3
-        guid: 829e6e412b33954ca737f9e204d56678
-      Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Player
+        guid: edf6029948524e41ba4381ed2a56e048
+      Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Player_SG
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -602,8 +593,28 @@ MonoBehaviour:
         guid: f3249ac4f6247345b2dadaad09ad431e
       Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Player_Snow
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.7707734
+      minDuration: 0.367296
+    - name: Play_Footsteps_Player_Snow_Run
+      guid: e35edb3e6c3d464dbec7a806647f8a76
+      id: 3628468635
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Footsteps
+        ObjectType: 4
+        guid: c6d3a416aef2194fbb75a722a446f548
+      - ElementName: Play_Footsteps_Player_Snow_Run
+        ObjectType: 3
+        guid: e35edb3e6c3d464dbec7a806647f8a76
+      Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Player_Snow_Run
+      maxAttenuation: 0
+      maxDuration: 0.6481406
+      minDuration: 0.3165062
     - name: Play_Footsteps_Player_Wood
       guid: bbd65c5d8f38ca458f510454a21ead9c
       id: 3925690383
@@ -622,8 +633,8 @@ MonoBehaviour:
         guid: bbd65c5d8f38ca458f510454a21ead9c
       Path: Events\Default Work Unit\Footsteps\Play_Footsteps_Player_Wood
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.21396294
+      minDuration: 0.16029109
     - name: Play_Game_Over_SFX
       guid: b709023c47fffd4bb5ca5af01c597113
       id: 2268832505
@@ -644,9 +655,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 6
       minDuration: 6
-    - name: Play_Menu_Negative_SFX
+    - name: Play_Menu_Diminishing_Bells_SFX
       guid: f368bdec6b43ee4aada5d9d0d350a90b
-      id: 1710556555
+      id: 1881530782
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -657,10 +668,10 @@ MonoBehaviour:
       - ElementName: UI
         ObjectType: 4
         guid: 2a481b6f3c2e5a49a82d8fcc024fa0ea
-      - ElementName: Play_Menu_Negative_SFX
+      - ElementName: Play_Menu_Diminishing_Bells_SFX
         ObjectType: 3
         guid: f368bdec6b43ee4aada5d9d0d350a90b
-      Path: Events\Default Work Unit\UI\Play_Menu_Negative_SFX
+      Path: Events\Default Work Unit\UI\Play_Menu_Diminishing_Bells_SFX
       maxAttenuation: 0
       maxDuration: 1
       minDuration: 1
@@ -684,9 +695,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.3333334
       minDuration: 1.3333334
-    - name: Play_Menu_Toggle_SFX
+    - name: Play_Menu_Timpani_SFX
       guid: ca8a72c5644f2d4992f0e2e2bd0909ec
-      id: 826527198
+      id: 3484687794
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -697,13 +708,30 @@ MonoBehaviour:
       - ElementName: UI
         ObjectType: 4
         guid: 2a481b6f3c2e5a49a82d8fcc024fa0ea
-      - ElementName: Play_Menu_Toggle_SFX
+      - ElementName: Play_Menu_Timpani_SFX
         ObjectType: 3
         guid: ca8a72c5644f2d4992f0e2e2bd0909ec
-      Path: Events\Default Work Unit\UI\Play_Menu_Toggle_SFX
+      Path: Events\Default Work Unit\UI\Play_Menu_Timpani_SFX
       maxAttenuation: 0
       maxDuration: 1.1553527
       minDuration: 0.87812614
+    - name: Play_Menu_Toggle_RC
+      guid: 144b2ff58227bf42a5f5aaf3cfae0188
+      id: 2262146324
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: Play_Menu_Toggle_RC
+        ObjectType: 3
+        guid: 144b2ff58227bf42a5f5aaf3cfae0188
+      Path: Events\Default Work Unit\Play_Menu_Toggle_RC
+      maxAttenuation: 0
+      maxDuration: 0.5348942
+      minDuration: 0.22706105
     - name: Play_Orc_Dying
       guid: 62939d519ef4c342b5abb383ad3f0b2a
       id: 1758999942
@@ -822,8 +850,8 @@ MonoBehaviour:
         guid: 0ee1c18af0a5e544b56bff9a5784a6c0
       Path: Events\Default Work Unit\TriggerAction\Play_Player_Getting_Hit
       maxAttenuation: 0
-      maxDuration: 2.6426826
-      minDuration: 0.6232137
+      maxDuration: 2.7998247
+      minDuration: 0.7411302
     - name: Play_Power_Up_2_SFX
       guid: 2fd2eadb4a191a43bed75619a90b732b
       id: 2788721000
@@ -1002,8 +1030,48 @@ MonoBehaviour:
         guid: 056649fae76f6c4789edd617ef2b4fb2
       Path: Events\Default Work Unit\TriggerAction\Play_Tree_Landing_SLOW_SFX
       maxAttenuation: 0
-      maxDuration: 2.3534014
-      minDuration: 2.3534014
+      maxDuration: 2.4933422
+      minDuration: 2.3398468
+    - name: Stop_Fireplace_1_SFX__cabin_
+      guid: 3ca83f8e0092d74f84a98e242f9f4eed
+      id: 2375413833
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: AmbientGameObjects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Stop_Fireplace_1_SFX__cabin_
+        ObjectType: 3
+        guid: 3ca83f8e0092d74f84a98e242f9f4eed
+      Path: Events\Default Work Unit\AmbientGameObjects\Stop_Fireplace_1_SFX__cabin_
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Fireplace_2_SFX__wilderness_campfire_
+      guid: 2f1372f1ef2ace4cbfae1136761fb7d0
+      id: 1631508791
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 050ab2db6fdd9745bbdfae6411a8e247
+      - ElementName: AmbientGameObjects
+        ObjectType: 4
+        guid: ee1f06d0a84af945abc33d25d3e2496d
+      - ElementName: Stop_Fireplace_2_SFX__wilderness_campfire_
+        ObjectType: 3
+        guid: 2f1372f1ef2ace4cbfae1136761fb7d0
+      Path: Events\Default Work Unit\AmbientGameObjects\Stop_Fireplace_2_SFX__wilderness_campfire_
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: TriggerAction
       guid: df9cd2469d651c458e7c78af9f988a70
       id: 568542337
@@ -1213,8 +1281,8 @@ MonoBehaviour:
     m_lastTime: -8585060138818054754
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000001000000011000000120000001300000014000000150000001600000017000000
-  AutoSyncSelection: 1
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000001000000011000000140000001500000016000000
+  AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
   CurrentPluginConfig: 

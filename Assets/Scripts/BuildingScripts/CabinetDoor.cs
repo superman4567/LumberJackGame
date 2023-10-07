@@ -18,6 +18,8 @@ public class CabinetDoor : MonoBehaviour
             isMoving = true;
             StartCoroutine(DoorLerp(doorRotationClosed.localEulerAngles, doorRotationOpen.localEulerAngles));
             canInteract = true;
+            // Add Cabin Door Opening
+            AkSoundEngine.PostEvent("Play_Cabin_Door_Opening_SFX", gameObject);
         }
     }
 
@@ -28,6 +30,8 @@ public class CabinetDoor : MonoBehaviour
             isMoving = true;
             StartCoroutine(DoorLerp(doorRotationOpen.localEulerAngles, doorRotationClosed.localEulerAngles));
             canInteract = false;
+            // Add Cabin Door Closing
+            AkSoundEngine.PostEvent("Play_Cabin_Door_Closing_SFX", gameObject);
         }
     }
 

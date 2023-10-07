@@ -85,7 +85,7 @@ public class ShowDialogue : MonoBehaviour
             completedDialogue = true;
             dialogueManager.HideUI();
             // Hide Dialogue SFX
-            AkSoundEngine.PostEvent("Play_Menu_Toggle_SFX", gameObject);
+            AkSoundEngine.PostEvent("Play_Menu_Toggle_RC", gameObject);
             // BUG: You'll hear this audio any time you press 'F' on the keyboard, AFTER the dialogue is closed.
             // This audio and the dialogue toggle audio is possibly going to be a random container or a different sound.
         }

@@ -57,4 +57,21 @@ public class Orc_Animations : MonoBehaviour
     {
         animator.SetFloat(OrcVelocityHash, value);
     }
+
+    public void OrcSlashSound()
+    {
+        // Snow
+        AkSoundEngine.PostEvent("Play_Orc_Slash", gameObject);
+    }
+
+    public void OrcThrowRockSound()
+    {
+        // Snow
+        AkSoundEngine.PostEvent("Play_Orc_Throwing_Rock_SFX", gameObject);
+    }
+
+    public void OrcFootStepSound()
+    {
+        AkSoundEngine.PostEvent("Play_Foosteps_Orc_Snow", gameObject);
+    }
 }

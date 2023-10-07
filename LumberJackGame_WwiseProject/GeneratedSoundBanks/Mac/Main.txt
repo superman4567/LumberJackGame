@@ -1,8 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
-	473332933	Play_Axe_Hitting_and_Breaking_Barrel_SFX			\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Barrel_SFX	
+	342309480	Play_Chopping_Wood_RC			\Default Work Unit\Play_Chopping_Wood_RC	
+	385386580	Play_DodgeRoll_Land__snow_			\Default Work Unit\DodgeRoll\Play_DodgeRoll_Land__snow_	
 	519370205	Play_Fireplace_2_SFX__wilderness_campfire_			\Default Work Unit\AmbientGameObjects\Play_Fireplace_2_SFX__wilderness_campfire_	
 	580796139	Play_Fireplace_1_SFX__cabin_			\Default Work Unit\AmbientGameObjects\Play_Fireplace_1_SFX__cabin_	
-	826527198	Play_Menu_Toggle_SFX			\Default Work Unit\UI\Play_Menu_Toggle_SFX	
+	734054766	Play_Foosteps_Orc_Snow			\Default Work Unit\Footsteps\Play_Foosteps_Orc_Snow	
 	832600286	Play_Menu_Select_SFX			\Default Work Unit\UI\Play_Menu_Select_SFX	
 	996221745	Play_Orc_Throwing_Rock_SFX			\Default Work Unit\TriggerAction\Play_Orc_Throwing_Rock_SFX	
 	1146263293	Play_Axe_Hitting_Something_Soft__Moist_			\Default Work Unit\TriggerAction\Play_Axe_Hitting_Something_Soft__Moist_	
@@ -12,27 +13,37 @@ Event	ID	Name			Wwise Object Path	Notes
 	1414374781	Play_Collecting_Coins_Wood_SFX			\Default Work Unit\UI\Play_Collecting_Coins_Wood_SFX	
 	1417014214	Play_Player_Getting_Hit			\Default Work Unit\TriggerAction\Play_Player_Getting_Hit	
 	1461983755	Play_The_White_Wilderness_BGM			\Default Work Unit\BGM\Play_The_White_Wilderness_BGM	
+	1474111809	Play_Footsteps_Player_Snow			\Default Work Unit\Footsteps\Play_Footsteps_Player_Snow	
 	1474577265	Play_Difficulty_Medium_SFX			\Default Work Unit\UI\Play_Difficulty_Medium_SFX	
 	1609421430	Play_Tree_Landing_SLOW_SFX			\Default Work Unit\TriggerAction\Play_Tree_Landing_SLOW_SFX	
-	1710556555	Play_Menu_Negative_SFX			\Default Work Unit\UI\Play_Menu_Negative_SFX	
+	1631508791	Stop_Fireplace_2_SFX__wilderness_campfire_			\Default Work Unit\AmbientGameObjects\Stop_Fireplace_2_SFX__wilderness_campfire_	
+	1635164870	Play_Footsteps_Player_SG			\Default Work Unit\Footsteps\Play_Footsteps_Player_SG	
 	1758999942	Play_Orc_Dying			\Default Work Unit\TriggerAction\Play_Orc_Dying	
+	1871119050	Play_DodgeRoll_Land__wood_			\Default Work Unit\DodgeRoll\Play_DodgeRoll_Land__wood_	
 	1871801053	Play_Cabin_Door_Opening_SFX			\Default Work Unit\TriggerAction\Play_Cabin_Door_Opening_SFX	
+	1881530782	Play_Menu_Diminishing_Bells_SFX			\Default Work Unit\UI\Play_Menu_Diminishing_Bells_SFX	
 	2142273433	Play_Axe_Hitting_Something_Hard__Wood_			\Default Work Unit\TriggerAction\Play_Axe_Hitting_Something_Hard__Wood_	
 	2260999859	Play_Throw_Axe_1_SFX			\Default Work Unit\TriggerAction\Play_Throw_Axe_1_SFX	
+	2262146324	Play_Menu_Toggle_RC			\Default Work Unit\Play_Menu_Toggle_RC	
 	2268832505	Play_Game_Over_SFX			\Default Work Unit\UI\Play_Game_Over_SFX	
 	2336821186	Play_Axe_Hitting_and_Breaking_Crate_SFX			\Default Work Unit\TriggerAction\Play_Axe_Hitting_and_Breaking_Crate_SFX	
-	2575316952	Play_Dialogue_SFX			\Default Work Unit\UI\Play_Dialogue_SFX	
+	2375413833	Stop_Fireplace_1_SFX__cabin_			\Default Work Unit\AmbientGameObjects\Stop_Fireplace_1_SFX__cabin_	
+	2575316952	Play_Dialogue_SFX			\Default Work Unit\Play_Dialogue_SFX	
 	2788721000	Play_Power_Up_2_SFX			\Default Work Unit\UI\Play_Power_Up_2_SFX	
-	2967686496	Play_Footsteps_Orc			\Default Work Unit\Footsteps\Play_Footsteps_Orc	
+	2974529557	Play_Axe_Hitting_and_Breaking_Barrel_RC			\Default Work Unit\Play_Axe_Hitting_and_Breaking_Barrel_RC	
 	3010613748	Play_Chest_Opening_SFX			\Default Work Unit\UI\Play_Chest_Opening_SFX	
-	3044539581	Play_Footsteps_Player			\Default Work Unit\Footsteps\Play_Footsteps_Player	
 	3381120702	Play_Snowstorm_SFX__cabin_			\Default Work Unit\BGM\Play_Snowstorm_SFX__cabin_	
+	3484687794	Play_Menu_Timpani_SFX			\Default Work Unit\UI\Play_Menu_Timpani_SFX	
 	3576852971	Play_Retrieve_Axe_SFX			\Default Work Unit\TriggerAction\Play_Retrieve_Axe_SFX	
 	3581783562	Play_Tree_Falling_SLOW_SFX			\Default Work Unit\TriggerAction\Play_Tree_Falling_SLOW_SFX	
 	3600376955	Play_Power_Up_SFX			\Default Work Unit\UI\Play_Power_Up_SFX	
 	3619198635	Play_Snowstorm_SFX__wilderness_			\Default Work Unit\BGM\Play_Snowstorm_SFX__wilderness_	
+	3628468635	Play_Footsteps_Player_Snow_Run			\Default Work Unit\Footsteps\Play_Footsteps_Player_Snow_Run	
 	3639110177	Play_Orc_Idle			\Default Work Unit\TriggerAction\Play_Orc_Idle	
-	3792559462	Play_Chopping_Wood_SFX__single_chop_			\Default Work Unit\TriggerAction\Play_Chopping_Wood_SFX__single_chop_	
+	3667625176	Play_Cabin_Door_Closing_SFX			\Default Work Unit\TriggerAction\Play_Cabin_Door_Closing_SFX	
+	3874169819	Play_DodgeRoll_Jump__wood_			\Default Work Unit\DodgeRoll\Play_DodgeRoll_Jump__wood_	
+	3925690383	Play_Footsteps_Player_Wood			\Default Work Unit\Footsteps\Play_Footsteps_Player_Wood	
+	4083898089	Play_DodgeRoll_Jump__snow_			\Default Work Unit\DodgeRoll\Play_DodgeRoll_Jump__snow_	
 	4160769087	Play_Difficulty_Hard_SFX			\Default Work Unit\UI\Play_Difficulty_Hard_SFX	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -53,43 +64,67 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	15871651	Chest Opening SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Chest Opening SFX_A928E36F.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Chest Opening SFX		522812
+	22351157	Orc Walk On Snow 1 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Walk On Snow 1 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Foosteps Orc Snow\Orc Walk On Snow 1 SFX (single)		40976
 	55070645	Orc Dying 2 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Dying 2 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Dying\Orc Dying 2 SFX		424812
 	68233573	Orc Slash 3 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Slash 3 SFX_9A08E8D1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Slash\Orc Slash 3 SFX		174368
-	159723246	Menu Toggle SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Select SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu Toggle SFX		192096
+	100942424	Dialogue SFX 4	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Dialogue SFX 4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue SFX\Dialogue SFX 4		125368
+	153558916	DodgeRoll Land (snow)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\DodgeRoll Land (snow)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DodgeRoll\DodgeRoll Land (snow)		179812
+	158499397	Walking On Wood 1 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Wood 1 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Wood\Walking On Wood 1 SFX (single)		32812
+	159723246	Menu Timpani SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Select SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu Timpani SFX		192096
+	172737269	Walking On Wood 2 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Wood 2 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Wood\Walking On Wood 2 SFX (single)		32812
+	177853303	Menu Toggle SFX 3	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Toggle SFX 3_E8109319.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu Toggle SFX\Menu Toggle SFX 3		46420
+	186554060	Walking On Wood 4 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Wood 4 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Wood\Walking On Wood 4 SFX (single)		32812
 	199818555	Retrieve Axe SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Retrieve Axe SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Retrieve Axe SFX		203684
-	217756732	Chopping Wood SFX (single chop)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Chopping Wood SFX (single chop)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Chopping Wood SFX (single chop)		142620
+	215169672	DodgeRoll Jump (wood)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\DodgeRoll Jump (wood)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DodgeRoll\DodgeRoll Jump (wood)		49144
 	240401339	Difficulty Easy SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Difficulty Easy SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Difficulty Easy SFX		640096
 	250706640	Orc Getting Hit 1 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Getting Hit 1 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Getting Hit\Orc Getting Hit 1 SFX		280532
-	253139911	Dialogue SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Dialogue SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Dialogue SFX		196144
+	253139911	Dialogue SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Dialogue SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue SFX\Dialogue SFX		196144
 	293943816	Orc Dying 1 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Dying 1 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Dying\Orc Dying 1 SFX		424812
+	311814296	Chopping Wood SFX 2	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Chopping Wood SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Chopping Wood SFX\Chopping Wood SFX 2		11032
 	322157384	Snowstorm SFX (cabin)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Snowstorm SFX (cabin)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Snowstorm SFX (cabin)		25076084
+	334955372	Dialogue SFX 3	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Dialogue SFX 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue SFX\Dialogue SFX 3		109032
 	335517631	Axe Hitting Something Soft (Moist)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting Something Soft (Moist)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Axe Hitting Something Soft (Moist)		81812
 	336302509	Player Getting Hit 3 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Player Getting Hit 3 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Getting Hit\Player Getting Hit 3 SFX		147144
 	366189814	Fireplace 1 SFX (cabin)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Fireplace 1 SFX (cabin)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AmbientGameObjects\Fireplace 1 SFX (cabin)		1372144
+	366289336	Dialogue SFX 2	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Dialogue SFX 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogue SFX\Dialogue SFX 2		182532
 	368034604	Tree Falling SLOW SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Tree Falling SLOW SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Tree Falling SLOW SFX		574532
+	377257354	Chopping Wood SFX 3	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Chopping Wood SFX 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Chopping Wood SFX\Chopping Wood SFX 3		21920
+	404634412	Walking On Snow 2 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Snow 2 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Snow\Walking On Snow 2 SFX (single)		98144
+	428261734	Walking On Wood 3 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Wood 3 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Wood\Walking On Wood 3 SFX (single)		32812
+	432591626	DodgeRoll Jump (snow)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\DodgeRoll Jump (snow)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DodgeRoll\DodgeRoll Jump (snow)		130812
 	444037353	Player Getting Hit 1 with voice SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Player Getting Hit 1 with voice SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Getting Hit\Player Getting Hit 1 with voice SFX		196144
+	453013572	DodgeRoll Land (wood)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\DodgeRoll Land (wood)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DodgeRoll\DodgeRoll Land (wood)		65476
 	480965462	Orc Slash 1 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Slash 1 SFX_2F4C83CD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Slash\Orc Slash 1 SFX		174368
 	500097620	Difficulty Medium SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Difficulty Medium SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Difficulty Medium SFX		800096
-	515236359	Axe Hitting and Breaking Crate SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting and Breaking Crate SFX_51EE6EFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Axe Hitting and Breaking Crate SFX		191352
+	515236359	Axe Hitting and Breaking Crate SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting and Breaking Crate SFX_51EE6EFD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Axe Hitting and Breaking Barrel RC\Axe Hitting and Breaking Crate SFX		191352
 	586770180	Orc Slash 2 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Slash 2 SFX_5DA2FFA9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Slash\Orc Slash 2 SFX		174368
+	606611867	Menu Toggle SFX 1	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Toggle SFX 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu Toggle SFX\Menu Toggle SFX 1		81812
 	661576098	The White Wilderness BGM	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\The White Wilderness BGM_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\The White Wilderness BGM		58368096
 	664136056	Power Up SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Power Up SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Power Up SFX		896096
+	672807113	Walking On Snow 4 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Snow 4 SFX (single)_B437406F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Snow\Walking On Snow 4 SFX (single)		74672
+	677260103	Walking On Snow 3 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Snow 3 SFX (single)_9DCDCD51.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Snow Run\Walking On Snow 3 SFX (single)		80372
 	688684146	Snowstorm SFX (wilderness)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Snowstorm SFX (wilderness, splash etc)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Snowstorm SFX (wilderness)		25076084
+	705501137	Chopping Wood SFX 1	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Chopping Wood SFX 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Chopping Wood SFX\Chopping Wood SFX 1		142620
+	710375982	Walking On Snow 3 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Snow 3 SFX (single)_7353320C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Snow\Walking On Snow 3 SFX (single)		72868
 	761892851	Menu Select SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Toggle SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu Select SFX		256096
+	774013201	Cabin Door Closing SFX Reverb	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Cabin Door Closing SFX Reverb_7206A807.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Cabin Door Closing SFX Reverb		248712
 	775287976	Tree Landing SLOW SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Tree Landing SLOW SFX_B5B2E27B.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Tree Landing SLOW SFX		415284
 	793184826	Difficulty Hard SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Difficulty Hard SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Difficulty Hard SFX		800096
-	814368198	Cabin Door Opening SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Cabin Door Opening SFX_BF9C341E.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Cabin Door Opening SFX		506476
+	814368198	Cabin Door Opening SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Cabin Door Opening SFX_7502B2CB.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Cabin Door Opening SFX		257700
 	823740429	Throw Axe 1 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Throw Axe 1 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Throw Axe 1 SFX		142620
-	826548943	Menu Negative SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Negative SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu Negative SFX		192096
+	826548943	Menu Diminishing Bells SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Menu Negative SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu Diminishing Bells SFX		192096
 	840608591	Orc Idle 2 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Idle 2 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Idle\Orc Idle 2 SFX		620812
-	851825797	Axe Hitting and Breaking Barrel SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting and Breaking Barrel SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Axe Hitting and Breaking Barrel SFX		301632
+	851825797	Axe Hitting and Breaking Barrel SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting and Breaking Barrel SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Axe Hitting and Breaking Barrel RC\Axe Hitting and Breaking Barrel SFX		301632
 	898367430	Orc Throwing Rock SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Throwing Rock SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Orc Throwing Rock SFX		81812
 	927461091	Player Getting Hit 2 with voice SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Player Getting Hit 2 with voice SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Getting Hit\Player Getting Hit 2 with voice SFX		392144
 	931365193	Power Up 2 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Power Up 2 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Power Up 2 SFX		896096
 	944032091	Fireplace 2 SFX (wilderness campfire)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Fireplace 2 SFX (wilderness campfire)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AmbientGameObjects\Fireplace 2 SFX (wilderness campfire)		1498728
+	990644253	Orc Walk On Snow 2 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Walk On Snow 2 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Foosteps Orc Snow\Orc Walk On Snow 2 SFX (single)		28728
+	992903504	Orc Walk On Snow 3 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Walk On Snow 3 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Foosteps Orc Snow\Orc Walk On Snow 3 SFX (single)		24644
 	993692913	Axe Hitting Something Hard (Wood)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Axe Hitting Something Hard (Wood)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TriggerAction\Axe Hitting Something Hard (Wood)		98144
 	1034345504	Game Over SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Game Over SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Game Over SFX		1152096
 	1037076663	Orc Getting Hit 2 SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Getting Hit 2 SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Getting Hit\Orc Getting Hit 2 SFX		246504
 	1039315249	Orc Idle SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Orc Idle SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Orc Idle\Orc Idle SFX		1414736
+	1054724551	Walking On Snow 1 SFX (single)	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Walking On Snow 1 SFX (single)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps Player\Footsteps Player Snow\Walking On Snow 1 SFX (single)		114476
 	1057322198	Collecting Coins-Wood SFX	C:\Users\Korisnik\Documents\GitHub\LumberJackGame\LumberJackGame_WwiseProject\.cache\Mac\SFX\Collecting Coins-Wood SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Collecting Coins-Wood SFX		192096
 

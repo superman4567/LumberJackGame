@@ -58,7 +58,28 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: NewEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: IFrameOn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.0008115846
+        functionName: DodgeRollJumpSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.73380196
+        functionName: DodgeRollLandSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

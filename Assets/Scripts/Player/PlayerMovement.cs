@@ -58,10 +58,6 @@ public class PlayerMovement : MonoBehaviour
         playerGravity();
     }
 
-    // WHERE TO ADD FOOTSTEPS? NOTE: "Play_Footsteps_Player_Snow" IS A RANDOM CONTAINER CHILD, NOT SWITCH GROUP PARENT ("Play_Footsteps_Player"), BECAUSE THE PARENT SWITCH GROUP IS SET TO DEFAULT TO THE 'CABIN FOOTSTEPS' RANDOM CONTAINER.
-    //public void Footsteps()
-       // AkSoundEngine.PostEvent("Play_Footsteps_Player_Snow", gameObject);
-
     public void Movement()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -192,5 +188,36 @@ public class PlayerMovement : MonoBehaviour
         isDodgeRolling = false;
         childImage.color = Color.white; 
         playerAnimations.SetDodgeRollState(false);
+    }
+
+    public void FootStepSound()
+    {
+        /*TO DO: Do a material check first and then create a switch state to chose which variant needs to be played
+        play sound*/
+        // Snow
+        AkSoundEngine.PostEvent("Play_Footsteps_Player_Snow", gameObject);
+    }
+
+    public void RunFootStepSound()
+    {
+        // Snow
+        AkSoundEngine.PostEvent("Play_Footsteps_Player_Snow_Run", gameObject);
+    }
+
+    public void DodgeRollJumpSound()
+    {
+        // Snow
+        AkSoundEngine.PostEvent("Play_DodgeRoll_Jump__snow_", gameObject);
+    }
+
+    public void DodgeRollLandSound()
+    {
+        // Snow
+        AkSoundEngine.PostEvent("Play_DodgeRoll_Land__snow_", gameObject);
+    }
+
+    public void ChopWoodSound()
+    {
+        AkSoundEngine.PostEvent("Play_Chopping_Wood_RC", gameObject);
     }
 }

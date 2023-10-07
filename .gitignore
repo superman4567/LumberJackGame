@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Audio/SoundTracks/VIKING - Wilderness BGM.wav.meta
 Assets/Audio/SoundTracks/VIKING - Wilderness BGM.wav
+Assets/StreamingAssets/Audio/GeneratedSoundBanks/Mac/Main.bnk

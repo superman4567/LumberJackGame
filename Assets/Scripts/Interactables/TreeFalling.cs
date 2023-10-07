@@ -10,6 +10,11 @@ public class TreeFalling : Interactable
 
     private float timer;
 
+    private void Start()
+    {
+        StartCoroutine(PlayTreeLandingSound()); 
+    }
+
     private void Update()
     {
         CheckIfStatic();
@@ -34,4 +39,11 @@ public class TreeFalling : Interactable
     {
         Destroy(gameObject);
     }
+   
+    private IEnumerator PlayTreeLandingSound()
+    {
+        yield return new WaitForSeconds(3);
+        AkSoundEngine.PostEvent("Play_Tree_Landing_SLOW_SFX", gameObject);
+    }
+
 }
