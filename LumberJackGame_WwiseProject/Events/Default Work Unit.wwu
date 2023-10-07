@@ -107,17 +107,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Chopping_Wood_SFX__single_chop_" ID="{6755A743-E437-4E03-BD8E-6D182CFAB50B}">
-							<ChildrenList>
-								<Action Name="" ID="{7D9A55CA-732A-4DC6-8447-C749907E6EFF}" ShortID="145472154">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Chopping Wood SFX (single chop)" ID="{FBEE89FB-CD77-4927-B58E-7FCFBA3902BB}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Orc_Throwing_Rock_SFX" ID="{6154BC68-33F3-469D-9191-67E0022C3F4A}">
 							<ChildrenList>
 								<Action Name="" ID="{BED20854-84C3-4E74-9EBF-A429291359BB}" ShortID="71386456">
@@ -261,6 +250,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Cabin_Door_Closing_SFX" ID="{A82FFB63-547B-4926-9AE8-B5BC90ABF092}">
+							<ChildrenList>
+								<Action Name="" ID="{5737F281-718F-4495-86DC-300D0192115D}" ShortID="557060857">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cabin Door Closing SFX Reverb" ID="{A1C0F820-9D28-4EF1-ABEE-35C6748E1F6F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{6F1B482A-2E3C-495A-A82D-8FCC024FA0EA}" ShortID="955581715">
@@ -276,12 +276,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Menu_Toggle_SFX" ID="{C5728ACA-4F64-492D-92F0-E2E2BD0909EC}">
+						<Event Name="Play_Menu_Timpani_SFX" ID="{C5728ACA-4F64-492D-92F0-E2E2BD0909EC}">
 							<ChildrenList>
 								<Action Name="" ID="{1FDF780D-45B8-4F98-A897-6DF924D143AC}" ShortID="240800755">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Menu Toggle SFX" ID="{BE97F4AB-9F4E-445A-A52A-453199E1E6A1}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+											<ObjectRef Name="Menu Timpani SFX" ID="{BE97F4AB-9F4E-445A-A52A-453199E1E6A1}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -298,12 +298,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Menu_Negative_SFX" ID="{ECBD68F3-436B-4AEE-ADA5-D9D0D350A90B}">
+						<Event Name="Play_Menu_Diminishing_Bells_SFX" ID="{ECBD68F3-436B-4AEE-ADA5-D9D0D350A90B}">
 							<ChildrenList>
 								<Action Name="" ID="{3FB51860-3180-48AC-84BD-7EAD879CD8C7}" ShortID="279859662">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Menu Negative SFX" ID="{36AF3903-C21C-4EDC-86DB-BED844605AC7}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+											<ObjectRef Name="Menu Diminishing Bells SFX" ID="{36AF3903-C21C-4EDC-86DB-BED844605AC7}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -337,17 +337,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Power Up SFX" ID="{BA8BAD9C-88E8-4898-8FE1-C75C00B52E5F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Dialogue_SFX" ID="{EC41AABC-D603-464D-962C-81950FAD2EB4}">
-							<ChildrenList>
-								<Action Name="" ID="{19A58A1D-01C7-4460-9D0B-EF3C9641B855}" ShortID="769993504">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Dialogue SFX" ID="{C7A104ED-E30B-4C89-A4D2-6D781EE84FCE}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -434,23 +423,23 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Footsteps_Orc_SG" ID="{94918FDA-6D3D-45D0-976E-51E932BE0328}">
-							<ChildrenList>
-								<Action Name="" ID="{0435945C-D03F-457D-BA90-C25DCEDCDA6B}" ShortID="438961461">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Footsteps Orc" ID="{1EE27DF0-8512-4809-900E-37C49A98BA65}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Footsteps_Player_SG" ID="{9902F6ED-5248-414E-BA43-81ED2A56E048}">
 							<ChildrenList>
 								<Action Name="" ID="{D13B184D-57F7-404C-9F57-B5D564A5E8D2}" ShortID="747433660">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Footsteps Player" ID="{DBB1CEBB-9734-436C-A68D-679CE465A965}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Footsteps_Player_Snow_Run" ID="{3EDB5EE3-3D6C-4D46-BEC7-A806647F8A76}">
+							<ChildrenList>
+								<Action Name="" ID="{4F9A4206-9AD9-471D-BD34-F8ED38566364}" ShortID="710047392">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps Player Snow Run" ID="{AEA7F0F7-041C-471A-BB4F-51ECC164E5D4}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -512,6 +501,39 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Axe Hitting and Breaking Barrel RC" ID="{0B7E3238-8456-48D4-8010-03D359A1C68F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Dialogue_SFX" ID="{7FBDD004-164B-4D61-9DC6-319A7DAB1E1F}">
+					<ChildrenList>
+						<Action Name="" ID="{28D7C596-5897-4D44-B6F2-4BAA30C24B96}" ShortID="1046240678">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dialogue SFX" ID="{16AAF8A2-BC0A-4AB0-84E9-F5EE29A351E8}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Chopping_Wood_RC" ID="{E86B736B-D726-41EB-A196-4757FF86E9EC}">
+					<ChildrenList>
+						<Action Name="" ID="{37C08183-AF4D-4FD5-A57D-2C41582205F5}" ShortID="340593352">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Chopping Wood SFX" ID="{B7CADAA9-90AC-42C2-88DF-E45EF8D6549A}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Menu_Toggle_RC" ID="{F52F4B14-2782-42BF-A5F5-AAF3CFAE0188}">
+					<ChildrenList>
+						<Action Name="" ID="{0882D598-8500-431E-AC0F-37E4C17BB117}" ShortID="823816059">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu Toggle SFX" ID="{4367AE80-7678-4C89-8E2A-32B09CE5366F}" WorkUnitID="{DEB234D8-28BA-4E9C-8D0A-258002DE726C}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -30,7 +30,8 @@ public class CabinetDoor : MonoBehaviour
             isMoving = true;
             StartCoroutine(DoorLerp(doorRotationOpen.localEulerAngles, doorRotationClosed.localEulerAngles));
             canInteract = false;
-            // Add Cabin Door Closing Shut !!!!!!!!!!!!!!!!!!!!!!!!!
+            // Add Cabin Door Closing
+            AkSoundEngine.PostEvent("Play_Cabin_Door_Closing_SFX", gameObject);
         }
     }
 

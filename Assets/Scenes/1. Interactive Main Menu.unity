@@ -11784,7 +11784,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1182209403
 Rigidbody:
@@ -11836,7 +11836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efae2ba6797a4064ba0e7271d20687ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7f422d6
+  triggerList: f7e1664c
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -16198,7 +16198,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 5f8f6dc1d16808440909e769f1c45145,
+    WwiseObjectReference: {fileID: 11400000, guid: 95e7943d21a534141af9eb792a0cc335,
       type: 2}
   useCallbacks: 0
   Callbacks: []

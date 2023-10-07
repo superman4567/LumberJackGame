@@ -112,15 +112,11 @@ public class Orc_Attack : MonoBehaviour
                     navMeshAgent.speed = baseOrcSpeed + 5 + GameManager.Instance.GetDifficulty();
                     animator.SetBool("OrcMeleeAttack", true);
                     meleeAttackTimer += Time.deltaTime;
-                    // Add Orc Slash Sound
-                    AkSoundEngine.PostEvent("Play_Orc_Slash", gameObject);
 
                     if (meleeAttackTimer >= 5f) // Change to the desired duration
                     {
                         currentState = OrcState.ThrowRock;
                         meleeAttackTimer = 0f; // Reset the timer
-                        // Add Orc Throw Rock Sound
-                        AkSoundEngine.PostEvent("Play_Orc_Throwing_Rock_SFX", gameObject);
                     }
                 }
                 break;

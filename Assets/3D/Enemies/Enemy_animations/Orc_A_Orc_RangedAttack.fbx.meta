@@ -57,8 +57,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8776471
-        functionName: ThrowAttack
+      - time: 0.8804604
+        functionName: OrcThrowRockSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
