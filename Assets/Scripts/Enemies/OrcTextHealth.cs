@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// @Deprecated
 public class OrcTextHealth : MonoBehaviour
 {
     [SerializeField] private float destroyTime = 3f;

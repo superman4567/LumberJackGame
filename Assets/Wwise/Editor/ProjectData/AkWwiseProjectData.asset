@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: b644546d396dd0478016813f39e6fd06
     GuidInternal: 
-    m_lastTime: -8585060138818044753
+    m_lastTime: -8585048502284892442
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: c14a0e1b9abdef47a40677eb1a28ed6a
     GuidInternal: 
-    m_lastTime: -8585060138818144511
+    m_lastTime: -8585048502299869676
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 37993ae945940946a6a21f79f9317f3a
     GuidInternal: 
-    m_lastTime: -8585048919754109375
+    m_lastTime: -8585048502284917622
     List:
     - name: Main
       guid: d2bf3f59fdbcb24493e9389d3b10ff36
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 050ab2db6fdd9745bbdfae6411a8e247
     GuidInternal: 
-    m_lastTime: -8585049741558257286
+    m_lastTime: -8585048502299961877
     List:
     - name: AmbientGameObjects
       guid: ee1f06d0a84af945abc33d25d3e2496d
@@ -1118,7 +1118,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: d7cfd96b1da77f43a96171622ed06e5f
     GuidInternal: 
-    m_lastTime: -8585060138818393835
+    m_lastTime: -8585048502299961877
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -1132,7 +1132,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: b7b56eb89518b04da73b9e423ae0d1c1
     GuidInternal: 
-    m_lastTime: -8585058470169786694
+    m_lastTime: -8585048502284917622
     List:
     - name: BGM
       guid: bdf719a1f6576f40b4775045d9a0f469
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: eac298d0ad91144b9c0e134293f3f1a9
     GuidInternal: 
-    m_lastTime: -8585057328016227813
+    m_lastTime: -8585048502284902575
     List:
     - name: Orc_Footsteps
       guid: bee60053d97eb547b9107a8aa5d59370
@@ -1278,10 +1278,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 4763d21da8979440acd9e068e93c1a9f
     GuidInternal: 
-    m_lastTime: -8585060138818054754
+    m_lastTime: -8585048502284902575
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000001000000011000000140000001500000016000000
+  ExpandedWaapiItemIds: 060000001500000016000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

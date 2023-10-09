@@ -1,6 +1,7 @@
 using Cinemachine;
 using System;
 using System.Collections.Generic;
+using Players;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
     [SerializeField] private CinemachineVirtualCamera storeCamera;
     [SerializeField] private TextMeshProUGUI coinAmount;
 
+    private Player _player;
+
     public enum ResourceType
     {
         Wood,
@@ -67,7 +70,10 @@ public class GameManager : MonoBehaviour, IDataPersistance
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
+
+        _player = FindObjectOfType<Player>();
     }
+    
 
     private void Start()
     {
@@ -384,4 +390,6 @@ public class GameManager : MonoBehaviour, IDataPersistance
             thisRunTimer += Time.deltaTime;
         }
     }
+
+    public Player GetPlayer() => _player;
 }
