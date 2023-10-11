@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour, IDataPersistance
     [SerializeField] private CinemachineVirtualCamera storeCamera;
     [SerializeField] private TextMeshProUGUI coinAmount;
 
+    public static readonly int PLAYER_LAYER = 64;
+
     private Player _player;
 
     public enum ResourceType

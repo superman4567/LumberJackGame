@@ -4,16 +4,14 @@ using UnityEngine;
 namespace Hits
 {
     [RequireComponent(typeof(HitEvent))]
-    [RequireComponent(typeof(SkinnedMeshRenderer))]
     public class Hit : MonoBehaviour
     {
-        private SkinnedMeshRenderer _skinnedMeshRenderer;
+        [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
         private Material _originalMaterial;
         private HitEvent _hitEvent;
 
         private void Awake()
         {
-            _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
             _originalMaterial = _skinnedMeshRenderer.material;
             _hitEvent = GetComponent<HitEvent>();
         }

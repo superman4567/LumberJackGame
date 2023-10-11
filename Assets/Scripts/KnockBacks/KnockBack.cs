@@ -5,7 +5,6 @@ namespace KnockBacks
 {
     [RequireComponent(typeof(KnockBackEvent))]
     [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(SkinnedMeshRenderer))]
     public class KnockBack : MonoBehaviour
     {
         [SerializeField] private float knockBackDuration = 0.5f;
@@ -19,6 +18,7 @@ namespace KnockBacks
         private void Awake()
         {
             _knockBackEvent = GetComponent<KnockBackEvent>();
+            _navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
         private void OnEnable()
@@ -76,5 +76,7 @@ namespace KnockBacks
             _navMeshAgent.enabled = true;
             _isKnockBackActive = false;
         }
+
+        public bool IsKnockBackActive() => _isKnockBackActive;
     }
 }

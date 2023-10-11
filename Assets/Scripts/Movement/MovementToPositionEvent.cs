@@ -10,7 +10,7 @@ namespace Movement
         public void CallMovementToPositionEvent(Vector3 movePosition, Vector3 currentPosition, float moveSpeed,
             Vector3 moveDirection)
         {
-            OnMovementToPosition?.Invoke(this, new MovementToPositionArgs() { movePosition = movePosition, currentPosition = currentPosition, moveSpeed = moveSpeed, moveDirection = moveDirection });
+            OnMovementToPosition?.Invoke(this, new MovementToPositionArgs { movePosition = movePosition, currentPosition = currentPosition, moveSpeed = moveSpeed, moveDirection = moveDirection });
         }
     }
 

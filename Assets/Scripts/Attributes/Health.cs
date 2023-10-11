@@ -1,31 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Attributes
 {
+    [DisallowMultipleComponent]
     public class Health : MonoBehaviour
     {
+        public event Action<int> OnHealthChanged;
+        
         [SerializeField] private bool usePostHitImmunity;
         [SerializeField] private float immunityTime = 0.2f;
-        private int _startingHealth;
-        private int _currentHealth;
-        private HealthEvent _healthEvent;
+        private int _startingHealth = 100;
+        private int _currentHealth = 100;
         private Coroutine _postHitCoroutine;
         private bool _immuneToDamage;
-
-        private void Start()
-        {
-            CallHealthEvent(0);
-        }
-        
-        /// <summary>
-        /// Calls the OnHealthChanged event from the Health event class.
-        /// </summary>
-        /// <param name="damageAmount">The amount of damage that was taken</param>
-        private void CallHealthEvent(int damageAmount)
-        {
-            _healthEvent.CallHealthChangedEvent((float)_currentHealth / _startingHealth, _currentHealth, damageAmount);
-        }
         
         /// <summary>
         /// Takes the amount of damage. Clamped to 0.
@@ -38,8 +27,8 @@ namespace Attributes
                 return;
             }
             _currentHealth = Mathf.Max(_currentHealth - damageAmount, 0);
-            CallHealthEvent(damageAmount);
             PostHitImmunity();
+            OnHealthChanged?.Invoke(damageAmount);
         }
         
         /// <summary>
@@ -98,7 +87,6 @@ namespace Attributes
             var healthIncrease = Mathf.RoundToInt(_startingHealth * healthPercent / 100.0f);
             var totalHealth = _currentHealth + healthIncrease;
             _currentHealth = Mathf.Max(totalHealth, _startingHealth);
-            CallHealthEvent(0);
         }
         
         /// <summary>
@@ -109,7 +97,8 @@ namespace Attributes
         {
             var totalHealth = _currentHealth + healAmount;
             _currentHealth = Mathf.Max(totalHealth, _startingHealth);
-            CallHealthEvent(0);
         }
+
+        public bool IsDead() => _currentHealth <= 0;
     }
 }

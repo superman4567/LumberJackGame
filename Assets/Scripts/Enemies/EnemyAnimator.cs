@@ -1,53 +1,62 @@
-﻿using KnockBacks;
-using Movement;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemies
 {
-    [RequireComponent(typeof(Enemy))]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(EnemyMovement))]
+    [RequireComponent(typeof(EnemyCombat))]
     [DisallowMultipleComponent]
     public class EnemyAnimator : MonoBehaviour
     {
         [SerializeField] private string animationVelocityParameterName = "OrcVelocity";
+        [SerializeField] private string animationAttackingParameterName = "OrcMeleeAttack";
         private int _animationVelocityHash;
-        private Enemy _enemy;
+        private int _animationAttackHash;
+        private EnemyMovement _enemyMovement;
+        private EnemyCombat _enemyCombat;
+        private Animator _animator;
 
         private void Awake()
         {
-            _enemy = GetComponent<Enemy>();
+            _animator = GetComponent<Animator>();
+            _enemyMovement = GetComponent<EnemyMovement>();
+            _enemyCombat = GetComponent<EnemyCombat>();
             _animationVelocityHash = Animator.StringToHash(animationVelocityParameterName);
+            _animationAttackHash = Animator.StringToHash(animationAttackingParameterName);
         }
 
         private void OnEnable()
         {
-            _enemy.MovementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
-            _enemy.KnockBackEvent.OnKnockBack += KnockBackEvent_OnKnockBack;
+            _enemyCombat.OnAttackStarted += EnemyCombat_OnAttackStarted;
+            _enemyMovement.OnMovementSpeedChanged += EnemyMovement_OnMovementSpeedChanged;
         }
 
         private void OnDisable()
         {
-            _enemy.MovementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
-            _enemy.KnockBackEvent.OnKnockBack -= KnockBackEvent_OnKnockBack;
-        }
-
-        private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, MovementToPositionArgs movementToPositionArgs)
-        {
-            SetMovementAnimatorParameters();
+            _enemyCombat.OnAttackStarted -= EnemyCombat_OnAttackStarted;
+            _enemyMovement.OnMovementSpeedChanged -= EnemyMovement_OnMovementSpeedChanged;
         }
         
-        private void KnockBackEvent_OnKnockBack(KnockBackEvent arg1, KnockBackEventArgs arg2)
+        private void EnemyCombat_OnAttackStarted()
         {
-            SetKnockBackAnimatorParameters();
+            SetAttackAnimatorParameters();
+        }
+        
+        private void EnemyMovement_OnMovementSpeedChanged(float movementSpeed)
+        {
+            SetMovementAnimatorParameters(movementSpeed);
+        }
+        
+        private void SetMovementAnimatorParameters(float magnitude)
+        {
+            _animator.SetFloat(_animationVelocityHash, magnitude);
         }
 
-        private void SetMovementAnimatorParameters()
+        private void SetAttackAnimatorParameters()
         {
-            _enemy.Animator.SetFloat(_animationVelocityHash, 1.0f);
+            _animator.ResetTrigger(_animationAttackHash);
+            _animator.SetTrigger(_animationAttackHash);
         }
-
-        private void SetKnockBackAnimatorParameters()
-        {
-            _enemy.Animator.SetFloat(_animationVelocityHash, 0.0f);
-        }
+        
     }
 }
