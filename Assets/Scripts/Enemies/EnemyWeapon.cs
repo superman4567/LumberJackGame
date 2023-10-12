@@ -1,4 +1,5 @@
 ﻿using Helpers;
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies
@@ -34,9 +35,9 @@ namespace Enemies
 
         private void OnTriggerEnter(Collider other)
         {
-            if (CanDealDamage && StaticHelpers.IsPlayerLayer(other))
+            if (CanDealDamage && StaticHelpers.IsPlayerLayer(other) && other.TryGetComponent(out ICombatComponent combatComponent))
             {
-                Debug.Log($"Damaged: {Damage}");
+                combatComponent.TakeDamage(Damage);
                 _collider.enabled = false;
                 CanDealDamage = false;
             }

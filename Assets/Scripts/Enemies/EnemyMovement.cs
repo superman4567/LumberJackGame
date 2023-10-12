@@ -42,7 +42,7 @@ namespace Enemies
 
         private void Start()
         {
-            _playerReferencePosition = GameManager.Instance.GetPlayer().GetPlayerPosition();
+            _playerReferencePosition = GameManager.Instance.GetPlayer().GetPosition();
             _agent.speed = movementSpeed;
         }
 
@@ -75,7 +75,7 @@ namespace Enemies
                 return;
             }
 
-            _playerReferencePosition = GameManager.Instance.GetPlayer().GetPlayerPosition();
+            _playerReferencePosition = GameManager.Instance.GetPlayer().GetPosition();
 
             if (Vector3.Distance(transform.position, _playerReferencePosition) > attackingDistance)
             {
@@ -115,7 +115,6 @@ namespace Enemies
             OnKnockBackBegin?.Invoke();
             _agent.enabled = false;
             _knockBackDirection = direction.normalized * knockBackForce * externalMultiplier;
-            Debug.Log(knockBackForce);
             Invoke(nameof(EndKnockBack), knockBackDuration);
         }
 

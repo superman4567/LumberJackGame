@@ -1,30 +1,45 @@
 ﻿using Attributes;
+using GameResources;
 using UnityEngine;
 
 namespace Players
 {
     [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(PlayerCombat))]
     public class Player : MonoBehaviour
     {
-        // @TODO: Change to work with weapon Upgrades. Only for testing
-        [SerializeField] private float knockBackMultiplier = 1.0f;
         public Health Health { get; private set; }
-        public HealthEvent HealthEvent { get; private set; }
 
         private void Awake()
         {
             Health = GetComponent<Health>();
-            HealthEvent = GetComponent<HealthEvent>();
+        }
+
+        private void OnEnable()
+        {
+            Health.OnHealthChanged += Health_OnHealthChanged;
+        }
+
+        private void OnDisable()
+        {
+            Health.OnHealthChanged -= Health_OnHealthChanged;
+        }
+
+        private void Health_OnHealthChanged(float amount)
+        {
+            if (Health.IsDead())
+            {
+                RoundManager.Instance.ChangeDiffCompleteText(false);
+                SteamAchievementManager.instance.UnlockAchievement(SteamAchievementsDb.DEATH_ACHIEVEMENT);
+                Invoke(nameof(FreezeTime), 7.0f);
+            }
         }
         
-        // @Todo implement ScriptableObject
-        private void SetPlayerHealth()
+        public void FreezeTime()
         {
-            Health.SetStartingHealth(100);
+            Time.timeScale = 0.05f;
         }
 
-        public Vector3 GetPlayerPosition() => transform.position;
-
-        public float GetKnockBackMultiplier() => knockBackMultiplier;
+        public Vector3 GetPosition() => transform.position;
     }
 }

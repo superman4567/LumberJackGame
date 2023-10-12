@@ -1,5 +1,6 @@
 using System.Collections;
 using Enemies;
+using Players;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,7 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
     public bool explosiveRadiusT2 = false;
 
     [SerializeField] private PlayerThrowAxe playerThrowAxe;
+    [SerializeField] private PlayerCombat playerCombat;
     private SphereCollider sphereCollider;
     private BoxCollider boxCollider;
 
@@ -65,7 +67,7 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
 
     private void Update()
     {
-        if(playerThrowAxe.isAxeThrown == false)
+        if(playerCombat.IsAxeThrown() == false)
         {
             sphereCollider.enabled = false;
             boxCollider.enabled = false;
@@ -82,13 +84,20 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
         DetectEnemy(other);
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            AkSoundEngine.PostEvent("Play_Axe_Hitting_Something_Soft__Moist_", gameObject);
+        }
+    }
+
     private void DetectEnemy(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             if (other.TryGetComponent(out EnemyMovement enemyMovement) && enemyMovement.CanBeKnockBacked())
             {
-                Debug.Log(enemyMovement.CanBeKnockBacked());
                 Vector3 axeVelocity = GetComponent<Rigidbody>().velocity.normalized;
                 Vector3 direction = new Vector3(axeVelocity.x, 0, axeVelocity.z);
 

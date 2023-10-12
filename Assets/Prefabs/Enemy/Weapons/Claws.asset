@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c873e4e77c7c45dc9791ea9568d04462, type: 3}
   m_Name: Claws
   m_EditorClassIdentifier: 
-  damage: 0
-  cooldown: 0
+  damage: 20
+  cooldown: 2

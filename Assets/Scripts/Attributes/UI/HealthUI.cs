@@ -12,7 +12,7 @@ namespace Attributes.UI
         private void Awake()
         {
             _healthText = transform.Find("HealthAmount").GetComponent<TextMeshProUGUI>();
-            _healthEvent = FindObjectOfType<Player>().HealthEvent;
+            
         }
 
         private void Start()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Attributes;
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies
@@ -8,7 +9,7 @@ namespace Enemies
     [RequireComponent(typeof(EnemyMovement))]
     [RequireComponent(typeof(Health))]
     [DisallowMultipleComponent]
-    public class EnemyCombat : MonoBehaviour
+    public class EnemyCombat : MonoBehaviour, ICombatComponent
     {
         [Serializable]
         public struct Weapon
@@ -106,7 +107,7 @@ namespace Enemies
         {
             if (other.gameObject.CompareTag("Axe") && other.isTrigger)
             {
-                _health.TakeDamage(20);
+                TakeDamage(20.0f);
                 // Add Orc Getting Hit Sound
                 AkSoundEngine.PostEvent("Play_Orc_Getting_Hit", gameObject);
             }
@@ -129,6 +130,17 @@ namespace Enemies
         {
             // Snow
             AkSoundEngine.PostEvent("Play_Orc_Slash", gameObject);
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            _health.TakeDamage(damageAmount);
+            PlayHitSound();
+        }
+
+        public void PlayHitSound()
+        {
+            AkSoundEngine.PostEvent("Play_Orc_Getting_Hit", gameObject);
         }
     }
 }
