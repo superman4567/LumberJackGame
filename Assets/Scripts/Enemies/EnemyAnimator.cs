@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Attributes;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -14,6 +15,7 @@ namespace Enemies
         private int _animationAttackHash;
         private EnemyMovement _enemyMovement;
         private EnemyCombat _enemyCombat;
+        private Health _health;
         private Animator _animator;
 
         private void Awake()
@@ -29,6 +31,15 @@ namespace Enemies
         {
             _enemyCombat.OnAttackStarted += EnemyCombat_OnAttackStarted;
             _enemyMovement.OnMovementSpeedChanged += EnemyMovement_OnMovementSpeedChanged;
+            _enemyMovement.OnKnockBackBegin += () =>
+            {
+                _animator.ResetTrigger(_animationAttackHash);
+                _animator.enabled = false;
+            };
+            _enemyMovement.OnKnockBackEnd += () =>
+            {
+                _animator.enabled = true;
+            };
         }
 
         private void OnDisable()
@@ -36,19 +47,31 @@ namespace Enemies
             _enemyCombat.OnAttackStarted -= EnemyCombat_OnAttackStarted;
             _enemyMovement.OnMovementSpeedChanged -= EnemyMovement_OnMovementSpeedChanged;
         }
-        
+
         private void EnemyCombat_OnAttackStarted()
         {
+            if (!_animator.isActiveAndEnabled)
+            {
+                return;
+            }
             SetAttackAnimatorParameters();
         }
         
         private void EnemyMovement_OnMovementSpeedChanged(float movementSpeed)
         {
+            if (!_animator.isActiveAndEnabled)
+            {
+                return;
+            }
             SetMovementAnimatorParameters(movementSpeed);
         }
         
         private void SetMovementAnimatorParameters(float magnitude)
         {
+            if (!_animator.isActiveAndEnabled)
+            {
+                return;
+            }
             _animator.SetFloat(_animationVelocityHash, magnitude);
         }
 

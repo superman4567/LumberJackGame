@@ -1,4 +1,5 @@
 using System.Collections;
+using Enemies;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -83,26 +84,27 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
 
     private void DetectEnemy(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            if (other.TryGetComponent(out Orc_Health orc))
+            if (other.TryGetComponent(out EnemyMovement enemyMovement) && enemyMovement.CanBeKnockBacked())
             {
+                Debug.Log(enemyMovement.CanBeKnockBacked());
                 Vector3 axeVelocity = GetComponent<Rigidbody>().velocity.normalized;
                 Vector3 direction = new Vector3(axeVelocity.x, 0, axeVelocity.z);
 
                 if (explosiveRadiusT2)
                 {
-                    orc.KnockBack(direction, 1.5f);
-                    ApplyExplosiveForceToNearbyOrcs(orc.transform.position, 1.2f);
+                    enemyMovement.KnockBack(direction, 1.5f);
+                    ApplyExplosiveForceToNearbyOrcs(enemyMovement.transform.position, 1.2f);
                 }
                 else if (explosiveRadiusT1)
                 {
-                    orc.KnockBack(direction, 1.2f);
-                    ApplyExplosiveForceToNearbyOrcs(orc.transform.position, .6f);
+                    enemyMovement.KnockBack(direction, 1.2f);
+                    ApplyExplosiveForceToNearbyOrcs(enemyMovement.transform.position, .6f);
                 }
                 else
                 {
-                    orc.KnockBack(direction, 1f);
+                    enemyMovement.KnockBack(direction, 1f);
                 }
             }
 
@@ -117,9 +119,10 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
     {
         // Find all nearby orcs within a certain radius
         Collider[] nearbyOrcs = Physics.OverlapSphere(explosionPosition, 5f, LayerMask.GetMask("Enemy"));
-
+        Debug.Log("Inside AxeDetection");
         foreach (Collider orcCollider in nearbyOrcs)
         {
+            /*
             // Check if the collider belongs to an orc
             if (orcCollider.TryGetComponent(out Orc_Health orc))
             {
@@ -129,6 +132,14 @@ public class AxeDetection : MonoBehaviour, IDataPersistance
                 // Normalize the direction vector and apply the force
                 direction.Normalize();
                 orc.KnockBack(direction, force);
+            }
+            */
+            
+            if (orcCollider.TryGetComponent(out EnemyMovement enemyMovement) && enemyMovement.CanBeKnockBacked())
+            {
+                var direction = enemyMovement.transform.position - explosionPosition;
+                direction.Normalize();
+                enemyMovement.KnockBack(direction, force);
             }
         }
     }

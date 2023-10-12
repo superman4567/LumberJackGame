@@ -39,13 +39,11 @@ namespace Attacks
         private void StartAttack(EnemyWeapon weapon, float damage)
         {
             weapon.CanDealDamage = true;
-            weapon.Damage = damage;
         }
 
         private void EndAttack(EnemyWeapon weapon)
         {
             weapon.CanDealDamage = false;
-            weapon.Damage = 0.0f;
         }
     }
 }

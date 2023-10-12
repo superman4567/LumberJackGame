@@ -166,6 +166,7 @@
      <Compile Include="Assets\BruteForce\Scripts\BF_SquareBanding.cs" />
      <Compile Include="Assets\BruteForce\Scripts\BF_PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\GameManager\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyWeaponSO.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\3D\Chest" />
      <None Include="Assets\Wwise\NewVersion.txt" />

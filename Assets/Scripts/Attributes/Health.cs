@@ -11,8 +11,8 @@ namespace Attributes
         
         [SerializeField] private bool usePostHitImmunity;
         [SerializeField] private float immunityTime = 0.2f;
-        private int _startingHealth = 100;
-        private int _currentHealth = 100;
+        private int _startingHealth = 1000;
+        private int _currentHealth = 1000;
         private Coroutine _postHitCoroutine;
         private bool _immuneToDamage;
         

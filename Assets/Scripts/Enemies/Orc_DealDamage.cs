@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Orc_DealDamage : MonoBehaviour
@@ -15,7 +13,8 @@ public class Orc_DealDamage : MonoBehaviour
             PlayerStats playerStats = other.GetComponentInChildren<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.TakeDamage(damageAmount);
+                //playerStats.TakeDamage(damageAmount);
+                playerStats.TakeDamage(1);
             }
         }
         else if (other.tag == "Totem")
