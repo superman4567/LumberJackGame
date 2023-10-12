@@ -27,9 +27,8 @@ namespace Enemies
             Health.OnHealthChanged -= Health_OnHealthChanged;
         }
 
-        private void Health_OnHealthChanged(int damage)
+        private void Health_OnHealthChanged(float damage)
         {
-            Debug.Log(damage);
             if (Health.IsDead())
             {
                 Destroy(gameObject);

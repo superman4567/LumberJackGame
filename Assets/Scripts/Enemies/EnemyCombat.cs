@@ -68,7 +68,7 @@ namespace Enemies
             _attackingPlayer = false;
         }
         
-        private void Health_OnHealthChanged(int damageAmount)
+        private void Health_OnHealthChanged(float damageAmount)
         {
             ShowFloatingText(damageAmount);
         }
@@ -112,7 +112,7 @@ namespace Enemies
             }
         }
         
-        private void ShowFloatingText(int damageAmount)
+        private void ShowFloatingText(float damageAmount)
         {
             var go = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
             go.Setup(damageAmount);

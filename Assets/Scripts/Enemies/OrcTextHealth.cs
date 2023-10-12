@@ -1,3 +1,4 @@
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -23,8 +24,8 @@ public class OrcTextHealth : MonoBehaviour
         Destroy(gameObject, destroyTime);
     }
 
-    public void Setup(int damage)
+    public void Setup(float damage)
     {
-        _textMeshPro.SetText(damage.ToString());
+        _textMeshPro.SetText(damage.ToString(CultureInfo.CurrentCulture));
     }
 }

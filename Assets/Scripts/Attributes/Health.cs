@@ -7,12 +7,12 @@ namespace Attributes
     [DisallowMultipleComponent]
     public class Health : MonoBehaviour
     {
-        public event Action<int> OnHealthChanged;
+        public event Action<float> OnHealthChanged;
         
         [SerializeField] private bool usePostHitImmunity;
         [SerializeField] private float immunityTime = 0.2f;
-        private int _startingHealth = 1000;
-        private int _currentHealth = 1000;
+        private float _startingHealth = 100.0f;
+        private float _currentHealth = 100.0f;
         private Coroutine _postHitCoroutine;
         private bool _immuneToDamage;
         
@@ -20,13 +20,13 @@ namespace Attributes
         /// Takes the amount of damage. Clamped to 0.
         /// </summary>
         /// <param name="damageAmount">The amount of damage to take</param>
-        public void TakeDamage(int damageAmount)
+        public void TakeDamage(float damageAmount)
         {
             if (_immuneToDamage)
             {
                 return;
             }
-            _currentHealth = Mathf.Max(_currentHealth - damageAmount, 0);
+            _currentHealth = Mathf.Max(_currentHealth - damageAmount, 0.0f);
             PostHitImmunity();
             OnHealthChanged?.Invoke(damageAmount);
         }
@@ -76,13 +76,13 @@ namespace Attributes
         /// Gets the starting health (and also the maximum health).
         /// </summary>
         /// <returns>The starting (maximum) amount a character can have.</returns>
-        public int GetStartingHealth() => _startingHealth;
+        public float GetStartingHealth() => _startingHealth;
         
         /// <summary>
         /// Adds a percent value based on the starting health. Use Integer values like 20 and not 0,2.
         /// </summary>
         /// <param name="healthPercent">The percent amount added based on startingHealth. e.g. 20 for 20%</param>
-        public void AddHealthPercent(int healthPercent)
+        public void AddHealthPercent(float healthPercent)
         {
             var healthIncrease = Mathf.RoundToInt(_startingHealth * healthPercent / 100.0f);
             var totalHealth = _currentHealth + healthIncrease;
@@ -93,12 +93,12 @@ namespace Attributes
         /// Adds flat value to the currentHealth. Clamped to the maximum health.
         /// </summary>
         /// <param name="healAmount">An flat value added to the currentHealth.</param>
-        public void AddHealth(int healAmount)
+        public void AddHealth(float healAmount)
         {
             var totalHealth = _currentHealth + healAmount;
             _currentHealth = Mathf.Max(totalHealth, _startingHealth);
         }
 
-        public bool IsDead() => _currentHealth <= 0;
+        public bool IsDead() => _currentHealth <= 0.0f;
     }
 }
