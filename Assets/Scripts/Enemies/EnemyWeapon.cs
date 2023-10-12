@@ -23,6 +23,7 @@ namespace Enemies
         public void Initialize(EnemyCombat enemyCombat, EnemyWeaponSO weaponSO)
         {
             Damage = weaponSO.damage;
+            CalculateDamage();
             AttackCooldown = weaponSO.cooldown;
             enemyCombat.OnAttackStarted += () =>
             {
